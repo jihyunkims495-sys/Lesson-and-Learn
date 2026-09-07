@@ -1,4 +1,4 @@
-# Blast Forge Lab
+# Lesson & Learn
 
 > **Learning → Practice → Reflection → Automation → AI Agent**
 
@@ -98,7 +98,7 @@ Multi-Agent System
 ## Repository structure
 
 ```text
-Blast-Forge-Lab/
+Lesson-and-Learn/
 ├── README.md
 ├── AI AGENT BOOTCAMP_LV.1/
 │   ├── README.md
