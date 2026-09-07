@@ -15,6 +15,6 @@
 
 | Date | Topic | Records |
 |---|---|---|
-| 2026-09-07 | 데이터 조회, 집계, JOIN, 서브쿼리 | [Preview notes 1](./2026-09-07/01-preview-notes-01-데이터조회-집계분석-테이블결합.md) · [Preview notes 2](./2026-09-07/01-preview-notes-02-서브쿼리-인라인뷰-스칼라서브쿼리.md) |
+| 2026-09-07 | 데이터 조회, 집계, JOIN, 서브쿼리 예습과 출력 열·집계 단위 복습 | [Preview notes 1](./2026-09-07/01-preview-notes-01-데이터조회-집계분석-테이블결합.md) · [Preview notes 2](./2026-09-07/01-preview-notes-02-서브쿼리-인라인뷰-스칼라서브쿼리.md) · [TIL](./2026-09-07/04-til-01-sql-출력열과-집계단위.md) |
 
 [← Level 1 curriculum](../README.md)
