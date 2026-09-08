@@ -39,3 +39,7 @@
 
 - [TIL template](./templates/til-template.md)
 - [Weekly retrospective template](./templates/weekly-retrospective-template.md)
+
+## 최근 SQL 학습 기록
+
+- [2026-09-08 서브쿼리 TIL](./06-week-sql/2026-09-08/04-til-03-subquery.md) — 평균 비교, 행과 출력 열, 별칭과 EXISTS.
