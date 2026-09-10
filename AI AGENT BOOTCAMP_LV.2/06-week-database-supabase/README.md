@@ -16,7 +16,8 @@
 | Date | Topic | Records |
 |---|---|---|
 | 2026-09-08 | 1장 전체 6강 + 2장 전체 8강: 환경, DDL·관계, CRUD·트랜잭션, 미니 프로젝트 | [Preview](./2026-09-08/01-preview-notes-01-database-schema-crud-transactions.md) |
+| 2026-09-09 | DDL·DML, 트랜잭션·ACID, API·SDK, Supabase Python 조회·Auth 오류 분석 | [Learning Notes](./2026-09-09/02-learning-notes-03-supabase-api-sdk-auth.md) · [Practice](./2026-09-09/03-practice-03-supabase-python-error-analysis.md) · [TIL](./2026-09-09/04-til-03-supabase-api-sdk-auth.md) |
 
-현재 기록은 수업 범위와 예습 질문입니다. 학습·실습·TIL·주간 회고는 실제 수행 내용에 따라 추가합니다.
+2026-09-09 기록은 당일 대화와 사용자가 확인한 Traceback을 근거로 정리했습니다. 수정 코드의 재실행 성공 여부는 각 문서에 미확인으로 표시했습니다.
 
 [← Level 2 curriculum](../README.md)
