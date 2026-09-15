@@ -2,13 +2,14 @@
 
 > 2026-09-08부터 시작한 Level 2 학습 기록입니다.
 
-Level 1과 동일하게 주차 → 날짜 → 문서 역할 순서로 예습, 학습 내용, 실습, TIL과 주간 회고를 정리합니다. 주차 번호는 기존 과정의 **Week 6**을 이어 사용합니다.
+Level 1과 동일하게 주차 → 날짜 → 문서 역할 순서로 예습, 학습 내용, 실습, TIL과 주간 회고를 정리합니다. 주차 번호는 기존 과정의 **Week 6부터** 이어 사용합니다.
 
 ## Curriculum
 
 | Week | Topic | Period | Key learning |
 |---:|---|---|---|
-| 06 | [Database & Supabase](./06-week-database-supabase/) | 2026-09-08 ~ | 환경 설정, DDL·제약조건·관계, CRUD, 트랜잭션, AI 문서 DB |
+| 06 | [Database & Supabase](./06-week-database-supabase/) | 2026-09-08 ~ 2026-09-11 | 환경 설정, DDL·제약조건·관계, CRUD, 트랜잭션, AI 문서 DB |
+| 07 | [Frontend Basic](./07-week-frontend-basic/) | 2026-09-15 ~ | HTML 구조·폼·시멘틱 태그, CSS 기초·선택자 |
 
 ## 기록 읽는 법
 

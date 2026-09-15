@@ -9,7 +9,7 @@
 | Program | Status | Topics | Archive |
 |---|---|---|---|
 | AI Agent Bootcamp — Level 1 | Completed archive | Git, Python, AI Literacy, Machine Learning, SQL | [Explore Level 1](./AI%20AGENT%20BOOTCAMP_LV.1/) |
-| AI Agent Bootcamp — Level 2 | In progress · 2026-09-08 ~ | Database, Supabase, CRUD, Transactions | [Explore Level 2](./AI%20AGENT%20BOOTCAMP_LV.2/) |
+| AI Agent Bootcamp — Level 2 | In progress · 2026-09-08 ~ | Database, Supabase, Frontend, HTML, CSS | [Explore Level 2](./AI%20AGENT%20BOOTCAMP_LV.2/) |
 
 ## Level 1 at a glance
 
@@ -111,7 +111,8 @@ Lesson-and-Learn/
 │   └── templates/
 └── AI AGENT BOOTCAMP_LV.2/
     ├── README.md
-    └── 06-week-database-supabase/
+    ├── 06-week-database-supabase/
+    └── 07-week-frontend-basic/
 ```
 
 ---
