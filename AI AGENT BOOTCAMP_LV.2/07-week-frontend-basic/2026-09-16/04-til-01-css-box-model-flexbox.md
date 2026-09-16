@@ -201,4 +201,4 @@ content → padding → border → margin
 4. `flex-direction`은 실제 수업에서 배운 뒤 정렬 방향 변화와 함께 복습한다.
 5. Flexbox의 남은 속성과 Grid 이후 내용은 다음 진도에서 이어간다.
 
-[← Week 7](../README.md)
+[Preview](./01-preview-notes-01-css-layout-responsive.md) · [Learning Notes](./02-learning-notes-01-css-box-model-flexbox.md) · [← Week 7](../README.md)
