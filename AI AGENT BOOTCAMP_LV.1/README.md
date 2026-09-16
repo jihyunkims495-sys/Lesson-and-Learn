@@ -37,8 +37,8 @@
 
 ## Templates
 
-- [TIL template](./templates/til-template.md)
-- [Weekly retrospective template](./templates/weekly-retrospective-template.md)
+- [TIL template](../templates/til-template.md)
+- [Weekly retrospective template](../templates/weekly-retrospective-template.md)
 
 ## 최근 SQL 학습 기록
 

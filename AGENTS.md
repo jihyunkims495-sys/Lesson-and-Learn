@@ -16,17 +16,20 @@
 ## 디렉터리 구조
 
 ```text
-AI AGENT BOOTCAMP_LV.N/
-├── README.md
-├── NN-week-topic/
-│   ├── README.md
-│   ├── YYYY-MM-DD/
-│   │   ├── 01-preview-notes-NN-topic.md
-│   │   ├── 02-learning-notes-NN-topic.md
-│   │   ├── 03-practice-NN-topic.md
-│   │   └── 04-til-NN-topic.md
-│   └── weekly-retrospective.md
-└── templates/
+Lesson-and-Learn/
+├── templates/
+│   ├── til-template.md
+│   └── weekly-retrospective-template.md
+└── AI AGENT BOOTCAMP_LV.N/
+    ├── README.md
+    └── NN-week-topic/
+        ├── README.md
+        ├── YYYY-MM-DD/
+        │   ├── 01-preview-notes-NN-topic.md
+        │   ├── 02-learning-notes-NN-topic.md
+        │   ├── 03-practice-NN-topic.md
+        │   └── 04-til-NN-topic.md
+        └── weekly-retrospective.md
 ```
 
 ## 이름 규칙

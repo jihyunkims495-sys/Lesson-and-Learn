@@ -100,6 +100,9 @@ Multi-Agent System
 ```text
 Lesson-and-Learn/
 ├── README.md
+├── templates/
+│   ├── til-template.md
+│   └── weekly-retrospective-template.md
 ├── AI AGENT BOOTCAMP_LV.1/
 │   ├── README.md
 │   ├── 01-week-git-github/
@@ -107,13 +110,17 @@ Lesson-and-Learn/
 │   ├── 03-week-python-advanced/
 │   ├── 04-week-ai-literacy-machine-learning/
 │   ├── 05-week-machine-learning-sql/
-│   ├── 06-week-sql/
-│   └── templates/
+│   └── 06-week-sql/
 └── AI AGENT BOOTCAMP_LV.2/
     ├── README.md
     ├── 06-week-database-supabase/
     └── 07-week-frontend-basic/
 ```
+
+## Templates
+
+- [TIL template](./templates/til-template.md)
+- [Weekly retrospective template](./templates/weekly-retrospective-template.md)
 
 ---
 
