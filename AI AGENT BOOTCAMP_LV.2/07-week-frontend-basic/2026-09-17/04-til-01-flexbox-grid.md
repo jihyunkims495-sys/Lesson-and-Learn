@@ -142,4 +142,4 @@ Flexbox가 한 방향의 흐름을 중심으로 배치한다면 Grid는 행과 �
 2. `flex-grow`, `flex-shrink`, `flex-basis`가 함께 적용될 때 항목 크기를 비교한다.
 3. 다음 진도에서는 3장 2강의 반응형 웹과 미디어 쿼리부터 이어간다.
 
-[← Week 7](../README.md)
+[Preview](./01-preview-notes-01-flexbox-grid.md) · [Learning Notes](./02-learning-notes-01-flexbox-grid.md) · [← Week 7](../README.md)

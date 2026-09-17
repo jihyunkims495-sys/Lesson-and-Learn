@@ -20,7 +20,7 @@ HTML로 웹 문서의 구조와 의미를 만들고 CSS로 화면의 표현을 �
 |---|---|---|
 | 2026-09-15 | HTML 1장 1~3강, CSS 2장 1강: 기본 구조·링크·폼·미디어·시멘틱 태그·CSS 선택자 | [HTML Preview](./2026-09-15/01-preview-notes-01-html-basics.md) · [CSS Preview](./2026-09-15/01-preview-notes-02-css-basics.md) · [Learning Notes](./2026-09-15/02-learning-notes-01-html-css-basics.md) · [TIL](./2026-09-15/04-til-01-html-css-basics.md) |
 | 2026-09-16 | CSS 선택자·상대 단위·박스 모델·display, Flexbox 1차원 정렬 | [Preview](./2026-09-16/01-preview-notes-01-css-layout-responsive.md) · [Learning Notes](./2026-09-16/02-learning-notes-01-css-box-model-flexbox.md) · [TIL](./2026-09-16/04-til-01-css-box-model-flexbox.md) |
-| 2026-09-17 | 3장 1강: Flexbox 방향·정렬·크기 조절과 CSS Grid | [TIL](./2026-09-17/04-til-01-flexbox-grid.md) |
+| 2026-09-17 | 3장 1강: Flexbox 방향·정렬·크기 조절과 CSS Grid | [Preview](./2026-09-17/01-preview-notes-01-flexbox-grid.md) · [Learning Notes](./2026-09-17/02-learning-notes-01-flexbox-grid.md) · [TIL](./2026-09-17/04-til-01-flexbox-grid.md) |
 
 ## Practice source
 
