@@ -21,6 +21,7 @@ HTML로 웹 문서의 구조와 의미를 만들고 CSS로 화면의 표현을 �
 | 2026-09-15 | HTML 1장 1~3강, CSS 2장 1강: 기본 구조·링크·폼·미디어·시멘틱 태그·CSS 선택자 | [HTML Preview](./2026-09-15/01-preview-notes-01-html-basics.md) · [CSS Preview](./2026-09-15/01-preview-notes-02-css-basics.md) · [Learning Notes](./2026-09-15/02-learning-notes-01-html-css-basics.md) · [TIL](./2026-09-15/04-til-01-html-css-basics.md) |
 | 2026-09-16 | CSS 선택자·상대 단위·박스 모델·display, Flexbox 1차원 정렬 | [Preview](./2026-09-16/01-preview-notes-01-css-layout-responsive.md) · [Learning Notes](./2026-09-16/02-learning-notes-01-css-box-model-flexbox.md) · [TIL](./2026-09-16/04-til-01-css-box-model-flexbox.md) |
 | 2026-09-17 | 3장 1강: Flexbox 방향·정렬·크기 조절과 CSS Grid | [Preview](./2026-09-17/01-preview-notes-01-flexbox-grid.md) · [Learning Notes](./2026-09-17/02-learning-notes-01-flexbox-grid.md) · [TIL](./2026-09-17/04-til-01-flexbox-grid.md) |
+| 2026-09-18 | 3장 2강: 반응형 웹, CSS Grid와 미디어 쿼리 | [Preview](./2026-09-18/01-preview-notes-01-responsive-tailwind.md) · [Learning Notes](./2026-09-18/02-learning-notes-01-responsive-media-query.md) · [Practice](./2026-09-18/03-practice-01-responsive-media-query.md) · [TIL](./2026-09-18/04-til-01-responsive-media-query.md) |
 
 ## Practice source
 
@@ -34,5 +35,7 @@ HTML로 웹 문서의 구조와 의미를 만들고 CSS로 화면의 표현을 �
 2026-09-16 기록은 수업 실습 코드와 복습 결과를 근거로 작성했습니다. `5.html`~`9.html`, `11.html`~`15.html`을 정적으로 확인했으며, `10.html`은 확인되지 않았습니다. 해당 파일들은 기록 작성 시점에 Git 미추적 상태여서 공개 소스 링크를 추가하지 않았고 브라우저 실행 결과도 별도로 확정하지 않았습니다.
 
 2026-09-17 실제 수업은 3장 1강까지 진행했습니다. `chapter03/01`의 `1.html`~`7.html`을 정적으로 확인했으며 브라우저 실행 결과는 별도로 확정하지 않았습니다. 3장 2강과 4장은 실제 학습 완료 범위에서 제외했습니다.
+
+2026-09-18 실제 수업은 3장 2강의 `chapter03/02`까지 진행했습니다. `1.html`, `2.html`의 CSS Grid와 미디어 쿼리를 정적으로 확인했으며 브라우저 경계값 렌더링, 인쇄 미리보기와 Tailwind CSS 실행 결과는 별도로 확정하지 않았습니다.
 
 [← Level 2 curriculum](../README.md)
