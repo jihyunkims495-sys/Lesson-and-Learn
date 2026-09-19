@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ordo AI — Merchandising Decision OS</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="refinements.css?v=5">
+  <link rel="stylesheet" href="data-views.css">
+  <link rel="stylesheet" href="panels.css">
+  <link rel="stylesheet" href="workbench.css?v=5">
+  <link rel="stylesheet" href="decision-lab.css?v=4">
+  <link rel="stylesheet" href="entry-layout.css?v=4">
+  <link rel="stylesheet" href="charts.css?v=9">
+  <link rel="stylesheet" href="comment-revision.css?v=3">
+  <link rel="stylesheet" href="fx-widget.css?v=2">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="rail" aria-label="주요 메뉴">
+      <button class="brand-mark" data-route="entry" aria-label="메인으로 돌아가기">L</button>
+      <nav>
+        <button data-route="today"><span>01</span><b>TODAY</b></button>
+        <button data-route="overview"><span>02</span><b>OVERVIEW</b></button>
+        <button data-route="decisions"><span>03</span><b>DECISIONS</b></button>
+        <button data-route="simulator"><span>04</span><b>SIMULATOR</b></button>
+        <button data-route="orders"><span>05</span><b>FINAL ORDER</b></button>
+        <button data-route="reports"><span>06</span><b>REPORTS</b></button>
+      </nav>
+      <div class="rail-bottom"><span>DEV</span><i></i></div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <button class="wordmark" data-route="entry"><b>ORDO</b><span>AI / MD DECISION OS</span></button>
+        <div class="top-actions">
+          <button data-panel="how">HOW TO USE</button>
+          <button data-panel="search">SEARCH <kbd>/</kbd></button>
+          <button data-panel="calendar">CALENDAR</button>
+          <button class="data-status" data-panel="data"><i></i><span>DEV SNAPSHOT</span><b>2026.09.16</b></button>
+        </div>
+      </header>
+
+      <div id="page-root"></div>
+    </main>
+  </div>
+
+  <div class="panel-backdrop" id="panel-backdrop"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <button class="drawer-close" aria-label="닫기">×</button>
+    <div id="drawer-content"></div>
+  </aside>
+  <div class="toast" id="toast" role="status"></div>
+  <input id="csv-input" type="file" accept=".csv" hidden>
+  <script src="motion.js?v=5"></script>
+  <script src="data-snapshot.js?v=2"></script>
+  <script src="demo-calibration.js?v=1"></script>
+  <script src="dev-feed.js?v=6"></script>
+  <script src="workbench-model.js?v=6"></script>
+  <script src="charts.js?v=9"></script>
+  <script src="decision-lab.js?v=7"></script>
+  <script src="weekly-sales.js?v=1"></script>
+  <script src="fx-widget.js?v=3"></script>
+  <script src="workbench.js?v=7"></script>
+  <script src="calendar.js?v=4"></script>
+  <script src="app.js?v=10"></script>
+</body>
+</html>

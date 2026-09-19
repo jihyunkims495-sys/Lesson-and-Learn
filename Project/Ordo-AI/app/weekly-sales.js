@@ -1,0 +1,19 @@
+/* Weekly sample sales profile: observed weekly totals, declared weekday shares. */
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.OrdoWeeklySales=api;})(typeof window==='undefined'?globalThis:window,function(){
+ 'use strict';
+ const labels=['월','화','수','목','금','토','일'];
+ const shift=(date,n)=>new Date(Date.parse(date+'T00:00:00Z')+n*86400000).toISOString().slice(0,10);
+ function allocate(total,factors){const sum=factors.reduce((a,b)=>a+b,0),raw=factors.map(n=>total*n/sum),out=raw.map(Math.floor);raw.map((n,i)=>({i,r:n-out[i]})).sort((a,b)=>b.r-a.r||a.i-b.i).slice(0,total-out.reduce((a,b)=>a+b,0)).forEach(o=>out[o.i]++);return out;}
+ function profile(snapshot,factors=snapshot.policy.weekdayFactors){
+  const end=snapshot.meta.asOf,start=shift(end,-6),priorStart=shift(end,-13),priorEnd=shift(end,-7);
+  const total=(lo,hi)=>snapshot.daily.filter(d=>d.date>=lo&&d.date<=hi).reduce((n,d)=>n+d.units,0);
+  const currentTotal=total(start,end),previousTotal=total(priorStart,priorEnd),den=factors.reduce((a,b)=>a+b,0);
+  return {start,end,priorStart,priorEnd,currentTotal,previousTotal,current:allocate(currentTotal,factors),previous:allocate(previousTotal,factors),shares:factors.map(v=>v/den),labels};
+ }
+ function render(snapshot,factors=snapshot.policy.weekdayFactors){
+  const p=profile(snapshot,factors),max=Math.max(1,...p.current,...p.previous),x=i=>45+i*100,y=v=>150-v/max*130;
+  return `<div class="wb-weekly-sales" data-weekly-values='${JSON.stringify(p)}'><p>최근 주간 ${p.start}–${p.end} · 전주 ${p.priorStart}–${p.priorEnd}</p><div class="wb-weekly-legend"><b>━ 현주간 ${p.currentTotal.toLocaleString('ko-KR')}개</b><span>┄ 전주간 ${p.previousTotal.toLocaleString('ko-KR')}개</span></div><svg viewBox="0 0 690 185" role="application" tabindex="0" aria-label="주간 판매량 비교 · 좌우 방향키로 요일 확인"><line x1="45" x2="645" y1="150" y2="150" stroke="#8d948a"/><polyline points="${p.previous.map((v,i)=>x(i)+','+y(v)).join(' ')}" fill="none" stroke="#737a76" stroke-width="3" stroke-dasharray="7 5"/><polyline points="${p.current.map((v,i)=>x(i)+','+y(v)).join(' ')}" fill="none" stroke="#ff5424" stroke-width="3"/>${labels.map((l,i)=>`<text x="${x(i)}" y="175" text-anchor="middle" fill="currentColor" font-size="13">${l}</text>`).join('')}<line data-weekly-cursor x1="45" x2="45" y1="15" y2="150" stroke="#ff5424" stroke-dasharray="3 4"/></svg><p data-weekly-readout aria-live="polite"></p><small>샘플 주문의 주간 합계를 판매 비중으로 배분한 비교입니다. 원장 거래일·수량은 변경하지 않습니다.</small></div>`;
+ }
+ function bind(root){root.querySelectorAll('[data-weekly-values]').forEach(el=>{const p=JSON.parse(el.dataset.weeklyValues),svg=el.querySelector('svg');let index=0;const show=i=>{index=Math.max(0,Math.min(6,i));el.querySelector('[data-weekly-readout]').textContent=`${labels[index]}요일 · 판매 비중 ${(p.shares[index]*100).toFixed(1)}% · 현주간 ${p.current[index]}개 / 전주간 ${p.previous[index]}개 · 차이 ${p.current[index]-p.previous[index]}개`;const c=el.querySelector('[data-weekly-cursor]');c.setAttribute('x1',45+index*100);c.setAttribute('x2',45+index*100);};svg.addEventListener('pointermove',e=>{const rect=svg.getBoundingClientRect();show(Math.round(((e.clientX-rect.left)/rect.width*690-45)/100));});svg.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();show(e.key==='Home'?0:e.key==='End'?6:index+(e.key==='ArrowLeft'?-1:1));}});show(0);});}
+ return {profile,allocate,render,bind};
+});

@@ -1,0 +1,346 @@
+/* Shared glass surfaces, spacing and motion presentation for the annotated UI. */
+:root {
+  --surface-glass: rgba(255, 255, 255, .22);
+  --surface-hover: rgba(255, 255, 255, .32);
+  --line-glass: rgba(38, 42, 33, .15);
+  --radius-panel: 30px;
+  --space-heading: 20px;
+  --space-context: 24px;
+}
+
+body.entry-mode .hero-halftone span,
+body.entry-mode .hero-halftone strong,
+body.entry-mode .swipe-note,
+body.entry-mode .swipe-note span {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+body.entry-mode .hero-halftone strong {
+  text-shadow: 3px 3px 0 rgba(27, 30, 19, .16), 0 0 28px rgba(255, 255, 255, .18);
+}
+.hero-halftone strong::before,
+.hero-halftone strong::after {
+  background-image: radial-gradient(circle, #FFFFFF 1.1px, transparent 1.7px);
+}
+body.entry-mode .entry-promise { font-size: 17px; letter-spacing: .01em; }
+
+body:not(.entry-mode) {
+  background: var(--ordo-bg);
+  background-attachment: fixed;
+  --line: var(--line-glass);
+  --muted: #464b41;
+}
+body:not(.entry-mode) .workspace { background: transparent; }
+body:not(.entry-mode) .rail {
+  background: transparent;
+  border-color: rgba(255, 255, 255, .22);
+  backdrop-filter: blur(12px);
+}
+.rail nav span { color: #485246; }
+.rail nav button:hover,
+.rail nav button.active {
+  background: rgba(255, 255, 255, .16);
+  border-color: transparent;
+  border-radius: 18px;
+}
+.rail nav button.active b { color: #9a2c07; }
+body:not(.entry-mode) .topbar {
+  background: rgba(255, 255, 255, .06);
+  border-color: rgba(255, 255, 255, .22);
+  backdrop-filter: blur(20px);
+}
+.wordmark span { color: #FFFFFF; }
+.top-actions { gap: 5px; align-items: center; }
+.top-actions > button {
+  height: 42px;
+  border: 1px solid transparent;
+  border-radius: 22px;
+  padding: 0 14px;
+  transition: background .2s ease, transform .2s ease;
+}
+.top-actions > button:hover { background: rgba(255, 255, 255, .18); }
+.top-actions .data-status {
+  min-width: 168px;
+  height: 48px;
+  background: rgba(20, 23, 18, .72);
+}
+.top-actions kbd { background: transparent; border-color: rgba(255, 255, 255, .4); }
+
+.page-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: end;
+  padding: 38px 30px 30px;
+}
+.page-heading { min-width: 0; }
+.page-heading > .eyebrow { margin-bottom: var(--space-heading); line-height: 1.5; }
+.page-head h1 {
+  font-size: clamp(30px, 3.3vw, 54px);
+  line-height: 1.12;
+  letter-spacing: -.055em;
+  font-weight: 880;
+}
+.page-context {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-context);
+  min-width: 0;
+  padding-bottom: 4px;
+}
+.page-head .page-context p {
+  max-width: none;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+  white-space: nowrap;
+  color: #3d4338;
+}
+.periods, .segments {
+  display: inline-flex;
+  flex: none;
+  width: max-content;
+  max-width: 100%;
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .36);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, .16);
+}
+.periods button, .segments button {
+  padding: 13px 18px;
+  white-space: nowrap;
+  border-color: rgba(255, 255, 255, .2);
+  transition: background .2s ease;
+}
+.periods button:not(.active):hover, .segments button:not(.active):hover { background: rgba(255, 255, 255, .18); }
+.periods button.active, .segments button.active { background: rgba(20, 23, 18, .9); }
+.chip { background: rgba(255, 255, 255, .28); border-color: rgba(255, 255, 255, .4); }
+
+.grid {
+  border: 1px solid var(--line-glass);
+  border-radius: var(--radius-panel);
+  overflow: hidden;
+  background: var(--surface-glass);
+  box-shadow: 0 16px 48px rgba(38, 32, 22, .055);
+}
+.cell, .trajectory, .report-pane, .decision-list { background: transparent; }
+.cell { border-color: var(--line-glass); padding: 24px; }
+.btn {
+  border-radius: 16px;
+  min-height: 44px;
+  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(30, 28, 19, .15); }
+.btn:active { transform: translateY(0); }
+.btn:disabled { cursor: wait; opacity: .8; transform: none; }
+button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #263d2b;
+  outline-offset: 4px;
+}
+.entry :focus-visible, .approval :focus-visible { outline-color: #FFFFFF; }
+
+/* Today: full-width brief copy, followed by its impact, within one rounded panel. */
+.brief {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 24px;
+  background: rgba(16, 19, 16, .93);
+  padding: 28px 30px;
+  min-height: 230px;
+}
+.brief::after { display: none; }
+.brief-copy { min-width: 0; }
+.brief h2 {
+  max-width: none;
+  font-size: clamp(23px, 2.45vw, 36px);
+  margin: 20px 0 16px;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+.brief p { max-width: none; font-size: 13px; line-height: 1.7; white-space: nowrap; }
+.brief-impact {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 24px;
+  row-gap: 8px;
+  align-items: center;
+  border: 0;
+  padding: 0;
+  align-self: flex-end;
+}
+.brief-impact .mono-label { color: #c9cfc4; grid-column: 1; }
+.brief-impact b { grid-column: 2; grid-row: 1 / 3; font-size: 46px; line-height: 1; }
+.brief-impact > span:last-child { grid-column: 1; font-size: 13px; color: #FFFFFF; }
+.kpi .delta { margin-left: 0; }
+.decision-card { min-height: 248px; }
+.decision-card:hover { background: rgba(255, 255, 255, .2); }
+.decision-card::before { width: 5px; top: 24px; bottom: 24px; height: auto; border-radius: 3px; }
+.decision-card p { line-height: 1.65; }
+.decision-card .go { background: rgba(255, 255, 255, .12); }
+
+/* Overview: use available chart width and keep the same transparent surface. */
+.overview-grid { grid-template-columns: minmax(210px, .85fr) minmax(0, 1.6fr) minmax(210px, .9fr); }
+.season-score strong { font-size: clamp(36px, 3.5vw, 52px); }
+.season-score small { line-height: 1.7; font-size: 11px; }
+.trajectory svg { height: 380px; }
+.item-row svg { grid-column: 1 / -1; width: 100%; height: 76px; }
+.chart-legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 11px; line-height: 1.8; }
+.risk-value { font-size: clamp(18px, 1.75vw, 25px); line-height: 1.4; }
+.risk-link:hover { background: rgba(255, 255, 255, .2); }
+.progress, .bar { border-radius: 8px; overflow: hidden; background: rgba(27, 33, 25, .1); }
+
+/* Decisions: transparent queue, legible selected row, shared rounded groups. */
+.decision-layout { grid-template-columns: minmax(240px, .8fr) minmax(0, 2fr); }
+.decision-list { background: rgba(32, 39, 28, .035); }
+.sku-card.active, .sku-card:hover { background: rgba(255, 255, 255, .3); }
+.report-top .eyebrow { margin-bottom: 12px; }
+.report-top h2 { font-size: clamp(25px, 2.5vw, 34px); }
+.report-top p { line-height: 1.7; }
+.reason-grid, .assort-box { border-radius: 20px; overflow: hidden; background: rgba(255, 255, 255, .09); }
+.reason { padding: 20px 16px; }
+.report-actions { gap: 16px; }
+.report-actions p { margin-top: 10px; font-size: 13px; line-height: 1.7; }
+.report-actions .btn { flex: none; }
+
+/* Simulator: separate 30px cards with a clear, operable approval action. */
+.sim-flow { gap: 0; margin-bottom: 20px; }
+.sim-flow > div {
+  border-radius: 24px;
+  background: rgba(255, 255, 255, .2);
+  border-color: rgba(255, 255, 255, .32);
+  padding: 20px 24px;
+}
+.sim-flow span { display: block; margin-top: 8px; line-height: 1.6; }
+.sim-flow i { background: rgba(24, 31, 22, .4); width: 32px; }
+.scenario-grid { border: 0; box-shadow: none; overflow: visible; background: transparent; gap: 16px; }
+.scenario-grid > .cell {
+  border: 1px solid var(--line-glass);
+  border-radius: 30px;
+  background: var(--surface-glass);
+  overflow: hidden;
+}
+.scenario { min-height: 330px; }
+.scenario:hover, .scenario.active { background: var(--surface-hover); }
+.scenario.active { box-shadow: inset 0 0 0 2px var(--orange); }
+.scenario h2 { font-size: clamp(23px, 2vw, 29px); line-height: 1.3; }
+.scenario .hero-num { font-size: clamp(36px, 3.7vw, 52px); white-space: nowrap; }
+.scenario li { padding: 13px 0; gap: 8px; font-variant-numeric: tabular-nums; }
+.matrix { min-width: 0; overflow-x: auto !important; }
+.matrix-table { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.matrix-table th, .matrix-table td { padding: 13px 8px; }
+.scenario-grid > .approval { background: rgba(239, 77, 22, .94); padding: 26px; gap: 26px; }
+.approval .mono-label { color: #FFFFFF; display: block; margin-bottom: 16px; }
+.approval h2 { font-size: 25px; line-height: 1.3; letter-spacing: -.035em; }
+.approval p { font-size: 12px; line-height: 1.8; white-space: nowrap; }
+.approval .btn {
+  display: block;
+  width: 100%;
+  margin-top: 30px;
+  padding: 15px 12px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(97, 25, 4, .13);
+}
+.approval .btn:hover { background: #171b15; color: #FFFFFF; }
+
+/* Reports: readable explanatory copy and consistent chart space. */
+.reports-grid { grid-template-columns: minmax(0, 1fr) minmax(260px, .38fr); }
+.report-chart { min-height: 440px; }
+.report-summary strong { font-size: clamp(36px, 3.7vw, 52px); font-variant-numeric: tabular-nums; }
+.report-summary p { font-size: 14px; line-height: 1.85; word-break: keep-all; overflow-wrap: anywhere; }
+.report-summary p + p { margin-top: 14px; }
+.accuracy-ring::before { background: rgba(222, 219, 192, .92); }
+.history-row { line-height: 1.8; gap: 14px; }
+.toast { border-radius: 16px; max-width: min(560px, 90vw); line-height: 1.6; }
+
+@media (max-width: 1200px) and (min-width: 901px) {
+  .topbar { padding: 0 20px; }
+  .wordmark { gap: 8px; }
+  .top-actions > button { padding: 0 10px; }
+  .top-actions .data-status { min-width: 150px; }
+  .cell { padding: 20px; }
+  .page-head { padding-inline: 26px; }
+  .page-heading > .eyebrow { font-size: 10px; }
+  .brief p { font-size: 12px; }
+  .overview-grid { grid-template-columns: 210px minmax(0, 1fr) 215px; }
+  .overview-grid > .cell:nth-child(3) { grid-column: auto; }
+  .trajectory .section-title { align-items: start; flex-direction: column; gap: 8px; }
+  .trajectory svg { height: 340px; }
+  .decision-wrap { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .scenario-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .matrix { grid-column: 1 / span 2; }
+  .scenario-grid > .approval { padding: 22px 18px; }
+  .approval h2 { font-size: 23px; }
+  .reason-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .decision-layout { grid-template-columns: 270px minmax(0, 1fr); }
+}
+@media (max-width: 900px) {
+  .page-head { grid-template-columns: 1fr; gap: 28px; padding: 30px 24px; }
+  .page-head h1 { font-size: clamp(30px, 5vw, 44px); }
+  .page-context { gap: 24px; }
+  .page-head .page-context p { white-space: normal; }
+  .brief h2, .brief p { white-space: normal; word-break: keep-all; }
+  .brief h2 { font-size: 26px; }
+  .brief-impact { column-gap: 18px; }
+  .brief-impact b { font-size: 40px; }
+  .overview-grid { grid-template-columns: 220px minmax(0, 1fr); }
+  .overview-grid > .cell:nth-child(3) { grid-column: 1 / -1; }
+  .item-status { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .risk-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .decision-layout, .reports-grid, .scenario-grid { grid-template-columns: 1fr; }
+  .decision-list { max-height: 300px; overflow: auto; }
+  .matrix { grid-column: auto; }
+  .approval h2 { max-width: none; }
+  .approval .btn { width: max-content; min-width: 200px; }
+}
+@media (max-width: 680px) {
+  body:not(.entry-mode) .rail { backdrop-filter: blur(22px); }
+  .rail nav { width: 100%; grid-template-columns: repeat(6,minmax(0,1fr)); }
+  .rail nav button { border-radius: 15px; }
+  .rail nav b { font-size: 8px; }
+  .topbar { padding: 0 14px; }
+  .top-actions .data-status { min-width: 126px; height: 40px; }
+  .page-head { padding: 28px 20px; }
+  .page-head h1 { font-size: clamp(28px, 7.5vw, 38px); }
+  .page-heading > .eyebrow { font-size: 9px; letter-spacing: .09em; }
+  .page-head .page-context p { font-size: 12px; }
+  .periods button, .segments button { padding: 12px 13px; font-size: 10px; }
+  .brief { padding: 24px 20px; }
+  .brief h2 { font-size: 24px; }
+  .brief p { font-size: 12px; }
+  .brief-impact { grid-template-columns: 1fr; align-self: flex-start; row-gap: 12px; }
+  .brief-impact b { grid-column: 1; grid-row: auto; }
+  .kpi strong { font-size: 27px; }
+  .cell { padding: 20px; }
+  .decision-wrap { grid-template-columns: 1fr; }
+  .decision-card { min-height: 210px; }
+  .overview-grid { grid-template-columns: minmax(0, 1fr); }
+  .overview-grid > .cell { grid-column: auto !important; }
+  .trajectory svg { height: 260px; }
+  .item-status { grid-template-columns: 1fr; gap: 0; }
+  .risk-value { font-size: 18px; }
+  .risk-strip .mono-label { font-size: 8px; letter-spacing: .05em; }
+  .report-pane { padding: 22px 18px; }
+  .report-actions { align-items: flex-start; flex-direction: column; gap: 20px; }
+  .assort-box .section-title { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .sim-flow { margin-inline: 8px; grid-template-columns: 1fr; }
+  .sim-flow i { width: 1px; height: 24px; }
+  .sim-flow i::after { display: none; }
+  .scenario-grid { gap: 14px; }
+  .scenario .hero-num { font-size: 44px; }
+  .scenario-grid > .approval { padding: 26px; }
+  .matrix-table { font-size: 10px; }
+  .matrix-table th, .matrix-table td { padding: 12px 5px; }
+  .report-chart { min-height: 320px; }
+  .report-chart svg { height: 240px; }
+  .history-row { grid-template-columns: 68px 65px minmax(0, 1fr); gap: 8px; font-size: 10px; }
+  .section-title { gap: 12px; }
+  .section-title h2 { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page, .entry-top h1, .entry-top p, .hero-halftone strong::before, .hero-halftone strong::after { animation: none !important; }
+  .btn, .top-actions > button { transition: none; }
+}

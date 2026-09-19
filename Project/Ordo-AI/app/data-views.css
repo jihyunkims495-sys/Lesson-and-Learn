@@ -1,0 +1,41 @@
+.source-notice { margin: 0 30px 20px; padding: 14px 18px; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; border: 1px solid rgba(35,45,29,.16); border-radius: 16px; background: rgba(255,255,255,.17); font-size: 11px; line-height: 1.7; }
+.source-notice b { letter-spacing: .04em; }
+.source-notice button { border: 0; border-bottom: 1px solid currentColor; background: transparent; padding: 2px 0; font: inherit; cursor: pointer; }
+.data-footnote { font-size: 11px; line-height: 1.8; margin-top: 18px; color: #3b4534; overflow-wrap: anywhere; }
+.observed-total { margin-top: 28px; display: flex; flex-direction: column; gap: 9px; font-size: 12px; }
+.observed-total b { font-size: clamp(24px,2.4vw,34px); font-variant-numeric: tabular-nums; }
+.observed-total small { font-size: 11px; color: #3b4534; }
+.chart-labels { fill: #303d29; font-size: 16px; }
+.data-details { margin-top: 20px; font-size: 12px; }
+.data-details summary { cursor: pointer; padding: 8px 0; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 11px; font-variant-numeric: tabular-nums; }
+.data-table th, .data-table td { text-align: right; padding: 10px 4px; border-bottom: 1px solid rgba(35,45,29,.15); }
+.data-table th:first-child, .data-table td:first-child { text-align: left; }
+.audited-page .decision-list { max-height: 1060px; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.audited-page .decision-list header { position: sticky; top: 0; z-index: 1; background: rgba(215,221,197,.94); backdrop-filter: blur(20px); }
+.decision-list header small { display: block; font-size: 10px; margin-top: 8px; line-height: 1.6; }
+.audited-page .sku-card { grid-template-columns: minmax(0,1fr) auto; }
+.audited-page .sku-card h3, .audited-page .sku-card p { overflow-wrap: anywhere; }
+.audited-page .sku-card b { font-size: 14px; }
+.audited-page .confidence strong { font-size: 24px; margin: 9px 0; }
+.audited-page .confidence > span:last-child { font-size: 11px; }
+.decision-evidence { margin-top: 24px; padding: 15px 18px; border-left: 3px solid #ed5b25; background: rgba(255,255,255,.15); font-size: 12px; line-height: 1.8; }
+.decision-evidence span { display: block; font-size: 10px; margin-top: 5px; overflow-wrap: anywhere; }
+.audited-page .reason-grid { margin-top: 18px; }
+.audited-page .reason:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
+.audited-page .reason b { font-size: clamp(19px,1.8vw,26px); overflow-wrap: anywhere; }
+.audited-page .reason .mono-label { letter-spacing: .01em; }
+.audited-page .assort-bars { grid-template-columns: 45px minmax(0,1fr) 64px; }
+.audited-page .assort-bars > span { text-align: right; }
+.quality-list { padding-left: 18px; font-size: 13px; line-height: 1.85; }
+.quality-list li + li { margin-top: 10px; }
+.prototype-warning { margin: 16px 30px 0; padding: 12px 16px; border: 1px solid rgba(40,45,30,.2); border-radius: 14px; background: rgba(255,255,255,.25); font-size: 12px; line-height: 1.7; }
+@media(max-width: 900px) {
+  .audited-page .decision-list { max-height: 300px; }
+  .source-notice { margin-inline: 16px; }
+}
+@media(max-width: 680px) {
+  .audited-page .periods button { padding-inline: 11px; }
+  .audited-page .reason-grid { grid-template-columns: 1fr; }
+  .source-notice, .prototype-warning { margin-inline: 8px; }
+}

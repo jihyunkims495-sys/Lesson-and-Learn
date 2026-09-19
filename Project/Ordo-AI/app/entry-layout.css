@@ -1,0 +1,164 @@
+/* Landing-only composition: title above, larger carousel at center, actions below. */
+body.entry-mode {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+body.entry-mode .workspace { padding-bottom: 0; }
+body.entry-mode .entry {
+  display: grid;
+  grid-template-rows: 24% minmax(480px, 1fr) 16px 58px;
+  row-gap: 14px;
+  height: 100vh;
+  height: 100svh;
+  min-height: 840px;
+  padding: 0 0 34px;
+  border: 0;
+  background: var(--ordo-bg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  animation: none;
+}
+
+/* Remove the original grid/overlay layers completely, including their 1px rules. */
+body.entry-mode .entry::before,
+body.entry-mode .entry::after {
+  content: none;
+  display: none;
+  background: none;
+  border: 0;
+  box-shadow: none;
+}
+body.entry-mode .entry-top {
+  grid-row: 1;
+  align-self: end;
+  padding: 0 24px;
+  margin: 0;
+}
+body.entry-mode .entry-top h1 { margin-bottom: 22px; }
+body.entry-mode .entry-subline { line-height: 1.6; margin-top: 8px; }
+body.entry-mode .carousel-shell {
+  grid-row: 2;
+  align-self: stretch;
+  height: auto;
+  min-height: 480px;
+  margin: 0;
+  width: 100%;
+  perspective: 1400px;
+  /* The landing bounds crop side cards; do not cut blurred shadows into a horizontal band. */
+  overflow: visible;
+}
+body.entry-mode .carousel { gap: 24px; }
+body.entry-mode .portal-card {
+  /* 390 × 340 → 507 × 442, exactly 30% larger at standard desktop widths. */
+  width: min(507px, 49.4vw);
+  height: 442px;
+  padding: 27px 29px;
+  border-radius: 34px;
+}
+body.entry-mode .portal-card .card-meta { font-size: 11px; }
+body.entry-mode .portal-signal { width: 205px; height: 140px; }
+body.entry-mode .portal-signal i { width: 8px; height: 8px; }
+body.entry-mode .portal-copy { margin-top: -8px; }
+body.entry-mode .portal-card h2 { font-size: 29px; margin-bottom: 12px; }
+body.entry-mode .portal-card p { max-width: 345px; font-size: 13px; line-height: 1.6; }
+body.entry-mode .card-foot { font-size: 10px; }
+body.entry-mode .card-foot b { width: 30px; height: 30px; font-size: 15px; }
+body.entry-mode .entry-footer {
+  grid-row: 4;
+  align-self: end;
+  display: flex;
+  width: min(720px, calc(100% - 48px));
+  height: 58px;
+  padding: 0;
+  margin: 0 auto;
+  gap: 16px;
+}
+body.entry-mode .entry-footer .entry-pill {
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
+  height: 58px;
+  font-size: 13px;
+  border-radius: 32px;
+}
+body.entry-mode .swipe-note {
+  grid-row: 3;
+  align-self: center;
+  margin: 0;
+  line-height: 16px;
+  font-size: 10px;
+}
+body.entry-mode .entry-status {
+  position: absolute;
+  left: auto;
+  right: 28px;
+  bottom: 14px;
+  margin: 0;
+  font-size: 8px;
+}
+
+@media (min-width: 761px) and (max-height: 820px) {
+  body.entry-mode .entry {
+    min-height: 760px;
+    grid-template-rows: minmax(204px, 22%) minmax(426px, 1fr) 16px 54px;
+    row-gap: 10px;
+    padding-bottom: 26px;
+  }
+  body.entry-mode .entry-top h1 { font-size: clamp(50px, 6vw, 86px); margin-bottom: 16px; }
+  body.entry-mode .carousel-shell { min-height: 426px; }
+  body.entry-mode .portal-card { height: 392px; }
+  body.entry-mode .entry-footer,
+  body.entry-mode .entry-footer .entry-pill { height: 54px; }
+  body.entry-mode .entry-status { bottom: 9px; }
+}
+
+@media (max-width: 760px) {
+  body.entry-mode .entry {
+    height: 100vh;
+    height: 100svh;
+    min-height: 750px;
+    grid-template-rows: auto minmax(384px, 1fr) 16px 50px;
+    row-gap: 12px;
+    padding: 92px 0 40px;
+  }
+  body.entry-mode .entry-nav { top: 18px; left: 20px; right: 20px; }
+  body.entry-mode .entry-top { align-self: end; padding: 0 20px; }
+  body.entry-mode .entry-top h1 { width: 100%; font-size: clamp(32px, 8vw, 56px); margin: 0 0 18px; }
+  body.entry-mode .entry-promise { font-size: 15px; }
+  body.entry-mode .entry-subline { max-width: 360px; font-size: 10px; line-height: 1.65; margin-top: 8px; }
+  body.entry-mode .carousel-shell { min-height: 384px; margin: 0; }
+  body.entry-mode .carousel { gap: 18px; }
+  body.entry-mode .portal-card {
+    width: min(410px, 84vw);
+    height: clamp(340px, 44svh, 390px);
+    padding: 24px;
+    border-radius: 30px;
+  }
+  body.entry-mode .portal-card .card-meta { font-size: 9px; }
+  body.entry-mode .portal-signal { width: 170px; height: 116px; }
+  body.entry-mode .portal-signal i { width: 7px; height: 7px; }
+  body.entry-mode .portal-card h2 { font-size: 26px; margin-bottom: 10px; }
+  body.entry-mode .portal-card p { font-size: 12px; max-width: 300px; }
+  body.entry-mode .entry-footer { width: calc(100% - 36px); height: 50px; gap: 10px; margin: 0 auto; }
+  body.entry-mode .entry-footer .entry-pill { height: 50px; font-size: 11px; }
+  body.entry-mode .swipe-note { font-size: 8px; letter-spacing: .12em; }
+  body.entry-mode .swipe-note span { margin: 0 7px; font-size: 12px; }
+  body.entry-mode .entry-status { left: 0; right: 0; bottom: 12px; text-align: center; font-size: 8px; }
+}
+
+@media (max-width: 380px) {
+  body.entry-mode .entry-top h1 { font-size: 30px; }
+  body.entry-mode .entry-promise { font-size: 14px; }
+  body.entry-mode .portal-card { padding: 22px 18px; }
+  body.entry-mode .portal-card p { font-size: 11px; }
+  body.entry-mode .entry-footer .entry-pill { font-size: 10px; }
+}
+/* Design-only admin choices: deliberately no destinations or activation handlers. */
+.admin-menu { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:calc(100svh - 64px); padding:32px 0; gap:20px; }
+.admin-menu .admin-menu-button { width:min(352px,100%); height:58px; flex-shrink:0; border:1px solid rgba(255,255,255,.12); border-radius:32px; background:rgba(28,26,20,.85); color:#d9d9d9; font-size:13px; font-weight:650; cursor:pointer; backdrop-filter:blur(12px); box-shadow:0 15px 35px rgba(0,0,0,.18); transition:.2s; }
+.admin-menu .admin-menu-button:hover { transform:translateY(-2px); background:#171612; }
+.admin-menu .admin-menu-button:focus-visible { outline:2px solid #ff5a1f; outline-offset:5px; }
+.how-guide { padding-top:14px; }
+.how-guide .drawer-section { margin-top:24px; padding:24px 0 0; }
+.how-guide .drawer-section h3 { margin:0 0 10px; font-size:22px; letter-spacing:-.035em; }
+.how-guide .drawer-section p { margin:0; font-size:14px; line-height:1.7; word-break:keep-all; }
