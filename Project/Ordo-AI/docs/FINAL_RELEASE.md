@@ -3,8 +3,6 @@
 ## Current: v1.1.0 — 2026-09-19
 
 - **Daytona DEV:** https://3001-qjbnuhh9kvnqqhng.daytonaproxy01.net/#entry (expires 2026-09-19 18:07 KST).
-- **Preserved original:** https://ordo-ai-decision-os-jihyu.jihyunkims495.chatgpt.site/#entry (Sites version 12; original source HEAD `f8a6831a4898a22bc3c2c39310d1be161b948d48`).
-- Original site: no edits, commits, pushes, deployments, access changes or DNS changes. SHA-256 comparison confirms all 59 original files unchanged.
 - Independent Daytona static hosting + actual server calculation via `/api/simulate`; no Nosana or other LLM dependency.
 - Three real remote runs / nine scenarios exactly match the existing model. Four local focused tests passed. Browser route traversal, auto/manual server calculations and video loading verified.
 - Final screenshots are actual browser viewport captures from the Daytona runtime, including Final Order and the successful server-calculation dialog. No generated/mock screenshots or full-page background compositing.
@@ -17,14 +15,7 @@
 
 The remaining record describes the earlier static release only. Its version numbers, screenshot package and limitations are historical, not the current v1.1 status above.
 
-Recorded on 2026-09-18 (Asia/Seoul) from the public prototype's `main` branch.
-
-## Public build
-
-- URL: https://ordo-ai-decision-os-jihyu.jihyunkims495.chatgpt.site
-- Published Sites version: v6
-- Final UI baseline commit: `72463cc7ff62ffbd89a0eb3e4da10645fc0b8544`
-- Default entry: `#entry`
+Recorded on 2026-09-18 (Asia/Seoul) from the prototype's `main` branch.
 
 ## Included experience
 

@@ -8,9 +8,9 @@
 
 **Version 1.1.0 · 2026-09-19 · Daytona verified demo**
 
-[Daytona DEV Demo](https://3001-qjbnuhh9kvnqqhng.daytonaproxy01.net/#entry) · [기존 제출 웹](https://ordo-ai-decision-os-jihyu.jihyunkims495.chatgpt.site/#entry) · [최종 3분 영상](./docs/video/Ordo-AI_DEV-Demo_3MIN_FINAL_v4.mp4) · [Daytona 구현 명세](./docs/DAYTONA.md) · [최종 릴리스 기록](./docs/FINAL_RELEASE.md)
+[Daytona DEV Demo](https://3001-qjbnuhh9kvnqqhng.daytonaproxy01.net/#entry) · [최종 3분 영상](./docs/video/Ordo-AI_DEV-Demo_3MIN_FINAL_v4.mp4) · [Daytona 구현 명세](./docs/DAYTONA.md) · [최종 릴리스 기록](./docs/FINAL_RELEASE.md)
 
-> **주소 안내:** Daytona DEV는 2026-09-19 **18:07 KST까지** 열리는 별도 시연 환경입니다. 영구 제출 주소가 아닙니다. 처음 접속하면 Daytona 안내 화면이 나올 수 있습니다. 기존 제출 웹은 수정·재배포하지 않았으며, Daytona가 종료돼도 독립적으로 유지됩니다. Nosana·DNSimple은 최종 시연 구성에 사용하지 않았습니다.
+> **주소 안내:** Daytona DEV는 2026-09-19 **18:07 KST까지** 열리는 독립 시연 환경입니다. 영구 주소가 아니며 처음 접속하면 Daytona 안내 화면이 나올 수 있습니다. Nosana·DNSimple은 최종 시연 구성에 사용하지 않았습니다.
 
 ![ORDO AI entry](./docs/screenshots/01-main-entry.jpg)
 
@@ -38,7 +38,7 @@ Version 1은 리오더 의사결정 경험을 검증하기 위한 첫 제출 가
 - 데이터: 가상 패션 PB 브랜드의 버전 고정형 주문·판매·재고·원가·환율 fixture
 - 검증: JavaScript 문법, JSON 파싱, 정적 자산 참조, README 링크, 16:9 스크린샷과 민감정보 검사
 - Version 1.0 제외: 라이브 Supabase, 운영 주문·재고 API, 외부 AI 추론, 실제 발주 전송, Daytona Sandbox 실행
-- **Version 1.1 추가:** 기존 제출본과 분리된 Daytona 호스팅, 서버 시나리오 계산 API, 자동·수동 입력의 원격 실행 검증. 외부 LLM과 실제 발주 전송은 여전히 제외합니다.
+- **Version 1.1 추가:** Daytona 호스팅, 서버 시나리오 계산 API, 자동·수동 입력의 원격 실행 검증. 외부 LLM과 실제 발주 전송은 여전히 제외합니다.
 
 ## 핵심 기능
 
@@ -135,11 +135,11 @@ Ordo-AI/
 
 현재 데이터는 샘플이므로 예측 그래프에서 실무 데이터만큼 상품별 차이가 뚜렷하게 드러나지는 않습니다. 실 매출 비중, 시즌성, 상품 타입과 역할, 요일 가중치, 리드타임 및 시나리오 계산을 분리해 획일적인 움직임을 보완했지만, 예측 정확도 검증과 실제 발주 시스템 연동은 아직 부족합니다.
 
-기존 제출본은 정적 데모이며 Daytona 버전은 여기에 독립 서버 계산을 추가한 시연입니다. 실시간 주문 수집, 운영 Supabase 연결, 외부 AI 추론, 실제 PO 전송, 예측 백테스트는 아직 연결되지 않았습니다.
+현재 버전은 정적 화면에 독립 서버 계산을 추가한 시연입니다. 실시간 주문 수집, 운영 Supabase 연결, 외부 AI 추론, 실제 PO 전송, 예측 백테스트는 아직 연결되지 않았습니다.
 
 ## Daytona 실제 구현
 
-Daytona를 **독립 웹 실행 환경과 재현 가능한 시나리오 계산 서버**로 사용했습니다. 기존 제출 웹을 이전하지 않고 동일한 정적 자산·계산 엔진을 복사했습니다. 화면 오른쪽 아래 `DAYTONA · 서버 시뮬레이션`을 누르면 실제 서버 실행을 확인할 수 있습니다.
+Daytona를 **독립 웹 실행 환경과 재현 가능한 시나리오 계산 서버**로 사용했습니다. 정적 자산과 계산 엔진을 전용 샌드박스에 배치했으며, 화면 오른쪽 아래 `DAYTONA · 서버 시뮬레이션`을 누르면 실제 서버 실행을 확인할 수 있습니다.
 
 ```text
 Daytona가 제공하는 Ordo 시연 화면
