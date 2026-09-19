@@ -1,4 +1,21 @@
-# Ordo AI Decision OS — Final Prototype Record
+# Ordo AI Decision OS — Final Release Record
+
+## Current: v1.1.0 — 2026-09-19
+
+- **Daytona DEV:** https://3001-qjbnuhh9kvnqqhng.daytonaproxy01.net/#entry (expires 2026-09-19 18:07 KST).
+- **Preserved original:** https://ordo-ai-decision-os-jihyu.jihyunkims495.chatgpt.site/#entry (Sites version 12; original source HEAD `f8a6831a4898a22bc3c2c39310d1be161b948d48`).
+- Original site: no edits, commits, pushes, deployments, access changes or DNS changes. SHA-256 comparison confirms all 59 original files unchanged.
+- Independent Daytona static hosting + actual server calculation via `/api/simulate`; no Nosana or other LLM dependency.
+- Three real remote runs / nine scenarios exactly match the existing model. Four local focused tests passed. Browser route traversal, auto/manual server calculations and video loading verified.
+- Final screenshots are actual browser viewport captures from the Daytona runtime, including Final Order and the successful server-calculation dialog. No generated/mock screenshots or full-page background compositing.
+- Final video: [3-minute v4 MP4](./video/Ordo-AI_DEV-Demo_3MIN_FINAL_v4.mp4), 45,885,197 bytes; SHA-256 `8ee237db32a256f33acf7a5d8a84012d10bea87f5777c0e77e206931f0988927`. This is the final existing product-tour edit, recorded before the Daytona button was added.
+- Source, API and boundaries: [Daytona implementation specification](./DAYTONA.md).
+
+---
+
+## Historical baseline: v6 — 2026-09-18
+
+The remaining record describes the earlier static release only. Its version numbers, screenshot package and limitations are historical, not the current v1.1 status above.
 
 Recorded on 2026-09-18 (Asia/Seoul) from the public prototype's `main` branch.
 

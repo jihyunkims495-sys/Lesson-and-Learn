@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280" role="img" aria-labelledby="title desc">
+ <title id="title">Daytona — Hackathon Sponsor</title>
+ <desc id="desc">Ordo AI's isolated simulation runtime. Typographic sponsor credit, not an official Daytona logo.</desc>
+ <rect width="1200" height="280" rx="28" fill="#242b22"/>
+ <path d="M830 0H1200V280H730Z" fill="#2e382b"/>
+ <path d="M925 0H970L870 280H825Z" fill="#c7f65a" opacity=".13"/>
+ <circle cx="68" cy="51" r="7" fill="#c7f65a"/>
+ <text x="90" y="58" fill="#c7f65a" font-family="Arial,sans-serif" font-size="17" letter-spacing="4">HACKATHON SPONSOR</text>
+ <text x="57" y="164" fill="#f4f3e7" font-family="Arial,sans-serif" font-size="87" font-weight="700" letter-spacing="-3">Daytona</text>
+ <text x="62" y="222" fill="#cbd1bb" font-family="Arial,sans-serif" font-size="20" letter-spacing="1">ISOLATED RUNTIME. VERIFIED DECISIONS.</text>
+ <rect x="944" y="45" width="197" height="38" rx="19" fill="#ff602b"/>
+ <text x="1042" y="70" fill="white" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700">ORDO AI × DAYTONA</text>
+ <text x="1138" y="214" fill="#dfe3d4" text-anchor="end" font-family="Arial,sans-serif" font-size="17">01 INPUT / 02 EXECUTE / 03 VERIFY</text>
+</svg>

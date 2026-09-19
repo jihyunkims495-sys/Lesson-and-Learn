@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-09-19T06:42:41.817Z",
+  "syntaxFiles": 21,
+  "relativeLinks": 31,
+  "credentialPatternFindings": 0,
+  "video": {
+    "file": "Ordo-AI_DEV-Demo_3MIN_FINAL_v4.mp4",
+    "bytes": 45885197,
+    "sha256": "8ee237db32a256f33acf7a5d8a84012d10bea87f5777c0e77e206931f0988927",
+    "durationSeconds": 180.032
+  },
+  "failures": []
+}

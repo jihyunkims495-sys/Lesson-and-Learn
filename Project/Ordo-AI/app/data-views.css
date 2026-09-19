@@ -1,6 +1,7 @@
 .source-notice { margin: 0 30px 20px; padding: 14px 18px; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; border: 1px solid rgba(35,45,29,.16); border-radius: 16px; background: rgba(255,255,255,.17); font-size: 11px; line-height: 1.7; }
 .source-notice b { letter-spacing: .04em; }
 .source-notice button { border: 0; border-bottom: 1px solid currentColor; background: transparent; padding: 2px 0; font: inherit; cursor: pointer; }
+.source-notice-compact{width:max-content;padding:8px 14px;border-radius:999px;font-weight:800}
 .data-footnote { font-size: 11px; line-height: 1.8; margin-top: 18px; color: #3b4534; overflow-wrap: anywhere; }
 .observed-total { margin-top: 28px; display: flex; flex-direction: column; gap: 9px; font-size: 12px; }
 .observed-total b { font-size: clamp(24px,2.4vw,34px); font-variant-numeric: tabular-nums; }

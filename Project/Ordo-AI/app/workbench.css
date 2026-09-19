@@ -30,7 +30,8 @@
 .wb-count-grid strong { font-size:34px; }
 .wb-count-grid small { font-size:11px; line-height:1.7; }
 .wb-count-grid button:hover { background:rgba(255,255,255,.3); }
-.wb-overview-layout + .wb-panel .section-title { min-height:240px; align-items:center; margin-bottom:20px; }
+.wb-overview-layout + .wb-panel { margin-top:20px; }
+.wb-overview-layout + .wb-panel .section-title { min-height:0; align-items:center; margin-bottom:20px; }
 .wb-panel details { margin-top:20px; }
 .wb-panel summary { font-size:12px; cursor:pointer; padding:8px 0; }
 .wb-table-scroll { overflow-x:auto; max-width:100%; margin:15px 0; border:1px solid var(--line-glass); border-radius:12px; }
@@ -108,13 +109,15 @@
  .wb-filterbar input,.wb-filterbar select { width:100%; min-width:0; }
  .wb-detail-head h2 { font-size:24px; }
  .wb-live-status { margin-left:0; }
- .wb-overview-layout + .wb-panel .section-title { min-height:160px; }
+ .wb-overview-layout + .wb-panel .section-title { min-height:0; }
 }
 .wb-daily-guidelines { margin-bottom: 22px; }
 .wb-date-factor { display:block; margin-top:5px; font-size:10px; }
 .wb-empty-detail > :not(.wb-empty) { display:none; }
 .wb-weight-input input { width:100%; min-width:0; padding:9px 5px; border:1px solid #6e795e; border-radius:8px; background:rgba(255,255,255,.5); font:inherit; }
 .wb-register-scope .segments { display:flex; flex-wrap:wrap; width:fit-content; max-width:100%; }
+.wb-register-scope > p { line-height:3.7; }
+.wb-orders-page .page-context,.wb-page-actions { align-items:flex-end; text-align:right; width:100%; }
 .wb-register-scope .segments button { white-space:normal; }
 .wb-candidate-row { display:flex; align-items:stretch; border-bottom:1px solid var(--line-glass); }
 .wb-candidate-row .wb-candidate { flex:1; min-width:0; border-bottom:0; padding:17px 12px; }

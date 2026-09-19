@@ -3,9 +3,11 @@ const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 
-const BASE_URL = 'https://ordo-ai-decision-os-jihyu.jihyunkims495.chatgpt.site/';
-const OUTPUT_DIR = __dirname;
-const FRAME = { width: 3840, height: 2160 };
+// Optional reproduction helper; current final screenshots were captured from the live browser.
+// This temporary default expires 2026-09-19 18:07 KST. Set ORDO_CAPTURE_URL for a new demo.
+const BASE_URL = process.env.ORDO_CAPTURE_URL || 'https://3001-qjbnuhh9kvnqqhng.daytonaproxy01.net/';
+const OUTPUT_DIR = path.resolve(__dirname, '../docs/screenshots');
+const FRAME = { width: 1280, height: 720 };
 const routes = [
   ['entry', '01-main-entry.jpg'],
   ['today', '02-today.jpg'],
@@ -13,6 +15,7 @@ const routes = [
   ['decisions', '04-decisions.jpg'],
   ['simulator', '05-simulator.jpg'],
   ['reports', '06-reports.jpg'],
+  ['orders', '07-final-order.jpg'],
 ];
 
 async function settle(page, route) {
@@ -40,7 +43,8 @@ async function settle(page, route) {
 
 async function composeFrame(page, route, filename) {
   await settle(page, route);
-  const raw = await page.screenshot({ fullPage: true, type: 'png' });
+  // Capture an actual viewport, not a long-page composite: fixed backgrounds remain intact.
+  const raw = await page.screenshot({ fullPage: false, type: 'png' });
   const meta = await sharp(raw).metadata();
   const edge = 56;
   const available = { width: FRAME.width - edge * 2, height: FRAME.height - edge * 2 };

@@ -1,0 +1,70 @@
+{
+  "capturedOn": "2026-09-19",
+  "origin": "https://3001-qjbnuhh9kvnqqhng.daytonaproxy01.net",
+  "method": "Actual viewport captures; PNG-to-JPEG only; no image generation or background replacement.",
+  "screenshots": [
+    {
+      "file": "01-main-entry.jpg",
+      "width": 1265,
+      "height": 712,
+      "source": "ACTUAL_DAYTONA_BROWSER_VIEWPORT",
+      "bytes": 88883
+    },
+    {
+      "file": "02-today.jpg",
+      "width": 1265,
+      "height": 712,
+      "source": "ACTUAL_DAYTONA_BROWSER_VIEWPORT",
+      "bytes": 96026
+    },
+    {
+      "file": "03-overview.jpg",
+      "width": 1265,
+      "height": 712,
+      "source": "ACTUAL_DAYTONA_BROWSER_VIEWPORT",
+      "bytes": 99061
+    },
+    {
+      "file": "04-decisions.jpg",
+      "width": 1265,
+      "height": 712,
+      "source": "ACTUAL_DAYTONA_BROWSER_VIEWPORT",
+      "bytes": 112976
+    },
+    {
+      "file": "05-simulator.jpg",
+      "width": 1265,
+      "height": 712,
+      "source": "ACTUAL_DAYTONA_BROWSER_VIEWPORT",
+      "bytes": 102069
+    },
+    {
+      "file": "06-reports.jpg",
+      "width": 1265,
+      "height": 712,
+      "source": "ACTUAL_DAYTONA_BROWSER_VIEWPORT",
+      "bytes": 116316
+    },
+    {
+      "file": "07-final-order.jpg",
+      "width": 1280,
+      "height": 720,
+      "source": "ACTUAL_DAYTONA_BROWSER_VIEWPORT",
+      "bytes": 96024
+    },
+    {
+      "file": "08-daytona-server.jpg",
+      "width": 1280,
+      "height": 720,
+      "source": "ACTUAL_DAYTONA_BROWSER_VIEWPORT",
+      "bytes": 93393
+    },
+    {
+      "file": "09-daytona-results.jpg",
+      "width": 1280,
+      "height": 720,
+      "source": "ACTUAL_DAYTONA_BROWSER_VIEWPORT",
+      "bytes": 104605
+    }
+  ]
+}

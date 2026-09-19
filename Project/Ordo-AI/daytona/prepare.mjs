@@ -1,0 +1,13 @@
+import { cp, mkdir, writeFile } from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {createRequire} from 'node:module';
+const root=path.dirname(fileURLToPath(import.meta.url));
+const target=path.join(root,'.runtime');
+await mkdir(target,{recursive:true});
+await cp(path.resolve(root,'../app'),path.join(target,'public'),{recursive:true});
+for(const name of ['analysis.cjs','demo-server.mjs','demo-launcher.cjs','demo-client.js','demo-client.css'])await cp(path.join(root,name),path.join(target,name));
+const require=createRequire(import.meta.url);
+const asOf=require(path.resolve(root,'../app/dev-feed.js')).latestClosedDate();
+await writeFile(path.join(target,'demo-config.json'),JSON.stringify({asOf,maxCalls:500,expiresAt:new Date(Date.now()+3*60*60*1000).toISOString()},null,2));
+console.log('Prepared isolated demo in daytona/.runtime. Original app files were not modified.');

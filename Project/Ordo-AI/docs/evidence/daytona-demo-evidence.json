@@ -1,0 +1,531 @@
+{
+  "verifiedAt": "2026-09-19T06:08:17.849Z",
+  "endpoint": "https://3001-qjbnuhh9kvnqqhng.daytonaproxy01.net",
+  "health": {
+    "service": "ordo-daytona-demo",
+    "version": 1,
+    "runtime": "Daytona",
+    "inference": "NONE",
+    "asOf": "2026-09-18",
+    "expiresAt": "2026-09-19T09:07:32.572Z",
+    "calls": 0,
+    "originalSiteModified": false,
+    "supplierOrderSent": false
+  },
+  "verification": "EXACT_REMOTE_LOCAL_MATCH",
+  "runs": [
+    {
+      "input": {
+        "sku": "RA26FSH060",
+        "horizon": "ALL",
+        "asOf": "2026-09-18"
+      },
+      "output": {
+        "executionId": "d3b72987-7c4e-42c1-82f6-ac1dd36aa371",
+        "executedAt": "2026-09-19T06:08:15.066Z",
+        "runtime": "Daytona",
+        "inference": "NONE",
+        "calculation": {
+          "schemaVersion": 1,
+          "dataBoundary": "DEMONSTRATION_FIXTURE_NOT_LIVE_SALES",
+          "approvalRequired": true,
+          "supplierOrderSent": false,
+          "sku": "RA26FSH060",
+          "horizon": "ALL",
+          "model": {
+            "asOf": "2026-09-18",
+            "seasonEnd": "2027-02-28",
+            "modelVersion": "ordo-option-ledger-4-post-arrival",
+            "contentHash": "08a02e6b702b0d54463d181dca247101f7e0bc0b045962187f086d34654a61db:working-stock-v1:dev-daily-v1:2026-09-18",
+            "effectiveWeekdayFactors": [
+              1.12,
+              0.82,
+              0.78,
+              0.84,
+              1.15,
+              1.32,
+              1.38
+            ],
+            "sourceWeekdayFactors": [
+              1.12,
+              0.82,
+              0.78,
+              0.84,
+              1.15,
+              1.32,
+              1.38
+            ],
+            "hasWeekdayOverrides": false,
+            "promotionUnits": null,
+            "promotionFrom": null,
+            "promotionTo": null,
+            "overrideFingerprint": "weekday:1.12,0.82,0.78,0.84,1.15,1.32,1.38",
+            "runtimeFingerprint": "08a02e6b702b0d54463d181dca247101f7e0bc0b045962187f086d34654a61db:working-stock-v1:dev-daily-v1:2026-09-18:ordo-option-ledger-4:weekday:1.12,0.82,0.78,0.84,1.15,1.32,1.38",
+            "weekdaySource": "SOURCE_CONFIG"
+          },
+          "observed": {
+            "last7Units": 7,
+            "prev7Units": 7
+          },
+          "recommendation": {
+            "action": "REORDER",
+            "scenarioId": "balanced",
+            "quantity": 30,
+            "summary": "옵션별 부족을 보완하는 30개 발주를 검토합니다.",
+            "reasons": [
+              "최근 7일 7개, 이전 7일 7개를 요일 보정해 일 기준 0.83개로 추정했습니다.",
+              "수요 100% 민감도 · 2026-09-22 검토 → 리드타임 22일 → 2026-10-14 입고.",
+              "추가 공급 전후를 동일 수요 조건으로 비교합니다. 초도 아소트 비중은 희소 옵션의 사전값이며 리오더는 옵션별 부족량으로 배분합니다.",
+              "브랜드 역할 PLANNING: 품목별 월 시즌성과 최근 상승·하락 추이를 함께 반영합니다."
+            ],
+            "risks": [
+              "리오더 없을 때 시즌 누적 미충족 수요 127.5개가 예상됩니다.",
+              "재고·초도 집행액은 DEV 보정 가정입니다. 원본 주문은 보존했으며 실제 재고 복원이나 적중 확률을 뜻하지 않습니다."
+            ]
+          },
+          "scenarios": [
+            {
+              "id": "conservative",
+              "name": "보수적 방어",
+              "quantity": 30,
+              "cost": 244890,
+              "forecastRevenue": 948676.5235814516,
+              "additionalRevenue": 603410.4159772056,
+              "grossProfit": 568547.5808883065,
+              "lostUnits": 54.56148325528941,
+              "endingInventory": 0.43269108254988653,
+              "allowed": true,
+              "blockers": [],
+              "risks": [
+                "리오더 없을 때 시즌 누적 미충족 수요 84.4개가 예상됩니다.",
+                "재고·초도 집행액은 DEV 보정 가정입니다. 원본 주문은 보존했으며 실제 재고 복원이나 적중 확률을 뜻하지 않습니다."
+              ],
+              "reasons": [
+                "최근 7일 7개, 이전 7일 7개를 요일 보정해 일 기준 0.83개로 추정했습니다.",
+                "수요 70% 민감도 · 2026-09-22 검토 → 리드타임 22일 → 2026-10-14 입고.",
+                "추가 공급 전후를 동일 수요 조건으로 비교합니다. 초도 아소트 비중은 희소 옵션의 사전값이며 리오더는 옵션별 부족량으로 배분합니다.",
+                "브랜드 역할 PLANNING: 품목별 월 시즌성과 최근 상승·하락 추이를 함께 반영합니다."
+              ],
+              "from": "2026-09-19",
+              "to": "2027-02-28",
+              "days": 163,
+              "simulationOnly": false,
+              "approvalQuantity": 30
+            },
+            {
+              "id": "balanced",
+              "name": "균형 운영",
+              "quantity": 30,
+              "cost": 244890,
+              "forecastRevenue": 961497.8571428559,
+              "additionalRevenue": 612032.8571428563,
+              "grossProfit": 577836.857142856,
+              "lostUnits": 97.46970310391366,
+              "endingInventory": 0,
+              "allowed": true,
+              "blockers": [],
+              "risks": [
+                "리오더 없을 때 시즌 누적 미충족 수요 127.5개가 예상됩니다.",
+                "재고·초도 집행액은 DEV 보정 가정입니다. 원본 주문은 보존했으며 실제 재고 복원이나 적중 확률을 뜻하지 않습니다."
+              ],
+              "reasons": [
+                "최근 7일 7개, 이전 7일 7개를 요일 보정해 일 기준 0.83개로 추정했습니다.",
+                "수요 100% 민감도 · 2026-09-22 검토 → 리드타임 22일 → 2026-10-14 입고.",
+                "추가 공급 전후를 동일 수요 조건으로 비교합니다. 초도 아소트 비중은 희소 옵션의 사전값이며 리오더는 옵션별 부족량으로 배분합니다.",
+                "브랜드 역할 PLANNING: 품목별 월 시즌성과 최근 상승·하락 추이를 함께 반영합니다."
+              ],
+              "from": "2026-09-19",
+              "to": "2027-02-28",
+              "days": 163,
+              "simulationOnly": false,
+              "approvalQuantity": 30
+            },
+            {
+              "id": "aggressive",
+              "name": "수요 확대 대응",
+              "quantity": 60,
+              "cost": 489780,
+              "forecastRevenue": 1575618.5714285716,
+              "additionalRevenue": 1226153.5714285716,
+              "grossProfit": 947067.5714285715,
+              "lostUnits": 110.81061403508778,
+              "endingInventory": 0,
+              "allowed": true,
+              "blockers": [],
+              "risks": [
+                "리오더 없을 때 시즌 누적 미충족 수요 170.8개가 예상됩니다.",
+                "재고·초도 집행액은 DEV 보정 가정입니다. 원본 주문은 보존했으며 실제 재고 복원이나 적중 확률을 뜻하지 않습니다."
+              ],
+              "reasons": [
+                "최근 7일 7개, 이전 7일 7개를 요일 보정해 일 기준 0.83개로 추정했습니다.",
+                "수요 130% 민감도 · 2026-09-22 검토 → 리드타임 22일 → 2026-10-14 입고.",
+                "추가 공급 전후를 동일 수요 조건으로 비교합니다. 초도 아소트 비중은 희소 옵션의 사전값이며 리오더는 옵션별 부족량으로 배분합니다.",
+                "브랜드 역할 PLANNING: 품목별 월 시즌성과 최근 상승·하락 추이를 함께 반영합니다."
+              ],
+              "from": "2026-09-19",
+              "to": "2027-02-28",
+              "days": 163,
+              "simulationOnly": false,
+              "approvalQuantity": 60
+            }
+          ]
+        },
+        "resultHash": "1d235415a724c58a6bd3f3649dcaa921ca3cfad3f90559745da8fe668ecddc47",
+        "supplierOrderSent": false
+      }
+    },
+    {
+      "input": {
+        "sku": "RA26FSH060",
+        "horizon": "ALL",
+        "asOf": "2026-09-18",
+        "manualBaseQty": 40
+      },
+      "output": {
+        "executionId": "b63165d8-d2c6-4ab7-8409-12a88a78aaf1",
+        "executedAt": "2026-09-19T06:08:15.480Z",
+        "runtime": "Daytona",
+        "inference": "NONE",
+        "calculation": {
+          "schemaVersion": 1,
+          "dataBoundary": "DEMONSTRATION_FIXTURE_NOT_LIVE_SALES",
+          "approvalRequired": true,
+          "supplierOrderSent": false,
+          "sku": "RA26FSH060",
+          "horizon": "ALL",
+          "model": {
+            "asOf": "2026-09-18",
+            "seasonEnd": "2027-02-28",
+            "modelVersion": "ordo-option-ledger-4-post-arrival",
+            "contentHash": "08a02e6b702b0d54463d181dca247101f7e0bc0b045962187f086d34654a61db:working-stock-v1:dev-daily-v1:2026-09-18",
+            "effectiveWeekdayFactors": [
+              1.12,
+              0.82,
+              0.78,
+              0.84,
+              1.15,
+              1.32,
+              1.38
+            ],
+            "sourceWeekdayFactors": [
+              1.12,
+              0.82,
+              0.78,
+              0.84,
+              1.15,
+              1.32,
+              1.38
+            ],
+            "hasWeekdayOverrides": false,
+            "promotionUnits": null,
+            "promotionFrom": null,
+            "promotionTo": null,
+            "overrideFingerprint": "weekday:1.12,0.82,0.78,0.84,1.15,1.32,1.38",
+            "runtimeFingerprint": "08a02e6b702b0d54463d181dca247101f7e0bc0b045962187f086d34654a61db:working-stock-v1:dev-daily-v1:2026-09-18:ordo-option-ledger-4:weekday:1.12,0.82,0.78,0.84,1.15,1.32,1.38",
+            "weekdaySource": "SOURCE_CONFIG"
+          },
+          "observed": {
+            "last7Units": 7,
+            "prev7Units": 7
+          },
+          "recommendation": {
+            "action": "REORDER",
+            "scenarioId": "balanced",
+            "quantity": 30,
+            "summary": "옵션별 부족을 보완하는 30개 발주를 검토합니다.",
+            "reasons": [
+              "최근 7일 7개, 이전 7일 7개를 요일 보정해 일 기준 0.83개로 추정했습니다.",
+              "수요 100% 민감도 · 2026-09-22 검토 → 리드타임 22일 → 2026-10-14 입고.",
+              "추가 공급 전후를 동일 수요 조건으로 비교합니다. 초도 아소트 비중은 희소 옵션의 사전값이며 리오더는 옵션별 부족량으로 배분합니다.",
+              "브랜드 역할 PLANNING: 품목별 월 시즌성과 최근 상승·하락 추이를 함께 반영합니다."
+            ],
+            "risks": [
+              "리오더 없을 때 시즌 누적 미충족 수요 127.5개가 예상됩니다.",
+              "재고·초도 집행액은 DEV 보정 가정입니다. 원본 주문은 보존했으며 실제 재고 복원이나 적중 확률을 뜻하지 않습니다."
+            ]
+          },
+          "scenarios": [
+            {
+              "id": "conservative",
+              "name": "보수적 방어",
+              "quantity": 40,
+              "cost": 326520,
+              "forecastRevenue": 1152955.2559020517,
+              "additionalRevenue": 807689.1482978056,
+              "grossProfit": 690271.4670141763,
+              "lostUnits": 44.448185914271434,
+              "endingInventory": 0.31939374153190725,
+              "allowed": false,
+              "blockers": [
+                "입력 수량 40개는 스타일 MOQ 30개의 배수가 아닙니다. 수량은 그대로 비교하되 승인은 차단합니다."
+              ],
+              "risks": [
+                "승인 불가 조건을 해소하고 예정일에 수동 수량이 도착한다고 가정한 비교 전용 결과입니다. 실제 발주 가능한 제안이 아닙니다.",
+                "리오더 없을 때 시즌 누적 미충족 수요 84.4개가 예상됩니다.",
+                "재고·초도 집행액은 DEV 보정 가정입니다. 원본 주문은 보존했으며 실제 재고 복원이나 적중 확률을 뜻하지 않습니다."
+              ],
+              "reasons": [
+                "최근 7일 7개, 이전 7일 7개를 요일 보정해 일 기준 0.83개로 추정했습니다.",
+                "수요 70% 민감도 · 2026-09-22 검토 → 리드타임 22일 → 2026-10-14 입고.",
+                "추가 공급 전후를 동일 수요 조건으로 비교합니다. 초도 아소트 비중은 희소 옵션의 사전값이며 리오더는 옵션별 부족량으로 배분합니다.",
+                "브랜드 역할 PLANNING: 품목별 월 시즌성과 최근 상승·하락 추이를 함께 반영합니다.",
+                "사용자 입력 40개를 변경 없이 옵션·입고·재고·매출 계산에 반영한 수동 비교입니다. 발주량 증가는 수요 증가를 뜻하지 않습니다."
+              ],
+              "from": "2026-09-19",
+              "to": "2027-02-28",
+              "days": 163,
+              "simulationOnly": true,
+              "approvalQuantity": 0
+            },
+            {
+              "id": "balanced",
+              "name": "균형 운영",
+              "quantity": 40,
+              "cost": 326520,
+              "forecastRevenue": 1165605.7142857136,
+              "additionalRevenue": 816140.7142857141,
+              "grossProfit": 700314.7142857135,
+              "lostUnits": 87.46970310391369,
+              "endingInventory": 0,
+              "allowed": false,
+              "blockers": [
+                "입력 수량 40개는 스타일 MOQ 30개의 배수가 아닙니다. 수량은 그대로 비교하되 승인은 차단합니다."
+              ],
+              "risks": [
+                "승인 불가 조건을 해소하고 예정일에 수동 수량이 도착한다고 가정한 비교 전용 결과입니다. 실제 발주 가능한 제안이 아닙니다.",
+                "리오더 없을 때 시즌 누적 미충족 수요 127.5개가 예상됩니다.",
+                "재고·초도 집행액은 DEV 보정 가정입니다. 원본 주문은 보존했으며 실제 재고 복원이나 적중 확률을 뜻하지 않습니다."
+              ],
+              "reasons": [
+                "최근 7일 7개, 이전 7일 7개를 요일 보정해 일 기준 0.83개로 추정했습니다.",
+                "수요 100% 민감도 · 2026-09-22 검토 → 리드타임 22일 → 2026-10-14 입고.",
+                "추가 공급 전후를 동일 수요 조건으로 비교합니다. 초도 아소트 비중은 희소 옵션의 사전값이며 리오더는 옵션별 부족량으로 배분합니다.",
+                "브랜드 역할 PLANNING: 품목별 월 시즌성과 최근 상승·하락 추이를 함께 반영합니다.",
+                "사용자 입력 40개를 변경 없이 옵션·입고·재고·매출 계산에 반영한 수동 비교입니다. 발주량 증가는 수요 증가를 뜻하지 않습니다."
+              ],
+              "from": "2026-09-19",
+              "to": "2027-02-28",
+              "days": 163,
+              "simulationOnly": true,
+              "approvalQuantity": 0
+            },
+            {
+              "id": "aggressive",
+              "name": "수요 확대 대응",
+              "quantity": 40,
+              "cost": 326520,
+              "forecastRevenue": 1165975.7142857146,
+              "additionalRevenue": 816510.7142857146,
+              "grossProfit": 700684.7142857144,
+              "lostUnits": 130.81061403508778,
+              "endingInventory": 0,
+              "allowed": false,
+              "blockers": [
+                "입력 수량 40개는 스타일 MOQ 30개의 배수가 아닙니다. 수량은 그대로 비교하되 승인은 차단합니다."
+              ],
+              "risks": [
+                "승인 불가 조건을 해소하고 예정일에 수동 수량이 도착한다고 가정한 비교 전용 결과입니다. 실제 발주 가능한 제안이 아닙니다.",
+                "리오더 없을 때 시즌 누적 미충족 수요 170.8개가 예상됩니다.",
+                "재고·초도 집행액은 DEV 보정 가정입니다. 원본 주문은 보존했으며 실제 재고 복원이나 적중 확률을 뜻하지 않습니다."
+              ],
+              "reasons": [
+                "최근 7일 7개, 이전 7일 7개를 요일 보정해 일 기준 0.83개로 추정했습니다.",
+                "수요 130% 민감도 · 2026-09-22 검토 → 리드타임 22일 → 2026-10-14 입고.",
+                "추가 공급 전후를 동일 수요 조건으로 비교합니다. 초도 아소트 비중은 희소 옵션의 사전값이며 리오더는 옵션별 부족량으로 배분합니다.",
+                "브랜드 역할 PLANNING: 품목별 월 시즌성과 최근 상승·하락 추이를 함께 반영합니다.",
+                "사용자 입력 40개를 변경 없이 옵션·입고·재고·매출 계산에 반영한 수동 비교입니다. 발주량 증가는 수요 증가를 뜻하지 않습니다."
+              ],
+              "from": "2026-09-19",
+              "to": "2027-02-28",
+              "days": 163,
+              "simulationOnly": true,
+              "approvalQuantity": 0
+            }
+          ]
+        },
+        "resultHash": "15fb544398e573351866c9cb0b278b7eee55af25c58d1a2641ce5778c4435a53",
+        "supplierOrderSent": false
+      }
+    },
+    {
+      "input": {
+        "sku": "RA26FSH060",
+        "horizon": "ALL",
+        "asOf": "2026-09-18",
+        "promotionUnits": [
+          100,
+          90,
+          80,
+          70,
+          110,
+          130,
+          120
+        ]
+      },
+      "output": {
+        "executionId": "a581de30-43d8-48d2-a75e-ef59a2f3f275",
+        "executedAt": "2026-09-19T06:08:16.069Z",
+        "runtime": "Daytona",
+        "inference": "NONE",
+        "calculation": {
+          "schemaVersion": 1,
+          "dataBoundary": "DEMONSTRATION_FIXTURE_NOT_LIVE_SALES",
+          "approvalRequired": true,
+          "supplierOrderSent": false,
+          "sku": "RA26FSH060",
+          "horizon": "ALL",
+          "model": {
+            "asOf": "2026-09-18",
+            "seasonEnd": "2027-02-28",
+            "modelVersion": "ordo-option-ledger-4-post-arrival",
+            "contentHash": "08a02e6b702b0d54463d181dca247101f7e0bc0b045962187f086d34654a61db:working-stock-v1:dev-daily-v1:2026-09-18",
+            "effectiveWeekdayFactors": [
+              1.12,
+              0.82,
+              0.78,
+              0.84,
+              1.15,
+              1.32,
+              1.38
+            ],
+            "sourceWeekdayFactors": [
+              1.12,
+              0.82,
+              0.78,
+              0.84,
+              1.15,
+              1.32,
+              1.38
+            ],
+            "hasWeekdayOverrides": false,
+            "promotionUnits": [
+              100,
+              90,
+              80,
+              70,
+              110,
+              130,
+              120
+            ],
+            "promotionFrom": "2026-09-19",
+            "promotionTo": "2026-09-25",
+            "overrideFingerprint": "weekday:1.12,0.82,0.78,0.84,1.15,1.32,1.38:promotion:100,90,80,70,110,130,120",
+            "runtimeFingerprint": "08a02e6b702b0d54463d181dca247101f7e0bc0b045962187f086d34654a61db:working-stock-v1:dev-daily-v1:2026-09-18:ordo-option-ledger-4:weekday:1.12,0.82,0.78,0.84,1.15,1.32,1.38:promotion:100,90,80,70,110,130,120",
+            "weekdaySource": "SOURCE_CONFIG"
+          },
+          "observed": {
+            "last7Units": 7,
+            "prev7Units": 7
+          },
+          "recommendation": {
+            "action": "REORDER",
+            "scenarioId": "balanced",
+            "quantity": 30,
+            "summary": "옵션별 부족을 보완하는 30개 발주를 검토합니다.",
+            "reasons": [
+              "최근 7일 7개, 이전 7일 7개를 요일 보정해 일 기준 0.83개로 추정했습니다.",
+              "수요 100% 민감도 · 2026-09-22 검토 → 리드타임 22일 → 2026-10-14 입고.",
+              "추가 공급 전후를 동일 수요 조건으로 비교합니다. 초도 아소트 비중은 희소 옵션의 사전값이며 리오더는 옵션별 부족량으로 배분합니다.",
+              "브랜드 역할 PLANNING: 품목별 월 시즌성과 최근 상승·하락 추이를 함께 반영합니다."
+            ],
+            "risks": [
+              "리오더 없을 때 시즌 누적 미충족 수요 126.4개가 예상됩니다.",
+              "재고·초도 집행액은 DEV 보정 가정입니다. 원본 주문은 보존했으며 실제 재고 복원이나 적중 확률을 뜻하지 않습니다."
+            ]
+          },
+          "scenarios": [
+            {
+              "id": "conservative",
+              "name": "보수적 방어",
+              "quantity": 30,
+              "cost": 244890,
+              "forecastRevenue": 948566.0193792903,
+              "additionalRevenue": 603410.4159772051,
+              "grossProfit": 568484.8798553153,
+              "lostUnits": 53.805627485213975,
+              "endingInventory": 0.43854716109577896,
+              "allowed": true,
+              "blockers": [],
+              "risks": [
+                "리오더 없을 때 시즌 누적 미충족 수요 83.6개가 예상됩니다.",
+                "재고·초도 집행액은 DEV 보정 가정입니다. 원본 주문은 보존했으며 실제 재고 복원이나 적중 확률을 뜻하지 않습니다."
+              ],
+              "reasons": [
+                "최근 7일 7개, 이전 7일 7개를 요일 보정해 일 기준 0.83개로 추정했습니다.",
+                "수요 70% 민감도 · 2026-09-22 검토 → 리드타임 22일 → 2026-10-14 입고.",
+                "추가 공급 전후를 동일 수요 조건으로 비교합니다. 초도 아소트 비중은 희소 옵션의 사전값이며 리오더는 옵션별 부족량으로 배분합니다.",
+                "브랜드 역할 PLANNING: 품목별 월 시즌성과 최근 상승·하락 추이를 함께 반영합니다."
+              ],
+              "from": "2026-09-19",
+              "to": "2027-02-28",
+              "days": 163,
+              "simulationOnly": false,
+              "approvalQuantity": 30
+            },
+            {
+              "id": "balanced",
+              "name": "균형 운영",
+              "quantity": 30,
+              "cost": 244890,
+              "forecastRevenue": 960387.8571428558,
+              "additionalRevenue": 610922.8571428561,
+              "grossProfit": 576726.8571428559,
+              "lostUnits": 96.38154332016889,
+              "endingInventory": 0,
+              "allowed": true,
+              "blockers": [],
+              "risks": [
+                "리오더 없을 때 시즌 누적 미충족 수요 126.4개가 예상됩니다.",
+                "재고·초도 집행액은 DEV 보정 가정입니다. 원본 주문은 보존했으며 실제 재고 복원이나 적중 확률을 뜻하지 않습니다."
+              ],
+              "reasons": [
+                "최근 7일 7개, 이전 7일 7개를 요일 보정해 일 기준 0.83개로 추정했습니다.",
+                "수요 100% 민감도 · 2026-09-22 검토 → 리드타임 22일 → 2026-10-14 입고.",
+                "추가 공급 전후를 동일 수요 조건으로 비교합니다. 초도 아소트 비중은 희소 옵션의 사전값이며 리오더는 옵션별 부족량으로 배분합니다.",
+                "브랜드 역할 PLANNING: 품목별 월 시즌성과 최근 상승·하락 추이를 함께 반영합니다."
+              ],
+              "from": "2026-09-19",
+              "to": "2027-02-28",
+              "days": 163,
+              "simulationOnly": false,
+              "approvalQuantity": 30
+            },
+            {
+              "id": "aggressive",
+              "name": "수요 확대 대응",
+              "quantity": 60,
+              "cost": 489780,
+              "forecastRevenue": 1575618.5714285711,
+              "additionalRevenue": 1226153.5714285711,
+              "grossProfit": 947067.5714285711,
+              "lostUnits": 109.39600631621958,
+              "endingInventory": 0,
+              "allowed": true,
+              "blockers": [],
+              "risks": [
+                "리오더 없을 때 시즌 누적 미충족 수요 169.4개가 예상됩니다.",
+                "재고·초도 집행액은 DEV 보정 가정입니다. 원본 주문은 보존했으며 실제 재고 복원이나 적중 확률을 뜻하지 않습니다."
+              ],
+              "reasons": [
+                "최근 7일 7개, 이전 7일 7개를 요일 보정해 일 기준 0.83개로 추정했습니다.",
+                "수요 130% 민감도 · 2026-09-22 검토 → 리드타임 22일 → 2026-10-14 입고.",
+                "추가 공급 전후를 동일 수요 조건으로 비교합니다. 초도 아소트 비중은 희소 옵션의 사전값이며 리오더는 옵션별 부족량으로 배분합니다.",
+                "브랜드 역할 PLANNING: 품목별 월 시즌성과 최근 상승·하락 추이를 함께 반영합니다."
+              ],
+              "from": "2026-09-19",
+              "to": "2027-02-28",
+              "days": 163,
+              "simulationOnly": false,
+              "approvalQuantity": 60
+            }
+          ]
+        },
+        "resultHash": "785257cbebc34659b435243fcb0fe5ba06fa021f846e4961c7e0159c7e1cd1f3",
+        "supplierOrderSent": false
+      }
+    }
+  ],
+  "videoRangeVerified": true,
+  "privateFilesNotServed": true,
+  "originalSiteModified": false
+}

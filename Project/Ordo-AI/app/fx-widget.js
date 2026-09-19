@@ -49,6 +49,18 @@
     if (!baseline) return null;
     return { latest, baseline, target, absolute: latest.rate - baseline.rate, percent: (latest.rate / baseline.rate - 1) * 100 };
   }
+  function normalizedComparison(source) {
+    const available = currencies.map(({ code }) => ({ code, rows: Array.isArray(source?.[code]?.rows) ? source[code].rows : [] }));
+    if (available.some(item => !item.rows.length)) return [];
+    const dateSets = available.map(item => new Set(item.rows.map(row => row.date)));
+    const dates = [...dateSets[0]].filter(date => dateSets.slice(1).every(set => set.has(date))).sort();
+    if (dates.length < 2) return [];
+    return available.map(item => {
+      const byDate = new Map(item.rows.map(row => [row.date, row.rate]));
+      const baseline = byDate.get(dates[0]);
+      return { code: item.code, rows: dates.map(date => ({ date, value: byDate.get(date) / baseline * 100 })) };
+    });
+  }
   function rateText(rate, code) {
     const currency = currencies.find(item => item.code === code);
     return Number(rate * currency.unit).toLocaleString('ko-KR', { minimumFractionDigits: code === 'VND' ? 4 : 2, maximumFractionDigits: code === 'VND' ? 4 : 2 });
@@ -92,14 +104,27 @@
     const path = rows.map((row, position) => `${position ? 'L' : 'M'}${x(row).toFixed(2)},${y(row).toFixed(2)}`).join(' ');
     return `<div class="or-fx-chart-head"><b>최근 한 달 · ${currency.unit} ${currency.code} / KRW</b><span>${rows.length}개 공시일</span></div><svg class="or-fx-chart" viewBox="0 0 346 174" role="img" aria-label="${currency.code} 원화 기준환율 추이. 아래 날짜 선택으로 정확한 값을 확인하세요.">${ticks.map(rate => `<line x1="58" x2="328" y1="${y({ rate }).toFixed(2)}" y2="${y({ rate }).toFixed(2)}" class="or-fx-grid"/><text x="49" y="${(y({ rate }) + 3).toFixed(2)}" text-anchor="end">${rateText(rate, currency.code)}</text>`).join('')}<path d="${path}" class="or-fx-line"/>${rows.map((row, position) => `<circle cx="${x(row).toFixed(2)}" cy="${y(row).toFixed(2)}" r="${position === index ? 4.5 : 2}" class="or-fx-dot ${position === index ? 'selected' : ''}"/>`).join('')}<text x="58" y="164">${rows[0].date.slice(5)}</text><text x="328" y="164" text-anchor="end">${rows.at(-1).date.slice(5)}</text><rect x="53" y="17" width="281" height="135" fill="transparent" data-fx-plot/></svg><div class="or-fx-readout" aria-live="polite"><span data-fx-selected-date>${selectedRow.date} 공시</span><strong data-fx-selected-rate>₩${rateText(selectedRow.rate, currency.code)}</strong></div><label class="or-fx-slider">공시일 선택 · 화살표 키로 이동<input type="range" min="0" max="${rows.length - 1}" step="1" value="${index}" data-fx-point aria-label="${currency.code} 공시일 선택" aria-valuetext="${selectedRow.date}, ${currency.unit} ${currency.code} 당 ${rateText(selectedRow.rate, currency.code)}원" ${rows.length === 1 ? 'disabled' : ''}></label><button type="button" class="or-fx-latest" data-fx-latest>최근 공시로 돌아가기</button><details class="or-fx-values"><summary>공시일별 숫자 ${rows.length}건 보기</summary><div><table><thead><tr><th>공시일</th><th>${currency.unit} ${currency.code} → KRW</th></tr></thead><tbody>${rows.map(row => `<tr><td>${row.date}</td><td>₩${rateText(row.rate, currency.code)}</td></tr>`).join('')}</tbody></table></div></details>`;
   }
+  function comparisonMarkup() {
+    const series = normalizedComparison(records);
+    if (!series.length) return '<section class="or-fx-compare"><div class="or-fx-compare-head"><b>통화별 변동 비교</b><span>공통 공시일 확인 중</span></div><p class="or-fx-compare-empty">USD·CNY·VND의 공통 공시일이 2일 이상 확인되면 비교선을 표시합니다.</p></section>';
+    const rows = series.flatMap(item => item.rows), values = rows.map(row => row.value);
+    const min = Math.min(...values), max = Math.max(...values), pad = Math.max((max - min) * .16, .08), low = min - pad, high = max + pad;
+    const dates = series[0].rows.map(row => row.date), start = Date.parse(dates[0]), end = Date.parse(dates.at(-1));
+    const x = row => 42 + ((Date.parse(row.date) - start) / Math.max(DAY_MS, end - start)) * 286;
+    const y = row => 126 - (row.value - low) / (high - low) * 96;
+    const ticks = [high, 100, low].sort((a, b) => b - a).filter((value, index, list) => !index || Math.abs(value - list[index - 1]) > .02);
+    const paths = series.map(item => `<path d="${item.rows.map((row, index) => `${index ? 'L' : 'M'}${x(row).toFixed(2)},${y(row).toFixed(2)}`).join(' ')}" class="or-fx-compare-line ${item.code.toLowerCase()}"/>`).join('');
+    const legend = series.map(item => { const change = item.rows.at(-1).value - 100; return `<span class="${item.code.toLowerCase()}"><i></i><b>${item.code}</b> ${change >= 0 ? '+' : ''}${change.toFixed(2)}%</span>`; }).join('');
+    return `<section class="or-fx-compare"><div class="or-fx-compare-head"><b>통화별 변동 비교</b><span>첫 공시일 = 100</span></div><div class="or-fx-compare-legend" aria-hidden="true">${legend}</div><svg class="or-fx-compare-chart" viewBox="0 0 346 150" role="img" aria-label="같은 기준일을 100으로 환산한 USD, CNY, VND 원화 환율 변동 비교">${ticks.map(value => `<line x1="42" x2="328" y1="${y({ value }).toFixed(2)}" y2="${y({ value }).toFixed(2)}" class="or-fx-grid"/><text x="35" y="${(y({ value }) + 3).toFixed(2)}" text-anchor="end">${value.toFixed(1)}</text>`).join('')}${paths}<text x="42" y="145">${dates[0].slice(5)}</text><text x="328" y="145" text-anchor="end">${dates.at(-1).slice(5)}</text></svg><p>세 통화의 실제 공시값을 같은 출발점으로 환산해 변동 폭을 비교합니다. 아래 그래프는 선택 통화의 실제 원화 값입니다.</p></section>`;
+  }
   function contents() {
     const currency = currencies.find(item => item.code === selected), record = records[selected], change = weeklyChange(record.rows);
     const busy = Boolean(active?.busy), current = record.rows.at(-1);
     const week = change ? `${change.percent > 0 ? '+' : ''}${change.percent.toFixed(2)}%` : '비교 자료 없음';
-    return `<header class="or-fx-heading"><div><span>IMPORT COST / DAILY FX</span><h2>매입 통화 환율</h2></div><button type="button" data-fx-refresh ${busy ? 'disabled' : ''} aria-label="공개 일별 환율 다시 조회">${busy ? '조회 중…' : '새로고침 ↻'}</button></header><p class="or-fx-intro">외부 일별 기준환율 · 실시간 체결가 아님</p><div class="or-fx-currencies" role="group" aria-label="환율 통화 선택">${currencies.map(item => { const entry = records[item.code], latest = entry.rows.at(-1); return `<button type="button" data-fx-currency="${item.code}" aria-pressed="${selected === item.code}" class="${selected === item.code ? 'active' : ''}"><span>${item.unit} ${item.code}</span><strong>${latest ? '₩' + rateText(latest.rate, item.code) : '—'}</strong><small>${item.name}${entry.error ? ' · 조회 실패' : entry.cached ? ' · 저장값' : ''}</small></button>`; }).join('')}</div><div class="or-fx-week"><span>직전 1주 변화</span><b class="${change && change.percent > 0 ? 'up' : change && change.percent < 0 ? 'down' : ''}" data-fx-weekly>${week}</b><small>${change ? `${change.baseline.date} → ${change.latest.date} · ${change.absolute > 0 ? '+' : change.absolute < 0 ? '−' : ''}₩${rateText(Math.abs(change.absolute), selected)}` : '최근 공시일의 7일 전까지 기준 공시가 필요합니다.'}</small></div><div data-fx-chart-container>${chartMarkup(record, currency)}</div><div class="or-fx-status ${record.error ? 'error' : ''}" role="status"><b>${busy ? '공개 API 확인 중 · ' : ''}${status(record)}</b><span>환율 공시 ${current?.date || '없음'} · 최근 성공 ${timeText(record.fetchedAt)}</span><span>조회 시도 ${timeText(record.checkedAt)}${record.error ? ` · ${esc(record.error)}` : ''}</span></div><p class="or-fx-note">화면에 보이는 동안 30분마다 재확인합니다. 주간 변화는 최신 공시의 7일 전 또는 그 이전 가장 가까운 공시와 비교합니다. 주말·휴장일을 새 공시로 만들지 않으며, 선은 공시점 사이의 안내선입니다. VND는 100동 기준입니다.</p><footer class="or-fx-source"><a href="https://www.bnm.gov.my/exchange-rates" target="_blank" rel="noopener noreferrer">Bank Negara Malaysia ↗</a><a href="https://frankfurter.dev/providers/bnm/" target="_blank" rel="noopener noreferrer">Frankfurter v2 경유 ↗</a><span>브랜드 분석의 합성 데이터와 별도 · 매입 환전 수수료·거래 스프레드 미포함</span></footer>`;
+    return `<header class="or-fx-heading"><div><span>IMPORT COST / DAILY FX</span><h2>매입 통화 환율</h2></div><button type="button" data-fx-refresh ${busy ? 'disabled' : ''} aria-label="공개 일별 환율 다시 조회">${busy ? '조회 중…' : '새로고침 ↻'}</button></header><p class="or-fx-intro">외부 일별 기준환율 · 실시간 체결가 아님</p><div class="or-fx-currencies" role="group" aria-label="환율 통화 선택">${currencies.map(item => { const entry = records[item.code], latest = entry.rows.at(-1); return `<button type="button" data-fx-currency="${item.code}" aria-pressed="${selected === item.code}" class="${selected === item.code ? 'active' : ''}"><span>${item.unit} ${item.code}</span><strong>${latest ? '₩' + rateText(latest.rate, item.code) : '—'}</strong><small>${item.name}${entry.error ? ' · 조회 실패' : entry.cached ? ' · 저장값' : ''}</small></button>`; }).join('')}</div>${comparisonMarkup()}<div class="or-fx-week"><span>${selected} 직전 1주 변화</span><b class="${change && change.percent > 0 ? 'up' : change && change.percent < 0 ? 'down' : ''}" data-fx-weekly>${week}</b><small>${change ? `${change.baseline.date} → ${change.latest.date} · ${change.absolute > 0 ? '+' : change.absolute < 0 ? '−' : ''}₩${rateText(Math.abs(change.absolute), selected)}` : '최근 공시일의 7일 전까지 기준 공시가 필요합니다.'}</small></div><div data-fx-chart-container>${chartMarkup(record, currency)}</div><div class="or-fx-status ${record.error ? 'error' : ''}" role="status"><b>${busy ? '공개 API 확인 중 · ' : ''}${status(record)}</b><span>환율 공시 ${current?.date || '없음'} · 최근 성공 ${timeText(record.fetchedAt)}</span><span>조회 시도 ${timeText(record.checkedAt)}${record.error ? ` · ${esc(record.error)}` : ''}</span></div><p class="or-fx-note">화면에 보이는 동안 30분마다 재확인합니다. 주간 변화는 최신 공시의 7일 전 또는 그 이전 가장 가까운 공시와 비교합니다. 주말·휴장일을 새 공시로 만들지 않으며, 선은 공시점 사이의 안내선입니다. VND는 100동 기준입니다.</p><footer class="or-fx-source"><a href="https://www.bnm.gov.my/exchange-rates" target="_blank" rel="noopener noreferrer">Bank Negara Malaysia ↗</a><a href="https://frankfurter.dev/providers/bnm/" target="_blank" rel="noopener noreferrer">Frankfurter v2 경유 ↗</a><span>브랜드 분석의 합성 데이터와 별도 · 매입 환전 수수료·거래 스프레드 미포함</span></footer>`;
   }
-  function render() { loadCache(); return `<section class="or-fx" data-or-fx aria-label="외부 일별 환율">${contents()}</section>`; }
-  function paint(binding = active) { if (binding && active === binding && binding.element.isConnected) binding.element.innerHTML = contents(); }
+  function render() { loadCache(); return `<section class="or-fx" data-or-fx data-fx-selected="${selected}" aria-label="외부 일별 환율">${contents()}</section>`; }
+  function paint(binding = active) { if (binding && active === binding && binding.element.isConnected) { binding.element.dataset.fxSelected = selected; binding.element.innerHTML = contents(); } }
   async function refresh(binding = active) {
     if (!binding || active !== binding || binding.busy || global.document.hidden || !binding.visible) return;
     binding.busy = true; binding.lastAttempt = Date.now();
@@ -174,6 +199,6 @@
     previous.controller?.abort(); clearInterval(previous.timer); previous.observer?.disconnect(); previous.cleanup?.();
   }
   const api = Object.freeze({ render, bind, destroy });
-  if (typeof module !== 'undefined' && module.exports) module.exports = { normalizeRows, weeklyChange, monthStart, shiftDate, rateText, REFRESH_MS };
+  if (typeof module !== 'undefined' && module.exports) module.exports = { normalizeRows, normalizedComparison, weeklyChange, monthStart, shiftDate, rateText, REFRESH_MS };
   else global.OrdoFx = api;
 }(typeof window !== 'undefined' ? window : globalThis));
