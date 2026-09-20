@@ -8,9 +8,9 @@
 
 **Version 1.1.0 · 2026-09-19 · Daytona verified demo**
 
-[Daytona DEV Demo](https://3001-qjbnuhh9kvnqqhng.daytonaproxy01.net/#entry) · [최종 3분 영상](./docs/video/Ordo-AI_DEV-Demo_3MIN_FINAL_v4.mp4) · [Daytona 구현 명세](./docs/DAYTONA.md) · [최종 릴리스 기록](./docs/FINAL_RELEASE.md)
+[DEV Demo](https://ordo-ai-decision-os-jihyu.jihyunkims495.chatgpt.site/#entry) · [최종 3분 영상](./docs/video/Ordo-AI_DEV-Demo_3MIN_FINAL_v4.mp4) · [최종 릴리스 기록](./docs/FINAL_RELEASE.md)
 
-> **주소 안내:** Daytona DEV는 2026-09-19 **18:07 KST까지** 열리는 독립 시연 환경입니다. 영구 주소가 아니며 처음 접속하면 Daytona 안내 화면이 나올 수 있습니다. Nosana·DNSimple은 최종 시연 구성에 사용하지 않았습니다.
+
 
 ![ORDO AI entry](./docs/screenshots/01-main-entry.jpg)
 
@@ -87,42 +87,6 @@ Supabase 기반 데이터 모델을 검토하며 SKU별 주문, 일별 판매, �
 
 Figma와 Claude는 Today에서 Reports까지 이어지는 주요 Feature별 정보 구조, 사용자 동선, 지표 우선순위와 와이어프레임을 설계하는 데 사용했습니다. 복잡한 데이터를 한 화면에 나열하기보다 `모니터링 → 분석 → 판단 → 시뮬레이션 → 보고` 순서로 배치해 처음 사용하는 MD도 다음 행동을 찾을 수 있도록 했습니다.
 
-## 실행 방법
-
-별도 빌드 과정이나 API 키가 필요하지 않습니다. Node.js가 설치되어 있다면 다음 명령으로 실행합니다.
-
-```powershell
-cd Project\Ordo-AI
-node tools\serve.mjs
-```
-
-브라우저에서 `http://127.0.0.1:4173`을 열면 Entry 화면부터 시작합니다.
-
-Python을 사용하는 환경에서는 아래 명령으로도 실행할 수 있습니다.
-
-```powershell
-python -m http.server 4173 --directory app
-```
-
-## 프로젝트 구조
-
-```text
-Ordo-AI/
-├─ README.md
-├─ CHANGELOG.md           # Version 1 범위와 변경 기록
-├─ app/                    # 실행 가능한 정적 프로토타입
-├─ daytona/                # 독립 시연 서버·브라우저 확장·배포 API 코드
-├─ docs/
-│  ├─ FINAL_RELEASE.md     # 최종 릴리스와 검증 기록
-│  ├─ DAYTONA.md           # 실제 구현 범위·API·재현 방법
-│  ├─ video/              # 최종 3분 MP4 (v4)
-│  ├─ evidence/           # 키를 포함하지 않는 실행 검증 기록
-│  ├─ assets/             # 스폰서 크레딧 배너
-│  └─ screenshots/        # Daytona 실행본의 실제 화면 캡처
-└─ tools/
-   ├─ capture-snapshots.js # 스냅샷 생성 스크립트
-   └─ serve.mjs            # 의존성 없는 로컬 정적 서버
-```
 
 ## 현재 결과
 
@@ -137,31 +101,13 @@ Ordo-AI/
 
 현재 버전은 정적 화면에 독립 서버 계산을 추가한 시연입니다. 실시간 주문 수집, 운영 Supabase 연결, 외부 AI 추론, 실제 PO 전송, 예측 백테스트는 아직 연결되지 않았습니다.
 
-## Daytona 실제 구현
-
-Daytona를 **독립 웹 실행 환경과 재현 가능한 시나리오 계산 서버**로 사용했습니다. 정적 자산과 계산 엔진을 전용 샌드박스에 배치했으며, 화면 오른쪽 아래 `DAYTONA · 서버 시뮬레이션`을 누르면 실제 서버 실행을 확인할 수 있습니다.
-
-```text
-Daytona가 제공하는 Ordo 시연 화면
-→ 선택 SKU·기간·수동 물량·주간 판매 패턴
-→ POST /api/simulate (동일 출처)
-→ 입력·기준일·실행 한도 검증
-→ Daytona Node.js에서 기존 workbench-model.js 실행
-→ 보수 / 균형 / 수요 확대 3개 시나리오 + 실행 ID·시간·결과 해시
-→ MD가 결과와 제약을 검토 (공급업체 전송 없음)
-```
-
-**검증 결과:** 실제 Daytona 자동·수동 물량·주간 판매 입력 3회 / 9개 시나리오가 동일한 로컬 계산 결과와 정확히 일치했습니다. 입력 오류, 파일 노출 차단, 실행 한도·만료 처리도 테스트했습니다. [실행 검증 기록](./docs/evidence/daytona-demo-evidence.json)
-
-화면의 기존 계산과 로컬 발주 기록은 기존 클라이언트 동작을 유지하며, 새 버튼에서 요청한 계산만 서버에서 수행합니다. 독립 SKU 결과는 전체 포트폴리오의 예산 배분 전이며, 합성 데이터 기반입니다. 배포·시작 방법과 제한은 [Daytona 명세](./docs/DAYTONA.md)를 확인하세요.
-
 ![Daytona 서버 계산 결과](./docs/screenshots/08-daytona-server.jpg)
 
 ## 최종 시연 영상과 화면
 
 [**최종 3분 MP4 보기 / 다운로드 — v4**](./docs/video/Ordo-AI_DEV-Demo_3MIN_FINAL_v4.mp4)
 
-영상은 메인 탐색, 주요 화면, 주간 판매 수동 시뮬과 최종 발주 흐름을 담은 기존 최종 편집본입니다. **Daytona 버튼 추가 전 녹화본**이므로 서버 연동 장면은 아래 최신 캡처와 실행 기록으로 별도 제시합니다. GitHub가 미리보기를 제공하지 않으면 영상 파일 페이지에서 다운로드할 수 있습니다.
+영상은 메인 탐색, 주요 화면, 주간 판매 수동 시뮬과 최종 발주 흐름을 담은 기존 최종 편집본입니다.GitHub가 미리보기를 제공하지 않으면 영상 파일 페이지에서 다운로드할 수 있습니다.
 
 | 최신 캡처 | 화면 |
 | --- | --- |
@@ -177,13 +123,17 @@ Daytona가 제공하는 Ordo 시연 화면
 
 캡처는 최종 Daytona 실행본의 실제 브라우저 화면입니다. 긴 페이지를 축소·합성하지 않아 스크롤 아래의 흰색 배경이 섞였던 이전 캡처 방식을 사용하지 않습니다.
 
-## 향후 계획
+## 향후 업그레이드 계획
 
 1. 주문·판매·재고 API와 실데이터를 연결하고 예측 백테스트를 반복해 정확도와 학습력을 높입니다.
 2. 실 매출 비중, 시즌, 상품 타입별 성과와 이상 징후를 지속 학습하고 리오더 마감 시점과 위험을 알리는 모니터링을 연결합니다.
 3. 운영 브랜드의 컨셉과 상품 명세를 업로드하면 AI가 브랜드 현 컨디션, 시장과 유저를 함께 분석하도록 확장합니다.
 4. 학습된 브랜드 맥락을 기반으로 시즌 초 P&L과 카테고리·SKU별 물량 계획을 제안합니다.
 5. 정확도가 검증된 결과에 한해 발주 시스템과 연결하되 최종 승인 권한은 MD에게 유지합니다.
+6. 커머스 MD가 가장 어려워 하고 감에 의존하고 있는, 앞으로의 시장 확장성과 내외부 유저 분석에 따른 수익화 현금 계획과 최초 물량 계획을 AI가 브랜드들의 명세를 읽어 시뮬레이션하여 시나리오를 제안합니다.
+7. 최종 발주 후, 생산처에서 excel로 관리되는 수주 시스템을 csv로 자동 변환해 본사에서도 생산처의 현황을 실시간 모니터링 할 수 있도록 합니다.
+8. 리오더된 물량이 본사 물류로 입고된 후, 실시간 고객 주문에 따른 물류 AI 피킹 로봇이 직접 수불과 입출고를 관리하게 합니다.
+   
 
 ## 기술 구성
 
