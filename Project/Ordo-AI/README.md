@@ -148,13 +148,4 @@ Figma와 Claude는 Today에서 Reports까지 이어지는 주요 Feature별 정�
 
 주문·재고·예측·추천은 실제 운영 구조를 모사한 합성 데모 데이터입니다. 환율 위젯은 이와 별도로 외부 일별 공시 API를 조회하며, 조회 실패 시 실패 상태를 표시합니다. 실시간 체결 환율이 아닙니다. 현재 공개 버전은 라이브 데이터베이스, 운영 스케줄러, 외부 AI 추론 또는 실제 발주 전송이 연결된 제품이라고 주장하지 않습니다.
 
----
 
-<div align="center">
-  <a href="https://www.daytona.io/">
-    <img src="./docs/assets/daytona-sponsor.svg" alt="Daytona — Hackathon Sponsor · Isolated simulation runtime" width="900">
-  </a>
-  <br>
-  <strong>Built for better decisions. Executed with Daytona.</strong>
-  <p>해커톤 스폰서 · 격리된 시뮬레이션 실행 환경<br>동일한 입력, 검증 가능한 실행, 근거 있는 MD의 결정.</p>
-</div>
