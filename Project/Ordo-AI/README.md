@@ -66,7 +66,6 @@ Version 1은 리오더 의사결정 경험을 검증하기 위한 첫 제출 가
 - **Codex**: 핵심 구현 도구로 활용해 데이터 구조와 결정 규칙을 정리하고, 관측·예측값 가공, KPI 계산, 화면 구현과 검증을 수행했습니다.
 - **Supabase**: 일별 주문·판매, 재고, 예상 판매일수, 리드타임, MOQ, 원가와 환율 샘플을 담는 데이터 모델의 기반으로 검토했습니다. 공개 데모는 라이브 Supabase가 아닌 버전 고정형 정적 스냅샷을 사용합니다.
 - **Figma·Claude**: Today, Overview, Decisions, Simulator, Reports 등 주요 Feature별 정보 구조, 사용자 동선, 핵심 관리 지표의 우선순위와 와이어프레임 설계에 활용했습니다.
-- **Daytona**: 기존 계산 코드와 정적 화면을 별도 샌드박스에 배치했습니다. 서버 시뮬레이션 버튼이 선택 상품·예측 기간·수동 물량·주간 판매 입력을 전달하면 서버에서 3개 시나리오를 계산해 실행 ID와 결과를 반환합니다.
 
 ## 샘플 데이터 구성
 
@@ -121,8 +120,6 @@ Figma와 Claude는 Today에서 Reports까지 이어지는 주요 Feature별 정�
 | [Daytona 실행](./docs/screenshots/08-daytona-server.jpg) | 실제 서버 계산 완료 |
 | [Daytona 결과 상세](./docs/screenshots/09-daytona-results.jpg) | 세 시나리오 전체 결과와 데이터 경계 |
 
-캡처는 최종 Daytona 실행본의 실제 브라우저 화면입니다. 긴 페이지를 축소·합성하지 않아 스크롤 아래의 흰색 배경이 섞였던 이전 캡처 방식을 사용하지 않습니다.
-
 ## 향후 업그레이드 계획
 
 1. 주문·판매·재고 API와 실데이터를 연결하고 예측 백테스트를 반복해 정확도와 학습력을 높입니다.
@@ -142,7 +139,7 @@ Figma와 Claude는 Today에서 Reports까지 이어지는 주요 Feature별 정�
 - Data modeling foundation: Supabase schema and synthetic sample design
 - UX architecture and wireframe: Figma
 - Isolated execution: Daytona Sandbox + Node.js HTTP API (실행 검증 완료)
-- Deployment: 기존 정적 제출 웹 유지 + 별도 Daytona DEV 실행본
+
 
 ## 공개 데모의 데이터 경계
 
