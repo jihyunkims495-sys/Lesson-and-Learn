@@ -22,7 +22,7 @@ HTML로 웹 문서의 구조와 의미를 만들고 CSS로 화면의 표현을 �
 | 2026-09-16 | CSS 선택자·상대 단위·박스 모델·display, Flexbox 1차원 정렬 | [Preview](./2026-09-16/01-preview-notes-01-css-layout-responsive.md) · [Learning Notes](./2026-09-16/02-learning-notes-01-css-box-model-flexbox.md) · [TIL](./2026-09-16/04-til-01-css-box-model-flexbox.md) |
 | 2026-09-17 | 3장 1강: Flexbox 방향·정렬·크기 조절과 CSS Grid | [Preview](./2026-09-17/01-preview-notes-01-flexbox-grid.md) · [Learning Notes](./2026-09-17/02-learning-notes-01-flexbox-grid.md) · [TIL](./2026-09-17/04-til-01-flexbox-grid.md) |
 | 2026-09-18 | 3장 2강: 반응형 웹, CSS Grid와 미디어 쿼리 | [Preview](./2026-09-18/01-preview-notes-01-responsive-tailwind.md) · [Learning Notes](./2026-09-18/02-learning-notes-01-responsive-media-query.md) · [Practice](./2026-09-18/03-practice-01-responsive-media-query.md) · [TIL](./2026-09-18/04-til-01-responsive-media-query.md) |
-| 2026-09-23 | 4장 1~2강·5장 2강: JavaScript 실행 환경·기초 문법·프로토타입 기반 클래스 | [Preview](./2026-09-23/01-preview-notes-01-javascript-runtime-prototype-class.md) · [Learning Notes](./2026-09-23/02-learning-notes-01-javascript-runtime-prototype-class.md) · [TIL](./2026-09-23/04-til-01-javascript-runtime-prototype-class.md) |
+| 2026-09-23 | 5장 2강 중심: let·const·this와 프로토타입 기반 상속·클래스 모델링 | [Preview](./2026-09-23/01-preview-notes-01-javascript-runtime-prototype-class.md) · [Learning Notes](./2026-09-23/02-learning-notes-01-javascript-runtime-prototype-class.md) · [TIL](./2026-09-23/04-til-01-javascript-runtime-prototype-class.md) |
 
 ## Practice source
 

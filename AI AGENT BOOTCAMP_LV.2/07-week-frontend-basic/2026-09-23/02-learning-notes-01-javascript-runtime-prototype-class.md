@@ -1,165 +1,174 @@
-# Learning Notes — JavaScript 실행 원리와 프로토타입 기반 클래스
+# Learning Notes — 프로토타입 기반 상속과 클래스 모델링
 
 - 날짜: 2026-09-23
 - Level / Week: LV.2 / Week 7
-- 과정: 프론트엔드 개발
-- 학습 범위: 4장 1강, 4장 2강, 5장 2강
-- 제외 범위: 4장 3강, 5장 1강
-- 정리 근거: 당일 수업 중 개념 질의응답과 지정 교안
-- 실행 여부: 브라우저·Node.js·Jupyter 코드 실행 없음
+- 중심 범위: 5장 2강 — 프로토타입 기반 상속 및 클래스 모델링
+- 핵심 연결 개념: `let`, `const`, `this`
+- 제외 범위: 4장 1강, 4장 2강의 일반 문법, 4장 3강, 5장 1강
+- 정리 근거: 당일 수업 중 개념 질의응답과 5장 2강 교안
+- 학습 형태: 개념 정리만 진행, 실습 없음
+- 실행 여부: 코드 작성·브라우저·Node.js·Jupyter 실행 없음
 
-## 오늘 실제로 확인한 내용
+## 오늘 실제로 확인한 범위
 
-수업 중에는 JavaScript가 실행되는 환경, `console.log()`, 변수와 값의 종류, 호이스팅과 스코프, 프로토타입과 클래스 상속, 프로퍼티 제어, 객체 잠금과 JSON 직렬화를 질문하고 설명을 들었다.
+오늘 학습의 중심은 JavaScript의 객체가 프로토타입을 통해 기능을 공유하는 방식과, 그 구조를 클래스 문법으로 표현하는 방법이었다. 수업 중에는 `let`, `const`, `this`, 프로퍼티, 생성자, `new`, 프로토타입, 상속, 오버라이딩, 캡슐화, 객체 잠금과 JSON 직렬화를 질문하고 설명을 들었다.
 
-| 영역 | 실제 확인한 질문·개념 | 근거 상태 |
+| 영역 | 실제 확인한 내용 | 근거 상태 |
 |---|---|---|
-| 실행 환경 | 브라우저에서 JavaScript가 구동되는 방식, Python과의 차이 | 질의응답 |
-| 출력 | `console.log()`의 목적과 Python `print()`와의 비교 | 질의응답 |
-| 값과 변수 | 원시 타입 값, 객체 타입 값, 호이스팅, 스코프 | 질의응답 |
-| 객체 모델 | 프로토타입, 클래스 상속, `new`, 오버라이딩 | 질의응답 |
-| 프로퍼티 | 일반 프로퍼티, 데이터·접근자 프로퍼티 | 질의응답 |
-| 객체 제어 | 캡슐화, `Object.seal()`, `Object.freeze()` | 질의응답 |
-| 데이터 교환 | JSON과 직렬화의 목적 | 질의응답 |
+| 변수와 객체 | `let`, `const`, `const` 객체의 프로퍼티 변경 | 질의응답 |
+| 객체 기준 | `this`가 메서드 호출 객체와 새 인스턴스를 가리키는 방식 | 질의응답 |
+| 객체 생성 | 생성자 함수, `new`의 내부 과정 | 질의응답 |
+| 기능 공유 | 프로토타입과 프로토타입 체인 | 질의응답 |
+| 클래스 | `class`, `constructor`, `extends`, `super()`, 오버라이딩 | 질의응답 |
+| 프로퍼티 제어 | 데이터·접근자 프로퍼티, 캡슐화, 디스크립터 | 질의응답·교안 보강 |
+| 객체 잠금 | `preventExtensions`, `seal`, `freeze` | 질의응답·교안 보강 |
+| 데이터 변환 | JSON 직렬화·역직렬화와 한계 | 질의응답·교안 보강 |
 
-사용자가 직접 코드를 작성하거나 실행한 기록과 종료 복습 답안은 없으므로, 독립 적용 능력이나 이해 완료 여부는 평가하지 않는다.
+오늘은 실습이나 오류 해결 없이 개념 정리만 진행했다. 사용자가 직접 코드를 작성하거나 실행한 기록과 종료 복습 답안은 없다. 따라서 개념을 독립적으로 적용할 수 있는지와 이해 완료 여부는 평가하지 않는다.
 
-## 1. JavaScript는 어디에서 실행되는가
+## 1. `let`과 `const`
 
-JavaScript 코드는 실행 환경에 포함된 JavaScript 엔진이 해석하고 실행한다.
+`let`과 `const`는 모두 블록 단위로 사용할 수 있는 변수 선언 키워드다. 오늘 수업에서는 클래스 인스턴스와 객체 상태를 다룰 때 어떤 선언을 선택하는지에 초점을 맞췄다.
 
-- 브라우저: HTML 요소, 사용자 입력과 브라우저 기능을 다루는 JavaScript 실행 환경
-- Node.js: 브라우저 밖의 로컬 컴퓨터나 서버에서 JavaScript를 실행하는 런타임
-- Jupyter + ijavascript: 코드와 실행 결과를 Notebook 셀 단위로 기록하는 학습 환경
-
-브라우저에서는 `<script>`에 작성한 코드나 개발자 도구 Console의 코드를 실행할 수 있다. Node.js에서는 `.js` 파일이나 대화형 환경을 터미널에서 실행한다.
-
-### JavaScript와 Python 비교
-
-두 언어 모두 변수 선언 시 타입을 미리 적지 않는 동적 타입 언어다. 다만 주로 사용되는 실행 환경과 문법 표현에 차이가 있다.
-
-| 구분 | JavaScript | Python |
-|---|---|---|
-| 대표 실행 환경 | 브라우저, Node.js | Python 인터프리터, 서버·데이터 환경 |
-| 코드 블록 | 중괄호 `{}` | 들여쓰기 |
-| 출력 | `console.log()` | `print()` |
-| 웹페이지 제어 | 브라우저에서 DOM과 이벤트를 직접 다룸 | 일반적으로 웹 백엔드나 데이터 처리에 사용 |
-
-### `console.log()`를 쓰는 이유
-
-`console.log()`는 변수 값, 연산 결과와 코드가 특정 지점까지 실행됐는지를 확인하는 가장 기본적인 디버깅 도구다.
+- `let`: 같은 변수에 다른 값을 다시 대입해야 할 때 사용
+- `const`: 변수가 가리키는 대상을 다시 바꾸지 않을 때 사용
 
 ```javascript
-const price = 39000;
-console.log("가격:", price);
-```
+let discountRate = 0.1;
+discountRate = 0.2;
 
-Python의 `print()`와 출력 목적은 비슷하다. 브라우저에서 `console.log()`의 결과는 웹페이지 본문이 아니라 개발자 도구 Console에 나타난다.
-
-## 2. 프로퍼티와 값의 종류
-
-프로퍼티는 객체 안에서 데이터를 구분하는 이름과 그 값의 한 쌍이다.
-
-```javascript
 const product = {
   name: "셔츠",
   price: 39000
 };
 ```
 
-위 객체에서 `name`과 `price`는 프로퍼티 키이고, `"셔츠"`와 `39000`은 각 프로퍼티의 값이다. 값이 함수이면 보통 메서드라고 부른다.
-
-### 원시 타입 값
-
-Number, String, Boolean, `null`, `undefined`, BigInt, Symbol 같은 값은 원시 타입이다. 다른 변수에 대입하면 값 자체가 복사된다.
+`const`는 변수의 재할당을 막는다. 객체 내부까지 자동으로 변경 불가능하게 만드는 것은 아니다.
 
 ```javascript
-let original = 10;
-let copied = original;
-copied = 20;
+product.price = 35000; // 가능
 
-console.log(original); // 10
+// product = { name: "바지" }; // TypeError
 ```
 
-### 객체 타입 값
+즉, `const`와 객체 동결은 다른 개념이다. 객체의 내부 변경까지 막으려면 `Object.freeze()` 같은 별도 제어가 필요하다.
 
-객체, 배열과 함수는 객체 타입으로 다뤄진다. 객체를 다른 변수에 대입하면 두 변수가 같은 객체를 가리킬 수 있다.
+## 2. `this` 키워드
+
+`this`는 일반 변수처럼 값을 선언해 두는 이름이 아니라, 함수가 실행되는 방식에 따라 기준이 되는 객체를 가리키는 키워드다.
+
+### 메서드에서의 `this`
 
 ```javascript
-const original = { stock: 10 };
-const copied = original;
-copied.stock = 20;
+const product = {
+  name: "셔츠",
+  showName() {
+    return this.name;
+  }
+};
 
-console.log(original.stock); // 20
+product.showName();
 ```
 
-`const`는 변수에 다른 값을 다시 대입하는 것을 막지만, 그 변수가 가리키는 객체 내부의 프로퍼티 변경까지 자동으로 막지는 않는다.
+`product.showName()`처럼 호출하면 메서드 안의 `this`는 보통 메서드 앞의 `product`를 가리킨다. 따라서 `this.name`은 `product.name`을 읽는다.
 
-## 3. 호이스팅과 스코프
-
-호이스팅은 JavaScript 엔진이 코드를 실행하기 전에 선언을 먼저 확인하고 등록하는 과정 때문에 선언이 위로 올라간 것처럼 보이는 동작이다. 코드가 실제로 이동하는 것은 아니다.
-
-- `var`: 선언 단계에서 `undefined`로 초기화되어 선언문 전에 읽으면 `undefined`가 나타날 수 있다.
-- `let`, `const`: 선언은 인식되지만 초기화 전에 접근하면 TDZ 때문에 `ReferenceError`가 발생한다.
+### 생성자에서의 `this`
 
 ```javascript
-console.log(oldValue); // undefined
-var oldValue = 10;
-
-// console.log(newValue); // ReferenceError
-let newValue = 10;
-```
-
-스코프는 변수에 접근할 수 있는 유효 범위다.
-
-- 전역 스코프: 프로그램의 넓은 범위에서 접근 가능
-- 함수 스코프: 함수 내부에서 접근 가능
-- 블록 스코프: `{}` 블록 내부에서 접근 가능
-
-`var`는 함수 스코프를 따르고, `let`과 `const`는 블록 스코프를 따른다.
-
-```javascript
-if (true) {
-  const message = "블록 내부";
-  console.log(message);
+function Product(name, price) {
+  this.name = name;
+  this.price = price;
 }
 
-// console.log(message); // ReferenceError
+const shirt = new Product("셔츠", 39000);
 ```
 
-호이스팅은 JavaScript만의 독립적인 기능이라기보다, JavaScript 엔진의 선언 처리 방식에서 드러나는 대표적인 언어 특성이다. 특히 `var`, 함수 선언문과 클래스가 서로 다르게 동작하므로 실행 순서를 읽을 때 중요하다.
+`new Product()`로 호출하면 생성자 안의 `this`는 새로 만들어지는 인스턴스를 가리킨다. `this.name = name`은 그 새 인스턴스에 `name` 프로퍼티를 추가한다.
 
-## 4. 프로토타입과 클래스 상속
+`this`는 언제나 같은 객체를 가리키는 고정 변수는 아니다. 오늘 학습에서는 메서드 호출과 `new` 생성자 호출의 맥락에 한정해 확인했다.
 
-프로토타입은 여러 인스턴스가 공통 메서드를 하나만 만들어 공유할 수 있게 하는 연결 객체다. 객체 자체에 요청한 프로퍼티가 없으면 엔진은 내부 프로토타입 링크를 따라 상위 객체를 검색한다.
+## 3. 생성자 함수에서 프로토타입이 필요한 이유
+
+생성자 함수는 같은 구조의 객체를 여러 개 만들 수 있게 한다.
+
+```javascript
+function Product(name, price) {
+  this.name = name;
+  this.price = price;
+}
+```
+
+공통 메서드를 생성자 내부에 정의하면 인스턴스를 만들 때마다 같은 동작의 함수가 각각 생성될 수 있다.
+
+```javascript
+function Product(name) {
+  this.name = name;
+  this.showName = function () {
+    return this.name;
+  };
+}
+```
+
+공통 메서드를 `Product.prototype`에 한 번만 등록하면 모든 인스턴스가 그 메서드를 공유한다.
+
+```javascript
+Product.prototype.showName = function () {
+  return this.name;
+};
+
+const shirt = new Product("셔츠");
+const pants = new Product("바지");
+
+shirt.showName === pants.showName; // true
+```
+
+프로토타입을 사용하는 핵심 이유는 공통 기능을 매번 복사하지 않고 공유하기 위해서다.
+
+## 4. 프로토타입과 프로토타입 체인
+
+JavaScript 객체는 상위 객체를 가리키는 내부 `[[Prototype]]` 연결을 가진다. 객체 자체에 요청한 프로퍼티나 메서드가 없으면 JavaScript 엔진은 이 연결을 따라 상위 객체를 차례로 검색한다.
 
 ```text
-인스턴스
-→ 자식 클래스의 prototype
-→ 부모 클래스의 prototype
+shirt 인스턴스
+→ Product.prototype
 → Object.prototype
 → null
 ```
 
-생성자 안에 메서드를 직접 정의하면 인스턴스를 만들 때마다 함수가 새로 만들어질 수 있다. 공통 메서드를 `prototype`에 두면 여러 인스턴스가 같은 함수를 공유한다.
+| 구분 | 의미 |
+|---|---|
+| `Product.prototype` | 생성자가 만든 인스턴스들이 공유할 메서드를 두는 객체 |
+| 인스턴스의 `[[Prototype]]` | 상위 프로토타입 객체를 가리키는 내부 연결 |
+| `Object.getPrototypeOf(shirt)` | `shirt`의 상위 프로토타입을 조회하는 표준 방법 |
+| `__proto__` | 내부 프로토타입에 접근하는 오래된 접근자이며 직접 조작은 권장되지 않음 |
 
-JavaScript의 `class`와 `extends`는 이 프로토타입 기반 객체 생성과 상속을 더 읽기 쉽게 표현하는 문법이다. 클래스 기반 언어처럼 보이지만 내부 연결의 핵심은 프로토타입이다.
-
-### `new` 연산자
-
-`new`는 생성자나 클래스로 인스턴스를 만들 때 다음 작업을 수행한다.
-
-```text
-새 빈 객체 생성
-→ 생성자의 prototype과 연결
-→ this를 새 객체에 연결
-→ 생성자 실행
-→ 생성된 객체 반환
+```javascript
+Object.getPrototypeOf(shirt) === Product.prototype; // true
 ```
 
-여기서 `this`는 고정된 일반 변수가 아니라, 현재 실행 맥락에서 메서드를 호출한 객체나 `new`로 만들어지고 있는 객체를 가리키는 키워드다. 이번 학습 기록에서는 클래스 생성과 `new`의 흐름 안에서만 확인했다.
+프로토타입 체인은 상속받은 기능을 찾는 검색 경로다. 객체에 동일한 이름의 자체 메서드가 있으면 그 메서드를 먼저 사용하고, 없을 때 상위 프로토타입을 탐색한다.
 
-### 상속과 오버라이딩
+## 5. `new` 연산자의 내부 과정
+
+`new`는 단순히 생성자 함수를 호출하는 것 이상으로 다음 과정을 수행한다.
+
+```text
+1. 새로운 빈 객체 생성
+2. 새 객체의 [[Prototype]]을 생성자의 prototype과 연결
+3. 생성자 안의 this를 새 객체에 바인딩
+4. 생성자 함수를 실행하여 프로퍼티 초기화
+5. 완성된 인스턴스 반환
+```
+
+```javascript
+const shirt = new Product("셔츠", 39000);
+```
+
+이 결과 `shirt`는 자신만의 `name`, `price`를 가지면서 `Product.prototype`에 있는 공통 메서드를 사용할 수 있다.
+
+## 6. 클래스 문법의 실제 구조
+
+ES6의 `class`는 JavaScript의 프로토타입 기반 객체 생성을 더 읽기 쉽게 표현하는 문법이다. 클래스 문법을 쓴다고 해서 내부 동작이 프로토타입과 완전히 분리되는 것은 아니다.
 
 ```javascript
 class Product {
@@ -172,7 +181,27 @@ class Product {
     return `${this.name}: ${this.price}원`;
   }
 }
+```
 
+| 클래스 구성 | 프로토타입 기반 역할 |
+|---|---|
+| `class Product` | 생성자 역할의 클래스 선언 |
+| `constructor()` | 인스턴스 고유 프로퍼티 초기화 |
+| `showInfo()` | `Product.prototype`에 등록되는 공유 메서드 |
+| `new Product()` | 인스턴스 생성과 프로토타입 연결 |
+
+클래스의 주요 제약도 함께 확인했다.
+
+- 클래스는 반드시 `new`와 함께 호출한다.
+- `new` 없이 호출하면 `TypeError`가 발생한다.
+- 클래스 선언 전에 인스턴스를 만들려고 하면 초기화 전 접근 오류가 발생한다.
+- 클래스의 일반 메서드는 인스턴스마다 복사되지 않고 프로토타입을 통해 공유된다.
+
+## 7. 클래스 상속과 오버라이딩
+
+`extends`는 부모 클래스의 기능을 자식 클래스가 사용할 수 있도록 프로토타입 체인을 연결한다.
+
+```javascript
 class FashionProduct extends Product {
   constructor(name, price, size) {
     super(name, price);
@@ -185,16 +214,52 @@ class FashionProduct extends Product {
 }
 ```
 
-- `extends`: 부모와 자식 클래스의 상속 관계 구성
-- `super()`: 자식 생성자에서 부모 생성자 실행
-- 오버라이딩: 부모에게 상속받은 메서드를 자식에서 같은 이름으로 재정의
-- `super.showInfo()`: 오버라이딩한 메서드 안에서 부모의 기존 기능 호출
+- `extends Product`: `FashionProduct`가 `Product`의 기능을 상속
+- `super(name, price)`: 부모 생성자를 실행해 부모 쪽 프로퍼티 초기화
+- `this.size = size`: 자식 인스턴스만의 추가 프로퍼티 설정
+- 오버라이딩: 부모의 `showInfo()`를 자식이 같은 이름으로 재정의
+- `super.showInfo()`: 부모의 원래 메서드를 호출해 기존 기능 재사용
 
-메서드 이름을 모두 외우는 것보다 객체·배열·문자열 등 어떤 대상의 기능인지, 입력과 반환값이 무엇인지, 원본을 변경하는지를 확인하는 습관이 중요하다. 필요한 메서드는 문서와 자동 완성을 찾아 사용하고 반복해서 쓰는 것부터 익힌다.
+자식 클래스의 생성자에서는 `this`를 사용하기 전에 `super()`를 호출해야 한다. 부모 쪽 초기화가 먼저 끝나야 자식 인스턴스의 `this`를 사용할 수 있기 때문이다.
 
-## 5. 데이터 프로퍼티와 접근자 프로퍼티
+### 생성자 함수 방식의 상속
 
-데이터 프로퍼티는 실제 값을 직접 저장한다. 접근자 프로퍼티는 자체 값을 저장하는 대신 `get`과 `set` 함수를 통해 읽기와 쓰기를 제어한다.
+교안에서는 클래스 이전 방식도 함께 다룬다.
+
+```javascript
+function FashionProduct(name, price, size) {
+  Product.call(this, name, price);
+  this.size = size;
+}
+
+FashionProduct.prototype = Object.create(Product.prototype);
+FashionProduct.prototype.constructor = FashionProduct;
+```
+
+- `Product.call(this, ...)`: 부모 생성자의 프로퍼티 초기화 로직을 자식 인스턴스에 적용
+- `Object.create(Product.prototype)`: 자식 프로토타입을 부모 프로토타입과 연결
+- `constructor` 복원: 교체된 자식 프로토타입의 생성자 참조를 다시 설정
+
+클래스의 `extends`와 `super()`는 이 과정을 더 간결하고 안전하게 표현한다.
+
+## 8. 프로퍼티와 캡슐화
+
+프로퍼티는 객체 안에서 데이터를 구분하는 키와 값의 쌍이다. 값이 함수이면 메서드라고 부른다.
+
+### 데이터 프로퍼티
+
+데이터 프로퍼티는 실제 값을 직접 저장한다.
+
+```javascript
+const product = {
+  name: "셔츠",
+  price: 39000
+};
+```
+
+### 접근자 프로퍼티
+
+접근자 프로퍼티는 자체 값을 직접 저장하지 않고 `get`과 `set`으로 읽기와 쓰기 과정을 제어한다.
 
 ```javascript
 const product = {
@@ -205,25 +270,46 @@ const product = {
   },
 
   set price(value) {
-    if (value < 0) return;
+    if (value < 0) {
+      throw new Error("가격은 0 이상이어야 합니다.");
+    }
     this._price = value;
   }
 };
 ```
 
-캡슐화는 데이터와 그 데이터를 변경하는 규칙을 한곳에 묶어 객체가 잘못된 상태가 되지 않도록 관리하는 방식이다. 위 접근자 프로퍼티는 음수 가격이 저장되는 것을 막는 규칙을 객체 안에 둔다.
+이 구조에서는 외부 코드가 `product.price`를 사용하는 동안 실제 저장 위치와 검증 규칙을 객체 내부에서 관리한다. 데이터와 변경 규칙을 함께 묶어 객체가 유효한 상태를 유지하게 하는 것이 캡슐화의 목적이다.
 
-프로퍼티는 값 외에도 다음과 같은 내부 속성을 가진다.
+## 9. 프로퍼티 디스크립터
 
-| 속성 | 역할 |
+데이터 프로퍼티는 값뿐 아니라 수정·열거·재설정 가능 여부를 나타내는 내부 속성을 가진다.
+
+| 속성 | 의미 |
 |---|---|
-| `writable` | 값 수정 허용 여부 |
-| `enumerable` | `Object.keys()`나 반복에서 노출될지 여부 |
-| `configurable` | 삭제와 속성 재설정 허용 여부 |
+| `value` | 저장된 실제 값 |
+| `writable` | 값을 수정할 수 있는가 |
+| `enumerable` | `Object.keys()`나 반복에서 나타나는가 |
+| `configurable` | 삭제하거나 속성 설정을 바꿀 수 있는가 |
 
-`Object.getOwnPropertyDescriptor()`는 프로퍼티 속성을 확인하고, `Object.defineProperty()`는 프로퍼티의 값과 속성을 세부적으로 설정한다.
+```javascript
+const account = {};
 
-## 6. 객체 밀봉과 동결
+Object.defineProperty(account, "balance", {
+  value: 70000,
+  writable: false,
+  enumerable: true,
+  configurable: false
+});
+
+Object.getOwnPropertyDescriptor(account, "balance");
+```
+
+- `Object.defineProperty()`: 프로퍼티와 세부 속성을 정의
+- `Object.getOwnPropertyDescriptor()`: 한 프로퍼티의 속성 설정 조회
+
+## 10. 객체 변경 제한
+
+객체의 구조와 값을 얼마나 제한할지에 따라 세 메서드를 구분한다.
 
 | 메서드 | 프로퍼티 추가 | 프로퍼티 삭제 | 기존 값 수정 |
 |---|---:|---:|---:|
@@ -231,11 +317,23 @@ const product = {
 | `Object.seal()` | 불가 | 불가 | 가능 |
 | `Object.freeze()` | 불가 | 불가 | 불가 |
 
-`Object.seal()`은 객체의 구조를 밀봉하고, `Object.freeze()`는 기존 값의 수정까지 막는다. 다만 두 메서드는 기본적으로 바로 아래 프로퍼티에만 적용된다. 프로퍼티 값이 또 다른 객체라면 그 중첩 객체는 별도로 잠그지 않는 한 변경될 수 있다.
+`Object.seal()`은 객체의 구조를 밀봉하고, `Object.freeze()`는 기존 데이터 프로퍼티의 값 수정까지 막는다.
 
-## 7. JSON과 데이터 직렬화
+```javascript
+const sealedProduct = { price: 39000 };
+Object.seal(sealedProduct);
+sealedProduct.price = 35000; // 기존 값 수정 가능
 
-JSON은 서로 다른 프로그램이 데이터를 주고받을 때 사용할 수 있는 문자열 기반 데이터 형식이다. JavaScript 객체는 실행 중인 메모리에 존재하므로, 파일 저장이나 네트워크 전송을 위해 문자열로 바꾸는 직렬화 과정이 필요하다.
+const frozenProduct = { price: 39000 };
+Object.freeze(frozenProduct);
+// frozenProduct.price = 35000; // 변경되지 않음 또는 strict mode에서 오류
+```
+
+두 메서드는 기본적으로 얕게 적용된다. 중첩 객체까지 변경 불가능하게 만들려면 각 중첩 객체에도 동결 처리가 필요하다.
+
+## 11. JSON 직렬화와 깊은 복사 한계
+
+직렬화는 메모리의 객체 데이터를 파일 저장이나 네트워크 전송에 사용할 수 있는 문자열 형식으로 바꾸는 과정이다.
 
 ```javascript
 const product = {
@@ -247,40 +345,81 @@ const jsonText = JSON.stringify(product);
 const restoredProduct = JSON.parse(jsonText);
 ```
 
-- `JSON.stringify()`: JavaScript 객체를 JSON 문자열로 변환
-- `JSON.parse()`: JSON 문자열을 JavaScript 객체로 변환
+- `JSON.stringify()`: JavaScript 객체 데이터를 JSON 문자열로 변환
+- `JSON.parse()`: JSON 문자열을 JavaScript 객체로 복원
 
-JavaScript 자체를 JSON으로 바꾸는 것이 아니라, JavaScript 프로그램이 메모리에서 다루는 객체 데이터를 JSON 문자열로 변환하는 것이다.
+JavaScript 언어 자체를 JSON으로 바꾸는 것이 아니라, JavaScript 프로그램이 다루는 객체 데이터를 JSON 문자열로 변환하는 것이다.
 
-JSON은 함수, `undefined`, Symbol, 순환 참조와 객체의 프로토타입 정보를 모두 보존하지 않는다. 따라서 모든 객체를 완전하게 복제하는 범용 방법으로 사용할 수 없고, 직렬화 자체가 암호화나 보안 처리를 의미하지도 않는다.
+### JSON 왕복을 이용한 복사
 
-## 8. 이번 기록에서 제외한 내용
+JSON으로 바꾼 뒤 다시 파싱하면 단순한 중첩 객체에서 원본과 참조를 공유하지 않는 복사본을 만들 수 있다.
 
-사용자가 지정한 범위에 따라 다음 내용은 이 Learning Notes에 포함하지 않았다.
+```javascript
+const original = {
+  stock: {
+    online: 10
+  }
+};
 
+const copied = JSON.parse(JSON.stringify(original));
+copied.stock.online = 20;
+
+console.log(original.stock.online); // 10
+```
+
+하지만 다음 정보는 손실되거나 처리할 수 없다.
+
+- 함수와 `undefined`
+- Symbol
+- `Date`, `Map`, `Set` 등 특수 객체의 원래 타입
+- 프로토타입과 클래스 인스턴스 정보
+- 순환 참조
+
+따라서 JSON 왕복은 JSON으로 안전하게 표현되는 단순 데이터에만 제한적으로 사용해야 한다. 직렬화는 암호화가 아니므로 민감정보 보호 수단도 아니다.
+
+## 12. 메서드를 모두 외워야 하는가
+
+JavaScript의 모든 메서드를 외울 필요는 없다. 다음 기준으로 메서드를 읽고 필요한 때 찾아 쓰는 것이 중요하다.
+
+1. 어떤 객체의 메서드인가?
+2. 어떤 값을 입력받는가?
+3. 무엇을 반환하는가?
+4. 원본 객체를 변경하는가?
+5. 실패하거나 처리할 수 없는 값은 무엇인가?
+
+반복해서 사용하는 `Object.getPrototypeOf()`, `Object.defineProperty()`, `JSON.stringify()` 같은 메서드는 자연스럽게 익히고, 나머지는 공식 문서와 자동 완성을 활용한다.
+
+## 이번 기록에서 제외한 내용
+
+- 4장 1강: JavaScript 개발 환경 구성
+- 4장 2강: 호이스팅·스코프·연산자·조건문·반복문·예외 처리 등 일반 기초 문법
 - 4장 3강: 객체 리터럴·배열·내장 객체 일반 학습
 - 5장 1강: 함수 정의·콜백·화살표 함수·호출 스택·클로저·즉시 실행 함수·명시적 바인딩
 
-당일 대화에 관련 질문이 있었더라도 지정된 산출물 범위에는 반영하지 않았다.
+`let`, `const`, `this`는 오늘 5장 2강의 객체·클래스 모델링을 이해하는 핵심 연결 개념으로 포함했다.
 
 ## 핵심 정리
 
-1. JavaScript는 브라우저의 엔진이나 Node.js 런타임에서 실행된다.
-2. `console.log()`는 Python의 `print()`처럼 값과 실행 상태를 확인하지만 브라우저에서는 Console에 출력된다.
-3. 원시 타입 값은 값이 복사되고, 객체 타입 값은 같은 객체를 가리키는 참조를 공유할 수 있다.
-4. 호이스팅은 실행 전 선언 처리 과정에서 나타나며, `var`와 `let`, `const`의 초기화 방식이 다르다.
-5. 클래스 문법은 프로토타입 기반 객체 생성과 상속을 읽기 쉽게 표현한다.
-6. 데이터·접근자 프로퍼티와 객체 잠금은 객체의 상태 변경 규칙을 제어한다.
-7. JSON 직렬화는 객체 데이터를 저장·전송 가능한 문자열로 바꾸는 과정이다.
+1. `let`은 재할당이 필요한 변수, `const`는 같은 바인딩을 유지할 변수에 사용한다.
+2. `const` 객체의 프로퍼티는 변경할 수 있으며, 객체 불변성과는 별개다.
+3. 메서드 호출에서 `this`는 보통 메서드 앞의 객체를, `new` 호출에서는 새 인스턴스를 가리킨다.
+4. 프로토타입은 여러 인스턴스가 공통 메서드를 공유하게 한다.
+5. 프로토타입 체인은 객체에 없는 기능을 상위 객체에서 찾는 경로다.
+6. 클래스 문법은 생성자 함수와 프로토타입 기반 구조를 더 읽기 쉽게 표현한다.
+7. `extends`, `super()`와 오버라이딩으로 부모 기능을 재사용하고 확장한다.
+8. 데이터·접근자 프로퍼티와 디스크립터는 객체 상태의 조회와 변경 규칙을 제어한다.
+9. `seal()`과 `freeze()`는 객체의 구조와 값 변경을 서로 다른 강도로 제한한다.
+10. JSON 직렬화는 객체 데이터를 저장·전송 가능한 문자열로 바꾸지만 모든 JavaScript 값을 보존하지는 않는다.
 
 ## 미실행 및 다음 확인 항목
 
-- Node.js·NPM·NVM과 Jupyter JavaScript 커널 설치 상태 확인
-- 브라우저 Console과 Node.js에서 동일한 `console.log()` 코드 실행 비교
-- `var`, `let`, `const`의 선언 전 접근 결과 실행
-- 원시 값과 객체 참조 대입 코드 실행
+- `let` 재할당과 `const` 객체 프로퍼티 변경 결과 실행
+- 메서드와 `new` 호출에서 `this` 비교
 - 인스턴스 두 개가 프로토타입 메서드를 공유하는지 확인
-- `seal()`과 `freeze()`의 추가·삭제·수정 결과 실행
-- JSON 직렬화에서 함수와 `undefined`가 제외되는 결과 확인
+- `Object.getPrototypeOf()`로 프로토타입 체인 조회
+- 생성자 함수 상속과 클래스 상속 결과 비교
+- `Object.getOwnPropertyDescriptor()` 반환값 확인
+- `seal()`과 `freeze()`의 추가·삭제·수정 결과 비교
+- JSON 직렬화에서 함수·`undefined`·특수 객체가 어떻게 처리되는지 확인
 
-위 항목은 아직 실행하지 않았으므로 성공 결과로 기록하지 않는다.
+위 항목은 실제로 실행하지 않았으므로 성공 결과로 기록하지 않는다.

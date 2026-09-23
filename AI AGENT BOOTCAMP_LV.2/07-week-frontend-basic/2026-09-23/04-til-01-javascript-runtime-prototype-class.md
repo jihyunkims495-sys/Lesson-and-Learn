@@ -1,77 +1,99 @@
-# TIL — JavaScript 실행 환경과 프로토타입 기반 클래스
+# TIL — 프로토타입 기반 상속과 클래스 모델링
 
 - 날짜: 2026-09-23
 - Level / Week: LV.2 / Week 7
-- 학습 범위: 프론트엔드 개발 4장 1강, 4장 2강, 5장 2강
-- 제외 범위: 4장 3강, 5장 1강
+- 중심 범위: 5장 2강 — 프로토타입 기반 상속 및 클래스 모델링
+- 핵심 연결 개념: `let`, `const`, `this`
+- 제외 범위: 4장 1강, 4장 2강의 일반 문법, 4장 3강, 5장 1강
+- 학습 형태: 실습 없이 개념 정리만 진행
 
-## 1. JavaScript가 실행되는 환경
+## 1. `let`, `const`와 객체
 
-JavaScript는 브라우저의 JavaScript 엔진에서 실행된다. 브라우저에서는 HTML 요소와 사용자 이벤트를 다룰 수 있고, Node.js를 사용하면 브라우저 밖의 로컬·서버 환경에서도 JavaScript를 실행할 수 있다.
-
-`console.log()`는 코드의 값과 실행 상태를 확인하는 메서드다. Python의 `print()`와 비슷하지만, 브라우저에서는 웹페이지 본문이 아니라 개발자 도구의 Console에 출력된다. Node.js에서는 터미널에 출력된다.
+`let`은 값의 재할당이 필요할 때 사용하고, `const`는 변수가 다른 값을 다시 가리키지 않게 할 때 사용한다.
 
 ```javascript
-const price = 39000;
+let price = 39000;
+price = 35000;
 
-console.log("가격:", price);
+const product = {
+  name: "셔츠",
+  price: 39000
+};
+
+product.price = 35000;
 ```
 
-## 2. 값과 변수의 유효 범위
+`const`로 객체를 선언해도 객체 내부의 프로퍼티는 변경할 수 있다. `const`는 변수의 재할당을 막는 것이지 객체 자체를 동결하는 기능이 아니다. 객체 내부 변경까지 막으려면 `Object.freeze()` 같은 별도 제어가 필요하다.
 
-JavaScript와 Python은 모두 변수 선언 시 타입을 미리 적지 않는 동적 타입 언어다. JavaScript는 `const`와 `let`으로 변수의 재할당 여부를 구분하고, 중괄호로 코드 블록을 표현한다.
+## 2. `this`는 현재 기준 객체를 가리키는 키워드
 
-원시 타입 값은 다른 변수에 대입할 때 값 자체가 복사된다.
+`this`는 일반 변수라기보다 함수가 호출된 방식에 따라 기준 객체를 가리키는 키워드다.
 
 ```javascript
-let original = 10;
-let copied = original;
+const product = {
+  name: "셔츠",
+  showName() {
+    return this.name;
+  }
+};
 
-copied = 20;
-
-console.log(original); // 10
+product.showName();
 ```
 
-객체 타입 값은 대입된 두 변수가 같은 객체를 가리킬 수 있다.
+`product.showName()`에서 `this`는 `product`를 가리킨다. 생성자를 `new`로 호출하면 생성자 안의 `this`는 새로 만들어지는 인스턴스를 가리킨다.
 
 ```javascript
-const original = { stock: 10 };
-const copied = original;
-
-copied.stock = 20;
-
-console.log(original.stock); // 20
-```
-
-호이스팅은 JavaScript 엔진이 코드를 실행하기 전에 선언을 먼저 확인하고 등록하는 동작이다. 코드가 실제로 위로 이동하는 것은 아니다.
-
-- `var`: 선언이 등록되면서 `undefined`로 초기화된다.
-- `let`, `const`: 선언은 등록되지만 초기화 전에는 TDZ에 있어 접근할 수 없다.
-
-스코프는 변수를 사용할 수 있는 범위다. `var`는 함수 스코프를 따르고, `let`과 `const`는 중괄호를 기준으로 하는 블록 스코프를 따른다.
-
-```javascript
-if (true) {
-  const message = "블록 내부";
-  console.log(message);
+function Product(name, price) {
+  this.name = name;
+  this.price = price;
 }
 
-// console.log(message); // ReferenceError
+const shirt = new Product("셔츠", 39000);
 ```
 
-## 3. 프로토타입과 클래스 상속
+## 3. 프로토타입은 공통 기능을 공유하는 구조
 
-프로토타입은 여러 객체가 공통 메서드를 하나만 만들어 공유할 수 있도록 연결하는 부모 객체다. 객체에서 프로퍼티나 메서드를 찾지 못하면 프로토타입 체인을 따라 상위 객체에서 계속 찾는다.
+생성자 내부에 메서드를 직접 정의하면 인스턴스를 만들 때마다 같은 함수가 중복 생성될 수 있다. 공통 메서드를 생성자의 `prototype`에 두면 여러 인스턴스가 하나의 메서드를 공유한다.
+
+```javascript
+Product.prototype.showInfo = function () {
+  return `${this.name}: ${this.price}원`;
+};
+
+const shirt = new Product("셔츠", 39000);
+const pants = new Product("바지", 59000);
+
+shirt.showInfo === pants.showInfo; // true
+```
+
+객체 자체에 요청한 프로퍼티나 메서드가 없으면 JavaScript 엔진은 상위 프로토타입을 따라 계속 찾는다.
 
 ```text
 인스턴스
-→ 자식 클래스의 prototype
-→ 부모 클래스의 prototype
+→ 생성자의 prototype
 → Object.prototype
 → null
 ```
 
-JavaScript의 `class`와 `extends`는 이 프로토타입 기반 상속을 읽기 쉽게 표현하는 문법이다. 상속은 부모의 메서드를 자식에 매번 복사하는 것이 아니라, 자식 인스턴스가 부모 프로토타입의 기능을 찾아 사용할 수 있게 연결한다.
+이 검색 경로가 프로토타입 체인이다.
+
+## 4. `new`가 인스턴스를 만드는 과정
+
+`new`는 다음 작업을 묶어서 수행한다.
+
+```text
+빈 객체 생성
+→ 생성자의 prototype과 연결
+→ 생성자 안의 this를 새 객체에 연결
+→ 생성자를 실행해 프로퍼티 초기화
+→ 완성된 인스턴스 반환
+```
+
+따라서 인스턴스는 생성자에서 만든 고유 데이터와 프로토타입의 공통 기능을 함께 사용할 수 있다.
+
+## 5. 클래스는 프로토타입 구조를 읽기 쉽게 표현한다
+
+JavaScript의 `class`는 프로토타입 기반 객체 생성과 상속을 더 읽기 쉽게 만든 문법이다.
 
 ```javascript
 class Product {
@@ -81,34 +103,38 @@ class Product {
   }
 
   showInfo() {
-    console.log(`${this.name}: ${this.price}원`);
+    return `${this.name}: ${this.price}원`;
   }
 }
+```
 
+- `constructor()`: 인스턴스의 고유 프로퍼티 초기화
+- 클래스의 일반 메서드: 클래스의 `prototype`을 통해 공유
+- `new Product()`: 인스턴스 생성과 프로토타입 연결
+- 클래스는 `new` 없이 호출할 수 없음
+
+## 6. 상속, `super()`와 오버라이딩
+
+```javascript
 class FashionProduct extends Product {
   constructor(name, price, size) {
     super(name, price);
     this.size = size;
   }
+
+  showInfo() {
+    return `${super.showInfo()}, 사이즈: ${this.size}`;
+  }
 }
 ```
 
-`new`는 새로운 객체를 만들고, 생성자의 프로토타입과 연결한 뒤 생성자를 실행해 객체를 초기화한다.
+`extends`는 부모와 자식 클래스의 프로토타입 체인을 연결한다. 자식 생성자에서는 `this`를 사용하기 전에 `super()`로 부모 생성자를 먼저 실행해야 한다.
 
-```text
-빈 객체 생성
-→ 생성자 prototype과 연결
-→ 생성자 실행 및 this 연결
-→ 완성된 객체 반환
-```
+부모에게 물려받은 메서드를 자식이 같은 이름으로 다시 정의하는 것이 오버라이딩이다. `super.showInfo()`처럼 부모 메서드를 호출하면 기존 기능을 재사용하면서 자식의 기능을 덧붙일 수 있다.
 
-자식 클래스가 부모에게 물려받은 메서드를 같은 이름으로 다시 정의하는 것을 오버라이딩이라고 한다. 부모 메서드가 필요하면 `super.메서드()`로 호출할 수 있다.
+## 7. 프로퍼티와 캡슐화
 
-## 4. 캡슐화와 프로퍼티 제어
-
-캡슐화는 데이터와 변경 규칙을 객체 안에 묶고, 정해진 메서드나 접근자를 통해서만 상태를 다루게 하는 방식이다. 값이 잘못된 상태가 되는 것을 막고 변경 규칙을 한곳에서 관리할 수 있다.
-
-데이터 프로퍼티는 값을 직접 저장한다. 접근자 프로퍼티는 `get`과 `set`을 사용해 값을 읽고 쓰는 과정을 제어한다.
+프로퍼티는 객체 안의 키와 값의 쌍이다. 데이터 프로퍼티는 값을 직접 저장하고, 접근자 프로퍼티는 `get`과 `set`으로 읽기와 쓰기를 제어한다.
 
 ```javascript
 const product = {
@@ -125,7 +151,20 @@ const product = {
 };
 ```
 
-객체 변경 제한은 강도에 따라 구분한다.
+캡슐화는 데이터와 변경 규칙을 객체 안에 묶어 잘못된 상태가 되는 것을 막는 방식이다.
+
+데이터 프로퍼티는 다음과 같은 내부 속성을 가진다.
+
+| 속성 | 역할 |
+|---|---|
+| `writable` | 값 수정 허용 여부 |
+| `enumerable` | 반복과 키 목록에 노출할지 여부 |
+| `configurable` | 삭제와 속성 재설정 허용 여부 |
+
+- `Object.getOwnPropertyDescriptor()`: 프로퍼티 속성 조회
+- `Object.defineProperty()`: 프로퍼티와 세부 속성 정의
+
+## 8. 객체 밀봉과 동결
 
 | 메서드 | 프로퍼티 추가 | 프로퍼티 삭제 | 기존 값 수정 |
 |---|---:|---:|---:|
@@ -133,11 +172,11 @@ const product = {
 | `Object.seal()` | 불가 | 불가 | 가능 |
 | `Object.freeze()` | 불가 | 불가 | 불가 |
 
-이 제한들은 기본적으로 바로 아래 프로퍼티에만 적용된다. 중첩된 객체까지 자동으로 동결되는 것은 아니다.
+`Object.seal()`은 객체의 구조를 밀봉하고, `Object.freeze()`는 기존 값의 수정까지 막는다. 다만 중첩 객체까지 자동으로 잠그는 것은 아니다.
 
-## 5. JSON 직렬화
+## 9. JSON 직렬화
 
-JavaScript 객체는 실행 중인 프로그램의 메모리에 존재한다. 서버로 전송하거나 문자열 기반 저장소에 보관하려면 전달 가능한 문자열 형식으로 변환해야 한다.
+직렬화는 메모리의 객체 데이터를 파일 저장이나 네트워크 전송이 가능한 문자열로 바꾸는 과정이다.
 
 ```javascript
 const product = {
@@ -149,13 +188,21 @@ const jsonText = JSON.stringify(product);
 const restoredProduct = JSON.parse(jsonText);
 ```
 
-- `JSON.stringify()`: JavaScript 객체를 JSON 문자열로 직렬화한다.
-- `JSON.parse()`: JSON 문자열을 JavaScript 객체로 역직렬화한다.
+- `JSON.stringify()`: 객체 데이터를 JSON 문자열로 변환
+- `JSON.parse()`: JSON 문자열을 JavaScript 객체로 복원
 
-JSON 변환은 함수, `undefined`, 특수 객체와 순환 참조를 모두 보존하는 범용 복사 방식이 아니다. 또한 직렬화는 암호화가 아니므로 민감정보 보호 수단으로 사용할 수 없다.
+JSON 왕복을 이용하면 단순한 중첩 객체에서 독립된 복사본을 만들 수 있다. 하지만 함수, `undefined`, Symbol, 특수 객체 타입, 프로토타입과 순환 참조는 온전히 보존되지 않는다. 따라서 JSON 변환은 모든 객체를 위한 범용 깊은 복사나 암호화 방법이 아니다.
 
-## 오늘의 정리
+## 오늘의 핵심 정리
 
-JavaScript는 브라우저와 Node.js에서 실행할 수 있으며, 선언 방식에 따라 호이스팅과 스코프 동작이 달라진다. 클래스 문법은 내부적으로 프로토타입 연결을 사용하고, `new`는 인스턴스 생성과 프로토타입 연결을 함께 수행한다. 캡슐화와 프로퍼티 제어는 객체를 유효한 상태로 유지하고, JSON 직렬화는 객체를 저장·전송 가능한 문자열로 바꾸기 위해 사용한다.
+1. `let`은 재할당이 필요할 때, `const`는 같은 대상을 계속 가리킬 때 사용한다.
+2. `const` 객체의 프로퍼티는 바꿀 수 있으며 객체 동결과는 다르다.
+3. 메서드에서 `this`는 보통 호출 객체를, 생성자에서는 새 인스턴스를 가리킨다.
+4. 프로토타입은 여러 인스턴스가 공통 메서드를 공유하게 한다.
+5. 프로토타입 체인은 객체에 없는 기능을 상위 객체에서 찾는 경로다.
+6. 클래스 문법은 프로토타입 기반 생성과 상속을 읽기 쉽게 표현한다.
+7. `extends`, `super()`와 오버라이딩으로 부모 기능을 재사용하고 확장한다.
+8. 프로퍼티 디스크립터와 객체 잠금은 객체의 변경 규칙을 제어한다.
+9. JSON 직렬화는 객체 데이터를 저장·전송 가능한 문자열로 바꾼다.
 
-이번 기록은 개념 질의응답을 근거로 작성했다. 브라우저·Node.js 코드 실행, 독립적인 코드 작성과 종료 복습은 진행하지 않았으므로 실행 결과나 이해도 완료로 기록하지 않는다.
+이번 기록은 5장 2강 중심의 개념 질의응답을 근거로 작성했다. `let`, `const`, `this`는 클래스와 객체 모델링을 이해하는 핵심 연결 개념으로 포함했다. 오늘은 실습 없이 개념 정리만 진행했으며, 코드 실행·오류 해결·독립적인 코드 작성과 종료 복습은 하지 않았다. 따라서 실행 결과나 이해 완료로 기록하지 않는다.
