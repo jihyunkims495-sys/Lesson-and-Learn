@@ -9,7 +9,20 @@
 | Program | Status | Topics | Archive |
 |---|---|---|---|
 | AI Agent Bootcamp — Level 1 | Completed archive | Git, Python, AI Literacy, Machine Learning, SQL | [Explore Level 1](./AI%20AGENT%20BOOTCAMP_LV.1/) |
-| AI Agent Bootcamp — Level 2 | In progress · 2026-09-08 ~ | Database, Supabase, Frontend, HTML, CSS | [Explore Level 2](./AI%20AGENT%20BOOTCAMP_LV.2/) |
+| AI Agent Bootcamp — Level 2 | In progress · 2026-09-08 ~ | Database, Supabase, Frontend, HTML, CSS, JavaScript | [Explore Level 2](./AI%20AGENT%20BOOTCAMP_LV.2/) |
+
+## Current learning
+
+### LV.2 · Week 08 — Frontend JavaScript
+
+2026-09-29에는 객체·배열과 함수의 정의·실행 과정을 학습했습니다. JavaScript의 많은 함수와 메서드를 외우기보다 MDN 공식 문서에서 문법, 매개변수, 반환값과 예제를 확인하는 방법을 중심으로 정리했습니다.
+
+- [Week 08 overview](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/)
+- [Preview Notes — 객체·배열과 JavaScript 함수](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-09-29/01-preview-notes-01-javascript-core-functions-objects.md)
+- [Learning Notes — 객체·배열과 함수](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-09-29/02-learning-notes-01-objects-arrays-functions.md)
+- [TIL — MDN 활용과 함수 실행 흐름](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-09-29/04-til-01-objects-arrays-functions.md)
+
+구체적인 코드 실행과 오류 해결 기록이 없는 날에는 Practice 문서를 만들지 않고, 확인된 학습 내용과 다음 보강 항목만 기록합니다.
 
 ## Level 1 at a glance
 
@@ -28,6 +41,18 @@ SQL
 ```
 
 Level 1의 전체 커리큘럼과 일자별 학습 기록은 [Level 1 안내 페이지](./AI%20AGENT%20BOOTCAMP_LV.1/README.md)에서 확인할 수 있습니다.
+
+## Level 2 at a glance
+
+```text
+Database & Supabase
+    ↓
+Frontend HTML & CSS
+    ↓
+Frontend JavaScript
+```
+
+Level 2의 현재 커리큘럼과 주차별 학습 기록은 [Level 2 안내 페이지](./AI%20AGENT%20BOOTCAMP_LV.2/README.md)에서 확인할 수 있습니다.
 
 ## How the archive is organized
 
