@@ -37,8 +37,8 @@ Version 1은 리오더 의사결정 경험을 검증하기 위한 첫 제출 가
 - 판단 범위: 상품별 REORDER·WATCH·HOLD, 수량 시나리오, KPI 변화, 판단 근거와 리스크
 - 데이터: 가상 패션 PB 브랜드의 버전 고정형 주문·판매·재고·원가·환율 fixture
 - 검증: JavaScript 문법, JSON 파싱, 정적 자산 참조, README 링크, 16:9 스크린샷과 민감정보 검사
-- Version 1.0 제외: 라이브 Supabase, 운영 주문·재고 API, 외부 AI 추론, 실제 발주 전송, Daytona Sandbox 실행
-- **Version 1.1 추가:** Daytona 호스팅, 서버 시나리오 계산 API, 자동·수동 입력의 원격 실행 검증. 외부 LLM과 실제 발주 전송은 여전히 제외합니다.
+- Version 1.0 제외: 라이브 Supabase, 운영 주문·재고 API, 외부 AI 추론, 실제 발주 전송
+
 
 ## 핵심 기능
 
