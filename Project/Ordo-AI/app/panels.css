@@ -1,4 +1,18 @@
 /* Shared translucent drawers; keep the workspace visible without sacrificing copy contrast. */
+.feature-dialog{width:min(540px,calc(100vw - 32px));max-height:calc(100dvh - 40px);margin:auto;padding:36px;border:1px solid rgba(255,255,255,.55);border-radius:26px;background:linear-gradient(145deg,rgba(228,232,213,.97),rgba(238,212,166,.98));color:#20291e;box-shadow:0 28px 90px rgba(21,29,18,.3);font-family:inherit;overflow:auto}
+.feature-dialog::backdrop{background:rgba(19,27,19,.45);backdrop-filter:blur(8px)}
+.feature-dialog .eyebrow{margin:6px 44px 18px 0;color:#b83f13;font-size:12px;letter-spacing:.1em}
+.feature-dialog h2{font-size:27px;line-height:1.3;letter-spacing:-.04em;word-break:keep-all;margin:0 0 18px}
+.feature-dialog p{font-size:16px;line-height:1.75;color:#374231;word-break:keep-all;margin:0 0 24px}
+.feature-dialog-close{position:absolute;top:18px;right:18px;width:36px;height:36px;border:1px solid rgba(31,45,25,.17);border-radius:50%;background:rgba(255,255,255,.3);color:inherit;font-size:26px;cursor:pointer}
+.feature-dialog .btn{min-height:44px;font-size:14px;border-radius:16px}
+.feature-dialog-confirm{width:100%;margin-top:8px;background:#ff5a1f;color:#fff;border-color:#ff5a1f}
+.feature-dialog-options{display:grid;gap:8px;margin-bottom:20px}.feature-dialog-options[hidden]{display:none}
+.feature-dialog :focus-visible{outline:2px solid #b83f13;outline-offset:4px}
+.how-evidence .btn{display:inline-flex;align-items:center;justify-content:center;margin:16px 0 10px;border-radius:16px;min-height:44px;font-size:14px;text-decoration:none}
+.drawer .how-evidence-note{font-size:13px;line-height:1.6}
+.wb-order-handoff .btn{margin-top:10px;display:block}
+@media(max-width:600px){.feature-dialog{padding:28px 22px}.feature-dialog h2{font-size:23px}.feature-dialog p{font-size:15px}}
 .panel-backdrop { background: rgba(20, 29, 22, .18); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
 .drawer { background: rgba(230, 235, 221, .76); border-left: 1px solid rgba(255, 255, 255, .5); box-shadow: -16px 0 50px rgba(20, 28, 18, .13); backdrop-filter: blur(30px) saturate(1.12); -webkit-backdrop-filter: blur(30px) saturate(1.12); transition: transform .35s; }
 .drawer:not(.calendar-drawer) p { color: #334037; }

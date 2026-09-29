@@ -24,8 +24,16 @@ body.entry-mode .hero-halftone strong {
 }
 body.entry-mode .entry-promise { font-size: 17px; letter-spacing: .01em; }
 
+/* Paint the full document canvas, including scroll/overscroll and long captures. */
+html {
+  min-height: 100%;
+  background: #899083;
+  background-image: var(--ordo-bg);
+  background-attachment: fixed;
+}
 body:not(.entry-mode) {
   background: var(--ordo-bg);
+  background-color: #d7a34d;
   background-attachment: fixed;
   --line: var(--line-glass);
   --muted: #464b41;

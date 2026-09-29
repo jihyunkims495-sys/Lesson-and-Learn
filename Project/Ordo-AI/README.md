@@ -6,9 +6,9 @@
 
 패션 커머스 브랜드의 매출·물량·재고·현금·발주 데이터를 하나로 연결해 실시간 현황 확인부터 예측, 리스크 탐지, 리오더 판단과 물량 제안까지 지원하는 AI MD 의사결정 프로토타입입니다.
 
-**Version 1.1.0 · 2026-09-19 · Daytona verified demo**
+**Version 1.2.0 · 2026-09-29 · Research tab**
 
-[DEV Demo](https://ordo-ai-decision-os-jihyu.jihyunkims495.chatgpt.site/#entry) · [최종 3분 영상](./docs/video/Ordo-AI_DEV-Demo_3MIN_FINAL_v4.mp4) · [최종 릴리스 기록](./docs/FINAL_RELEASE.md)
+[DEV Demo](https://ordo-ai-decision-os-jihyu.jihyunkims495.chatgpt.site/#entry) · [최종 3분 영상](./docs/video/Ordo-AI_DEV-Demo_3MIN_FINAL_v4.mp4) · [최종 릴리스 기록](./docs/FINAL_RELEASE.md) · [리서치 탭 명세](./docs/RESEARCH.md)
 
 
 
@@ -50,6 +50,7 @@ Version 1은 리오더 의사결정 경험을 검증하기 위한 첫 제출 가
 | Simulator | 보수·균형·확대 시나리오와 수동 물량 조정에 따른 KPI 및 아소트 변화 비교 |
 | Final Order | 선택 상품과 수량을 최종 검토하고 로컬 발주 기록·발주서를 확정하는 시연 |
 | Reports | 상품별 보고서와 종합 보고서에서 관측값·예측값·판단·리스크 확인 |
+| Research | 브랜드 MD용 시장·고객 트렌드 리포트, 출처 검토, 7일·4주·12개월 샘플 그래프 상호작용 |
 
 ![Today](./docs/screenshots/02-today.jpg)
 
@@ -146,3 +147,8 @@ Figma와 Claude는 Today에서 Reports까지 이어지는 주요 Feature별 정�
 주문·재고·예측·추천은 실제 운영 구조를 모사한 합성 데모 데이터입니다. 환율 위젯은 이와 별도로 외부 일별 공시 API를 조회하며, 조회 실패 시 실패 상태를 표시합니다. 실시간 체결 환율이 아닙니다. 현재 공개 버전은 라이브 데이터베이스, 운영 스케줄러, 외부 AI 추론 또는 실제 발주 전송이 연결된 제품이라고 주장하지 않습니다.
 
 
+
+
+## Research tab · v1.2.0
+
+The public Research tab brings together source-reviewed brand collection observations and clearly labeled Naver DataLab-/GA4-shaped demo fixtures. Charts support point-level hover, keyboard focus and touch selection, and switch between 7-day, 4-week and 12-month sample ranges. The `search` control opens a feature explanation; it does not run a live search. No Naver DataLab or GA4 property is connected, the values are synthetic, and the daily 08:00 research schedule is not active. See [Research specification and source notes](./docs/RESEARCH.md).

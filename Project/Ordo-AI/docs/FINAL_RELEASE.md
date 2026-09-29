@@ -1,4 +1,17 @@
-# Ordo AI Decision OS — Final Release Record
+# Ordo AI Decision OS — Release Record
+
+## Current public Site release: v27 · Research tab · 2026-09-29
+
+- **Live site:** https://ordo-ai-decision-os-jihyu.jihyunkims495.chatgpt.site/#research
+- **Research experience:** monitoring-agent profile and brand scope; reviewed source observations; separate market-search and first-party customer panels; sample seasonal, acceleration and risk readouts; season comparison; source criteria; MD review boundary.
+- **Graph interactions:** 7-day, 4-week and 12-month sample ranges; point-level values on hover, focus and touch; metric cards open related report sections.
+- **Search control:** opens a feature explanation only. It does not perform a search or call an AI service.
+- **Data boundary:** no Naver DataLab or GA4 live connection, no active 08:00 KST schedule. Sample metrics are synthetic and not observed market or customer data. MD approval remains required for operational decisions.
+- **Updated public project sources:** `app/` mirrors the current static-site UI source, and [Research documentation](./RESEARCH.md) records sources, limitations and implementation status.
+- Existing 9 Daytona screenshots and v4 3-minute MP4 remain preserved as **2026-09-19 historical evidence**; they do not show the later Research tab and were not replaced by unverified captures.
+- Only public demo source and documentation are included; local credentials, private environment files and internal review notes are excluded.
+
+## Historical release record: v6 — 2026-09-18
 
 ## Current: v1.1.0 — 2026-09-19
 
