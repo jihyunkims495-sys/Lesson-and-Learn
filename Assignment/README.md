@@ -6,18 +6,12 @@
 
 | 수업 파트 | 폴더 | 주요 내용 |
 |---|---|---|
-| Python | [`02_PYTHON`](./02_PYTHON/) | 실습과 최종 과제 |
+| Python | [`02_PYTHON`](./python_final_project_김지현/) | 객체지향 도서 관리 CLI 시스템 |
 | Machine Learning | [`machine learning final project_김지현`](<./machine learning final project_김지현/>) | 당뇨 데이터 EDA·전처리, 로지스틱 회귀 모델 평가·튜닝, Gemma Few-shot 뉴스 분류 실험 설계 |
 
 ## 1. Python
 
-`02_PYTHON`에는 Chapter 01~09의 수업 노트와 실습 노트북이 들어 있습니다.
-
-- 개발 환경: `uv`, 가상환경, VS Code, Jupyter Notebook
-- Python 기초: 변수, 자료형, 연산자, 문자열, 자료구조
-- 프로그램 구성: 조건문, 반복문, 함수, 모듈, 패키지, 의존성 관리
-- 안정성과 설계: 예외 처리, 디버깅, 클래스, 상속, 캡슐화, 표준 라이브러리
-- 최종 과제: 객체지향 도서 관리 CLI 시스템
+파이썬 최종 과제는 객체지향 도서 관리 CLI 시스템을 구현한 Jupyter Notebook입니다.
 
 Python 최종 과제는 [`python_final_project_김지현`](./02_PYTHON/python_final_project_김지현/)에서 확인할 수 있습니다. 도서 등록·조회·검색·대여·반납·통계 기능을 구현하고, `Book`을 부모 클래스로 둔 `PrintedBook`과 `Ebook` 상속 구조, 입력 검증과 예외 처리를 적용했습니다. 자세한 실행 방법과 구현 항목은 [프로젝트 README](./02_PYTHON/python_final_project_김지현/README.md)에 정리되어 있습니다.
 
@@ -41,10 +35,6 @@ Python 최종 과제는 [`python_final_project_김지현`](./02_PYTHON/python_fi
 ```text
 Assignment/
 ├── 02_PYTHON/
-│   ├── chapter01 Setting/
-│   ├── chapter02 변수 연산자 자료형/
-│   ├── ...
-│   ├── chapter09 파이썬 내장함수와 표준 라이브러리 활용/
 │   └── python_final_project_김지현/
 ├── machine learning final project_김지현/
 │   ├── diabetes.csv
