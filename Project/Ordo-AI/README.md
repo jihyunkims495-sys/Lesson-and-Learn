@@ -118,8 +118,7 @@ Figma와 Claude는 Today에서 Reports까지 이어지는 주요 Feature별 정�
 | [Simulator](./docs/screenshots/05-simulator.jpg) | 시나리오 비교 |
 | [Reports](./docs/screenshots/06-reports.jpg) | 종합 위험·리포트 |
 | [Final Order](./docs/screenshots/07-final-order.jpg) | 발주 검토함 |
-| [Daytona 실행](./docs/screenshots/08-daytona-server.jpg) | 실제 서버 계산 완료 |
-| [Daytona 결과 상세](./docs/screenshots/09-daytona-results.jpg) | 세 시나리오 전체 결과와 데이터 경계 |
+
 
 ## 향후 업그레이드 계획
 
