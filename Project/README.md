@@ -25,15 +25,17 @@
 - 데모 fixture, 로컬 검증, 실제 외부 연동을 구분해 기록합니다.
 - 외부 서비스 연동은 직접 검증되기 전까지 계획 또는 미연동으로 표시합니다.
 
-## Directory Convention
+## Directory Structure
 
 ```text
 Project/
 ├─ README.md
-└─ <Project-Name>/
+└─ Ordo-AI/
+   ├─ .gitignore
    ├─ README.md
    ├─ CHANGELOG.md
-   ├─ app-or-src/
-   ├─ docs/
-   └─ tools/
+   ├─ app/        # 공개 정적 웹 애플리케이션
+   ├─ daytona/    # Daytona 실행·시연 구성
+   ├─ docs/       # 릴리스·Research 명세 및 공개 증거
+   └─ tools/      # 로컬 실행·검증 도구
 ```
