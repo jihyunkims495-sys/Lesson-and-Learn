@@ -114,7 +114,8 @@ Lesson-and-Learn/
 └── AI AGENT BOOTCAMP_LV.2/
     ├── README.md
     ├── 06-week-database-supabase/
-    └── 07-week-frontend-basic/
+    ├── 07-week-frontend-basic/
+    └── 08-week-frontend-basic/
 ```
 
 ## Templates

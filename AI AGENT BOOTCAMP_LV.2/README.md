@@ -9,7 +9,8 @@ Level 1과 동일하게 주차 → 날짜 → 문서 역할 순서로 예습, �
 | Week | Topic | Period | Key learning |
 |---:|---|---|---|
 | 06 | [Database & Supabase](./06-week-database-supabase/) | 2026-09-08 ~ 2026-09-11 | 환경 설정, DDL·제약조건·관계, CRUD, 트랜잭션, AI 문서 DB |
-| 07 | [Frontend Basic](./07-week-frontend-basic/) | 2026-09-15 ~ | HTML 구조·폼·시멘틱 태그, CSS 기초·선택자 |
+| 07 | [Frontend Basic](./07-week-frontend-basic/) | 2026-09-15 ~ 2026-09-23 | HTML 구조·폼·시멘틱 태그, CSS 기초·선택자, 반응형 웹과 JavaScript 객체 모델 |
+| 08 | [Frontend JavaScript](./08-week-frontend-basic/) | 2026-09-29 ~ | 객체·배열, MDN 활용, 함수 정의·실행 흐름, 콜백과 클로저 |
 
 ## 기록 읽는 법
 
