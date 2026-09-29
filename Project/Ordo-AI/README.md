@@ -138,7 +138,7 @@ Figma와 Claude는 Today에서 Reports까지 이어지는 주요 Feature별 정�
 - Data fixture: versioned JSON/JavaScript snapshot
 - Data modeling foundation: Supabase schema and synthetic sample design
 - UX architecture and wireframe: Figma
-- Isolated execution: Daytona Sandbox + Node.js HTTP API (실행 검증 완료)
+
 
 
 ## 공개 데모의 데이터 경계
