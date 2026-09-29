@@ -6,7 +6,7 @@
 
 | 수업 파트 | 폴더 | 주요 내용 |
 |---|---|---|
-| Python | [`02_PYTHON`](./02_PYTHON/) | 개발 환경 설정부터 자료형, 자료구조, 제어문, 함수, 모듈, 예외 처리, 객체지향, 표준 라이브러리까지의 수업·실습과 최종 과제 |
+| Python | [`02_PYTHON`](./02_PYTHON/) | 실습과 최종 과제 |
 | Machine Learning | [`machine learning final project_김지현`](<./machine learning final project_김지현/>) | 당뇨 데이터 EDA·전처리, 로지스틱 회귀 모델 평가·튜닝, Gemma Few-shot 뉴스 분류 실험 설계 |
 
 ## 1. Python
