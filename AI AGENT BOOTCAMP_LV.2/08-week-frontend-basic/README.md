@@ -24,7 +24,7 @@
 | Date | Topic | Records |
 |---|---|---|
 | 2026-09-29 | 4장 3강·5장 1강: 객체·배열, MDN 활용법과 함수 실행 흐름 | [Preview](./2026-09-29/01-preview-notes-01-javascript-core-functions-objects.md) · [Learning Notes](./2026-09-29/02-learning-notes-01-objects-arrays-functions.md) · [TIL](./2026-09-29/04-til-01-objects-arrays-functions.md) |
-| 2026-09-30 | 6장 전체: 브라우저 렌더링·BOM·DOM 객체 트리와 요소 제어 | [Learning Notes](./2026-09-30/02-learning-notes-01-browser-bom-dom.md) · [Practice](./2026-09-30/03-practice-01-dom-elements-dataset.md) · [TIL](./2026-09-30/04-til-01-browser-bom-dom-and-networking.md) |
+| 2026-09-30 | 6장 전체: 브라우저 렌더링·BOM·DOM 객체 트리와 요소 제어 | [Preview](./2026-09-30/01-preview-notes-01-browser-bom-dom.md) · [Learning Notes](./2026-09-30/02-learning-notes-01-browser-bom-dom.md) · [Practice](./2026-09-30/03-practice-01-dom-elements-dataset.md) · [TIL](./2026-09-30/04-til-01-browser-bom-dom-and-networking.md) |
 
 ## 기록 범위
 
