@@ -2,7 +2,7 @@
 
 > 2026-09-29 시작 · LV.2
 
-객체와 배열로 데이터를 다루고, JavaScript 함수의 정의와 실행 흐름을 학습하는 주차입니다. 필요한 함수와 메서드를 외우기보다 MDN 공식 문서에서 문법·매개변수·반환값과 예제를 확인하는 방법을 함께 익힙니다.
+객체와 배열로 데이터를 다루고, JavaScript 함수의 정의와 실행 흐름에서 브라우저 실행 환경과 DOM 제어로 확장하는 주차입니다. 필요한 함수와 메서드를 외우기보다 MDN 공식 문서에서 사용 조건을 확인하고 실제 웹 요소와 연결하는 방법을 함께 익힙니다.
 
 ## Learning goals
 
@@ -13,18 +13,24 @@
 - 콜백 함수와 함수 자체를 전달하는 방식 이해
 - 호출 스택과 클로저를 함수 실행 흐름으로 추적
 - 하나의 실행 환경에서 코드와 결과를 연결해 확인
+- 브라우저의 HTML 파싱과 화면 렌더링 흐름 이해
+- BOM과 DOM의 역할 및 `window`·`document` 계층 구분
+- HTML 요소와 DOM 객체, 속성·프로퍼티·메서드 구분
+- DOM 요소 선택·탐색·내용·속성·스타일 제어
+- `data-*`와 `dataset`을 이용한 요소별 추가 데이터 연결
 
 ## Daily learning log
 
 | Date | Topic | Records |
 |---|---|---|
 | 2026-09-29 | 4장 3강·5장 1강: 객체·배열, MDN 활용법과 함수 실행 흐름 | [Preview](./2026-09-29/01-preview-notes-01-javascript-core-functions-objects.md) · [Learning Notes](./2026-09-29/02-learning-notes-01-objects-arrays-functions.md) · [TIL](./2026-09-29/04-til-01-objects-arrays-functions.md) |
+| 2026-09-30 | 6장 전체: 브라우저 렌더링·BOM·DOM 객체 트리와 요소 제어 | [Learning Notes](./2026-09-30/02-learning-notes-01-browser-bom-dom.md) · [Practice](./2026-09-30/03-practice-01-dom-elements-dataset.md) · [TIL](./2026-09-30/04-til-01-browser-bom-dom-and-networking.md) |
 
 ## 기록 범위
 
-- 실제 학습 범위는 프론트엔드 개발 4장 3강과 5장 1강입니다.
-- 4장 1강·2강과 5장 2강은 이번 날짜의 학습 범위에서 제외했습니다.
-- 브라우저 콘솔과 VS Code를 사용했지만 구체적인 실행 결과와 오류 해결 기록은 남지 않아 Practice 문서는 만들지 않았습니다.
-- 함수 실행 흐름은 다음 학습에서 보강할 항목으로 남겼습니다.
+- 2026-09-29 실제 학습 범위는 프론트엔드 개발 4장 3강과 5장 1강입니다. 브라우저 콘솔과 VS Code를 사용했지만 구체적인 실행 결과와 오류 해결 기록은 남지 않아 Practice 문서를 만들지 않았습니다.
+- 2026-09-30에는 6장 전체를 수강하고 수업 예제를 VS Code에 입력했으며, DOM 요소·객체·속성과 `dataset`의 관계를 질문하고 정리했습니다.
+- 2026-09-30의 저장된 실습 원본, 브라우저 출력과 오류 해결 결과는 확인되지 않아 실행 성공으로 기록하지 않았습니다.
+- 비공개 교안 원본과 Learning Handoff는 이 공개 저장소에 포함하지 않습니다.
 
 [← Level 2 curriculum](../README.md)
