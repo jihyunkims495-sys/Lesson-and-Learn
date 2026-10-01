@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo Board</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/todo.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <h1>Todo Board</h1>
+    <p>할 일을 추가하고 체크박스로 완료 여부를 관리합니다.</p>
+  </header>
+
+  <main class="container">
+    <section class="panel" id="form-section">
+      <h2 id="form-title">일정 추가</h2>
+      <form id="todo-form" onsubmit="return saveTodo();">
+        <div class="field">
+          <label for="todo-title">제목</label>
+          <input type="text" id="todo-title" name="title" placeholder="작업명을 적어주세요." required>
+        </div>
+        <div class="field">
+          <label for="todo-content">내용</label>
+          <textarea id="todo-content" name="content" rows="3" placeholder="우선순위 별로 정리해주세요."></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="submit-button">추가</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel" id="list-section">
+      <h2>Todo List</h2>
+      <nav class="filters">
+        <button type="button" class="btn filter-button is-active" data-filter="all" onclick="filterTodos(this)">전체</button>
+        <button type="button" class="btn filter-button" data-filter="todo" onclick="filterTodos(this)">할 일</button>
+        <button type="button" class="btn filter-button" data-filter="done" onclick="filterTodos(this)">완료</button>
+      </nav>
+      <ul class="todo-list" id="todo-list" data-filter="all"></ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>데이터는 새로고침하면 초기화됩니다.</p>
+  </footer>
+</body>
+</html>

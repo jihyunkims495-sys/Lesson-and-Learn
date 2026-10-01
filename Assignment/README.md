@@ -6,8 +6,9 @@
 
 | 수업 파트 | 폴더 | 주요 내용 |
 |---|---|---|
-| Python | [`02_PYTHON/python_final_project_김지현/`](./python_final_project_김지현/) | 객체지향 도서 관리 CLI 시스템 |
+| Python | [`02_PYTHON/python_final_project_김지현/`](./02_PYTHON/python_final_project_김지현/) | 객체지향 도서 관리 CLI 시스템 |
 | Machine Learning | [`machine learning final project_김지현`](<./machine learning final project_김지현/>) | 당뇨 데이터 EDA·전처리, 로지스틱 회귀 모델 평가·튜닝, Gemma Few-shot 뉴스 분류 실험 설계 |
+| Front-end Basic | [`Front-end Basic/`](<./Front-end Basic/>) | HTML·CSS·JavaScript로 구현한 Todo 체크리스트 |
 
 ## 1. Python
 
@@ -30,6 +31,18 @@ Python 최종 과제는 [`python_final_project_김지현`](./02_PYTHON/python_fi
 - [분석 노트북](<./machine learning final project_김지현/머신러닝_최종과제_김지현.ipynb>)
 - [데이터셋](<./machine learning final project_김지현/diabetes.csv>)
 
+## 3. Front-end Basic
+
+프론트엔드 기초 과제는 HTML로 화면 구조와 입력 폼을 만들고, CSS로 체크리스트를 디자인한 뒤, JavaScript DOM 조작으로 Todo 기능을 구현한 프로젝트입니다.
+
+- 일정 추가·수정·삭제
+- 체크박스를 이용한 완료 상태 변경
+- 전체·할 일·완료 목록 조회
+- 시맨틱 HTML, Flexbox, `hover`·`focus` 스타일 적용
+- 배열과 반복 렌더링 없이 DOM 요소를 직접 추가하는 간단한 JavaScript 구성
+
+과제 코드와 교안 내용의 연결은 [Front-end Basic README](<./Front-end Basic/README.md>)에서 확인할 수 있습니다.
+
 ## 폴더 구조
 
 ```text
@@ -39,5 +52,12 @@ Assignment/
 ├── machine learning final project_김지현/
 │   ├── diabetes.csv
 │   └── 머신러닝_최종과제_김지현.ipynb
+├── Front-end Basic/
+│   ├── README.md
+│   └── todo-checklist/
+│       ├── index.html
+│       ├── css/style.css
+│       ├── js/todo.js
+│       └── README.md
 └── README.md
 ```
