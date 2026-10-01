@@ -9,7 +9,7 @@
 | Python 최종 과제 | [`python_final_project_김지현/`](./python_final_project_김지현/) | 객체지향 도서 관리 CLI 시스템 |
 | Machine Learning 최종 과제 | [`machine_learning_final_project_김지현/`](./machine_learning_final_project_김지현/) | 당뇨 데이터 EDA·전처리, 로지스틱 회귀 모델 평가·튜닝, Gemma Few-shot 뉴스 분류 실험 설계 |
 | Frontend Basic 최종 과제 | [`frontend_basic_final_project_김지현/`](./frontend_basic_final_project_김지현/) | HTML·CSS·JavaScript로 구현한 Todo 체크리스트 |
-| 3분 브리프 | [`3min_brief/`](./3min_brief/) | 데이터베이스와 머신러닝 발표 자료 링크 |
+| 3분 브리프 | [`3min_brief/`](./3min_brief/) | 데이터베이스, 머신러닝, CSS 발표 자료 링크 |
 
 ## 1. Python
 
@@ -50,6 +50,7 @@
 
 - [데이터베이스 구조 · 스키마부터 정규화까지](https://database-keys-integrity-jihyu.jihyunkims495.chatgpt.site/)
 - [머신러닝 발표자료 · 회귀부터 K-Fold까지](https://machine-learning-presentation-jihyu.jihyunkims495.chatgpt.site/)
+- [CSS, 화면의 경험을 설계하다](https://css-experience-20261001.jihyunkims495.chatgpt.site/)
 
 ## 폴더 구조
 
