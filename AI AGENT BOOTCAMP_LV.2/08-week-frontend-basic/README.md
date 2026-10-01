@@ -18,6 +18,10 @@
 - HTML 요소와 DOM 객체, 속성·프로퍼티·메서드 구분
 - DOM 요소 선택·탐색·내용·속성·스타일 제어
 - `data-*`와 `dataset`을 이용한 요소별 추가 데이터 연결
+- 브라우저 이벤트·이벤트 객체·리스너의 연결 이해
+- 캡처링·타깃·버블링과 이벤트 전파 제어 구분
+- `target`·`currentTarget`·`this`의 역할 비교
+- 동기·비동기 처리와 AJAX·`fetch()`의 관계 이해
 
 ## Daily learning log
 
@@ -25,12 +29,14 @@
 |---|---|---|
 | 2026-09-29 | 4장 3강·5장 1강: 객체·배열, MDN 활용법과 함수 실행 흐름 | [Preview](./2026-09-29/01-preview-notes-01-javascript-core-functions-objects.md) · [Learning Notes](./2026-09-29/02-learning-notes-01-objects-arrays-functions.md) · [TIL](./2026-09-29/04-til-01-objects-arrays-functions.md) |
 | 2026-09-30 | 6장 전체: 브라우저 렌더링·BOM·DOM 객체 트리와 요소 제어 | [Preview](./2026-09-30/01-preview-notes-01-browser-bom-dom.md) · [Learning Notes](./2026-09-30/02-learning-notes-01-browser-bom-dom.md) · [Practice](./2026-09-30/03-practice-01-dom-elements-dataset.md) · [TIL](./2026-09-30/04-til-01-browser-bom-dom-and-networking.md) |
+| 2026-10-01 | 7장: 브라우저 이벤트·전파와 비동기 통신 | [Preview](./2026-10-01/01-preview-notes-01-browser-events-async-fetch.md) · [Learning Notes](./2026-10-01/02-learning-notes-01-browser-events-async-ajax.md) · [TIL](./2026-10-01/04-til-01-browser-events-async-ajax.md) |
 
 ## 기록 범위
 
 - 2026-09-29 실제 학습 범위는 프론트엔드 개발 4장 3강과 5장 1강입니다. 브라우저 콘솔과 VS Code를 사용했지만 구체적인 실행 결과와 오류 해결 기록은 남지 않아 Practice 문서를 만들지 않았습니다.
 - 2026-09-30에는 6장 전체를 수강하고 수업 예제를 VS Code에 입력했으며, DOM 요소·객체·속성과 `dataset`의 관계를 질문하고 정리했습니다.
 - 2026-09-30의 저장된 실습 원본, 브라우저 출력과 오류 해결 결과는 확인되지 않아 실행 성공으로 기록하지 않았습니다.
-- 비공개 교안 원본과 Learning Handoff는 이 공개 저장소에 포함하지 않습니다.
+- 2026-10-01에는 7장의 이벤트 처리·전파와 비동기 통신을 학습하고, JavaScript·TypeScript·Node.js, 이벤트 객체, `this`, AJAX의 관계를 질문하며 정리했습니다.
+- 2026-10-01 학습은 매우 어렵게 느꼈다는 회고를 그대로 반영했습니다. 직접 실행한 코드와 이해도 평가 근거가 없어 Practice 문서를 만들거나 숙달을 주장하지 않았습니다.
 
 [← Level 2 curriculum](../README.md)

@@ -15,12 +15,12 @@
 
 ### LV.2 · Week 08 — Frontend JavaScript
 
-2026-09-29에는 객체·배열과 함수의 정의·실행 과정을 학습했습니다. JavaScript의 많은 함수와 메서드를 외우기보다 MDN 공식 문서에서 문법, 매개변수, 반환값과 예제를 확인하는 방법을 중심으로 정리했습니다.
+2026-10-01에는 브라우저 이벤트와 전파, 이벤트 객체의 `target`·`currentTarget`, `this`, 동기·비동기 처리와 AJAX를 학습했습니다. 개념들이 한꺼번에 연결되어 매우 어렵게 느껴졌던 점과 아직 독립적인 코드 적용을 확인하지 못한 상태까지 솔직하게 기록했습니다.
 
 - [Week 08 overview](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/)
-- [Preview Notes — 객체·배열과 JavaScript 함수](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-09-29/01-preview-notes-01-javascript-core-functions-objects.md)
-- [Learning Notes — 객체·배열과 함수](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-09-29/02-learning-notes-01-objects-arrays-functions.md)
-- [TIL — MDN 활용과 함수 실행 흐름](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-09-29/04-til-01-objects-arrays-functions.md)
+- [Preview Notes — 브라우저 이벤트와 비동기 통신](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-10-01/01-preview-notes-01-browser-events-async-fetch.md)
+- [Learning Notes — 이벤트 전파·객체와 AJAX](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-10-01/02-learning-notes-01-browser-events-async-ajax.md)
+- [TIL — 이벤트부터 AJAX까지 너무 어렵게 느껴진 날](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-10-01/04-til-01-browser-events-async-ajax.md)
 
 구체적인 코드 실행과 오류 해결 기록이 없는 날에는 Practice 문서를 만들지 않고, 확인된 학습 내용과 다음 보강 항목만 기록합니다.
 
