@@ -1,20 +1,21 @@
 # Assignment
 
-수업 파트별 과제와 실습 결과를 한곳에서 확인할 수 있도록 정리한 모음입니다. 각 폴더는 원본 프로젝트의 파일 구조와 내용을 유지합니다.
+수업 파트별 최종 과제와 3분 브리프 자료를 한곳에서 확인할 수 있도록 정리한 모음입니다. 최종 과제 폴더명은 `강좌명_final_project_김지현` 형식으로 통일했습니다.
 
-## 과제 목록
+## 과제 및 자료 목록
 
-| 수업 파트 | 폴더 | 주요 내용 |
+| 구분 | 폴더 | 주요 내용 |
 |---|---|---|
-| Python | [`02_PYTHON/python_final_project_김지현/`](./02_PYTHON/python_final_project_김지현/) | 객체지향 도서 관리 CLI 시스템 |
-| Machine Learning | [`machine learning final project_김지현`](<./machine learning final project_김지현/>) | 당뇨 데이터 EDA·전처리, 로지스틱 회귀 모델 평가·튜닝, Gemma Few-shot 뉴스 분류 실험 설계 |
-| Front-end Basic | [`Front-end Basic/`](<./Front-end Basic/>) | HTML·CSS·JavaScript로 구현한 Todo 체크리스트 |
+| Python 최종 과제 | [`python_final_project_김지현/`](./python_final_project_김지현/) | 객체지향 도서 관리 CLI 시스템 |
+| Machine Learning 최종 과제 | [`machine_learning_final_project_김지현/`](./machine_learning_final_project_김지현/) | 당뇨 데이터 EDA·전처리, 로지스틱 회귀 모델 평가·튜닝, Gemma Few-shot 뉴스 분류 실험 설계 |
+| Frontend Basic 최종 과제 | [`frontend_basic_final_project_김지현/`](./frontend_basic_final_project_김지현/) | HTML·CSS·JavaScript로 구현한 Todo 체크리스트 |
+| 3분 브리프 | [`3min_brief/`](./3min_brief/) | 데이터베이스와 머신러닝 발표 자료 링크 |
 
 ## 1. Python
 
-파이썬 최종 과제는 객체지향 도서 관리 CLI 시스템을 구현한 Jupyter Notebook입니다.
+파이썬 최종 과제는 객체지향 도서 관리 CLI 시스템입니다. 도서 등록·조회·검색·대여·반납·통계 기능을 구현하고, `Book`을 부모 클래스로 둔 `PrintedBook`과 `Ebook` 상속 구조, 입력 검증과 예외 처리를 적용했습니다.
 
-Python 최종 과제는 [`python_final_project_김지현`](./02_PYTHON/python_final_project_김지현/)에서 확인할 수 있습니다. 도서 등록·조회·검색·대여·반납·통계 기능을 구현하고, `Book`을 부모 클래스로 둔 `PrintedBook`과 `Ebook` 상속 구조, 입력 검증과 예외 처리를 적용했습니다. 자세한 실행 방법과 구현 항목은 [프로젝트 README](./02_PYTHON/python_final_project_김지현/README.md)에 정리되어 있습니다.
+- [프로젝트 README](./python_final_project_김지현/README.md)
 
 ## 2. Machine Learning
 
@@ -28,10 +29,10 @@ Python 최종 과제는 [`python_final_project_김지현`](./02_PYTHON/python_fi
 
 노트북에는 튜닝 후 Recall과 F1-score가 개선된 결과가 기록되어 있습니다. Gemma 실험은 기본값이 `RUN_GEMMA=False`이므로, 모델 이용 동의와 실행 자원이 준비된 환경에서 별도로 활성화해야 합니다.
 
-- [분석 노트북](<./machine learning final project_김지현/머신러닝_최종과제_김지현.ipynb>)
-- [데이터셋](<./machine learning final project_김지현/diabetes.csv>)
+- [분석 노트북](./machine_learning_final_project_김지현/머신러닝_최종과제_김지현.ipynb)
+- [데이터셋](./machine_learning_final_project_김지현/diabetes.csv)
 
-## 3. Front-end Basic
+## 3. Frontend Basic
 
 프론트엔드 기초 과제는 HTML로 화면 구조와 입력 폼을 만들고, CSS로 체크리스트를 디자인한 뒤, JavaScript DOM 조작으로 Todo 기능을 구현한 프로젝트입니다.
 
@@ -41,23 +42,37 @@ Python 최종 과제는 [`python_final_project_김지현`](./02_PYTHON/python_fi
 - 시맨틱 HTML, Flexbox, `hover`·`focus` 스타일 적용
 - 배열과 반복 렌더링 없이 DOM 요소를 직접 추가하는 간단한 JavaScript 구성
 
-과제 코드와 교안 내용의 연결은 [Front-end Basic README](<./Front-end Basic/README.md>)에서 확인할 수 있습니다.
+과제 코드와 교안 내용의 연결은 [Frontend Basic README](./frontend_basic_final_project_김지현/README.md)에서 확인할 수 있습니다.
+
+## 4. 3분 브리프
+
+[`3min_brief`](./3min_brief/) 폴더에는 다음 웹 발표 자료의 링크와 핵심 주제를 정리했습니다.
+
+- [데이터베이스 구조 · 스키마부터 정규화까지](https://database-keys-integrity-jihyu.jihyunkims495.chatgpt.site/)
+- [머신러닝 발표자료 · 회귀부터 K-Fold까지](https://machine-learning-presentation-jihyu.jihyunkims495.chatgpt.site/)
 
 ## 폴더 구조
 
 ```text
 Assignment/
-├── 02_PYTHON/
-│   └── python_final_project_김지현/
-├── machine learning final project_김지현/
-│   ├── diabetes.csv
-│   └── 머신러닝_최종과제_김지현.ipynb
-├── Front-end Basic/
+├── 3min_brief/
+│   └── README.md
+├── frontend_basic_final_project_김지현/
 │   ├── README.md
 │   └── todo-checklist/
+│       ├── README.md
+│       ├── css/
+│       ├── docs/
 │       ├── index.html
-│       ├── css/style.css
-│       ├── js/todo.js
-│       └── README.md
+│       └── js/
+├── machine_learning_final_project_김지현/
+│   ├── diabetes.csv
+│   └── 머신러닝_최종과제_김지현.ipynb
+├── python_final_project_김지현/
+│   ├── README.md
+│   ├── main.py
+│   ├── models/
+│   ├── screenshots/
+│   └── utils/
 └── README.md
 ```
