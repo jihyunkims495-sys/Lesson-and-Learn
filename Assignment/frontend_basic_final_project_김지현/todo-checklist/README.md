@@ -90,7 +90,11 @@ todo-checklist/
 
 ## Todo List 시연 영상
 
-[▶ Todo List 브라우저 시연 영상 보기 — 약 50초](./docs/todo-checklist-demo.webm)
+![Todo List 추가·조회·수정·완료·삭제 시연](./docs/todo-checklist-demo.gif)
+
+위 미리보기는 README에서 약 50초 동안 자동 재생됩니다.
+
+[▶ 원본 브라우저 시연 영상 보기](./docs/todo-checklist-demo.webm)
 
 영상에서는 다음 기능이 정상 동작하는 과정을 확인할 수 있습니다.
 
