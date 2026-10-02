@@ -181,4 +181,3 @@ JavaScript에서는 값의 종류가 맞지 않아도 문제가 실행 중에 �
 - 예습 노트: `01-preview-notes-01-typescript-introduction.md`
 - 실제 수업 범위: TypeScript 1장 1강~4장 2강
 - 실습 파일: 확인된 파일 없음
-- 원본 교안: 비공개 자료이므로 공개 초안에 경로·원문을 포함하지 않음
