@@ -9,18 +9,18 @@
 | Program | Status | Topics | Archive |
 |---|---|---|---|
 | AI Agent Bootcamp — Level 1 | Completed archive | Git, Python, AI Literacy, Machine Learning, SQL | [Explore Level 1](./AI%20AGENT%20BOOTCAMP_LV.1/) |
-| AI Agent Bootcamp — Level 2 | In progress · 2026-09-08 ~ | Database, Supabase, Frontend, HTML, CSS, JavaScript | [Explore Level 2](./AI%20AGENT%20BOOTCAMP_LV.2/) |
+| AI Agent Bootcamp — Level 2 | In progress · 2026-09-08 ~ | Database, Supabase, Frontend, HTML, CSS, JavaScript, TypeScript | [Explore Level 2](./AI%20AGENT%20BOOTCAMP_LV.2/) |
 
 ## Current learning
 
-### LV.2 · Week 08 — Frontend JavaScript
+### LV.2 · Week 08 — Frontend JavaScript & TypeScript
 
-2026-10-01에는 브라우저 이벤트와 전파, 이벤트 객체의 `target`·`currentTarget`, `this`, 동기·비동기 처리와 AJAX를 학습했습니다. 개념들이 한꺼번에 연결되어 매우 어렵게 느껴졌던 점과 아직 독립적인 코드 적용을 확인하지 못한 상태까지 솔직하게 기록했습니다.
+2026-10-02에는 TypeScript를 처음 시작해 1장 1강부터 4장 2강까지 진행했습니다. `.ts`에서 JavaScript로 이어지는 흐름, `const`, `any`·`unknown`, 함수 타입과 인터페이스 확장을 배웠으며, 지나치게 빠른 진도 때문에 집중과 개념 연결이 어려웠던 과정도 솔직하게 기록했습니다.
 
 - [Week 08 overview](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/)
-- [Preview Notes — 브라우저 이벤트와 비동기 통신](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-10-01/01-preview-notes-01-browser-events-async-fetch.md)
-- [Learning Notes — 이벤트 전파·객체와 AJAX](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-10-01/02-learning-notes-01-browser-events-async-ajax.md)
-- [TIL — 이벤트부터 AJAX까지 너무 어렵게 느껴진 날](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-10-01/04-til-01-browser-events-async-ajax.md)
+- [Preview Notes — TypeScript 1장~4장 2강](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-10-02/01-preview-notes-01-typescript-introduction.md)
+- [Learning Notes — TypeScript 기초에서 인터페이스 확장까지](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-10-02/02-learning-notes-01-typescript-foundations.md)
+- [TIL — 이해보다 진도가 빨랐던 TypeScript 첫날](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-10-02/04-til-01-typescript-foundations.md)
 
 구체적인 코드 실행과 오류 해결 기록이 없는 날에는 Practice 문서를 만들지 않고, 확인된 학습 내용과 다음 보강 항목만 기록합니다.
 
@@ -50,6 +50,8 @@ Database & Supabase
 Frontend HTML & CSS
     ↓
 Frontend JavaScript
+    ↓
+Frontend TypeScript
 ```
 
 Level 2의 현재 커리큘럼과 주차별 학습 기록은 [Level 2 안내 페이지](./AI%20AGENT%20BOOTCAMP_LV.2/README.md)에서 확인할 수 있습니다.

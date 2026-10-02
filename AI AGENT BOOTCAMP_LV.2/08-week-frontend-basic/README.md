@@ -1,8 +1,8 @@
-# Week 08 — Frontend JavaScript
+# Week 08 — Frontend JavaScript & TypeScript
 
 > 2026-09-29 시작 · LV.2
 
-객체와 배열로 데이터를 다루고, JavaScript 함수의 정의와 실행 흐름에서 브라우저 실행 환경과 DOM 제어로 확장하는 주차입니다. 필요한 함수와 메서드를 외우기보다 MDN 공식 문서에서 사용 조건을 확인하고 실제 웹 요소와 연결하는 방법을 함께 익힙니다.
+객체와 배열로 데이터를 다루고, JavaScript 함수·브라우저 실행 환경·DOM 제어를 거쳐 TypeScript의 타입 시스템으로 확장하는 주차입니다. 실행 흐름과 데이터 구조를 이해하고, 변수·함수·객체가 지켜야 할 타입 계약을 코드로 표현합니다.
 
 ## Learning goals
 
@@ -22,6 +22,11 @@
 - 캡처링·타깃·버블링과 이벤트 전파 제어 구분
 - `target`·`currentTarget`·`this`의 역할 비교
 - 동기·비동기 처리와 AJAX·`fetch()`의 관계 이해
+- TypeScript와 JavaScript의 관계 및 `.ts`에서 `.js`로 이어지는 변환 흐름 이해
+- `const`·`let`, 기본 타입, `any`·`unknown`의 역할 구분
+- 함수의 매개변수·반환값과 콜백 타입 읽기
+- 타입 별칭·인터페이스·`readonly`로 객체 구조 표현
+- 인덱스 시그니처와 인터페이스 확장으로 동적인 객체 설계
 
 ## Daily learning log
 
@@ -30,6 +35,7 @@
 | 2026-09-29 | 4장 3강·5장 1강: 객체·배열, MDN 활용법과 함수 실행 흐름 | [Preview](./2026-09-29/01-preview-notes-01-javascript-core-functions-objects.md) · [Learning Notes](./2026-09-29/02-learning-notes-01-objects-arrays-functions.md) · [TIL](./2026-09-29/04-til-01-objects-arrays-functions.md) |
 | 2026-09-30 | 6장 전체: 브라우저 렌더링·BOM·DOM 객체 트리와 요소 제어 | [Preview](./2026-09-30/01-preview-notes-01-browser-bom-dom.md) · [Learning Notes](./2026-09-30/02-learning-notes-01-browser-bom-dom.md) · [Practice](./2026-09-30/03-practice-01-dom-elements-dataset.md) · [TIL](./2026-09-30/04-til-01-browser-bom-dom-and-networking.md) |
 | 2026-10-01 | 7장: 브라우저 이벤트·전파와 비동기 통신 | [Preview](./2026-10-01/01-preview-notes-01-browser-events-async-fetch.md) · [Learning Notes](./2026-10-01/02-learning-notes-01-browser-events-async-ajax.md) · [TIL](./2026-10-01/04-til-01-browser-events-async-ajax.md) |
+| 2026-10-02 | TypeScript 1장 1강~4장 2강: 타입 기초·함수 타입·인터페이스 확장 | [Preview](./2026-10-02/01-preview-notes-01-typescript-introduction.md) · [Learning Notes](./2026-10-02/02-learning-notes-01-typescript-foundations.md) · [TIL](./2026-10-02/04-til-01-typescript-foundations.md) |
 
 ## 기록 범위
 
@@ -38,5 +44,7 @@
 - 2026-09-30의 저장된 실습 원본, 브라우저 출력과 오류 해결 결과는 확인되지 않아 실행 성공으로 기록하지 않았습니다.
 - 2026-10-01에는 7장의 이벤트 처리·전파와 비동기 통신을 학습하고, JavaScript·TypeScript·Node.js, 이벤트 객체, `this`, AJAX의 관계를 질문하며 정리했습니다.
 - 2026-10-01 학습은 매우 어렵게 느꼈다는 회고를 그대로 반영했습니다. 직접 실행한 코드와 이해도 평가 근거가 없어 Practice 문서를 만들거나 숙달을 주장하지 않았습니다.
+- 2026-10-02에는 TypeScript를 처음 시작해 1장 1강부터 4장 2강까지 수강했습니다. 빠른 진도로 집중과 개념 연결이 어려웠던 상황을 기록하고, 변수 → 함수 → 객체 설계의 흐름으로 다시 정리했습니다.
+- 2026-10-02에는 실제 코드 실행·출력·오류 해결 근거가 없어 Practice 문서를 만들지 않았으며, 설명을 들은 것만으로 이해 완료를 주장하지 않았습니다.
 
 [← Level 2 curriculum](../README.md)
