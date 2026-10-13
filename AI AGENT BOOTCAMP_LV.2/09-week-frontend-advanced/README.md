@@ -17,6 +17,7 @@ React와 Next.js로 웹 화면을 컴포넌트 단위로 구성하고, 상태와
 | Date | Topic | Records |
 |---|---|---|
 | 2026-10-12 | React 기초, Hook과 상태, Todo 코드 구조 읽기 | [Preview](./2026-10-12/01-preview-notes-01-react-state-effects-hooks.md) · [Learning Notes](./2026-10-12/02-learning-notes-01-react-foundations-and-todo-reading.md) · [TIL](./2026-10-12/04-til-01-react-foundations-and-todo-reading.md) |
+| 2026-10-13 | ONEPIECE 쇼핑몰 기획과 개발 기반 정리 | [TIL](./2026-10-13/04-til-01-onepiece-project-planning-and-setup.md) |
 
 ## Evidence boundary
 
