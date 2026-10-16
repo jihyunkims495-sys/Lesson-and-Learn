@@ -20,6 +20,7 @@ React와 Next.js로 웹 화면을 컴포넌트 단위로 구성하고, 상태와
 | 2026-10-13 | ONEPIECE 쇼핑몰 기획과 개발 기반 정리 | [TIL](./2026-10-13/04-til-01-onepiece-project-planning-and-setup.md) |
 | 2026-10-14 | ONEPIECE 장바구니 데이터 흐름 구현 | [TIL](./2026-10-14/04-til-01-onepiece-cart-data-flow.md) |
 | 2026-10-15 | ONEPIECE Cart 상태·렌더링과 팀 Git 협업 | [TIL](./2026-10-15/04-til-01-onepiece-cart-state-and-rendering.md) |
+| 2026-10-16 | ONEPIECE Cart Drawer·KRW 표기·퍼널 테스트 준비 | [Learning Notes](./2026-10-16/02-learning-notes-01-onepiece-cart-drawer-and-data-contracts.md) · [Practice](./2026-10-16/03-practice-01-onepiece-cart-drawer-and-test-data.md) · [TIL](./2026-10-16/04-til-01-onepiece-cart-drawer-and-test-design.md) |
 
 ## Evidence boundary
 
