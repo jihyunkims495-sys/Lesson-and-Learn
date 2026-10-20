@@ -18,6 +18,7 @@ Next.js App Router의 클라이언트·서버 실행 경계를 구분하고, Ser
 | Date | Topic | Records |
 |---|---|---|
 | 2026-10-19 | Next.js 실행 경계와 Supabase 회원가입 | [Preview](./2026-10-19/01-preview-notes-01-nextjs-supabase-auth-deployment.md) · [Learning Notes](./2026-10-19/02-learning-notes-01-nextjs-auth-server-actions.md) |
+| 2026-10-20 | 로그인 Hook, 클라이언트 내비게이션과 세션 | [Learning Notes](./2026-10-20/02-learning-notes-01-nextjs-login-hooks-session.md) |
 
 ## Evidence boundary
 
