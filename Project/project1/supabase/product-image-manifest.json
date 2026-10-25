@@ -1,0 +1,272 @@
+[
+  {
+    "product_id": 1,
+    "storage_path": "outerCoatIvory.png",
+    "original_name": "outerCoatIvory.png",
+    "mime_type": "image/png",
+    "file_size": 975042,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "아이보리 싱글 코트 이미지 1"
+  },
+  {
+    "product_id": 1,
+    "storage_path": "outerCoatIvoryFront.png",
+    "original_name": "outerCoatIvoryFront.png",
+    "mime_type": "image/png",
+    "file_size": 1670384,
+    "role": "detail",
+    "sort_order": 2,
+    "alt_text": "아이보리 싱글 코트 이미지 2"
+  },
+  {
+    "product_id": 1,
+    "storage_path": "outerCoatIvoryBack.png",
+    "original_name": "outerCoatIvoryBack.png",
+    "mime_type": "image/png",
+    "file_size": 1390721,
+    "role": "detail",
+    "sort_order": 3,
+    "alt_text": "아이보리 싱글 코트 이미지 3"
+  },
+  {
+    "product_id": 1,
+    "storage_path": "outerCoatIvoryModelFront.png",
+    "original_name": "outerCoatIvoryModelFront.png",
+    "mime_type": "image/png",
+    "file_size": 1618322,
+    "role": "model",
+    "sort_order": 4,
+    "alt_text": "아이보리 싱글 코트 이미지 4"
+  },
+  {
+    "product_id": 1,
+    "storage_path": "outerCoatIvoryModelSide.png",
+    "original_name": "outerCoatIvoryModelSide.png",
+    "mime_type": "image/png",
+    "file_size": 1264801,
+    "role": "model",
+    "sort_order": 5,
+    "alt_text": "아이보리 싱글 코트 이미지 5"
+  },
+  {
+    "product_id": 1,
+    "storage_path": "outerCoatIvoryModelBack.png",
+    "original_name": "outerCoatIvoryModelBack.png",
+    "mime_type": "image/png",
+    "file_size": 1535901,
+    "role": "model",
+    "sort_order": 6,
+    "alt_text": "아이보리 싱글 코트 이미지 6"
+  },
+  {
+    "product_id": 1,
+    "storage_path": "outerCoatIvoryDetailCollar.png",
+    "original_name": "outerCoatIvoryDetailCollar.png",
+    "mime_type": "image/png",
+    "file_size": 3573195,
+    "role": "detail",
+    "sort_order": 7,
+    "alt_text": "아이보리 싱글 코트 이미지 7"
+  },
+  {
+    "product_id": 1,
+    "storage_path": "outerCoatIvoryDetailCuff.png",
+    "original_name": "outerCoatIvoryDetailCuff.png",
+    "mime_type": "image/png",
+    "file_size": 2821359,
+    "role": "detail",
+    "sort_order": 8,
+    "alt_text": "아이보리 싱글 코트 이미지 8"
+  },
+  {
+    "product_id": 1,
+    "storage_path": "outerCoatIvoryDetailButtonHem.png",
+    "original_name": "outerCoatIvoryDetailButtonHem.png",
+    "mime_type": "image/png",
+    "file_size": 2791551,
+    "role": "detail",
+    "sort_order": 9,
+    "alt_text": "아이보리 싱글 코트 이미지 9"
+  },
+  {
+    "product_id": 2,
+    "storage_path": "topKnitIvory.png",
+    "original_name": "topKnitIvory.png",
+    "mime_type": "image/png",
+    "file_size": 2011253,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "아이보리 크루넥 니트 이미지 1"
+  },
+  {
+    "product_id": 3,
+    "storage_path": "bottomPantsKhaki.png",
+    "original_name": "bottomPantsKhaki.png",
+    "mime_type": "image/png",
+    "file_size": 1308059,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "카키 카고 팬츠 이미지 1"
+  },
+  {
+    "product_id": 4,
+    "storage_path": "topTShirtBlack.png",
+    "original_name": "topTShirtBlack.png",
+    "mime_type": "image/png",
+    "file_size": 1394330,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "블랙 반팔 티셔츠 이미지 1"
+  },
+  {
+    "product_id": 5,
+    "storage_path": "outerJacketBlack.png",
+    "original_name": "outerJacketBlack.png",
+    "mime_type": "image/png",
+    "file_size": 1918564,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "블랙 집업 자켓 이미지 1"
+  },
+  {
+    "product_id": 6,
+    "storage_path": "outerCoatCharcoal.png",
+    "original_name": "outerCoatCharcoal.png",
+    "mime_type": "image/png",
+    "file_size": 1486101,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "차콜 싱글 코트 이미지 1"
+  },
+  {
+    "product_id": 7,
+    "storage_path": "bottomPantsBlack.png",
+    "original_name": "bottomPantsBlack.png",
+    "mime_type": "image/png",
+    "file_size": 924650,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "블랙 와이드 팬츠 이미지 1"
+  },
+  {
+    "product_id": 8,
+    "storage_path": "topHoodieGray.png",
+    "original_name": "topHoodieGray.png",
+    "mime_type": "image/png",
+    "file_size": 2276386,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "그레이 풀오버 후디 이미지 1"
+  },
+  {
+    "product_id": 9,
+    "storage_path": "topKnitCharcoal.png",
+    "original_name": "topKnitCharcoal.png",
+    "mime_type": "image/png",
+    "file_size": 2742078,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "차콜 크루넥 니트 이미지 1"
+  },
+  {
+    "product_id": 10,
+    "storage_path": "bottomDenimGray.png",
+    "original_name": "bottomDenimGray.png",
+    "mime_type": "image/png",
+    "file_size": 1498109,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "그레이 스트레이트 데님 팬츠 이미지 1"
+  },
+  {
+    "product_id": 11,
+    "storage_path": "etcShoesDerbyBlack.png",
+    "original_name": "etcShoesDerbyBlack.png",
+    "mime_type": "image/png",
+    "file_size": 1195345,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "블랙 더비 슈즈 이미지 1"
+  },
+  {
+    "product_id": 12,
+    "storage_path": "etcShoesMulesIvory.png",
+    "original_name": "etcShoesMulesIvory.png",
+    "mime_type": "image/png",
+    "file_size": 885694,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "아이보리 뮬 이미지 1"
+  },
+  {
+    "product_id": 13,
+    "storage_path": "etcShoesSneakersBlack.png",
+    "original_name": "etcShoesSneakersBlack.png",
+    "mime_type": "image/png",
+    "file_size": 1568108,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "블랙 스니커즈 이미지 1"
+  },
+  {
+    "product_id": 14,
+    "storage_path": "etcBagsCrossbodyCharcoal.png",
+    "original_name": "etcBagsCrossbodyCharcoal.png",
+    "mime_type": "image/png",
+    "file_size": 1432508,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "차콜 크로스바디 백 이미지 1"
+  },
+  {
+    "product_id": 15,
+    "storage_path": "etcBagsShoulderBlack.png",
+    "original_name": "etcBagsShoulderBlack.png",
+    "mime_type": "image/png",
+    "file_size": 1418255,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "블랙 숄더백 이미지 1"
+  },
+  {
+    "product_id": 16,
+    "storage_path": "etcBagsToteBeige.png",
+    "original_name": "etcBagsToteBeige.png",
+    "mime_type": "image/png",
+    "file_size": 1823075,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "베이지 토트백 이미지 1"
+  },
+  {
+    "product_id": 17,
+    "storage_path": "etcAccessoriesBeltBlack.png",
+    "original_name": "etcAccessoriesBeltBlack.png",
+    "mime_type": "image/png",
+    "file_size": 1182588,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "블랙 벨트 이미지 1"
+  },
+  {
+    "product_id": 18,
+    "storage_path": "etcAccessoriesNecklaceSilver.png",
+    "original_name": "etcAccessoriesNecklaceSilver.png",
+    "mime_type": "image/png",
+    "file_size": 623777,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "실버 체인 목걸이 이미지 1"
+  },
+  {
+    "product_id": 19,
+    "storage_path": "etcAccessoriesSunglassesBlack.png",
+    "original_name": "etcAccessoriesSunglassesBlack.png",
+    "mime_type": "image/png",
+    "file_size": 443479,
+    "role": "main",
+    "sort_order": 1,
+    "alt_text": "블랙 선글라스 이미지 1"
+  }
+]
