@@ -1,0 +1,20 @@
+{
+  "confirmed_date": "2026-10-26",
+  "versions": {
+    "A": {
+      "repository": "https://github.com/tuski0/sansan_clone_site",
+      "branch": "main",
+      "commit": "5fb0017ec32edbd2b6df4b7acbc149ebe88ee25b"
+    },
+    "B": {
+      "repository": "https://github.com/Alexandros509/kant-ax1-project1-team-e-vibecoding-final",
+      "branch": "main",
+      "commit": "607d5fa30ab4897ee23a24234052908edaf99952"
+    },
+    "C": {
+      "repository": "https://github.com/Alexandros509/kant-ax1-project1-team-e",
+      "branch": "main",
+      "commit": "17fd1057928827f8fbf53e507696e23366177760"
+    }
+  }
+}
