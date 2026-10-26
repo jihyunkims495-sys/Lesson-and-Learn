@@ -371,7 +371,8 @@ B·C에서 동일한 기존 테스트 회원 6명씩을 실행해 공통 8단계
 ### 더 살펴보기
 
 - [고객 분석·서비스 기획·지표 검증·Task 명세](version_test_C/docs/README.md)
-- [프로젝트 STAR 회고 템플릿](../../templates/project-retrospective-star-template.md)
+- [Cart·서비스 기획·GA 계측을 중심으로 한 프로젝트 회고](retrospective.md)
+- [프로젝트 STAR 회고 템플릿](../../templates/project-star-template.md)
 - [프로젝트 목록](../README.md)
 
-회고는 프로젝트 전체 성과와 본인의 역할을 구분하고, 실제 행동·결정·실패·검증 결과를 연결해 별도로 작성한다.
+개인 회고는 프로젝트 전체 성과와 담당 역할을 구분하고, 실제 행동·문제 해결·검증 결과와 협업 과정에서의 배움을 연결해 작성했다.
