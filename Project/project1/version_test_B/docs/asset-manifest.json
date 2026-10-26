@@ -1,0 +1,573 @@
+{
+  "fixture": "onepiece-erd13-local-media-20261022-v4",
+  "assets": [
+    {
+      "path": "data/products.json",
+      "sha256": "08e19db9e4f4c8ebb0b5a22092151cda8a80a70b56f116c74e6fca5ee251968f",
+      "provenance": "366 fictional-named cards retain project names, local PNG mappings and stable option IDs. Prices, size/color options and availability were matched to the pinned clone reference JSON on 2026-10-22; ten availability flags were corrected. Reference descriptions, names, SKU identifiers and external media/source URLs remain excluded.",
+      "source": "https://github.com/tuski0/sansan_clone_site/blob/5fb0017ec32edbd2b6df4b7acbc149ebe88ee25b/data/reference.json"
+    },
+    {
+      "path": "public/brand/wordmark.svg",
+      "sha256": "94fe11caea1da236801a1e7fea10668b9c2a397b9eb157b97fd1ab6acf5f6338",
+      "provenance": "Original project wordmark. The DEMO annotation was removed and the text anchor/viewBox centered on 2026-10-22; no reference-brand artwork was added."
+    },
+    {
+      "path": "src/app/icon.svg",
+      "sha256": "75c4eb6ec7e6bc7b5df7466c4a3fbba9435b45c3114722ce6728a20f5dadf1bf",
+      "provenance": "New synthetic fixture or original geometric SVG created for this publication snapshot; no reference media input."
+    },
+    {
+      "path": "public/images/products/bottomDenimGray.png",
+      "sha256": "7880c0a1044f9ae5967cbfe4b75cfd1ca3782de911cd2c7ac190a94f361c0e4e",
+      "bytes": 904465,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/bottomPantsBlack.png",
+      "sha256": "40b148251d0fb31177f2c74b602adf5aba0d8cc683af84ca6f7abb23c0aff418",
+      "bytes": 327171,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/bottomPantsKhaki.png",
+      "sha256": "2fb3b8eff1026a6ba83b782ee29458e61a872afc9f930ff1afcc201bebcdb371",
+      "bytes": 977563,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/etcAccessoriesBeltBlack.png",
+      "sha256": "bb8c96d1cb066e3fded113cc9f264ffd2c65906df6e1409fcca26e1c8992d67c",
+      "bytes": 473136,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/etcAccessoriesNecklaceSilver.png",
+      "sha256": "88e17ec611f9b3087122614d0f19aab8bf1e627238e69a3cb75d48ffe825758e",
+      "bytes": 339416,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/etcAccessoriesSunglassesBlack.png",
+      "sha256": "8661496dac55388a0ffbb5e46380252bb92156856536f9b408d6a913e6d7c537",
+      "bytes": 148517,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/etcBagsCrossbodyCharcoal.png",
+      "sha256": "764d767971ececa08fc31f7d221df0299102adf01f3166627bd872b79359c1e9",
+      "bytes": 534975,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/etcBagsShoulderBlack.png",
+      "sha256": "0a59097513d560e40cfbd9faa5b289eede7cc466cfd66ba2580dc75a958a508e",
+      "bytes": 572064,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/etcBagsToteBeige.png",
+      "sha256": "6394d9c7c4366cb550e68ed13660d4d4ec80f4b8aa6f688d5b8a3090ac7fc3bb",
+      "bytes": 851097,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/etcShoesDerbyBlack.png",
+      "sha256": "623e89d21a09d86f84902424fdddfb415896b667108e552acead11c806f5995c",
+      "bytes": 407790,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/etcShoesMulesIvory.png",
+      "sha256": "8a0611edd8e3ab361a20beeb92776a7e5efea3f09d77488cd29b0bbb3de17bc8",
+      "bytes": 356240,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/etcShoesSneakersBlack.png",
+      "sha256": "58c1e2a30795d79090e8db8e244b375c60af58b35b5124add1e62f0485ec53d7",
+      "bytes": 598482,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/outerCoatCharcoal.png",
+      "sha256": "5e2736aed2fec1737e47e691209eaaa92e251cb44a1973eec172eb07e5041775",
+      "bytes": 919729,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/outerCoatIvory.png",
+      "sha256": "d418438df3433e77b21208ebe13913dc2ebf7c27e07b37943dd011a7de815577",
+      "bytes": 385112,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/outerCoatIvoryBack.png",
+      "sha256": "f428ec3369fc2583a4f1b9300bd0651a644fab7eaaf9acdd3360f093e1e75975",
+      "bytes": 361644,
+      "width": 1086,
+      "height": 1448,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/outerCoatIvoryDetailButtonHem.png",
+      "sha256": "a49121f97a3f61018149c3c4ad5b31941453c080df0e082df520417835dd3e3e",
+      "bytes": 1897485,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/outerCoatIvoryDetailCollar.png",
+      "sha256": "20cf43c81c75c0c7d8467a63e6c694a9c19f4cd3916937fd4c895df710a5c411",
+      "bytes": 2165872,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/outerCoatIvoryDetailCuff.png",
+      "sha256": "03cae818da8f39cf4557e29b1549b9a00a2fef4914bb1304b1ae769d38c7eeb4",
+      "bytes": 1612487,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/outerCoatIvoryFront.png",
+      "sha256": "e3930017bc5bcee40d5e1d04bfacefee9102426311370618cfd4b5ce900c1ebd",
+      "bytes": 411655,
+      "width": 1086,
+      "height": 1448,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/outerCoatIvoryModelBack.png",
+      "sha256": "10cd42020181e0e18239cebd8f7562d1b008765acbb831c62de94ceb8fc35a52",
+      "bytes": 319507,
+      "width": 1086,
+      "height": 1448,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/outerCoatIvoryModelFront.png",
+      "sha256": "82a53f040ac4e9401caf2d603524aac0553bea4bd49c3b62688e7ef675211151",
+      "bytes": 393850,
+      "width": 1086,
+      "height": 1448,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/outerCoatIvoryModelSide.png",
+      "sha256": "de8c1c99fac6e390a7c479f7a51b608eccef6fade3e9bd9b5a6a9400869218c2",
+      "bytes": 296048,
+      "width": 1086,
+      "height": 1448,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/outerJacketBlack.png",
+      "sha256": "c8c7766710f9a4318db5b1e6c8e6012a049a8065847129cd833c8125eb964384",
+      "bytes": 416887,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topHoodieGray.png",
+      "sha256": "58cd9b01d72d681337fd3a35628a94555f5e717582f197a754219b23e9d1bdc5",
+      "bytes": 1354604,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topHoodieGrayBack.png",
+      "sha256": "7e3cd5a05639d6f5274ec840a0a36cc63df5ae16a5225027016d9934e40e7d27",
+      "bytes": 1531610,
+      "width": 1254,
+      "height": 1254,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topHoodieGrayDetailCuff.png",
+      "sha256": "4e499863cc769b0b630eea3a36cea919fa632ac3d7571a6997b198af31b41a4f",
+      "bytes": 1898283,
+      "width": 1254,
+      "height": 1254,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topHoodieGrayDetailHood.png",
+      "sha256": "cbae8224b43ebd75fd8b0c0ba0dda528c237bb396b058d21893859ebc2702e7e",
+      "bytes": 2438954,
+      "width": 1254,
+      "height": 1254,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topHoodieGrayDetailPocketHem.png",
+      "sha256": "f250297c1adb7a53fd6f37ae70ce635d0d746a9549ca21e578f3d72232b2edcd",
+      "bytes": 2412372,
+      "width": 1254,
+      "height": 1254,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topHoodieGrayFront.png",
+      "sha256": "84c75bfeec84a634c12ec69c141a50946e1765f614b8cab0d8114f5efcc200b5",
+      "bytes": 1637796,
+      "width": 1254,
+      "height": 1254,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topHoodieGrayModelBack.png",
+      "sha256": "9cf239b84f95e0a730cfd959bd2046a2bd4499898983b24cc1fac38cbba61910",
+      "bytes": 527302,
+      "width": 1086,
+      "height": 1448,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topHoodieGrayModelFront.png",
+      "sha256": "b06f380da8490259b6b277a6cf1978232dc4f9f2d5495a72f22bc7a17d9d1072",
+      "bytes": 567766,
+      "width": 1086,
+      "height": 1448,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topHoodieGrayModelSide.png",
+      "sha256": "f8409f06fc65495a161ba471886c9c609744acedd8f9e1e3fb870a112ce26bc3",
+      "bytes": 402815,
+      "width": 1086,
+      "height": 1448,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topKnitCharcoal.png",
+      "sha256": "0c3edbe140f7e7b163437d935bdcb05ebb5517633e14cf3690564d5d67a26fbb",
+      "bytes": 1159727,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topKnitCharcoalBack.png",
+      "sha256": "ba9be188c3d23b1f26c2934121218e15f3996ba34abf7b03a627572e4b5c8067",
+      "bytes": 1315424,
+      "width": 1254,
+      "height": 1254,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topKnitCharcoalDetailCuff.png",
+      "sha256": "9afc0a30da12fbd702b33b25fa5dcc0924ef96e701c6b2d716e6e12c196a7ba7",
+      "bytes": 1423924,
+      "width": 1254,
+      "height": 1254,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topKnitCharcoalDetailHem.png",
+      "sha256": "595e53dd6d1a43e6668c64a24eec95797e710f14c2c23e5faee08fed0356a515",
+      "bytes": 1460121,
+      "width": 1254,
+      "height": 1254,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topKnitCharcoalDetailNeck.png",
+      "sha256": "e48cc105bb0609bcf218ef91970467e30b11a51d0646e52d8f34c8af2d54f4c2",
+      "bytes": 1729747,
+      "width": 1254,
+      "height": 1254,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topKnitCharcoalFront.png",
+      "sha256": "a4251cda58436de12f8050b14da79d8a59ffad5f11b9c25bc9b215d465a7465d",
+      "bytes": 1222237,
+      "width": 1254,
+      "height": 1254,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topKnitCharcoalModelBack.png",
+      "sha256": "c0c811350c884fd4bb1702b4904453d3b97bb12ce340d4a84c80490c2762869c",
+      "bytes": 385982,
+      "width": 1086,
+      "height": 1448,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topKnitCharcoalModelFront.png",
+      "sha256": "7cd5e77b91e7ae7e21f900f310342d95dbef20d853cda1d8122831f30819b71c",
+      "bytes": 509586,
+      "width": 1086,
+      "height": 1448,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topKnitCharcoalModelSide.png",
+      "sha256": "14a1519cd4121597f9f9c2427149c498e428788242f67192b7e34ebb02216221",
+      "bytes": 308258,
+      "width": 1086,
+      "height": 1448,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topKnitIvory.png",
+      "sha256": "aae7acd304d01446401819aa4ab9aef533f6015e4062980e6bd500599829465c",
+      "bytes": 1250814,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topKnitIvoryBack.png",
+      "sha256": "2e83a8d5cefa6510a3cd5ef9d816132f3517758e2e6c77ac687ffb9dc1216d29",
+      "bytes": 1557975,
+      "width": 1254,
+      "height": 1254,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topKnitIvoryDetailCuff.png",
+      "sha256": "66a2b8a7d58acafe59f279f17cec79398bee4ec12aaadf28d4e0da432ab3eced",
+      "bytes": 1800874,
+      "width": 1254,
+      "height": 1254,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topKnitIvoryDetailHem.png",
+      "sha256": "b7c49d8c78bb9c19481dd64b2aa4a3819e6f7ff69fcdc49a02b9514b79e8fd71",
+      "bytes": 2219716,
+      "width": 1254,
+      "height": 1254,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topKnitIvoryDetailNeck.png",
+      "sha256": "0abca09ba2f7ac7ff5f90a46715c4cec0f07e7d7f2897662a8d0e0464b802295",
+      "bytes": 2357944,
+      "width": 1254,
+      "height": 1254,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topKnitIvoryFront.png",
+      "sha256": "0f33e0194a6929f7c946a5433716bef9d5af90208ed9158c5a4d52da1debfcf6",
+      "bytes": 1575379,
+      "width": 1254,
+      "height": 1254,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topKnitIvoryModelBack.png",
+      "sha256": "3e172d1a7bafcbd21fc3dd6b730158870ab924a3f871f7fc49691e162f8b64dd",
+      "bytes": 533191,
+      "width": 1024,
+      "height": 1536,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topKnitIvoryModelFront.png",
+      "sha256": "fd3b2b08fdf8a67cd98f05be94ab1c52f0eeea1ba98e80231152fb226b76b0e9",
+      "bytes": 592018,
+      "width": 1024,
+      "height": 1536,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topKnitIvoryModelSide.png",
+      "sha256": "09ada4c5ebc1e7f9dc70e00cc680aef9bee69120d03bb6aa5f099f6738e8d9d7",
+      "bytes": 346240,
+      "width": 1024,
+      "height": 1536,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topTShirtBlack.png",
+      "sha256": "54850bc6c1d32c99c61e1e48b3e809cf423658b04d9215e6b5c4bc20bd5c7002",
+      "bytes": 466948,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topTShirtBlackBack.png",
+      "sha256": "26c6f0b2f1c5958afe595aa9229c1d1725d8b734d65b10f42c5587512e588033",
+      "bytes": 424045,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topTShirtBlackDetailHem.png",
+      "sha256": "ea2a04aecdde5fd47cc66cca5440f4ff52ac3804aabbf3b6edb072349f4cfeee",
+      "bytes": 1067941,
+      "width": 1254,
+      "height": 1254,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topTShirtBlackDetailNeck.png",
+      "sha256": "6452643e0169dcedb550d5984255763ab4beb280a8e9ea32847e153fdf357beb",
+      "bytes": 1229627,
+      "width": 1254,
+      "height": 1254,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topTShirtBlackDetailSleeve.png",
+      "sha256": "6330ec70dc88fbef06e289be77bd11670cb179666e466d9c949f70f05c7a9eaf",
+      "bytes": 1086753,
+      "width": 1254,
+      "height": 1254,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topTShirtBlackFront.png",
+      "sha256": "ac8e6231f26676b30573b01c435d1b92a4d1169fd45bf1aa00026600b538535c",
+      "bytes": 430683,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topTShirtBlackModelBack.png",
+      "sha256": "a15255453c12aaec7dbc75bd0902ce570882bbfe2684c8042fc3f4527e257690",
+      "bytes": 523426,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topTShirtBlackModelFront.png",
+      "sha256": "83d04ceea1fcd2a07eedba66bd5b6b3a5d28e8846311553001290b1acc6b8062",
+      "bytes": 555108,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/images/products/topTShirtBlackModelSide.png",
+      "sha256": "7289ad1745f079e8b9c867d95a80e150367d6fa13e2fe25eb726ec433bb1fe94",
+      "bytes": 370906,
+      "width": 1122,
+      "height": 1402,
+      "kind": "user-provided-product-image",
+      "provenance": "PNG supplied by the maintainer from the specified remove-bg output set and explicitly authorized for copying, reuse across the catalog and GitHub publication on 2026-10-21. Copied byte-for-byte without conversion. Original creation/licensing is not independently asserted by this manifest."
+    },
+    {
+      "path": "public/campaign/campaign-video.mp4",
+      "sha256": "e071207862bc906239552976428903f7cf5972b46fef141617ebe6db2ce4589d",
+      "bytes": 3058032,
+      "kind": "user-created-campaign",
+      "provenance": "Original campaign media restored unchanged from the working project. The maintainer explicitly identified the main video as their own AI production and requested its restoration on 2026-10-21; the poster is its existing project fallback."
+    },
+    {
+      "path": "public/campaign/campaign-poster.jpg",
+      "sha256": "a9dc9529834b0b4ad176154398ba3994d42da30f622d3d37667a1927be01bfd8",
+      "bytes": 134465,
+      "kind": "user-created-campaign",
+      "provenance": "Original campaign media restored unchanged from the working project. The maintainer explicitly identified the main video as their own AI production and requested its restoration on 2026-10-21; the poster is its existing project fallback."
+    },
+    {
+      "path": "public/campaign/onepiece-logo.svg",
+      "sha256": "f8718fbff15332c2230ed2b7fe1a86b478daf941ffb503c61f528141a20e613f",
+      "bytes": 26321,
+      "kind": "user-created-campaign",
+      "provenance": "Existing ONEPIECE project wordmark restored with the original campaign. Copied unchanged from the working project."
+    }
+  ]
+}
