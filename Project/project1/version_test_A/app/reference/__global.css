@@ -1,0 +1,9 @@
+html[lang^="ko"] .totals > h2, html[lang^="ko"] .cart-drawer .tax-note,
+html[lang^="ko"] .login-modal .btns,
+html[lang^="ko"] .cart__empty-text {font-size:var(--fs1); letter-spacing:var(--ls2);}
+
+@media screen and (min-width:1921px) {
+	html[lang^="ko"] .totals > h2, html[lang^="ko"] .cart-drawer .tax-note,
+	html[lang^="ko"] .login-modal .btns,
+	html[lang^="ko"] .cart__empty-text {font-size:var(--fs0s);}
+}

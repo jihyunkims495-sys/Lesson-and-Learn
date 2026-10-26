@@ -1,0 +1,973 @@
+/** Shopify CDN: Minification failed
+
+Line 303:95 Unexpected "{"
+
+**/
+
+/*
+https://tv-sy.com
+*/
+:root {
+	/* color */
+	--c0:rgba(0,0,0,1); --c1:#111; --c1l:#1b1b1b;  --c2:#fff; --c3:#aaa; --c3d:#999; --c4:#777;
+	--g2:#222; --g3:#333; --g4:#aaa;
+	--r1:#f7bb1b;
+	/* font-family */
+	--fn1:fort, pretendard, sans-serif; --fn2:pretendard, sans-serif; --fn3:owners, pretendard, sans-serif; --fn4:owners-narrow, pretendard, sans-serif;
+	/* font-size */
+	--fs9:.9rem; --fs9s:.95rem; --fs0:1rem; --fs0s:1.05rem; --fs1:1.1rem; --fs1s:1.15rem; --fs2:1.2rem; --fs2s:1.25rem; --fs3:1.3rem;
+	/* border-style */
+	--b0:.1rem solid transparent; --b1:.1rem solid var(--c1); --b2:.1rem solid var(--c2); --b3:.1rem solid var(--c3); --b4:.1rem solid #ddd; --b5:.1rem solid #eee;
+	/* cubic-bezier*/
+	--cb1:cubic-bezier(.12,.72,.26,.89); --cb2:cubic-bezier(.1,1,.3,.92);
+	/* spacing */
+	--p0:.4rem; --p0s:.8rem; --p1:1.2rem; --p1s:1.6rem; --p2:2rem; --p2s:2.8rem; --p3:3.2rem; --p4:4rem; --p6:6rem; --p8:8rem;
+	/* corner */
+	--rn1:.4rem; --rn2:.6rem;
+	/* transition */
+	--tr1:all .12s ease; --tr2:all .2s ease;
+	/* letter-spacing */
+	--ls1:0; --ls1:.01em; --ls2:.02em;
+
+	--w:calc(100dvw - var(--sw));
+}
+
+a.nx {cursor:default !important;}
+
+/*--*/
+html {font-size:62.5%;}
+body {position:absolute; margin:0; padding:0; width:100%; height:auto; font:1rem/1.4 var(--fn1); letter-spacing:0; color:var(--c1); background:var(--c2);
+-webkit-text-size-adjust:none;
+-webkit-font-smoothing:antialiased !important;
+text-rendering: optimizelegibility;
+font-variant-numeric: lining-nums tabular-nums;
+}
+body {opacity:0; transition:opacity .6s ease;}
+html.wf-active body,
+html.wf-inactive body {opacity:1;}
+
+.hidn, product-modal {display:none !important;}
+
+
+/*--*/
+a, a:hover, a:active {outline:none;}
+/*--*/
+a, button {text-decoration:none; color:var(--c1); transition:all .2s ease;}
+a:hover {text-decoration:none;}
+a:active {text-decoration:none;}
+/*--*/
+::selection {color:rgba(255,255,255,.7); background:rgba(54,54,255,.7);}
+/*--*/
+ul, li {margin:0; padding:0; list-style-type:none;}
+div, p {position:relative;}
+/*--*/
+img {border:0;}
+/*--*/
+* {box-sizing:border-box; position:relative;}
+*::marker {content:'';}
+
+.tj__ {font-variant-numeric: lining-nums tabular-nums;}
+
+
+body.fixed {overflow:hidden; touch-action:none;}
+
+input, textarea {box-shadow:none; text-shadow:none; border:none;}
+input, textarea, select, a, button {border:none; outline:none; background:transparent; font:var(--fs0)/1.4 var(--fn1); letter-spacing:0; margin:0; padding:0; font-family:inherit; font-variant-numeric:lining-nums tabular-nums; font-feature-settings:"lnum" 1, "tnum" 1;}
+button {cursor:pointer; border:none;}
+input[type="search"]::-webkit-search-cancel-button {-webkit-appearance:none; appearance:none; display:none;}
+select {-webkit-appearance:none; appearance:none;}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {display:inline-block; width:100%; padding:.6rem 0; font-size:var(--fs0); border-bottom:var(--b1);}
+select {display:inline-block; width:100%; padding:.6rem 0; font-size:var(--fs0); background:url(https://sansangear.com/cdn/shop/files/ar__dn.svg?v=1779193668) no-repeat right var(--p0) center; background-size:.6rem auto; border-bottom:var(--b1);}
+
+input[type=checkbox] {display:inline-block; width:1.4rem; height:1.4rem; border:var(--b1); appearance:none; -webkit-appearance:none; border-radius:.1rem;}
+input[type=checkbox]:checked::after {display:inline-block; content:''; position:absolute; top:50%; left:50%; width:.8rem; height:.8rem; background:var(--c0); border-radius:.1rem; transform:translate(-50%,-50%);}
+
+
+input::placeholder {color:var(--c3); font-size:var(--fs9s); text-transform:uppercase;}
+
+.in {display:inline-block; margin:0 auto; width:100%; max-width:100%; padding:0; height:auto; text-align:left; scroll-behavior:smooth;}
+span.tr_ {transition:var(--tr2);}
+
+i.plus {display:inline-block; position:absolute; top:var(--p0); right:0; width:var(--p1s); height:var(--p1s); cursor:pointer; z-index:9;}
+i.plus::before, i.plus::after {display:inline-block; position:absolute; content:''; top:50%; left:50%; width:.7rem; height:.1rem; background:var(--c1); transform:translate(-50%, -50%); transition:var(--tr1);}
+i.plus::after {transform:translate(-50%, -50%) rotate(90deg);}
+
+
+body {font-size:.95rem; background:var(--c2);}
+.over {position:absolute; top:0; bottom:0; left:0; display:block; width:100%; height:100%; opacity:.97; background:var(--c2); z-index:-1;}
+
+.dn__,
+.announcement-bar-section, .svg-wrapper {display:none !important;}
+p.empty_ {font-size:var(--fs0s); margin:0 0 var(--p4);}
+
+.tn, .tn * {text-transform:none !important;}
+
+p, h1, h2, h3, h4, h5, h6 {margin:0; padding:0; font-size:inherit; font-weight:400;}
+h4 {display:block; width:100%; font-size:var(--fs9s); text-transform:uppercase; font-weight:500;}
+
+.flex {display:flex; flex-wrap:wrap; width:100%;}
+.flex > div {display:inline-block;}
+
+.flex > div.i1-2 {flex-basis:50%;}
+.flex > div.i1-3 {flex-basis:33.3333%;}
+.flex > div.i1-4 {flex-basis:25%;}
+
+
+/* spacing */
+.pt-0 {padding-top:0 !important;}
+
+/* button */
+.btn__ {display:block; text-align:left; margin:var(--p2) 0 0;}
+.btn__.bt {margin:0 0 var(--p8);}
+.btns {display:block; text-align:left; margin:var(--p8) 0 0;}
+
+.btn1 {display:inline-flex; justify-content:center; align-items:center; width:100%; height:4rem; font-size:var(--fs0); font-weight:500; text-transform:uppercase; color:var(--c2); background:var(--c1); border-radius:var(--rn1);}
+.btn2 {display:inline-flex; justify-content:center; align-items:center; width:auto; height:2.4rem; font-size:var(--fs9s); padding:0 var(--p3); font-weight:500; text-transform:uppercase; color:var(--c2); background:var(--c1); border-radius:var(--rn1);}
+.btn3 {display:inline-flex; justify-content:center; align-items:center; width:auto; height:auto; font-weight:500; font-size:var(--fs0); text-transform:capitalize; padding:0 0 .2rem; border-bottom:var(--b0); color:var(--c1);}
+.btn3:hover {border-color:var(--c1);}
+
+.bn1 {display:inline-block; width:auto; height:auto; font-weight:400; font-size:var(--fs0s); letter-spacing:var(--ls1); padding:0; border-bottom:var(--b0); color:var(--c1);}
+.bn1:hover {border-color:var(--c1);}
+.bn2 {display:inline-block; width:auto; height:auto; font-weight:500; font-size:var(--fs0); letter-spacing:var(--ls1); padding:0; color:var(--c3);}
+.bn2:hover {color:var(--c1);}
+
+
+.kr, .kr * {font-size:var(--fs1s); line-height:1.9;}
+
+.back--btn {display:inline-flex; flex-wrap:nowrap; align-items:center; left:-.6rem;}
+.back--btn > * {display:inline-flex;}
+.back--btn > i {width:2rem; min-width:2rem; height:2rem; border-radius:var(--rn2); background:rgba(0,0,0,.9) url(https://sansangear.com/cdn/shop/files/ar__l__w.svg?v=1779193668) no-repeat center center; background-size:.4rem auto; z-index:9;}
+.back--btn > span {font-weight:500; text-transform:uppercase; margin-left:var(--p1);}
+
+.back--btn.s > i {width:1.6rem; height:1.6rem; border-radius:var(--rn2); background:rgba(255,255,255,.7) url(https://sansangear.com/cdn/shop/files/ar__l.svg?v=1779193668) no-repeat center center; background-size:.4rem auto; z-index:9;}
+.back--btn > span {font-weight:400; text-transform:capitalize; margin-left:var(--p1);}
+
+.data__ {display:flex; flex-wrap:nowrap; width:100%; align-items:flex-start;}
+.data__ > * {display:inline-block;}
+.data__ > label {flex-basis:6rem; text-transform:uppercase; color:var(--c3d);}
+.data__ > span {flex-basis:calc(100% - 6rem);}
+
+.cls_ {display:inline-flex; justify-content:center; align-items:center; position:absolute; top:0; right:0; width:2rem; height:2rem; cursor:pointer; z-index:9;}
+.clos {display:inline-flex; justify-content:center; align-items:center; width:2rem; height:2rem; border-radius:var(--rn1); background:rgba(255,255,255,.7);}
+.clos.bg1 {background:rgba(0,0,0,.2);}
+
+.clos::before, .clos::after {display:inline-block; position:absolute; content:''; top:50%; left:50%; width:1rem; height:.1rem; background:var(--c1); transform:translate(-50%, -50%) rotate(45deg); transition:var(--tr1);}
+.clos::after {transform:translate(-50%, -50%) rotate(135deg);}
+.clos.bg1::before, .clos.bg1::after {width:.8rem;}
+
+
+
+.shopify-section[id*="home"] {z-index:19;}
+.shopify-section[id*="popup"] {z-index:11;}
+.s_ .shopify-section[id*="home"] {z-index:9;}
+
+/* popup */
+body .shopify-section[id*=popup] {}
+
+
+/* banner */
+body .shopify-pc__banner__dialog, body .shopify-pc__banner__dialog *, body body .shopify-pc__prefs__dialog, body .shopify-pc__prefs__option p, body .shopify-pc__prefs__intro-main p, body .shopify-pc__prefs__option label, body .shopify-pc__prefs__intro-main h3 {font-size:1.05rem;}
+
+body .shopify-pc__banner__dialog {padding:var(--p1s); right:var(--p1s); bottom:var(--p1s); left:auto; max-width:52rem; border-radius:var(--rn1);}
+body .shopify-pc__banner__dialog h2 {font-size:1.1rem; font-weight:600; margin:0 0 1rem;}
+body .shopify-pc__banner__dialog p {line-height:1.5; word-break:keep-all;}
+body .shopify-pc__banner__dialog p a {display:inline-block;}
+
+body .shopify-pc__banner__btns {margin:var(--p0s) 0 0; gap:var(--p0s);}
+
+body .shopify-pc__banner__dialog button, body .shopify-pc__prefs__header-actions button {display:inline-flex; justify-content:center; align-items:center; width:100%; height:2.8rem; font-size:1rem; line-height:1.4; font-weight:500; border-radius:var(--rn1); margin:0; padding:0 var(--p1);}
+body .shopify-pc__prefs__header-actions button {width:auto; margin:0; margin-right:var(--p2);}
+body .shopify-pc__prefs__header-actions {padding-right:var(--p4);}
+
+body .shopify-pc__prefs__dialog {border-radius:var(--rn1); left:50%; max-width:80rem; transform:translate(-50%, -50%);}
+body .shopify-pc__prefs__dialog header {width:100%; padding:var(--p3);}
+body .shopify-pc__prefs__header-close {outline:none; top:50%; right:var(--p2); transform:translateY(-50%); z-index:99; transition:all 0s;}
+body .shopify-pc__prefs__header-close svg {width:.9rem; height:auto;}
+body .shopify-pc__prefs__intro-main h3 {margin:0 0 var(--p1);}
+
+body .shopify-pc__prefs__option {line-height:1.4; margin-top:var(--p2s);}
+
+@media only screen and (max-width: 1200px) {
+	body .shopify-pc__prefs__dialog header {flex-direction:row;}
+	body .shopify-pc__prefs__dialog header h2 {text-align:left;}
+}
+
+@media screen and (min-width:1px) and (max-width:750px) {
+	body .shopify-pc__prefs__dialog header {flex-direction:column;}
+	body .shopify-pc__prefs__dialog header h2 {margin:0 0 var(--p2s);}
+	body .shopify-pc__prefs__header-actions {flex-direction:row; justify-content:flex-start;}
+
+	body .shopify-pc__prefs__header-close {top:var(--p1s); right:var(--p1s); transform:translateY(0);}
+}
+@media screen and (min-width:1px) and (max-width:480px) {
+	body .shopify-pc__banner__dialog {left:var(--p1); right:auto; width:calc(var(--w) - 2.4rem); padding:1.6rem;}
+	body .shopify-pc__banner__dialog button {min-height:3rem; margin:.6rem 0 0;}
+
+	body .shopify-pc__prefs__dialog header h2 {margin:0 0 var(--p2s);}
+}
+@media only screen and (max-width: 400px) {
+	body .shopify-pc__prefs__dialog header {padding:var(--p2);}
+	body .shopify-pc__prefs__header-close {top:var(--p1); right:var(--p1);}
+
+	body .shopify-pc__prefs__header-actions button {margin-right:var(--p1s);}
+
+	body .shopify-pc__prefs__options {padding-bottom:var(--p2);}
+}
+@media screen and (min-width:1921px) {
+	body .shopify-pc__banner__dialog, body .shopify-pc__banner__dialog *, body body .shopify-pc__prefs__dialog, body .shopify-pc__prefs__option p, body .shopify-pc__prefs__intro-main p, body .shopify-pc__prefs__option label, body .shopify-pc__prefs__intro-main h3 {font-size:1.1rem;}
+}
+
+/* header */
+header {position:fixed; top:0; left:0; width:var(--w); height:auto; padding:var(--p0) var(--p0s); z-index:199;}
+header > .in {display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; width:100%;}
+header > .in > div {display:inline-flex; align-items:center; padding:0 var(--p0); backdrop-filter:blur(.4rem); border-radius:var(--rn1);}
+
+header > .in > * {z-index:9;}
+
+header > .in > div::after {display:inline-block; position:absolute; content:''; top:0; left:0; width:100%; height:100%; background:var(--c2); opacity:.7; border-radius:var(--rn1); z-index:-1; display:none;}
+header > .over {display:none; border-radius:var(--rn1);}
+#m-btn {display:none;}
+header ul > li > a > span, header ul > li > a > i {display:inline-block;}
+header > y {position:fixed; display:inline-block; top:0; left:0; width:var(--w); height:0; opacity:0; background:rgba(0,0,0,.7); /*transition:opacity .4s ease;*/}
+header.nv-on > y {height:100dvh; opacity:1;}
+
+/* logo */
+.logo {display:inline-block; position:fixed; top:1.4rem; left:50%; width:11.2rem; height:auto; transform:translateX(-50%); mix-blend-mode:difference; z-index:9;}
+.logo > span {display:block; width:100%; height:0; padding-bottom:7%; background:url(https://sansangear.com/cdn/shop/files/logo__bl.svg?v=1779193668) no-repeat 0 0; background-size:100%;}
+
+.h .logo {top:var(--p1s);}
+.h .logo > span {background:url(https://sansangear.com/cdn/shop/files/logo__w.svg?v=1779193668) no-repeat 0 0; background-size:100%;}
+
+.av_ .logo {display:none !important;}
+
+/* legacy site */
+a.legacy.p_ {position:absolute; top:.2rem; left:22.7rem; display:inline-flex; align-items:center; height:2rem; font-size:.95rem; padding:0 1rem; border:var(--b0); border-radius:var(--rn2); background:rgba(225,225,225,.8); text-transform:uppercase; transition:all 0s; z-index:7;}
+a.legacy.p_:hover {color:var(--c1); background:rgba(225,225,225,.7);}
+
+.tj__ a.legacy.p_, .sc-on a.legacy.p_ {display:none !important;}
+.m_m ul > li.legacy {display:none;}
+
+/* navigation */
+header > .in > div.nv {padding:0;}
+
+.nv ul.m, .n-2 > ul {display:inline-flex; flex-wrap:wrap; align-items:flex-start;}
+.nv ul.m {display:none; width:100%;}
+
+.nv ul.m > li {position:static;}
+.nv ul.m > li.h {display:none;}
+
+.nv ul.m > li, .n-2 > ul > li {display:inline-block;}
+.nv ul.m > li {margin:0;}
+
+.nv .m__, .i-sub > .in > div.m_ {display:none;}
+.nv ul.m > li > a {z-index:9;}
+.nv ul.m > li > a, .n-2 > ul > li > a, .n-2 > ul > li.s__ summary {display:inline-flex; justify-content:center; align-items:center; width:auto; height:2.4rem; padding:0 1.8rem; border-radius:var(--rn1); color:var(--c1); transition:none;}
+.nv ul.m > li > a > span, .n-2 > ul > li > a > span {display:inline-flex; align-items:center; height:auto; padding:.4rem 0;}
+.nv ul.m > li:first-child > a, .n-2 > ul > li:first-child > a {padding-left:var(--p1s);}
+.nv ul.m > li:last-child > a {padding-right:var(--p0s) !important;}
+
+header:not(.nv-on) .nv ul.m > li:first-child > a {padding-left:var(--p0s);}
+
+.nv ul.m, .ss-tab, .n-2 > ul > li > a {text-transform:uppercase;}
+
+.nv ul > li a::after,
+.n-2 > ul > li > a::after {display:inline-block; position:absolute; content:''; top:0; left:0; width:100%; height:100%; border-radius:var(--rn1); z-index:-1;}
+
+/* a __ underline */
+.nv ul.m > li.s > a > span::before {display:inline-block; position:absolute; content:''; bottom:0; left:auto; right:0; width:0; height:.15rem; transition:all .24s var(--cb1); background:var(--c0); z-index:4;}
+
+nav.ss-menu {display:inline-block; padding:0;}
+
+/* ss tab */
+.ss-tab {display:inline-block; margin:.2rem 0; z-index:9;}
+
+/* ss tab */
+.ss-tab > ul {display:inline-flex;}
+.ss-tab > ul > li {display:inline-block; flex-basis:auto;}
+.ss-tab > ul > li:first-child {margin-right:var(--p0);}
+.ss-tab > ul > li > a {display:inline-flex; justify-content:center; align-items:center; width:14rem; height:2.8rem; font-weight:500; border-radius:var(--rn2); z-index:9;}
+.ss-tab > ul > li.sltd > a {color:var(--c2); background:var(--c1);}
+
+
+/* n-2 */
+.n-2 > ul > li {margin:0;}
+.n-2 > ul > li > a {padding:0 var(--p1s);}
+.n-2 > ul > li > a > i {font-style:normal; margin-left:1.2rem; text-transform:uppercase;}
+.n-2 > ul > li.cart > a {padding-right:0;}
+.n-2 > ul > li.cart > a > span {padding-right:0;}
+.n-2 > ul > li.cart > a > i {margin:0; margin-left:.6rem; display:inline-flex; justify-content:center; align-items:center; width:1.6rem; height:1.6rem; font-weight:400; color:var(--c2); z-index:9;}
+.n-2 > ul > li.cart > a > i::after {position:absolute; content:''; display:inline-block; width:1.6rem; height:1.6rem; font-weight:400; border-radius:var(--rn1); color:var(--c2); background:rgba(0,0,0,.9); z-index:-1;}
+.n-2 > ul > li.cart > a > i > span {display:inline-block; z-index:9;}
+
+.n-2 > ul > li.cart.empty > a > i, .ss-on .n-2 > ul > li.cart.empty > a > i {color:var(--c1);} {color:var(--c1);}
+.n-2 > ul > li.cart.empty > a > i::after {background:rgba(255,255,255,.7);}
+
+
+/* search */
+.header__search {display:inline-block;}
+.sc-on .header__search {width:26rem; overflow:visible;}
+.n-2 > ul > li.s__ summary {cursor:pointer; padding:0 1.8rem 0 .8rem; cursor:pointer;}
+.n-2 > ul > li.s__ summary > span {display:inline-block; width:1rem; height:1rem; background:url(https://sansangear.com/cdn/shop/files/s__1.svg?v=1779867201) no-repeat center center; background-size:.9rem;}
+
+.sc__clos-btn {display:none;}
+
+
+/* sub-menu */
+.i-sub {position:absolute; top:calc(100% - .1rem); left:-.4rem; width:calc(var(--w) - .8rem); display:block; margin:0; padding:0; height:0; overflow:hidden; /*transition:all .4s var(--cb1);*/}
+.i-sub > .in {display:flex; width:100%; padding:0 2.4rem; transition:all .2s ease;}
+.i-sub > .in > div {display:inline-block; flex-basis:12.5%; flex-basis:14.2857%; min-width:20rem;}
+
+.i-sub ul > li > a {display:block; padding:.6rem 0;}
+.i-sub > .in > div > span {display:block; padding:.6rem 0; margin:0 0 var(--p1s); color:var(--c3);}
+
+/* menu hover
+.i-sub.on > .in > div {opacity:.3;} */
+
+
+/* login modal */
+.login-modal {position:fixed; top:var(--p0s); right:var(--p0s); width:100%; max-width:36rem; height:auto; background:transparent; display:none; z-index:109;}
+.login-modal > .in {padding:var(--p1s); overflow:hidden; border-radius:var(--rn1);}
+.login-modal .cls_ {top:.2rem; right:.2rem; width:2.8rem; height:2.8rem; z-index:9;}
+.login-modal .field > label {display:none;}
+.login-modal .t1__ {margin-bottom:8rem;}
+
+.log--on .login-modal {display:inline-block;}
+.log--on header {overflow:visible; height:100dvh; backdrop-filter:blur(.4rem);}
+.log--on header > y {height:100dvh; background:rgba(0,0,0,.7); opacity:1; z-index:19;}
+
+/* main */
+main {padding:5.2rem var(--p1s); min-height:calc(100dvh - 3.8rem); font-size:var(--fs0);}
+.p0.pd main {padding:0;}
+.p0 main {padding-top:9.6rem;}
+
+.cl.p0 main {padding-top:16rem;}
+
+.i-box, .i-box > span {display:block; width:var(--w); height:100dvh;}
+.i-box > span img {position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:center;}
+
+/* title */
+.t1__ {display:block; margin:0 0 var(--p2);}
+.t1__ h1, .t1__ h2, h1.t_ {display:block; font-size:var(--fs0s); font-weight:500; text-transform:uppercase;}
+
+.in.w1 {display:block; margin:0; padding-top:10.8rem;}
+
+.in.w1.fl > .t1__ {display:inline-block; position:absolute; width:auto; white-space:nowrap;}
+
+.in__ {display:flex; justify-content:flex-end; align-items:flex-start; margin:0; padding:0;}
+.in__ > div {display:inline-block; flex-basis:50%; overflow:hidden; transition:all .2s ease;}
+.in__ > div > .in {width:100%; margin:0;}
+.in__.n1 > div > .in {max-width:42rem;}
+.in__.n2 > div > .in {max-width:56rem;}
+.w1 .cont {padding-top:14rem;}
+
+
+
+/* sub nv */
+.sub--nv {position:absolute; top:0; left:0; display:block; width:100%; border-radius:var(--rn2); overflow:hidden; z-index:99;}
+.sub--nv .profile {display:flex; flex-wrap:nowrap; justify-content:space-between; width:100%; max-width:36rem; margin:0 0 var(--p1);}
+.sub--nv .profile > * {display:inline-block; flex-basis:auto;}
+.sub--nv .profile > .nm {font-size:var(--fs0s); margin-right:var(--p2);}
+
+.s-on .sub--nv .profile {display:none !important;}
+
+.sub--nv > ul {display:flex; flex-wrap:nowrap; width:100%; margin:0; padding:0;}
+.sub--nv > ul > li {display:inline-block; flex-basis:12rem; flex-shrink:0; white-space:nowrap; margin-right:var(--p2);}
+.sub--nv > ul > li:last-child {margin:0;}
+
+.sub--nv > ul > li.all {text-transform:capitalize !important;}
+
+.sub--nv > ul > li > a {display:flex; align-items:center; width:100%; padding:0; height:3.4rem; padding:0; font-size:var(--fs0s);}
+.sub--nv > ul > li > a > span {display:flex; align-items:center; width:100%; height:2.6rem; color:var(--c3); border-top:var(--b0); transition:var(--tr2);}
+.sub--nv > ul > li.sltd > a > span {font-weight:500; color:var(--c1); border-color:var(--c1);}
+
+.s-on .sub--nv {position:fixed; top:4rem; left:50dvw; width:auto; background:rgba(255,255,255,.8); backdrop-filter:blur(.4rem); box-shadow:0 0 .6rem rgba(0,0,0,.1); padding:0;}
+.s-on .sub--nv > ul {padding:0 var(--p1s); margin:0;}
+.s-on .sub--nv > ul > li > a {height:3.2rem;}
+.s-on .sub--nv > ul > li > a > span {height:2rem;}
+
+
+.tj__.s-on .sub--nv {background:rgba(27,27,27,.8); box-shadow:0 0 .6rem rgba(0,0,0,.1); padding:0;}
+
+.tj__.s-on .sub--nv > ul > li.sltd > a > span {color:var(--c2); border-color:var(--c2);}
+
+/* archive */
+/* sub nv
+.archive .in__ {width:calc(100% + 1.6rem);}*/
+.archive .in__ {left:-1.6rem; width:calc(100% + 3.2rem);}
+.archive .in__ > div {flex-basis:100%;}
+
+.archive .sub--nv {left:50%; width:50%;}
+.archive .sub--nv > ul > li {flex-basis:6rem;}
+
+/* archive view */
+.av_ main {padding:0; min-height:100dvh;}
+.av_ .in.w1 {padding:0;}
+
+.av_ header {width:auto; left:auto; right:0;}
+.av_ header > .in {justify-content:flex-end;}
+.av_ .nv, .av_ .n-2 > ul > li.p_, .av_ footer > .in > div.l, .av_ #m-btn {display:none !important;}
+.av_ .n-2 > ul > li.cart > a {padding-left:var(--p0);}
+
+.rv__ {margin-bottom:var(--p8);}
+
+/* footer */
+footer {display:block; width:var(--w); height:auto; text-transform:uppercase; padding:var(--p1) var(--p2); margin:0; overflow:visible; mix-blend-mode:difference; color:var(--c2); z-index:97;}
+
+.av_ footer {display:none !important;}
+
+/*
+footer > .in {min-height:1.4rem;}
+footer > .in > div {position:absolute; display:inline-block; width:auto; top:0; left:0; background:transparent; backdrop-filter:blur(.4rem);}
+*/
+footer > .in {display:flex; flex-wrap:wrap; align-items:flex-end; width:100%; min-height:1.4rem;}
+footer > .in > div {display:inline-block; width:auto; top:0; left:0; background:transparent; backdrop-filter:blur(.4rem);}
+
+footer > .in > div.credit {flex-basis:50%;}
+footer > .in > div.l {flex-basis:25%;}
+footer > .in > div.r {display:inline-flex; justify-content:flex-end; flex-basis:25%;}
+
+.credit > span {display:inline-flex; flex-wrap:nowrap; align-items:center; width:auto; cursor:pointer;}
+.credit > span > * {display:inline-block;}
+.credit > span > i {top:-.05rem; width:1.2rem; height:1.2rem; background:url(https://sansangear.com/cdn/shop/files/ar__dn__w.svg?v=1779193668) no-repeat center center; background-size:.6rem auto; margin-left:.6rem; z-index:9;}
+
+
+
+.ft--info {display:block; width:100%; max-width:62rem; padding-right:var(--p4); text-transform:none; height:0; overflow:hidden; transition:all .2s ease;}
+.credit.on .ft--info, .ft--info {height:auto; padding-top:var(--p1);}
+.credit.on > span > i {background:url(https://sansangear.com/cdn/shop/files/ar__up__w.svg?v=1779193668) no-repeat center center; background-size:.6rem auto;}
+
+
+
+.ft--info > ul {display:flex; flex-wrap:wrap; align-items:center; width:100%; font-size:var(--fs0);}
+.ft--info > ul:first-child {margin-bottom:.2rem;}
+
+.ft--info > ul > li {display:inline-flex; flex-basis:auto; padding-right:var(--p0s); margin-right:var(--p0s);}
+.ft--info > ul > li::after {display:inline-block; position:absolute; top:50%; right:0; content:''; width:.1rem; height:.8rem; background:var(--c2); opacity:.4; transform:translateY(-50%); z-index:19;}
+.ft--info > ul > li > * {display:inline;}
+.ft--info > ul > li > label {color:#666; margin-right:var(--p0);}
+
+.ft--info > ul > li:last-child {margin:0; padding:0;}
+.ft--info > ul > li:last-child::after {display:none;}
+
+.tj__.h_ footer {position:fixed; left:0; bottom:0; display:none;}
+.tj__.h_ footer > .in {align-items:flex-end;}
+.tj__.h_ .ft--info {display:none !important;}
+
+/* home
+.h footer {position:fixed; left:0; bottom:0;}
+.h footer > .in {align-items:flex-end;}
+*/
+
+
+.credit > span > i {display:none;}
+
+/*
+.h footer > .in > div.credit {position:relative; top:0; bottom:auto; left:0;}
+*/
+
+
+.ft--nv ul {display:inline-flex; flex-wrap:nowrap; align-items:flex-end;}
+.ft--nv ul > li {display:inline-block; flex-basis:auto; margin-right:var(--p3);}
+.ft--nv ul > li:last-child {margin:0;}
+.ft--nv ul > li a {display:block; width:100%; color:var(--c2);}
+.ft--nv ul > li a > span {display:block;}
+
+
+.ft--nv ul > li.ln_ a > i {top:-.05rem; width:1.2rem; height:1.2rem; margin-left:.6rem; z-index:9;}
+.ft--nv ul > li.ln_ a.sltd > i {background:url(https://sansangear.com/cdn/shop/files/ar__dn__w.svg?v=1779193668) no-repeat center center; background-size:.6rem auto;}
+
+
+.ft--nv ul > li.ln_ {display:inline-flex; flex-wrap:wrap; flex-direction:column-reverse; align-items:flex-start;}
+html[lang^="en"] .ft--nv ul > li.ln_ {flex-direction:column;}
+
+.ft--nv ul > li.ln_ a {opacity:.4; transition:var(--tr1);}
+.ft--nv ul > li.ln_ a > * {display:inline-block; width:auto;}
+
+.ft--nv ul > li.ln_ a {height:0; overflow:hidden;}
+.ft--nv ul > li.ln_ a.sltd {display:inline-flex; align-items:center; height:auto;}
+.ft--nv ul > li.ln_ a:hover, .ft--nv ul > li.ln_ a.sltd {opacity:1;}
+
+.ft--nv ul > li.ln_.on a:not(.sltd) {height:auto; margin:0 0 var(--p0s);}
+.ft--nv ul > li.ln_.on a.sltd > i {transform:rotate(180deg);}
+
+
+
+.ft--nv ul > li.social a {font-size:var(--fs0); text-transform:none;}
+
+
+
+/* toji */
+.tj__ .logo {width:8.8rem; z-index:999;}
+.tj__ .logo > span {display:block; width:100%; height:0; padding-bottom:14.4695%; background:url(https://sansangear.com/cdn/shop/files/toji.svg?v=1779193668) no-repeat 0 0; background-size:100%;}
+
+
+.tj__.h_ {background:var(--c1l);}
+/*
+.tj__.h_ header {width:calc(var(--w) - 1.6rem); top:var(--p0); left:var(--p0s);}
+.tj__.h_ header > .over {display:block;}
+*/
+.tj__ .n-2 > ul > li.cart > a > i {color:var(--c2);}
+.tj__ .n-2 > ul > li.cart > a > i::after {background:rgba(0,0,0,.9);}
+
+
+.tj__.h_ .logo > span {background:url(https://sansangear.com/cdn/shop/files/toji__w.svg?v=1779193668) no-repeat 0 0; background-size:100%;}
+.tj__.h_ main {color:var(--c2); text-align:center;}
+
+.tj__.h_ .n-2 > ul > li.cart > a > i {color:var(--c1);}
+.tj__.h_ .n-2 > ul > li.cart > a > i::after {background:rgba(255,255,255,.9);}
+
+.tj__.h_ .n-2 > ul > li.cart.empty > a > i {color:var(--c2);}
+.tj__.h_ .n-2 > ul > li.cart.empty > a > i::after {background:rgba(0,0,0,.7);}
+
+.tj__.h_ .n-2 > ul > li.s__ summary > span {background:url(https://sansangear.com/cdn/shop/files/s__1w.svg?v=1779867251) no-repeat center center; background-size:.9rem; padding:0;}
+
+.tj__.h_ header > .in > div::after {background:var(--c1l); opacity:.9;}
+
+
+.tj__.h_ main {padding:0;}
+
+
+@media screen and (min-width:921px) and (max-width:1280px) {
+	.i-sub > .in > div {flex-basis:16.6666%; min-width:0;}
+}
+@media screen and (min-width:921px) {
+	/* .nv-on */
+	header.nv-on, header.sc-on {top:var(--p0); left:var(--p0); width:calc(var(--w) - .8rem); padding:0;}
+	header.nv-on > y, header.sc-on > y {position:fixed; top:0; bottom:0; left:0; display:block; width:var(--w); height:100dvh; opacity:.4; background:var(--c0); z-index:-1; backdrop-filter:blur(.4rem);}
+
+	header.nv-on > .over, header.sc-on > .over {display:inline-block; width:100%; height:100%; z-index:0;}
+	header.nv-on > .over {height:calc(100% + var(--p1));}
+
+	header.nv-on > .in > div::after, header.sc-on > .in > div::after {display:none;}
+
+	header.nv-on .logo,
+	header.sc-on .logo {top:var(--p1s) !important; mix-blend-mode:normal; z-index:99 !important;}
+	header.nv-on .logo > span, header.sc-on .logo > span {background:url(https://sansangear.com/cdn/shop/files/logo__bl.svg?v=1779193668) no-repeat 0 0; background-size:100%;}
+
+	header.nv-on .n-2 > ul > li.s__ summary > span, header.sc-on .n-2 > ul > li.s__ summary > span {background:url(https://sansangear.com/cdn/shop/files/s__1.svg?v=1779867201) no-repeat center center; background-size:.9rem; padding:0;}
+	header.nv-on > .in > div.nv {padding-left:var(--p0s);}
+	header.sc-on > .in > div.nv {padding-left:var(--p0);}
+
+	header.nv-on .nv ul.m > li > a, header.nv-on .n-2 > ul > li > a, header.sc-on .nv ul.m > li > a, header.sc-on .n-2 > ul > li > a {color:var(--c1) !important;}
+
+	header.nv-on > .over {display:none;}
+	header.sub-on nav.ss-menu {border-bottom-left-radius:0 !important; border-bottom-right-radius:0 !important;}
+	header.nv-on nav.ss-menu {position:absolute; top:0; left:0; width:calc(var(--w) - .8rem); height:auto; padding:var(--p0); background:rgba(255,255,255,.97); border-radius:var(--rn1);}
+	.nv-on .ss-tab {display:block; width:100%; margin:0 0 var(--p1);}
+
+	.nv-on.ss-on .nv ul.m.menu-ss {display:block;}
+
+	.nv-on.tj-on .nv ul.m.menu-ss {display:none;}
+	.nv-on.tj-on .nv ul.m.menu-tj {display:block;}
+
+	.nv-on header > .in > div::after {display:inline-block;}
+
+	.tj__.h_ header:not(.nv-on) .ss-tab > ul > li:not(.sltd) > a {color:var(--c2);}
+
+	.i-sub ul > li > a:hover {opacity:.3;}
+	.i-sub > .over {top:.4rem; height:calc(100% - .4rem); border-bottom-left-radius:var(--rn1); border-bottom-right-radius:var(--rn1);}
+
+	header.nv-on .nv ul.m > li > a, header.nv-on .n-2 > ul > li > a, header.nv-on .n-2 > ul > li summary,header.sc-on .nv ul.m > li > a, header.sc-on .n-2 > ul > li > a {height:3.2rem;}
+	header.nv-on .n-2 > ul > li.cart > a > i, header.sc-on .n-2 > ul > li.cart > a > i {color:var(--c2);}
+	header.nv-on .n-2 > ul > li.cart > a, header.sc-on .n-2 > ul > li.cart > a {padding-right:var(--p0);}
+
+	/* hover */
+	.nv ul.m > li.s.on .i-sub, .nv ul.m > li.s:hover .i-sub {top:100%; left:-.4rem; padding:0; width:calc(var(--w) - .8rem); height:auto; padding:var(--p1) 0 var(--p2); transition:all .24s var(--cb1);}
+	.nv ul.m > li.s:hover > a > span::before {left:0; right:auto; width:100%; background:var(--c1); transition:all .12s cubic-bezier(.12,.72,.26,.89);}
+	/*
+	.i-sub.on > .in > div:hover {opacity:1;}
+	.i-sub.on > .in > div:hover a {opacity:.3;}
+	.i-sub.on > .in > div:hover a:hover {opacity:1;}
+	*/
+	li.archive .i-sub > .in > ul {display:flex; flex-wrap:wrap; width:100%;}
+	li.archive .i-sub > .in > ul > li {display:inline-block; flex-basis:6rem; margin-right:var(--p1);}
+
+	/* tj-on */
+	.h_:not(.se__) header:not(.nv-on):not(.sc-on) .ss-tab > ul > li.goto-tj > a {color:var(--c2);}
+
+	.tj-on .nv ul.m > li.s:hover > a > span::before {background:var(--c2);}
+
+	body:not(.tj__) .nv-on.tj-on .logo > span {background:url(https://sansangear.com/cdn/shop/files/logo__w.svg?v=1779193668) no-repeat 0 0; background-size:100%;}
+	.tj__  .nv-on.ss-on .logo > span {padding-bottom:14.4695%; background:url(https://sansangear.com/cdn/shop/files/toji.svg?v=1779193668) no-repeat 0 0; background-size:100%;}
+
+
+	.tj-on .ss-tab > ul > li > a {color:var(--c2); background:rgba(255,255,255,.05);}
+	.tj-on .ss-tab > ul > li.sltd > a {color:var(--c1) !important; background:var(--c2);}
+
+	header.tj-on .over {background:var(--c1l);}
+	header.tj-on.nv-on nav {background:rgba(27,27,27,.97);}
+
+	.tj-on.nv ul.m > li > a, .tj-on .n-2 > ul > li > a, .tj-on .n-2 > ul > li.s__ summary {color:var(--c1);}
+	.tj-on .i-sub a {color:var(--c2);}
+
+	header.tj-on.nv-on .n-2 > ul > li.s__ summary > span {background:url(https://sansangear.com/cdn/shop/files/s__1w.svg?v=1779867251) no-repeat center center; background-size:.9rem;}
+
+	.tj-on.nv ul.m > li.s > a > span::before {background:var(--c2);}
+	header.tj-on.nv-on .nv ul.m > li > a, header.tj-on.nv-on .n-2 > ul > li > a, header.tj-on.sc-on .nv ul.m > li > a, header.tj-on.sc-on .n-2 > ul > li > a {color:var(--c2) !important;}
+
+	/* toji */
+	.h_.tj__.se__ header:not(.nv-on):not(.sc-on) .ss-tab > ul > li.goto-ss > a, .tj__ header.sc-on .ss-tab > ul > li.goto-ss > a {color:var(--c2);}
+
+	.tj__ header.sc-on > .over {background:var(--c1l);}
+	.tj__ header.sc-on .nv ul.m > li > a, .tj__ header.sc-on .n-2 > ul > li > a {color:var(--c2) !important;}
+	.tj__.h_ .nv ul.m > li > a, .tj__.h_ .n-2 > ul > li > a, .tj__.h_ .n-2 > ul > li.s__ summary {color:var(--c2);}
+
+	.tj__ .tj-on .n-2 > ul > li.cart > a > i {color:var(--c1);}
+	.tj__ .tj-on .n-2 > ul > li.cart > a > i::after {background:rgba(255,255,255,.9);}
+
+
+	/* toji */
+	/*
+	.tj__ header .over, .tj__ header.nv-on > .over, .tj__ header.sc-on > .over {background:var(--c1l);}
+
+	.tj__ .nv ul.m > li > a, .tj__ .n-2 > ul > li > a, .tj__ .n-2 > ul > li.s__ summary {color:var(--c1);}
+	.tj__ .i-sub a {color:var(--c2);}
+	.tj__ header.nv-on nav.ss-menu {background:rgba(27,27,27,.97);}
+
+	.tj__.av_ .n-2 > ul > li > a, .tj__.av_ .n-2 > ul > li.cart > a > i {color:var(--c2) !important;}
+	.tj__.av_ header > .in > div::after, .tj__.av_ .n-2 > ul > li.cart > a > i::after {background:var(--c1);}
+
+	.tj__ .nv ul.m > li.s > a > span::before {background:var(--c2);}
+
+
+	*/
+	.tj__ header .login-modal .over {background:var(--c2);}
+
+    .tj__ header.sc-on .logo {top:1.4rem !important;}
+	.tj__ header.nv-on .logo > span, .tj__ header.sc-on .logo > span {background:url(https://sansangear.com/cdn/shop/files/toji__w.svg?v=1779193668) no-repeat 0 0; background-size:100%;}
+}
+
+
+@media screen and (min-width:1px) and (max-width:920px) {
+	:root {
+		--m-h1:5.2rem
+	}
+	.back--btn > span {margin-left:var(--p0s);}
+
+	body {background:var(--c2);}
+	.p_ {display:none !important;}
+
+	#m-btn {display:inline-flex; justify-content:center; align-items:center; position:fixed; width:4.8rem; height:4.8rem; top:0; left:0; z-index:999;}
+	#m-btn .over {display:inline-block; width:2.2rem; height:2.2rem; top:.9rem; left:1.1rem; background:var(--c2); opacity:.7; border-radius:var(--rn1);}
+
+    #m-btn span {position:absolute; display:inline-block;  width:2.2rem; height:2.2rem; top:.9rem; left:1.1rem; background:transparent; transition:transform .16s cubic-bezier(0.04, 0.04, 0.12, 0.96); z-index:9;}
+
+    #m-btn span::after {position:absolute; content:''; display:inline-block; width:1.1rem; height:.1rem; background:var(--c1); top:50%; left:50%; transition:transform .14s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1s;}
+    #m-btn span.b1::after {transform:translate(-50%, calc(-50% - .2rem));}
+    #m-btn span.b2::after {transform:translate(-50%, calc(-50% + .2rem));}
+
+    #m-btn.on span {left:auto; right:.9rem; transition:transform .08s cubic-bezier(0.04, 0.04, 0.12, 0.96) .1s;}
+	#m-btn.on .over {left:auto; right:.9rem;}
+    #m-btn.on span::after {transition:transform .1s cubic-bezier(0.04, 0.04, 0.12, 0.96); background:var(--c1);}
+    #m-btn.on span.b1 {transform:rotate(45deg);}
+    #m-btn.on span.b2 {transform:rotate(-45deg);}
+
+    #m-btn.on span::after {width:1.1rem; transform:translate(-50%, -50%) !important;}
+
+
+	header {padding:var(--p0s);}
+	header > .in {justify-content:flex-end;}
+
+	.logo, .h .logo {width:10.8rem; top:var(--p1s); mix-blend-mode:normal; z-index:999;}
+	.nv--on .logo, .h.nv--on .logo, .tj__.nv--on .logo {top:var(--p1);}
+
+	.nv--on .logo > span {background:url(https://sansangear.com/cdn/shop/files/logo__bl.svg?v=1779193668) no-repeat 0 0 !important; background-size:100% !important;}
+
+
+	header > .in > div::after,
+	header > .in > div.nv {display:none;}
+
+	nav.ss-menu {width:100%;}
+
+	.sc__ .ss-tab, .sc__ ul.m {display:none !important;}
+
+	/* ss tab */
+	.ss-tab {display:block; margin:0 0 var(--p2s);}
+
+
+	/* ss tab */
+	.ss-tab > ul {display:flex; justify-content:space-between;}
+	.ss-tab > ul > li {flex-basis:calc(50% - .4rem);}
+	.ss-tab > ul > li:first-child {margin-right:0;}
+
+	.ss-tab > ul > li > a {width:100%; height:3.2rem; background:rgba(0,0,0,.04);}
+
+
+
+
+	.nv--on:not(.tj__) .nv ul.m.menu-tj > li.h {display:block;}
+	.nv--on.tj__ .nv ul.m.menu-ss > li.h {display:block;}
+
+	.nv--on .nv {border-radius:0 !important;}
+
+	.nv--on #m-btn {left:auto; right:0;}
+	.nv--on header > .in > div.n-2 {display:none !important;}
+	.nv--on header > .in > div.nv {display:inline-block; position:fixed; top:0; left:0; width:var(--w); height:100dvh; padding:5.2rem var(--p1s) var(--p1s); background:var(--c2);}
+
+	.nv ul.m {display:block; overflow:auto; max-height:calc(100dvh - 16rem); padding-bottom:var(--p4);}
+	.nv ul.m.menu-tj {display:none;}
+	.nv ul.m::-webkit-scrollbar {display:none;}
+
+	.nv ul.m > li {position:relative; display:block; width:100%; margin:0;}
+	.nv ul.m > li > a {display:inline-flex; width:100%; justify-content:flex-start; align-items:center; height:var(--m-h1) !important; border-radius:0 !important;}
+	.nv ul.m > li > a, .nv ul.m > li > a > span {transition:all 0s;}
+
+	.nv ul.m > li > a, .nv ul.m > li:first-child > a {padding:0 var(--p0s);}
+	.nv ul > li a::after {display:none;}
+	.nv ul.m > li.s > a::before {display:inline-block; position:absolute; content:''; top:50%; right:var(--p0s); width:var(--p1); height:var(--p1); background:url(https://sansangear.com/cdn/shop/files/ar__r.svg?v=1779193668) no-repeat center center; background-size:.4rem auto; z-index:9; transform:translateY(-50%);}
+
+
+	/* i-sub */
+	.i-sub, .h .i-sub {position:relative; top:0; width:100%; left:0;}
+
+	.i-sub > .over {display:none;}
+	.i-sub > .in {display:block; padding:0;}
+	.i-sub > .in > div, .i-sub > .in > div.m_ {display:block; width:100%;}
+	.i-sub > .in > div > span, .i-sub ul > li > a {display:inline-flex; width:100%; justify-content:flex-start; align-items:center; height:var(--m-h1); padding:0 var(--p0s); margin:0; color:var(--c1); cursor:pointer;}
+	.i-sub > .in > div > ul {display:none;}
+
+	.i-sub > .in > div.v-a > ul, .info .i-sub > .in > div > ul {display:block;}
+
+	.sub-on .nv ul.m > li > a {display:none;}
+
+	.sub-on .nv ul.m > li.s.on > a, .sc__clos-btn {position:fixed; display:inline-flex; justify-content:flex-start; align-items:flex-start; top:0; left:0; width:auto; font-size:var(--fs9); font-weight:500; padding:0; padding-top:var(--p1); text-transform:uppercase; cursor:pointer; padding-left:3.6rem; height:4.8rem !important; color:var(--c1); z-index:99;}
+	.sub-on .nv ul.m > li.s.on > a > span {padding:0;}
+	.sc__clos-btn::before {display:inline-block; position:absolute; content:''; width:var(--p1); height:var(--p1);}
+	.sub-on  .nv ul.m > li.s.on > a::before, .sc__clos-btn::before {top:1.15rem; left:var(--p1); right:auto; background:url(https://sansangear.com/cdn/shop/files/ar__l.svg?v=1779193668) no-repeat center center; background-size:.4rem auto; transform:translateY(0);}
+
+	.sc__clos-btn {display:none;}
+	.sc__ .sc__clos-btn {display:inline-flex;}
+
+	.sub-on .nv ul.m > li:not(.on) {display:none;}
+	.sub-on .nv ul.m > li.s.on > .i-sub {height:auto;}
+
+	.nv ul.m > li > a, .i-sub > .in > div > span, .i-sub ul > li > a {font-size:var(--fs0s);}
+    /*
+	.i-sub > .in > div > span::after {display:inline-block; position:absolute; content:''; top:calc(50% - .1rem); right:0; width:var(--p1); height:var(--p1); background:url(https://sansangear.com/cdn/shop/files/ar__r.svg?v=1779193668) no-repeat center center; background-size:.4rem auto; z-index:9; transform:translateY(-50%);}
+    .secondary--sub-on .i-sub > .in > div.on > span::after {display:none;}
+    .i-sub > .in > div.m_ > span::after {display:inline-block; position:absolute; content:''; top:calc(50% - .1rem); right:0; width:var(--p1); height:var(--p1); background:url(https://sansangear.com/cdn/shop/files/ar__r.svg?v=1779193668) no-repeat center center; background-size:.4rem auto; z-index:9; transform:translateY(-50%);}
+    .secondary--sub-on .i-sub > .in > div.m_.on > span::after {display:none;}
+    */
+
+
+
+	/* .secondary -- sub-on */
+	.i-sub > .in > div.v-a a {transition:all .2s ease;}
+	.secondary--sub-on .i-sub > .in > div > span, .secondary--sub-on .i-sub .v-a > ul > li > a {height:3.6rem; opacity:.3;}
+
+	.secondary--sub-on .i-sub > .in > div.on {display:flex; flex-wrap:nowrap; width:100%; padding-bottom:var(--p4);}
+	.secondary--sub-on .i-sub > .in > div.on > span {display:inline-flex; justify-content:flex-start; align-items:center; flex-basis:14rem; font-size:var(--fs9); font-weight:500; top:-.05rem; padding:0; padding-left:2rem; height:var(--m-h1); color:var(--c1); opacity:1; transition:all 0s; z-index:99;}
+	.secondary--sub-on .i-sub > .in > div.on > span > span {display:inline-block; top:-.1rem;}
+
+	.secondary--sub-on .i-sub > .in > div.on > span::before {display:inline-block; position:absolute; content:''; top:calc(50% - .1rem); left:-.4rem; width:var(--p1); height:var(--p1); background:url(https://sansangear.com/cdn/shop/files/ar__l.svg?v=1779193668) no-repeat center center; background-size:.4rem auto; z-index:9; transform:translateY(-50%);}
+	.secondary--sub-on .i-sub > .in > div.on > ul {display:inline-block; flex-basis:calc(100% - 14rem);}
+
+	.nv .m__ {display:inline-block; width:100%;}
+
+	/* search */
+	.nv .s__ {margin:0 0 var(--p1s);}
+	.nv .s__ input {display:inline-flex; width:100%; align-items:center; height:3.2rem; font-size:1rem; padding:0 var(--p1); background:#eee; border:none; border-radius:var(--rn1);}
+	.nv .s__ > span {position:absolute; top:50%; right:var(--p1); display:inline-block; width:1rem; height:1rem; background:url(https://sansangear.com/cdn/shop/files/s__1.svg?v=1779867201) no-repeat center center; background-size:.9rem; transform:translateY(-50%);}
+
+	.nv .m__.m_m {position:absolute; bottom:0; left:0; width:100%; display:flex; justify-content:space-between; align-items:flex-end; padding:var(--p1) 2.4rem;}
+    .nv .m__.m_m, .nv .m__.m_m a {font-size:var(--fs0s);}
+	.nv .m_m > div {display:inline-block; flex-basis:auto;}
+	.m_m ul > li {display:flex; align-items:center; width:100%; text-transform:uppercase; margin-bottom:var(--p0);}
+
+	.m_m ul > li > a {display:inline-flex; align-items:center; padding:0; height:var(--p3); font-weight:400;}
+	.m_m ul > li.log > a {width:100%;}
+
+	.m_m ul > li.legacy {display:flex; margin-bottom:var(--p0s);}
+	.m_m ul > li.legacy > a > span {display:inline-flex; left:-.8rem; align-items:center; height:2.2rem; font-size:.9rem; padding:0 .8rem; border:var(--b0); border-radius:var(--rn2); text-transform:uppercase; background:rgba(225,225,225,.9);}
+	.tj__ .m_m ul > li.legacy > a > span {color:var(--c1);}
+
+	.sub-on .nv .m__.m_m {display:none !important;}
+
+	.m_m ul > li.ln_ {margin:0;}
+	.m_m ul > li.ln_ > a {padding:0 var(--p0s); opacity:.3;}
+	.m_m ul > li.ln_ > a.sltd {opacity:1;}
+	.m_m ul > li.ln_ > a.ln__kr {padding-left:0;}
+
+	.m_m ul > li.cart > a {display:inline-flex; justify-content:flex-end; align-items:center;}
+	.m_m ul > li.cart > a > * {display:inline-block;}
+	.m_m ul > li.cart > a > i {margin:0; margin-left:.8rem; display:inline-flex; justify-content:center; align-items:center; width:2rem; height:2rem; font-size:var(--fs0); font-style:normal; font-weight:500; border-radius:var(--rn1); background:rgba(0,0,0,.9); color:var(--c2);}
+
+	header > .in > div {padding:0;}
+
+    header > .in > div.n-2 {position:fixed; top:0; right:0; backdrop-filter:unset;}
+	.n-2 > ul > li > a, .n-2 > ul > li.cart > a {padding:0;}
+    .n-2 > ul > li.cart > a {width:4.8rem; height:4.8rem; justify-content:flex-end; align-items:flex-start; padding-top:1rem; padding-right:1rem;}
+
+	.n-2 > ul > li {margin:0;}
+
+	.n-2 > ul > li.cart a > span {display:none;}
+	.n-2 > ul > li.cart > a > i {margin:0; width:2rem; height:2rem; font-size:var(--fs9s); font-weight:500; color:var(--c2);}
+	.n-2 > ul > li.cart > a > i::after {width:2rem; height:2rem;}
+
+    /* login modal */
+    .login-modal {top:0; right:0; width:var(--w); max-width:var(--w); height:100dvh; backdrop-filter:unset; z-index:10001;}
+    .login-modal > .in {padding:var(--p1s); padding-top:16rem; overflow:hidden; border-radius:0; box-shadow:none;}
+    .login-modal .cls_ {display:none !important;}
+
+    .log--on .login-modal {display:inline-block;}
+
+    .log--on header {height:auto; backdrop-filter:unset;}
+    .log--on header > y {display:none;}
+
+    .log--on .t1__ {position:fixed; display:inline-flex; justify-content:flex-start; align-items:flex-start; top:0; left:0; width:auto; font-size:var(--fs9); font-weight:500; padding:0; padding-top:var(--p1); margin:0; text-transform:uppercase; cursor:pointer; padding-left:3.6rem; height:4.8rem !important; color:var(--c4); z-index:99;}
+    .log--on .t1__ h1, .log--on .t1__ h2 {font-size:var(--fs9); font-weight:500;}
+	.log--on .t1__::before {display:inline-block; position:absolute; content:''; width:var(--p1); height:var(--p1); top:1.15rem; left:var(--p1); right:auto; background:url(https://sansangear.com/cdn/shop/files/ar__l.svg?v=1779193668) no-repeat center center; background-size:.4rem auto; transform:translateY(0);}
+    .log--on .nv .m__.m_m {display:none;}
+
+	/*
+	.h .nv ul.m > li > a, .h .n-2 > ul > li > a {color:var(--c1);}
+	.h .n-2 > ul > li.cart > a > i {color:var(--c2); background:transparent;}
+	.h .n-2 > ul > li.cart a::after {background:var(--c0); opacity:.9;}
+	*/
+	main {padding:5.2rem 1.4rem; z-index:9;}
+	.cl.p0 main {padding-top:9.6rem;}
+    .no__cl-nv.cl.p0 main {padding-top:4.8rem;}
+
+	.in.w1 {padding-top:0;}
+	.in__, .in__ > div {display:block; width:100%;}
+	.w1 .cont {padding-top:16rem;}
+    /* title */
+    .t1__ {margin:0 0 var(--p1);}
+    .t1__ h1, .t1__ h2, h1.t_ {font-size:var(--fs0);}
+
+	/* sub nv */
+    .sub--nv {width:var(--w); left:-1.6rem; border-radius:var(--rn2); overflow:hidden; z-index:97;}
+    .sub--nv > ul {width:auto; padding:0 var(--p1s); margin:0 0 8rem; overflow:auto;}
+    .sub--nv > ul::-webkit-scrollbar {display:none;}
+
+    .sub--nv > ul > li {flex-basis:10.8rem; min-width:10.8rem; flex-shrink:0;}
+    .sub--nv > ul > li > a {display:flex; align-items:center; width:100%; padding:0; height:3.4rem; font-size:var(--fs0s);}
+    .sub--nv > ul > li > a > span {height:2.4rem;}
+
+    .s-on .sub--nv, .s-on .archive .sub--nv {position:fixed; top:4rem; left:var(--p0s); width:auto; background:rgba(255,255,255,.8); backdrop-filter:blur(.4rem); box-shadow:0 0 .6rem rgba(0,0,0,.1); padding:0;}
+    .s-on .sub--nv > ul {padding:0 var(--p1); margin:0;}
+    .s-on .sub--nv > ul > li > a > span {height:2rem;}
+
+	/* archive */
+	.archive .sub--nv {left:0; width:var(--w);}
+	.archive .in__ {left:-1.6rem; width:calc(100% + 3.2rem);}
+	.w1.archive .cont {padding-left:1.6rem;}
+
+	.archive .sub--nv >ul > li {min-width:6rem;}
+
+
+	footer {display:block; position:relative; margin:0; padding:var(--p8) var(--p1s) var(--p1); mix-blend-mode:normal; color:var(--c1); z-index:1;}
+	footer > .in {display:flex; flex-wrap:wrap; flex-direction:column; align-items:flex-start; width:100%;}
+	footer > .in > div, .h footer > .in > div {position:relative; display:block; width:100%; bottom:auto; left:0; backdrop-filter:unset;}
+
+	footer > .in > div.l,
+	footer > .in > div.r, .h footer > .in > div.l, .h footer > .in > div.r {left:0; right:auto;}
+
+	footer > .in > div.l {order:1; width:50%;}
+	footer > .in > div.r {order:2;}
+	footer > .in > div.credit {order:3; margin-top:var(--p4);}
+
+	.h footer > .in {align-items:flex-start;}
+
+
+    .h footer {position:relative; bottom:auto; left:0; height:auto; padding:var(--p1) var(--p1s);}
+
+	.ft--nv ul, .ft--nv ul > li {display:block; width:100%; margin:0;}
+	.ft--nv.r ul {display:flex; justify-content:space-between;}
+	.ft--nv.r ul > li {display:inline-flex; width:auto;}
+
+	.ft--nv ul > li a {padding:var(--p0) 0; color:var(--c1);}
+
+
+	.credit > span > i {background:url(https://sansangear.com/cdn/shop/files/ar__dn.svg?v=1779193668) no-repeat center center; background-size:.6rem auto;}
+	.ft--nv ul > li.ln_ a > i {display:inline-block; width:1.2rem; height:1.2rem;}
+	.ft--nv ul > li.ln_ a.sltd > i {background:url(https://sansangear.com/cdn/shop/files/ar__dn.svg?v=1779193668) no-repeat center center; background-size:.6rem auto;}
+
+
+	.ft--info {max-width:100%;}
+	.credit.on > span > i {background:url(https://sansangear.com/cdn/shop/files/ar__up.svg?v=1779193668) no-repeat center center; background-size:.6rem auto;}
+
+	.ft--info > ul > li::after {background:var(--c1);}
+	.ft--info > ul > li > label {color:var(--c3);}
+
+	/* tj-on */
+	.nv--on header.tj-on > .in > div.nv {background:var(--c1l);}
+
+	.tj-on #m-btn .over {background:var(--c1l); opacity:.9;}
+	.tj-on #m-btn span::after {background:var(--c2);}
+
+	body:not(.tj__).nv--on .tj-on .logo > span {background:url(https://sansangear.com/cdn/shop/files/logo__w.svg?v=1779193668) no-repeat 0 0 !important; background-size:100% !important;}
+
+
+	.tj-on .nv ul.m > li.s > a::before {background:url(https://sansangear.com/cdn/shop/files/ar__r__w.svg?v=1779193668) no-repeat center center; background-size:.4rem auto;}
+
+	.tj-on .nv a, .tj-on .nv ul.m > li > a, .tj-on .i-sub > .in > div > span, .tj-on .i-sub ul > li > a, .tj-on .secondary--sub-on .i-sub > .in > div.on > span {color:var(--c2);}
+	.tj-on.sub-on .nv ul.m > li.s.on > a::before, .tj-on .sc__clos-btn::before, .tj-on .secondary--sub-on .i-sub > .in > div.on > span::before {background:url(https://sansangear.com/cdn/shop/files/ar__l__w.svg?v=1779193668) no-repeat center center; background-size:.4rem auto;}
+
+
+	.tj-on.sub-on .nv ul.m > li.s.on > a, .tj-on .sc__clos-btn {color:var(--c2);}
+	.tj-on .m_m ul > li.cart > a > i {background:rgba(255,255,255,.9); color:var(--c1);}
+
+	.tj-on .nv ul.m.menu-ss, .ss-on .nv ul.m.menu-tj {display:none !important;}
+	.tj-on .nv ul.m.menu-tj, .ss-on .nv ul.m.menu-ss {display:block !important;}
+
+	/* toji */
+	.tj__.h_ header > .in > div::after {display:none;}
+
+
+	.tj-on .ss-tab > ul > li > a {background:rgba(255,255,255,.05);}
+	.tj-on .ss-tab > ul > li.sltd > a {color:var(--c1); background:var(--c2);}
+
+	.tj__.nv--on .ss-on .logo > span {background:url(https://sansangear.com/cdn/shop/files/toji.svg?v=1779193668) no-repeat 0 0 !important; background-size:100% !important;}
+
+	/*
+	.tj__.nv--on header > .in > div.nv {background:var(--c1l);}
+
+	.tj__ .nv ul.m.menu-ss {display:none;}
+	.tj__ .nv ul.m.menu-tj {display:block;}
+
+	.tj__ .ss-tab > ul > li > a, .tj-on .ss-tab > ul > li > a {background:rgba(255,255,255,.05);}
+	.tj__ .ss-tab > ul > li.sltd > a, .tj-on .ss-tab > ul > li.sltd > a {color:var(--c1); background:var(--c2);}
+
+	.tj__ .nv ul.m > li.s > a::before {background:url(https://sansangear.com/cdn/shop/files/ar__r__w.svg?v=1779193668) no-repeat center center; background-size:.4rem auto;}
+
+	.tj__ .nv a, .tj__ .nv ul.m > li > a, .tj__ .i-sub > .in > div > span, .tj__ .i-sub ul > li > a, .tj__ .secondary--sub-on .i-sub > .in > div.on > span {color:var(--c2);}
+	.tj__ .sub-on .nv ul.m > li.s.on > a::before, .tj__ .sc__clos-btn::before, .tj__ .secondary--sub-on .i-sub > .in > div.on > span::before {background:url(https://sansangear.com/cdn/shop/files/ar__l__w.svg?v=1779193668) no-repeat center center; background-size:.4rem auto;}
+	.tj__ .sub-on .nv ul.m > li.s.on > a, .tj__ .sc__clos-btn {color:var(--c2);}
+	.tj__ .m_m ul > li.cart > a > i {background:rgba(255,255,255,.9); color:var(--c1);}
+*/
+	.tj__.h_ #m-btn span::after, .tj__.nv--on #m-btn span::after {background:var(--c2);}
+	.tj__.h_ #m-btn .over, .tj__.nv--on #m-btn .over {background:var(--c1l); opacity:.9;}
+
+	.tj__.h_ .n-2 > ul > li.cart > a > i {color:var(--c1);}
+	.tj__.h_ .n-2 > ul > li.cart > a > i::after {background:rgba(255,255,255,.9);}
+
+	.tj__.h_ footer, .tj__.h_ .ft--nv ul > li a {color:var(--c2);}
+	.tj__.h_ .ft--nv ul > li.ln_ a > i, .tj__.h_ .credit > span > i {background:url(https://sansangear.com/cdn/shop/files/ar__dn__w.svg?v=1779193668) no-repeat center center; background-size:.6rem auto;}
+
+
+	.tj__ .logo {width:6.8rem; top:1.5rem;}
+	.tj__.nv--on .tj-on .logo > span {background:url(https://sansangear.com/cdn/shop/files/toji__w.svg?v=1779193668) no-repeat 0 0 !important; background-size:100% !important;}
+}
+@media screen and (min-width:1px) and (max-width:720px) {
+    body {background:transparent;}
+}
+
+@media screen and (min-width:1px) and (max-width:520px) {
+	.btn3 {border-color:var(--c1);}
+
+	.s-on .sub--nv {width:calc(var(--w) - 1.6rem);}
+
+	.st__ .sub--nv > ul {justify-content:space-between;}
+	.st__ .sub--nv > ul > li {flex-basis:calc(50% - .8rem); margin:0 !important;}
+}
+@media screen and (min-width:1921px) {
+	:root {
+		/* font-size */
+		--fs9:1rem; --fs9s:1.05rem; --fs0:1.1rem; --fs0s:1.15rem; --fs1:1.2rem; --fs1s:1.25rem; --fs2:1.3rem; --fs2s:1.35rem; --fs3:1.4rem;
+	}
+	.logo {width:11.6rem;}
+
+	a.legacy.p_ {left:24.5rem;}
+}
