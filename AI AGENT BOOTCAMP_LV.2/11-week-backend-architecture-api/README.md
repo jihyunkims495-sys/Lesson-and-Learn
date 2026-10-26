@@ -1,0 +1,28 @@
+# Week 11 — Backend Architecture & API Design
+
+> 2026-10-26 시작 · LV.2
+
+FastAPI 실행 환경과 HTTP 요청·응답 구조를 익히고, API 계층과 도메인 모델의 책임을 구분하는 주차입니다.
+
+## Learning goals
+
+- FastAPI, Uvicorn, ASGI의 역할 구분
+- 동기·비동기와 I/O 대기의 관계 이해
+- HTTP 메서드, URI, URL, 엔드포인트 연결
+- Path·Query·Body 입력 위치 구분
+- 도메인 모델과 API 계층의 책임 분리
+- 로그, 상태 코드, Swagger UI를 활용한 오류 추적
+
+## Daily learning log
+
+| Date | Topic | Records |
+|---|---|---|
+| 2026-10-26 | FastAPI 실행 환경, HTTP 라우팅과 도메인 모델 | [Preview](./2026-10-26/01-preview-notes-01-fastapi-http-routing.md) · [Learning Notes](./2026-10-26/02-learning-notes-01-fastapi-http-routing.md) · [Practice](./2026-10-26/03-practice-01-fastapi-errors.md) · [TIL](./2026-10-26/04-til-01-fastapi-http-routing.md) |
+
+## Evidence boundary
+
+- Hello World 엔드포인트가 Swagger UI에 표시된 것은 확인했습니다.
+- 도서 등록 엔드포인트와 도메인 모델은 작성했으며, 최신 코드는 정적으로 확인했습니다.
+- 도서 등록의 201 응답, 인메모리 저장과 조회는 아직 실행으로 검증하지 않았습니다.
+
+[← Level 2 curriculum](../README.md)
