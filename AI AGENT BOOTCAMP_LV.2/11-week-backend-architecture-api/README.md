@@ -18,6 +18,7 @@ FastAPI 실행 환경과 HTTP 요청·응답 구조를 익히고, API 계층과 
 | Date | Topic | Records |
 |---|---|---|
 | 2026-10-26 | FastAPI 실행 환경, HTTP 라우팅과 도메인 모델 | [Preview](./2026-10-26/01-preview-notes-01-fastapi-http-routing.md) · [Learning Notes](./2026-10-26/02-learning-notes-01-fastapi-http-routing.md) · [Practice](./2026-10-26/03-practice-01-fastapi-errors.md) · [TIL](./2026-10-26/04-til-01-fastapi-http-routing.md) |
+| 2026-10-27 | Pydantic 모델 검증과 FastAPI 요청 흐름 | [Learning Notes](./2026-10-27/02-learning-notes-01-pydantic-fastapi-api-flow.md) · [Practice](./2026-10-27/03-practice-01-fastapi-pydantic-errors.md) · [TIL](./2026-10-27/04-til-01-pydantic-model-validation.md) |
 
 ## Evidence boundary
 
