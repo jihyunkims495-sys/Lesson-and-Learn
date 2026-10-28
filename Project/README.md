@@ -8,6 +8,7 @@
 |---|---:|---|---|---|
 | ORDO AI | v1.2.0 | Public demo · Research v27 | 패션 MD를 위한 매출·재고·리오더 의사결정 OS. 시나리오 비교와 최종 발주 검토에 시장·고객 데일리 트렌드 리포트를 추가했습니다. | [README](./Ordo-AI/README.md) · [CHANGELOG](./Ordo-AI/CHANGELOG.md) · [Research 명세](./Ordo-AI/docs/RESEARCH.md) · [Demo](https://ordo-ai-decision-os-jihyu.jihyunkims495.chatgpt.site/#entry) · [Research](https://ordo-ai-decision-os-jihyu.jihyunkims495.chatgpt.site/#research) |
 | ONEPIECE | Project 1 | Team project · `main` snapshot | Next.js와 Supabase 기반 패션 쇼핑몰 팀 프로젝트입니다. | [A안](./project1/version_test_A/README.md) · [B안](./project1/version_test_B/README.md) · [C안](./project1/version_test_C/README.md) |
+| AsyncTicket | Project 2 · HELD v3 | API design draft | 좌석 선점·mock 결제 확정·자동 발권·전체 취소 API 설계입니다. | [README](./project2/README.md) · [API 명세](./project2/held-api-spec.md) |
 
 ## ORDO AI · Current Scope
 
@@ -35,6 +36,9 @@ Project/
 │  ├─ version_test_A/  # ONEPIECE A안
 │  ├─ version_test_B/  # ONEPIECE B안
 │  └─ version_test_C/  # ONEPIECE C안
+├─ project2/
+│  ├─ README.md
+│  └─ held-api-spec.md
 └─ Ordo-AI/
    ├─ .gitignore
    ├─ README.md
