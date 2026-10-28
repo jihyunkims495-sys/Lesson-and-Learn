@@ -1,0 +1,433 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1840 2560" font-family="Malgun Gothic, sans-serif" role="img" aria-label="AsyncTicket HELD ERD 16 tables">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#6e8fac"/></marker></defs>
+<rect width="100%" height="100%" fill="#101b2c"/>
+<text x="40" y="48" fill="#f3f7fd" font-size="29" font-weight="700">AsyncTicket · HELD ERD v4</text>
+<text x="40" y="82" fill="#b5c7db" font-size="18">16개 테이블 · 108개 컬럼 | 초록: 선점 테이블 · 파랑: 관련 변경 | 전체 SQL 기준 설계 제안</text>
+<path class="edge" data-parent="traffic_profiles" data-child="shows" d="M456,172 C473.0,172 473.0,172 490,172" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="venues" data-child="stages" d="M456,742 C473.0,742 473.0,742 490,742" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="stages" data-child="stage_seats" d="M906,742 C923.0,742 923.0,742 940,742" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="shows" data-child="performances" d="M906,172 C923.0,172 923.0,172 940,172" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="stages" data-child="performances" d="M906,742 C923.0,742 923.0,172 940,172" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="performances" data-child="performance_seats" d="M1356,172 C1373.0,172 1373.0,172 1390,172" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="stage_seats" data-child="performance_seats" d="M1356,742 C1373.0,742 1373.0,172 1390,172" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="users" data-child="member_performance_limits" d="M456,1312 C473.0,1312 473.0,1312 490,1312" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="performances" data-child="member_performance_limits" d="M940,172 C923.0,172 923.0,1312 906,1312" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="users" data-child="seat_holds" d="M456,1312 C698.0,1312 698.0,1312 940,1312" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="performances" data-child="seat_holds" d="M1148.0,482 C1148.0,876.0 1148.0,876.0 1148.0,1270" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="seat_holds" data-child="seat_hold_items" d="M1356,1312 C1373.0,1312 1373.0,742 1390,742" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="performance_seats" data-child="seat_hold_items" d="M1598.0,410 C1598.0,555.0 1598.0,555.0 1598.0,700" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="seat_holds" data-child="reservations" d="M1356,1312 C1373.0,1312 1373.0,1312 1390,1312" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="users" data-child="reservations" d="M456,1312 C923.0,1312 923.0,1312 1390,1312" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="performances" data-child="reservations" d="M1356,172 C1373.0,172 1373.0,1312 1390,1312" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="reservations" data-child="reservation_items" d="M1598.0,1670 C1598.0,1755.0 1598.0,1755.0 1598.0,1840" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="performance_seats" data-child="reservation_items" d="M1598.0,410 C1598.0,1125.0 1598.0,1125.0 1598.0,1840" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="reservations" data-child="payments" d="M1390,1312 C1148.0,1312 1148.0,1882 906,1882" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="reservation_items" data-child="tickets" d="M1390,1882 C1373.0,1882 1373.0,1882 1356,1882" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="seat_holds" data-child="performance_seats" d="M1356,1312 C1373.0,1312 1373.0,172 1390,172" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<path class="edge" data-parent="seat_hold_items" data-child="performance_seats" d="M1598.0,700 C1598.0,555.0 1598.0,555.0 1598.0,410" fill="none" stroke="#6985a5" stroke-width="2" opacity=".25" marker-end="url(#arrow)"/>
+<g class="entity" data-name="traffic_profiles" tabindex="0" role="button" aria-label="traffic_profiles">
+<rect x="40" y="130" width="416" height="160" rx="10" fill="#18283d" stroke="#647e9e" stroke-width="2"/>
+<text x="54" y="160" fill="#647e9e" font-size="19" font-weight="700">traffic_profiles</text>
+<text x="54" y="186" fill="#d7e4f3" font-size="16">예상 수요 A/B/C</text>
+<text x="52" y="216" fill="#647e9e" font-size="13">P</text>
+<text x="90" y="216" fill="#d7e4f3" font-size="14">code</text>
+<text x="335" y="216" fill="#9fb5cc" font-size="12">VARCHAR(1)</text>
+<text x="52" y="240" fill="#647e9e" font-size="13"></text>
+<text x="90" y="240" fill="#d7e4f3" font-size="14">name</text>
+<text x="335" y="240" fill="#9fb5cc" font-size="12">VARCHAR(50)</text>
+<text x="52" y="264" fill="#647e9e" font-size="13"></text>
+<text x="90" y="264" fill="#d7e4f3" font-size="14">description</text>
+<text x="335" y="264" fill="#9fb5cc" font-size="12">TEXT</text>
+</g>
+<g class="entity" data-name="shows" tabindex="0" role="button" aria-label="shows">
+<rect x="490" y="130" width="416" height="328" rx="10" fill="#18283d" stroke="#647e9e" stroke-width="2"/>
+<text x="504" y="160" fill="#647e9e" font-size="19" font-weight="700">shows</text>
+<text x="504" y="186" fill="#d7e4f3" font-size="16">공연 콘텐츠</text>
+<text x="502" y="216" fill="#647e9e" font-size="13">P</text>
+<text x="540" y="216" fill="#d7e4f3" font-size="14">id</text>
+<text x="785" y="216" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="502" y="240" fill="#647e9e" font-size="13"></text>
+<text x="540" y="240" fill="#d7e4f3" font-size="14">title</text>
+<text x="785" y="240" fill="#9fb5cc" font-size="12">VARCHAR(255)</text>
+<text x="502" y="264" fill="#647e9e" font-size="13"></text>
+<text x="540" y="264" fill="#d7e4f3" font-size="14">description</text>
+<text x="785" y="264" fill="#9fb5cc" font-size="12">TEXT</text>
+<text x="502" y="288" fill="#647e9e" font-size="13"></text>
+<text x="540" y="288" fill="#d7e4f3" font-size="14">performer</text>
+<text x="785" y="288" fill="#9fb5cc" font-size="12">VARCHAR(255)</text>
+<text x="502" y="312" fill="#647e9e" font-size="13"></text>
+<text x="540" y="312" fill="#d7e4f3" font-size="14">performance_type</text>
+<text x="785" y="312" fill="#9fb5cc" font-size="12">VARCHAR(50)</text>
+<text x="502" y="336" fill="#647e9e" font-size="13"></text>
+<text x="540" y="336" fill="#d7e4f3" font-size="14">running_time_minutes</text>
+<text x="785" y="336" fill="#9fb5cc" font-size="12">INTEGER</text>
+<text x="502" y="360" fill="#647e9e" font-size="13"></text>
+<text x="540" y="360" fill="#d7e4f3" font-size="14">poster_url</text>
+<text x="785" y="360" fill="#9fb5cc" font-size="12">TEXT</text>
+<text x="502" y="384" fill="#647e9e" font-size="13">F</text>
+<text x="540" y="384" fill="#d7e4f3" font-size="14">demand_tier</text>
+<text x="785" y="384" fill="#9fb5cc" font-size="12">VARCHAR(1)</text>
+<text x="502" y="408" fill="#647e9e" font-size="13"></text>
+<text x="540" y="408" fill="#d7e4f3" font-size="14">tier_reason</text>
+<text x="785" y="408" fill="#9fb5cc" font-size="12">TEXT</text>
+<text x="502" y="432" fill="#647e9e" font-size="13"></text>
+<text x="540" y="432" fill="#d7e4f3" font-size="14">tier_assessed_at</text>
+<text x="785" y="432" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+</g>
+<g class="entity" data-name="performances" tabindex="0" role="button" aria-label="performances">
+<rect x="940" y="130" width="416" height="352" rx="10" fill="#18283d" stroke="#647e9e" stroke-width="2"/>
+<text x="954" y="160" fill="#647e9e" font-size="19" font-weight="700">performances</text>
+<text x="954" y="186" fill="#d7e4f3" font-size="16">판매 회차</text>
+<text x="952" y="216" fill="#647e9e" font-size="13">P</text>
+<text x="990" y="216" fill="#d7e4f3" font-size="14">id</text>
+<text x="1235" y="216" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="952" y="240" fill="#647e9e" font-size="13">F</text>
+<text x="990" y="240" fill="#d7e4f3" font-size="14">show_id</text>
+<text x="1235" y="240" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="952" y="264" fill="#647e9e" font-size="13">F</text>
+<text x="990" y="264" fill="#d7e4f3" font-size="14">stage_id</text>
+<text x="1235" y="264" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="952" y="288" fill="#647e9e" font-size="13"></text>
+<text x="990" y="288" fill="#d7e4f3" font-size="14">round_number</text>
+<text x="1235" y="288" fill="#9fb5cc" font-size="12">INTEGER</text>
+<text x="952" y="312" fill="#647e9e" font-size="13"></text>
+<text x="990" y="312" fill="#d7e4f3" font-size="14">starts_at</text>
+<text x="1235" y="312" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+<text x="952" y="336" fill="#647e9e" font-size="13"></text>
+<text x="990" y="336" fill="#d7e4f3" font-size="14">ends_at</text>
+<text x="1235" y="336" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+<text x="952" y="360" fill="#647e9e" font-size="13"></text>
+<text x="990" y="360" fill="#d7e4f3" font-size="14">reservation_opens_at</text>
+<text x="1235" y="360" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+<text x="952" y="384" fill="#647e9e" font-size="13"></text>
+<text x="990" y="384" fill="#d7e4f3" font-size="14">reservation_closes_at</text>
+<text x="1235" y="384" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+<text x="952" y="408" fill="#647e9e" font-size="13"></text>
+<text x="990" y="408" fill="#d7e4f3" font-size="14">cancel_deadline_at</text>
+<text x="1235" y="408" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+<text x="952" y="432" fill="#647e9e" font-size="13"></text>
+<text x="990" y="432" fill="#d7e4f3" font-size="14">max_tickets_per_user</text>
+<text x="1235" y="432" fill="#9fb5cc" font-size="12">INTEGER</text>
+<text x="952" y="456" fill="#647e9e" font-size="13"></text>
+<text x="990" y="456" fill="#d7e4f3" font-size="14">status</text>
+<text x="1235" y="456" fill="#9fb5cc" font-size="12">VARCHAR(20)</text>
+</g>
+<g class="entity" data-name="performance_seats" tabindex="0" role="button" aria-label="performance_seats">
+<rect x="1390" y="130" width="416" height="280" rx="10" fill="#18283d" stroke="#79adff" stroke-width="2"/>
+<text x="1404" y="160" fill="#79adff" font-size="19" font-weight="700">performance_seats</text>
+<text x="1404" y="186" fill="#d7e4f3" font-size="16">회차별 좌석 재고</text>
+<text x="1402" y="216" fill="#79adff" font-size="13">PF</text>
+<text x="1440" y="216" fill="#d7e4f3" font-size="14">id</text>
+<text x="1685" y="216" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="1402" y="240" fill="#79adff" font-size="13">F</text>
+<text x="1440" y="240" fill="#d7e4f3" font-size="14">performance_id</text>
+<text x="1685" y="240" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="1402" y="264" fill="#79adff" font-size="13">F</text>
+<text x="1440" y="264" fill="#d7e4f3" font-size="14">stage_id</text>
+<text x="1685" y="264" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="1402" y="288" fill="#79adff" font-size="13">F</text>
+<text x="1440" y="288" fill="#d7e4f3" font-size="14">stage_seat_id</text>
+<text x="1685" y="288" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="1402" y="312" fill="#79adff" font-size="13"></text>
+<text x="1440" y="312" fill="#d7e4f3" font-size="14">seat_grade</text>
+<text x="1685" y="312" fill="#9fb5cc" font-size="12">VARCHAR(30)</text>
+<text x="1402" y="336" fill="#79adff" font-size="13"></text>
+<text x="1440" y="336" fill="#d7e4f3" font-size="14">price</text>
+<text x="1685" y="336" fill="#9fb5cc" font-size="12">NUMERIC(12,2)</text>
+<text x="1402" y="360" fill="#79adff" font-size="13"></text>
+<text x="1440" y="360" fill="#d7e4f3" font-size="14">status</text>
+<text x="1685" y="360" fill="#9fb5cc" font-size="12">VARCHAR(20)</text>
+<text x="1402" y="384" fill="#79adff" font-size="13">F</text>
+<text x="1440" y="384" fill="#ffffff" font-size="14">current_hold_id</text>
+<text x="1685" y="384" fill="#9fb5cc" font-size="12">BIGINT</text>
+</g>
+<g class="entity" data-name="venues" tabindex="0" role="button" aria-label="venues">
+<rect x="40" y="700" width="416" height="160" rx="10" fill="#18283d" stroke="#647e9e" stroke-width="2"/>
+<text x="54" y="730" fill="#647e9e" font-size="19" font-weight="700">venues</text>
+<text x="54" y="756" fill="#d7e4f3" font-size="16">공연장</text>
+<text x="52" y="786" fill="#647e9e" font-size="13">P</text>
+<text x="90" y="786" fill="#d7e4f3" font-size="14">id</text>
+<text x="335" y="786" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="52" y="810" fill="#647e9e" font-size="13"></text>
+<text x="90" y="810" fill="#d7e4f3" font-size="14">name</text>
+<text x="335" y="810" fill="#9fb5cc" font-size="12">VARCHAR(200)</text>
+<text x="52" y="834" fill="#647e9e" font-size="13"></text>
+<text x="90" y="834" fill="#d7e4f3" font-size="14">address</text>
+<text x="335" y="834" fill="#9fb5cc" font-size="12">VARCHAR(255)</text>
+</g>
+<g class="entity" data-name="stages" tabindex="0" role="button" aria-label="stages">
+<rect x="490" y="700" width="416" height="160" rx="10" fill="#18283d" stroke="#647e9e" stroke-width="2"/>
+<text x="504" y="730" fill="#647e9e" font-size="19" font-weight="700">stages</text>
+<text x="504" y="756" fill="#d7e4f3" font-size="16">공연관</text>
+<text x="502" y="786" fill="#647e9e" font-size="13">P</text>
+<text x="540" y="786" fill="#d7e4f3" font-size="14">id</text>
+<text x="785" y="786" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="502" y="810" fill="#647e9e" font-size="13">F</text>
+<text x="540" y="810" fill="#d7e4f3" font-size="14">venue_id</text>
+<text x="785" y="810" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="502" y="834" fill="#647e9e" font-size="13"></text>
+<text x="540" y="834" fill="#d7e4f3" font-size="14">name</text>
+<text x="785" y="834" fill="#9fb5cc" font-size="12">VARCHAR(100)</text>
+</g>
+<g class="entity" data-name="stage_seats" tabindex="0" role="button" aria-label="stage_seats">
+<rect x="940" y="700" width="416" height="184" rx="10" fill="#18283d" stroke="#647e9e" stroke-width="2"/>
+<text x="954" y="730" fill="#647e9e" font-size="19" font-weight="700">stage_seats</text>
+<text x="954" y="756" fill="#d7e4f3" font-size="16">물리 좌석</text>
+<text x="952" y="786" fill="#647e9e" font-size="13">P</text>
+<text x="990" y="786" fill="#d7e4f3" font-size="14">id</text>
+<text x="1235" y="786" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="952" y="810" fill="#647e9e" font-size="13">F</text>
+<text x="990" y="810" fill="#d7e4f3" font-size="14">stage_id</text>
+<text x="1235" y="810" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="952" y="834" fill="#647e9e" font-size="13"></text>
+<text x="990" y="834" fill="#d7e4f3" font-size="14">section_name</text>
+<text x="1235" y="834" fill="#9fb5cc" font-size="12">VARCHAR(50)</text>
+<text x="952" y="858" fill="#647e9e" font-size="13"></text>
+<text x="990" y="858" fill="#d7e4f3" font-size="14">seat_number</text>
+<text x="1235" y="858" fill="#9fb5cc" font-size="12">VARCHAR(50)</text>
+</g>
+<g class="entity" data-name="seat_hold_items" tabindex="0" role="button" aria-label="seat_hold_items">
+<rect x="1390" y="700" width="416" height="208" rx="10" fill="#18283d" stroke="#4ad3ad" stroke-width="2"/>
+<text x="1404" y="730" fill="#4ad3ad" font-size="19" font-weight="700">seat_hold_items</text>
+<text x="1404" y="756" fill="#d7e4f3" font-size="16">선점 좌석 · 당시 가격</text>
+<text x="1402" y="786" fill="#4ad3ad" font-size="13">P</text>
+<text x="1440" y="786" fill="#d7e4f3" font-size="14">id</text>
+<text x="1685" y="786" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="1402" y="810" fill="#4ad3ad" font-size="13">F</text>
+<text x="1440" y="810" fill="#d7e4f3" font-size="14">hold_id</text>
+<text x="1685" y="810" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="1402" y="834" fill="#4ad3ad" font-size="13">F</text>
+<text x="1440" y="834" fill="#d7e4f3" font-size="14">performance_id</text>
+<text x="1685" y="834" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="1402" y="858" fill="#4ad3ad" font-size="13">F</text>
+<text x="1440" y="858" fill="#d7e4f3" font-size="14">performance_seat_id</text>
+<text x="1685" y="858" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="1402" y="882" fill="#4ad3ad" font-size="13"></text>
+<text x="1440" y="882" fill="#d7e4f3" font-size="14">price_at_hold</text>
+<text x="1685" y="882" fill="#9fb5cc" font-size="12">NUMERIC(12,2)</text>
+</g>
+<g class="entity" data-name="users" tabindex="0" role="button" aria-label="users">
+<rect x="40" y="1270" width="416" height="232" rx="10" fill="#18283d" stroke="#647e9e" stroke-width="2"/>
+<text x="54" y="1300" fill="#647e9e" font-size="19" font-weight="700">users</text>
+<text x="54" y="1326" fill="#d7e4f3" font-size="16">회원</text>
+<text x="52" y="1356" fill="#647e9e" font-size="13">P</text>
+<text x="90" y="1356" fill="#d7e4f3" font-size="14">id</text>
+<text x="335" y="1356" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="52" y="1380" fill="#647e9e" font-size="13">U</text>
+<text x="90" y="1380" fill="#d7e4f3" font-size="14">email</text>
+<text x="335" y="1380" fill="#9fb5cc" font-size="12">VARCHAR(255)</text>
+<text x="52" y="1404" fill="#647e9e" font-size="13"></text>
+<text x="90" y="1404" fill="#d7e4f3" font-size="14">password_hash</text>
+<text x="335" y="1404" fill="#9fb5cc" font-size="12">VARCHAR(255)</text>
+<text x="52" y="1428" fill="#647e9e" font-size="13"></text>
+<text x="90" y="1428" fill="#d7e4f3" font-size="14">name</text>
+<text x="335" y="1428" fill="#9fb5cc" font-size="12">VARCHAR(100)</text>
+<text x="52" y="1452" fill="#647e9e" font-size="13"></text>
+<text x="90" y="1452" fill="#d7e4f3" font-size="14">phone_number</text>
+<text x="335" y="1452" fill="#9fb5cc" font-size="12">VARCHAR(30)</text>
+<text x="52" y="1476" fill="#647e9e" font-size="13"></text>
+<text x="90" y="1476" fill="#d7e4f3" font-size="14">created_at</text>
+<text x="335" y="1476" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+</g>
+<g class="entity" data-name="member_performance_limits" tabindex="0" role="button" aria-label="member_performance_limits">
+<rect x="490" y="1270" width="416" height="184" rx="10" fill="#18283d" stroke="#79adff" stroke-width="2"/>
+<text x="504" y="1300" fill="#79adff" font-size="19" font-weight="700">member_performance_limits</text>
+<text x="504" y="1326" fill="#d7e4f3" font-size="16">회원 · 회차 매수 한도</text>
+<text x="502" y="1356" fill="#79adff" font-size="13">PF</text>
+<text x="540" y="1356" fill="#d7e4f3" font-size="14">user_id</text>
+<text x="785" y="1356" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="502" y="1380" fill="#79adff" font-size="13">PF</text>
+<text x="540" y="1380" fill="#d7e4f3" font-size="14">performance_id</text>
+<text x="785" y="1380" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="502" y="1404" fill="#79adff" font-size="13"></text>
+<text x="540" y="1404" fill="#d7e4f3" font-size="14">active_quantity</text>
+<text x="785" y="1404" fill="#9fb5cc" font-size="12">INTEGER</text>
+<text x="502" y="1428" fill="#79adff" font-size="13"></text>
+<text x="540" y="1428" fill="#ffffff" font-size="14">held_quantity</text>
+<text x="785" y="1428" fill="#9fb5cc" font-size="12">INTEGER</text>
+</g>
+<g class="entity" data-name="seat_holds" tabindex="0" role="button" aria-label="seat_holds">
+<rect x="940" y="1270" width="416" height="352" rx="10" fill="#18283d" stroke="#4ad3ad" stroke-width="2"/>
+<text x="954" y="1300" fill="#4ad3ad" font-size="19" font-weight="700">seat_holds</text>
+<text x="954" y="1326" fill="#d7e4f3" font-size="16">선점 소유자 · 만료</text>
+<text x="952" y="1356" fill="#4ad3ad" font-size="13">P</text>
+<text x="990" y="1356" fill="#d7e4f3" font-size="14">id</text>
+<text x="1235" y="1356" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="952" y="1380" fill="#4ad3ad" font-size="13">F</text>
+<text x="990" y="1380" fill="#d7e4f3" font-size="14">user_id</text>
+<text x="1235" y="1380" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="952" y="1404" fill="#4ad3ad" font-size="13">F</text>
+<text x="990" y="1404" fill="#d7e4f3" font-size="14">performance_id</text>
+<text x="1235" y="1404" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="952" y="1428" fill="#4ad3ad" font-size="13"></text>
+<text x="990" y="1428" fill="#d7e4f3" font-size="14">request_key</text>
+<text x="1235" y="1428" fill="#9fb5cc" font-size="12">VARCHAR(100)</text>
+<text x="952" y="1452" fill="#4ad3ad" font-size="13"></text>
+<text x="990" y="1452" fill="#d7e4f3" font-size="14">request_hash</text>
+<text x="1235" y="1452" fill="#9fb5cc" font-size="12">VARCHAR(64)</text>
+<text x="952" y="1476" fill="#4ad3ad" font-size="13"></text>
+<text x="990" y="1476" fill="#d7e4f3" font-size="14">quantity</text>
+<text x="1235" y="1476" fill="#9fb5cc" font-size="12">INTEGER</text>
+<text x="952" y="1500" fill="#4ad3ad" font-size="13"></text>
+<text x="990" y="1500" fill="#d7e4f3" font-size="14">status</text>
+<text x="1235" y="1500" fill="#9fb5cc" font-size="12">VARCHAR(20)</text>
+<text x="952" y="1524" fill="#4ad3ad" font-size="13"></text>
+<text x="990" y="1524" fill="#d7e4f3" font-size="14">created_at</text>
+<text x="1235" y="1524" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+<text x="952" y="1548" fill="#4ad3ad" font-size="13"></text>
+<text x="990" y="1548" fill="#d7e4f3" font-size="14">expires_at</text>
+<text x="1235" y="1548" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+<text x="952" y="1572" fill="#4ad3ad" font-size="13"></text>
+<text x="990" y="1572" fill="#d7e4f3" font-size="14">closed_at</text>
+<text x="1235" y="1572" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+<text x="952" y="1596" fill="#4ad3ad" font-size="13"></text>
+<text x="990" y="1596" fill="#d7e4f3" font-size="14">close_reason</text>
+<text x="1235" y="1596" fill="#9fb5cc" font-size="12">VARCHAR(40)</text>
+</g>
+<g class="entity" data-name="reservations" tabindex="0" role="button" aria-label="reservations">
+<rect x="1390" y="1270" width="416" height="400" rx="10" fill="#18283d" stroke="#79adff" stroke-width="2"/>
+<text x="1404" y="1300" fill="#79adff" font-size="19" font-weight="700">reservations</text>
+<text x="1404" y="1326" fill="#d7e4f3" font-size="16">확정 주문</text>
+<text x="1402" y="1356" fill="#79adff" font-size="13">P</text>
+<text x="1440" y="1356" fill="#d7e4f3" font-size="14">id</text>
+<text x="1685" y="1356" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="1402" y="1380" fill="#79adff" font-size="13">U</text>
+<text x="1440" y="1380" fill="#d7e4f3" font-size="14">order_number</text>
+<text x="1685" y="1380" fill="#9fb5cc" font-size="12">VARCHAR(100)</text>
+<text x="1402" y="1404" fill="#79adff" font-size="13">F</text>
+<text x="1440" y="1404" fill="#d7e4f3" font-size="14">user_id</text>
+<text x="1685" y="1404" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="1402" y="1428" fill="#79adff" font-size="13">F</text>
+<text x="1440" y="1428" fill="#d7e4f3" font-size="14">performance_id</text>
+<text x="1685" y="1428" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="1402" y="1452" fill="#79adff" font-size="13"></text>
+<text x="1440" y="1452" fill="#d7e4f3" font-size="14">request_key</text>
+<text x="1685" y="1452" fill="#9fb5cc" font-size="12">VARCHAR(100)</text>
+<text x="1402" y="1476" fill="#79adff" font-size="13"></text>
+<text x="1440" y="1476" fill="#d7e4f3" font-size="14">request_hash</text>
+<text x="1685" y="1476" fill="#9fb5cc" font-size="12">VARCHAR(64)</text>
+<text x="1402" y="1500" fill="#79adff" font-size="13">FU</text>
+<text x="1440" y="1500" fill="#ffffff" font-size="14">hold_id</text>
+<text x="1685" y="1500" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="1402" y="1524" fill="#79adff" font-size="13"></text>
+<text x="1440" y="1524" fill="#d7e4f3" font-size="14">quantity</text>
+<text x="1685" y="1524" fill="#9fb5cc" font-size="12">INTEGER</text>
+<text x="1402" y="1548" fill="#79adff" font-size="13"></text>
+<text x="1440" y="1548" fill="#d7e4f3" font-size="14">total_amount</text>
+<text x="1685" y="1548" fill="#9fb5cc" font-size="12">NUMERIC(12,2)</text>
+<text x="1402" y="1572" fill="#79adff" font-size="13"></text>
+<text x="1440" y="1572" fill="#d7e4f3" font-size="14">status</text>
+<text x="1685" y="1572" fill="#9fb5cc" font-size="12">VARCHAR(20)</text>
+<text x="1402" y="1596" fill="#79adff" font-size="13"></text>
+<text x="1440" y="1596" fill="#d7e4f3" font-size="14">created_at</text>
+<text x="1685" y="1596" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+<text x="1402" y="1620" fill="#79adff" font-size="13"></text>
+<text x="1440" y="1620" fill="#d7e4f3" font-size="14">confirmed_at</text>
+<text x="1685" y="1620" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+<text x="1402" y="1644" fill="#79adff" font-size="13"></text>
+<text x="1440" y="1644" fill="#d7e4f3" font-size="14">canceled_at</text>
+<text x="1685" y="1644" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+</g>
+<g class="entity" data-name="token_blacklist" tabindex="0" role="button" aria-label="token_blacklist">
+<rect x="40" y="1840" width="416" height="184" rx="10" fill="#18283d" stroke="#647e9e" stroke-width="2"/>
+<text x="54" y="1870" fill="#647e9e" font-size="19" font-weight="700">token_blacklist</text>
+<text x="54" y="1896" fill="#d7e4f3" font-size="16">로그아웃 토큰</text>
+<text x="52" y="1926" fill="#647e9e" font-size="13">P</text>
+<text x="90" y="1926" fill="#d7e4f3" font-size="14">id</text>
+<text x="335" y="1926" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="52" y="1950" fill="#647e9e" font-size="13">U</text>
+<text x="90" y="1950" fill="#d7e4f3" font-size="14">token_jti</text>
+<text x="335" y="1950" fill="#9fb5cc" font-size="12">VARCHAR(255)</text>
+<text x="52" y="1974" fill="#647e9e" font-size="13"></text>
+<text x="90" y="1974" fill="#d7e4f3" font-size="14">expires_at</text>
+<text x="335" y="1974" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+<text x="52" y="1998" fill="#647e9e" font-size="13"></text>
+<text x="90" y="1998" fill="#d7e4f3" font-size="14">created_at</text>
+<text x="335" y="1998" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+</g>
+<g class="entity" data-name="payments" tabindex="0" role="button" aria-label="payments">
+<rect x="490" y="1840" width="416" height="328" rx="10" fill="#18283d" stroke="#647e9e" stroke-width="2"/>
+<text x="504" y="1870" fill="#647e9e" font-size="19" font-weight="700">payments</text>
+<text x="504" y="1896" fill="#d7e4f3" font-size="16">mock 결제 · 환불</text>
+<text x="502" y="1926" fill="#647e9e" font-size="13">P</text>
+<text x="540" y="1926" fill="#d7e4f3" font-size="14">id</text>
+<text x="785" y="1926" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="502" y="1950" fill="#647e9e" font-size="13">FU</text>
+<text x="540" y="1950" fill="#d7e4f3" font-size="14">reservation_id</text>
+<text x="785" y="1950" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="502" y="1974" fill="#647e9e" font-size="13">U</text>
+<text x="540" y="1974" fill="#d7e4f3" font-size="14">transaction_reference</text>
+<text x="785" y="1974" fill="#9fb5cc" font-size="12">VARCHAR(255)</text>
+<text x="502" y="1998" fill="#647e9e" font-size="13"></text>
+<text x="540" y="1998" fill="#d7e4f3" font-size="14">method</text>
+<text x="785" y="1998" fill="#9fb5cc" font-size="12">VARCHAR(20)</text>
+<text x="502" y="2022" fill="#647e9e" font-size="13"></text>
+<text x="540" y="2022" fill="#d7e4f3" font-size="14">amount</text>
+<text x="785" y="2022" fill="#9fb5cc" font-size="12">NUMERIC(12,2)</text>
+<text x="502" y="2046" fill="#647e9e" font-size="13"></text>
+<text x="540" y="2046" fill="#d7e4f3" font-size="14">status</text>
+<text x="785" y="2046" fill="#9fb5cc" font-size="12">VARCHAR(20)</text>
+<text x="502" y="2070" fill="#647e9e" font-size="13"></text>
+<text x="540" y="2070" fill="#d7e4f3" font-size="14">paid_at</text>
+<text x="785" y="2070" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+<text x="502" y="2094" fill="#647e9e" font-size="13"></text>
+<text x="540" y="2094" fill="#d7e4f3" font-size="14">refund_status</text>
+<text x="785" y="2094" fill="#9fb5cc" font-size="12">VARCHAR(20)</text>
+<text x="502" y="2118" fill="#647e9e" font-size="13"></text>
+<text x="540" y="2118" fill="#d7e4f3" font-size="14">refunded_amount</text>
+<text x="785" y="2118" fill="#9fb5cc" font-size="12">NUMERIC(12,2)</text>
+<text x="502" y="2142" fill="#647e9e" font-size="13"></text>
+<text x="540" y="2142" fill="#d7e4f3" font-size="14">refunded_at</text>
+<text x="785" y="2142" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+</g>
+<g class="entity" data-name="tickets" tabindex="0" role="button" aria-label="tickets">
+<rect x="940" y="1840" width="416" height="256" rx="10" fill="#18283d" stroke="#647e9e" stroke-width="2"/>
+<text x="954" y="1870" fill="#647e9e" font-size="19" font-weight="700">tickets</text>
+<text x="954" y="1896" fill="#d7e4f3" font-size="16">발행 티켓</text>
+<text x="952" y="1926" fill="#647e9e" font-size="13">P</text>
+<text x="990" y="1926" fill="#d7e4f3" font-size="14">id</text>
+<text x="1235" y="1926" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="952" y="1950" fill="#647e9e" font-size="13">FU</text>
+<text x="990" y="1950" fill="#d7e4f3" font-size="14">reservation_item_id</text>
+<text x="1235" y="1950" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="952" y="1974" fill="#647e9e" font-size="13">U</text>
+<text x="990" y="1974" fill="#d7e4f3" font-size="14">ticket_code</text>
+<text x="1235" y="1974" fill="#9fb5cc" font-size="12">VARCHAR(100)</text>
+<text x="952" y="1998" fill="#647e9e" font-size="13"></text>
+<text x="990" y="1998" fill="#d7e4f3" font-size="14">receive_method</text>
+<text x="1235" y="1998" fill="#9fb5cc" font-size="12">VARCHAR(20)</text>
+<text x="952" y="2022" fill="#647e9e" font-size="13"></text>
+<text x="990" y="2022" fill="#d7e4f3" font-size="14">status</text>
+<text x="1235" y="2022" fill="#9fb5cc" font-size="12">VARCHAR(20)</text>
+<text x="952" y="2046" fill="#647e9e" font-size="13"></text>
+<text x="990" y="2046" fill="#d7e4f3" font-size="14">issued_at</text>
+<text x="1235" y="2046" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+<text x="952" y="2070" fill="#647e9e" font-size="13"></text>
+<text x="990" y="2070" fill="#d7e4f3" font-size="14">canceled_at</text>
+<text x="1235" y="2070" fill="#9fb5cc" font-size="12">TIMESTAMPTZ</text>
+</g>
+<g class="entity" data-name="reservation_items" tabindex="0" role="button" aria-label="reservation_items">
+<rect x="1390" y="1840" width="416" height="232" rx="10" fill="#18283d" stroke="#647e9e" stroke-width="2"/>
+<text x="1404" y="1870" fill="#647e9e" font-size="19" font-weight="700">reservation_items</text>
+<text x="1404" y="1896" fill="#d7e4f3" font-size="16">주문 좌석 · 당시 가격</text>
+<text x="1402" y="1926" fill="#647e9e" font-size="13">P</text>
+<text x="1440" y="1926" fill="#d7e4f3" font-size="14">id</text>
+<text x="1685" y="1926" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="1402" y="1950" fill="#647e9e" font-size="13">F</text>
+<text x="1440" y="1950" fill="#d7e4f3" font-size="14">reservation_id</text>
+<text x="1685" y="1950" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="1402" y="1974" fill="#647e9e" font-size="13">F</text>
+<text x="1440" y="1974" fill="#d7e4f3" font-size="14">performance_id</text>
+<text x="1685" y="1974" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="1402" y="1998" fill="#647e9e" font-size="13">F</text>
+<text x="1440" y="1998" fill="#d7e4f3" font-size="14">performance_seat_id</text>
+<text x="1685" y="1998" fill="#9fb5cc" font-size="12">BIGINT</text>
+<text x="1402" y="2022" fill="#647e9e" font-size="13"></text>
+<text x="1440" y="2022" fill="#d7e4f3" font-size="14">price_at_reservation</text>
+<text x="1685" y="2022" fill="#9fb5cc" font-size="12">NUMERIC(12,2)</text>
+<text x="1402" y="2046" fill="#647e9e" font-size="13"></text>
+<text x="1440" y="2046" fill="#d7e4f3" font-size="14">status</text>
+<text x="1685" y="2046" fill="#9fb5cc" font-size="12">VARCHAR(20)</text>
+</g>
+<text x="40" y="2510" fill="#b5c7db" font-size="17">P=PK · F=FK · U=컬럼 UNIQUE | 복합키·CHECK·부분 UNIQUE 인덱스는 전체 SQL을 확인하세요.</text>
+</svg>

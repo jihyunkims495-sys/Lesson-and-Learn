@@ -1,8 +1,10 @@
 # AsyncTicket HELD v3 API 명세
 
+이 문서는 v3 검토 기록입니다. 최신 정리안은 [v4 JSON API 명세](02-api-spec.md)와 [Jinja2 화면·폼 계약](03-jinja-http-contract.md)을 참조하세요. ID 형식·소유권 오류·환불 시점 등 버전별 차이는 [프로젝트 안내](README.md)에 정리했습니다.
+
 작성일: 2026-10-28 · 상태: 구현 전 설계 초안
 
-ERD: [AsyncTicket HELD v3 ERDCloud](https://www.erdcloud.com/d/Sr2paEtnJJpGq7MjL)
+ERD: [HELD ERD 설계 제안](held-erd.mmd)
 
 이 문서는 회원의 지정 좌석 선점 → mock 결제·주문 확정 → 자동 발권 → 주문 전체 취소를 정의한다. 실제 서버 구현·DB 적용·HTTP 테스트 완료를 의미하지 않는다. 엔드포인트, HTTP 상태 코드, 응답 필드와 아래 기본 정책은 팀 검토용 계약이다. 현재 ERD의 상태명과 제약을 우선하며, 과거 설계의 `PENDING`, `SUCCEEDED`, `CANCELLED`를 혼용하지 않는다.
 

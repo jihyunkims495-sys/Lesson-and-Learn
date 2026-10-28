@@ -1,0 +1,318 @@
+{
+  "version": "v4-design-policies",
+  "date": "2026-10-28",
+  "status": "review_draft_not_team_approval",
+  "source_legend": {
+    "TEAM_SOURCE": "제공된 팀 설계·학습 예시에 기록된 내용이며 팀 최종 합의와 구분한다.",
+    "USER_REQUEST": "프로젝트 요구사항으로 제시한 방향이다.",
+    "DESIGN_PROPOSAL": "요구사항을 구현 계약으로 구체화한 추가 설계 제안이다.",
+    "OPEN": "팀에서 범위나 정책을 결정해야 하는 항목이다.",
+    "COURSE_REQUIREMENT": "프로젝트의 필수·제외·도전 범위를 구분하는 구현 기준이다."
+  },
+  "policies": [
+    {
+      "id": "P01",
+      "source_kind": "TEAM_SOURCE",
+      "status": "documented_in_supplied_draft",
+      "description": "비회원 공연·회차·좌석 조회",
+      "source_ref": "01-erd-jinja-design.md: 제공된 설계·화면 흐름의 기록",
+      "notes": "팀 최종 합의로 별도 확인된 것은 아님"
+    },
+    {
+      "id": "P02",
+      "source_kind": "TEAM_SOURCE",
+      "status": "documented_in_supplied_material",
+      "description": "선점·주문 변경은 인증 회원; 회원 ID는 서버가 결정",
+      "source_ref": "01-erd-jinja-design.md: 제공된 설계·화면 흐름의 기록",
+      "notes": "본문의 user_id를 소유자로 신뢰하지 않음"
+    },
+    {
+      "id": "P03",
+      "source_kind": "TEAM_SOURCE",
+      "status": "documented_in_supplied_draft",
+      "description": "회차별 회원 매수 상한 기본3, 요청 좌석1~3",
+      "source_ref": "01-erd-jinja-design.md: 제공된 설계·화면 흐름의 기록",
+      "notes": "선점 매수 합산의 구체 구현은 P19"
+    },
+    {
+      "id": "P04",
+      "source_kind": "TEAM_SOURCE",
+      "status": "documented_in_supplied_draft",
+      "description": "취소는 주문 전체 단위",
+      "source_ref": "01-erd-jinja-design.md: 제공된 설계·화면 흐름의 기록",
+      "notes": "결제 전 선점 전체 해제 P13과 별개"
+    },
+    {
+      "id": "P05",
+      "source_kind": "USER_REQUEST",
+      "status": "explicit_user_choice",
+      "description": "주문 취소하면 예매 가능 매수를 복원",
+      "source_ref": "01-erd-jinja-design.md: 프로젝트 요구사항",
+      "notes": "취소 주문을 영구 누적3매에 포함하지 않음"
+    },
+    {
+      "id": "P06",
+      "source_kind": "USER_REQUEST",
+      "status": "explicit_user_request",
+      "description": "결제 전에 HELD 선점을 포함",
+      "source_ref": "01-erd-jinja-design.md: 프로젝트 요구사항",
+      "notes": "세부 그룹·TTL은 별도 제안"
+    },
+    {
+      "id": "P07",
+      "source_kind": "USER_REQUEST",
+      "status": "explicit_user_request",
+      "description": "공연 A/B/C를 예상 수요 등급으로 관리",
+      "source_ref": "01-erd-jinja-design.md: 프로젝트 요구사항",
+      "notes": "자동 증설·대기열은 이 필드만으로 실행되지 않음"
+    },
+    {
+      "id": "P08",
+      "source_kind": "USER_REQUEST",
+      "status": "project_design_sequence",
+      "description": "ERD→API 명세→요청응답 스키마→라우터→main.py 등록",
+      "source_ref": "01-erd-jinja-design.md: 프로젝트 요구사항",
+      "notes": "문서 계약 작성과 구현 파일 생성을 구분"
+    },
+    {
+      "id": "P09",
+      "source_kind": "TEAM_SOURCE",
+      "status": "documented_learning_example",
+      "description": "서버 조회·가공→context→Jinja2→HTML; 공통 레이아웃",
+      "source_ref": "01-erd-jinja-design.md: 제공된 설계·화면 흐름의 기록",
+      "notes": "자료는 설계 제안이며 실제 구현이 아님"
+    },
+    {
+      "id": "P10",
+      "source_kind": "TEAM_SOURCE",
+      "status": "documented_learning_example",
+      "description": "화면 폼 제출→서버 검증·저장→303 이동→HTML",
+      "source_ref": "01-erd-jinja-design.md: 제공된 설계·화면 흐름의 기록",
+      "notes": "최종 URL·JSON API와 인증 전달 방식은 후속 제안"
+    },
+    {
+      "id": "P11",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "in_current_design_pending_team_approval",
+      "description": "기존 팀11개에 회원한도·tickets·traffic_profiles 추가",
+      "source_ref": "01-erd-jinja-design.md: 추가 설계 제안",
+      "notes": "traffic_profiles는 단순 분류라면 컬럼+CHECK 대체 가능"
+    },
+    {
+      "id": "P12",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "in_current_design_pending_team_approval",
+      "description": "seat_holds·seat_hold_items로 선점 그룹과 상세 분리",
+      "source_ref": "01-erd-jinja-design.md: 추가 설계 제안",
+      "notes": "하나의 테이블로도 설계 가능하며 분리가 유일한 정답 아님"
+    },
+    {
+      "id": "P13",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "team_review_required",
+      "description": "선점 그룹1~3석, 전부 선점/실패·전체 확정·전체 해제",
+      "source_ref": "01-erd-jinja-design.md: 추가 설계 제안",
+      "notes": "부분 해제의 영구 불가를 뜻하지 않음"
+    },
+    {
+      "id": "P14",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "team_review_required",
+      "description": "선점 TTL180초, 판매마감·공연시작을 넘지 않게 제한",
+      "source_ref": "01-erd-jinja-design.md: 추가 설계 제안",
+      "notes": "숫자180은 사용자나 팀이 명시 확정하지 않음"
+    },
+    {
+      "id": "P15",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "team_review_required",
+      "description": "같은 회원·회차 ACTIVE 선점 그룹 최대1개",
+      "source_ref": "01-erd-jinja-design.md: 추가 설계 제안",
+      "notes": "만료 정리 후 새 그룹 생성"
+    },
+    {
+      "id": "P16",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "team_review_required",
+      "description": "자동 연장 제외; 같은 키 재시도는 원래 만료 유지",
+      "source_ref": "01-erd-jinja-design.md: 추가 설계 제안",
+      "notes": "끝난 선점 재활성화 금지"
+    },
+    {
+      "id": "P17",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "team_review_required",
+      "description": "선점 당시 가격 스냅샷을 유효선점 확정에 사용",
+      "source_ref": "01-erd-jinja-design.md: 추가 설계 제안",
+      "notes": "클라이언트 금액은 서버 결정값 대체 불가"
+    },
+    {
+      "id": "P18",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "team_review_required",
+      "description": "회차→관련회원한도→선점→주문→좌석 잠금; 잠금 뒤 DB시각 최종 판정",
+      "source_ref": "01-erd-jinja-design.md: 추가 설계 제안",
+      "notes": "짧은 회차 쓰기 직렬화 병목 가능; COMMIT시각 만료전 보장 아님"
+    },
+    {
+      "id": "P19",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "team_review_required",
+      "description": "확정 active+유효선점 held+신규요청≤회차한도; 상태 전이마다 집계 동기화",
+      "source_ref": "01-erd-jinja-design.md: 추가 설계 제안",
+      "notes": "한도3과 취소복원 요구를 구현하는 구체 집계 모델"
+    },
+    {
+      "id": "P20",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "team_review_required",
+      "description": "생성과 확정 각각 회원+요청키 고유·정규화 본문해시 비교",
+      "source_ref": "01-erd-jinja-design.md: 추가 설계 제안",
+      "notes": "성공 결과 재사용과 같은키 다른본문 충돌; 실패응답 영구 재생은 별도 저장소 없이는 보장하지 않음"
+    },
+    {
+      "id": "P21",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "team_review_required",
+      "description": "소비된 선점은 원래 확정 키·해시만 기존 주문 현재상태 반환; 다른키는 충돌",
+      "source_ref": "01-erd-jinja-design.md: 추가 설계 제안",
+      "notes": "취소 주문도 새 결제·티켓 만들지 않음; 별칭키 저장소 없음"
+    },
+    {
+      "id": "P22",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "documented_proposal_requires_runtime_validation",
+      "description": "좌석 AVAILABLE/HELD/RESERVED/BLOCKED; 선점 ACTIVE/CONSUMED/RELEASED/EXPIRED; 원자 상태 전이",
+      "source_ref": "01-erd-jinja-design.md: 추가 설계 제안",
+      "notes": "만료시각만으로 행 자동변경 없음; 이력 보존"
+    },
+    {
+      "id": "P23",
+      "source_kind": "TEAM_SOURCE",
+      "status": "documented_in_supplied_initial_flow",
+      "description": "mock 즉시 결제; 외부PG는 별도 확장",
+      "source_ref": "01-erd-jinja-design.md: 제공된 설계·화면 흐름의 기록",
+      "notes": "mock환불 상태와 실제 PG환불 완료를 혼동하지 않음"
+    },
+    {
+      "id": "P24",
+      "source_kind": "TEAM_SOURCE",
+      "status": "documented_in_supplied_initial_flow",
+      "description": "서비스 대기열 없음",
+      "source_ref": "01-erd-jinja-design.md: 제공된 설계·화면 흐름의 기록",
+      "notes": "DB잠금 대기는 서비스FIFO대기열이 아님"
+    },
+    {
+      "id": "P25",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "implementation_and_display_verification_required",
+      "description": "복합PK/FK·부분UNIQUE·CHECK·한도 동기화를 실제 DB에서 검증",
+      "source_ref": "held-postgresql.sql: DB 키·제약 설계",
+      "notes": "회원·회차 한도의 복합 기본키(user_id, performance_id)를 명시하고 실제 DB에서 검증한다. 표시용 관계도만으로 전체 제약 적용을 증명하지 않는다."
+    },
+    {
+      "id": "P26",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "terminology_mapping_for_documents",
+      "description": "Jinja2 예시의 Performance→shows, Session→performances, SessionSeat→performance_seats로 용어 통일",
+      "source_ref": "01-erd-jinja-design.md: 명칭 대응",
+      "notes": "SQLAlchemy DB session과 공연회차도 구분"
+    },
+    {
+      "id": "P27",
+      "source_kind": "TEAM_SOURCE",
+      "status": "assignment_requirement_relayed_in_project_material",
+      "description": "표현·응용·도메인·인프라 4계층; 도메인은 순수Python",
+      "source_ref": "04-implementation-and-validation.md: 프로젝트 구현 기준",
+      "notes": "Jinja2 폴더 예시에는 domain이 생략되므로 다음 구현에서 연결"
+    },
+    {
+      "id": "P28",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "candidate_contract_pending_team_approval",
+      "description": "Jinja2 HTML 로그인 쿠키/JWT 전달·CSRF·리다이렉트 검사와 JSON Bearer 결합",
+      "source_ref": "03-jinja-http-contract.md: 화면 전달 계약과 검토 범위",
+      "notes": "API 계약에서 JSON Bearer와 HTML 쿠키·CSRF를 분리하는 후보를 구체화. 팀 승인·구현·보안 시험 완료는 아님."
+    },
+    {
+      "id": "P29",
+      "source_kind": "OPEN",
+      "status": "team_scope_decision_required",
+      "description": "관리자 CRUD와 권한 판정·시설/재고 준비의 구현 범위",
+      "source_ref": "03-jinja-http-contract.md: 화면 전달 계약과 검토 범위",
+      "notes": "관리자API나 role을 확정사항으로 자동추가하지 않음"
+    },
+    {
+      "id": "P30",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "candidate_contract_pending_team_approval",
+      "description": "구체 API URL·오류 코드·성공/실패 응답·JSON 필드·HTML 경로",
+      "source_ref": "02-api-spec.md; 03-jinja-http-contract.md",
+      "notes": "팀 최종 합의와 구분"
+    },
+    {
+      "id": "P31",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "candidate_contract_pending_team_approval",
+      "description": "GET은 업무 상태를 바꾸지 않음; 서버 시간·만료 여부 계산과 cleanup 구분",
+      "source_ref": "02-api-spec.md; 03-jinja-http-contract.md",
+      "notes": "팀 최종 합의와 구분"
+    },
+    {
+      "id": "P32",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "candidate_contract_pending_team_approval",
+      "description": "실패 응답의 완전 재생은 별도 기록이 없어 보장하지 않음",
+      "source_ref": "02-api-spec.md",
+      "notes": "팀 최종 합의와 구분"
+    },
+    {
+      "id": "P33",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "candidate_contract_pending_team_approval",
+      "description": "예상 mock 거절은422이며 선점·재고·집계 반환을 커밋; 미예상 DB 예외는 롤백",
+      "source_ref": "02-api-spec.md",
+      "notes": "팀 최종 합의와 구분"
+    },
+    {
+      "id": "P34",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "candidate_contract_pending_team_approval",
+      "description": "반복 취소는 기존 CANCELED 주문 반환; 환불 PENDING과 완료 분리",
+      "source_ref": "02-api-spec.md",
+      "notes": "팀 최종 합의와 구분"
+    },
+    {
+      "id": "P35",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "candidate_contract_pending_team_approval",
+      "description": "page/size·십진 금액 문자열·UTC시각·no-store·503재시도 안내",
+      "source_ref": "02-api-spec.md; 03-jinja-http-contract.md",
+      "notes": "팀 최종 합의와 구분"
+    },
+    {
+      "id": "P36",
+      "source_kind": "COURSE_REQUIREMENT",
+      "status": "assignment_requirement",
+      "description": "기능별 4계층·순수 도메인·비동기저장소·OAuth2/JWT블랙리스트·CORS/로그·Jinja2",
+      "source_ref": "04-implementation-and-validation.md: 프로젝트 구현 기준",
+      "notes": "실제 구현과 검증이 필요함"
+    },
+    {
+      "id": "P37",
+      "source_kind": "COURSE_REQUIREMENT",
+      "status": "assignment_requirement",
+      "description": "실제 PG·상용 메일/SMS·별도 React/Next 제외; 동시성·풀 튜닝은 필수 이후 도전",
+      "source_ref": "04-implementation-and-validation.md: 프로젝트 구현 기준",
+      "notes": "실제 구현과 검증이 필요함"
+    },
+    {
+      "id": "P38",
+      "source_kind": "DESIGN_PROPOSAL",
+      "status": "candidate_contract_pending_team_approval",
+      "description": "JWT30분·비밀번호8~128자·이메일정규화·회원수정은이름/전화번호로제한",
+      "source_ref": "02-api-spec.md",
+      "notes": "팀 최종 합의와 구분"
+    }
+  ]
+}

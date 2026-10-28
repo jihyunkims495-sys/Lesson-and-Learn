@@ -1,6 +1,6 @@
 # Project Index
 
-공개 가능한 프로젝트의 최신 버전, 상태와 진입점을 관리합니다. 내부 운영 문서·자격 증명·비공개 환경 파일은 포함하지 않으며, 구현 범위와 미연동 영역은 각 프로젝트의 README와 CHANGELOG를 기준으로 확인합니다.
+프로젝트의 최신 버전, 상태와 진입점을 관리합니다. 구현 범위와 미연동 영역은 각 프로젝트의 README와 CHANGELOG를 기준으로 확인합니다.
 
 ## Projects
 
@@ -8,7 +8,7 @@
 |---|---:|---|---|---|
 | ORDO AI | v1.2.0 | Public demo · Research v27 | 패션 MD를 위한 매출·재고·리오더 의사결정 OS. 시나리오 비교와 최종 발주 검토에 시장·고객 데일리 트렌드 리포트를 추가했습니다. | [README](./Ordo-AI/README.md) · [CHANGELOG](./Ordo-AI/CHANGELOG.md) · [Research 명세](./Ordo-AI/docs/RESEARCH.md) · [Demo](https://ordo-ai-decision-os-jihyu.jihyunkims495.chatgpt.site/#entry) · [Research](https://ordo-ai-decision-os-jihyu.jihyunkims495.chatgpt.site/#research) |
 | ONEPIECE | Project 1 | Team project · `main` snapshot | Next.js와 Supabase 기반 패션 쇼핑몰 팀 프로젝트입니다. | [A안](./project1/version_test_A/README.md) · [B안](./project1/version_test_B/README.md) · [C안](./project1/version_test_C/README.md) |
-| AsyncTicket | Project 2 · HELD v3 | API design draft | 좌석 선점·mock 결제 확정·자동 발권·전체 취소 API 설계입니다. | [README](./project2/README.md) · [API 명세](./project2/held-api-spec.md) |
+| AsyncTicket | Project 2 · HELD v4 | ERD · API design draft | HELD ERD, JSON API 19개와 Jinja2 화면·폼 17개 계약을 정리한 설계안입니다. | [README](./project2/README.md) · [API 명세](./project2/02-api-spec.md) · [Jinja2 계약](./project2/03-jinja-http-contract.md) |
 
 ## ORDO AI · Current Scope
 
@@ -38,7 +38,13 @@ Project/
 │  └─ version_test_C/  # ONEPIECE C안
 ├─ project2/
 │  ├─ README.md
-│  └─ held-api-spec.md
+│  ├─ 01-erd-jinja-design.md
+│  ├─ 02-api-spec.md
+│  ├─ 03-jinja-http-contract.md
+│  ├─ 04-implementation-and-validation.md
+│  ├─ guide.html
+│  ├─ openapi.json
+│  └─ held-api-spec.md        # v3 검토 기록
 └─ Ordo-AI/
    ├─ .gitignore
    ├─ README.md

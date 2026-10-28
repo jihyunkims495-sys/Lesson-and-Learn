@@ -1,0 +1,172 @@
+erDiagram
+    users ||--o{ seat_holds : owns
+    users ||--o{ reservations : places
+    users ||--o{ member_performance_limits : has_quota
+    traffic_profiles ||--o{ shows : demand_class
+    shows ||--o{ performances : has_sessions
+    venues ||--o{ stages : has_stages
+    stages ||--o{ stage_seats : has_physical_seats
+    stages ||--o{ performances : hosts
+    performances ||--o{ performance_seats : has_inventory
+    stage_seats ||--o{ performance_seats : reused_each_session
+    performances ||--o{ member_performance_limits : quota_per_member
+    performances ||--o{ seat_holds : has_hold_history
+    seat_holds ||--|{ seat_hold_items : contains_1_to_3_by_service
+    performance_seats ||--o{ seat_hold_items : historical_claims
+    seat_holds o|--o{ performance_seats : current_hold_pointer
+    seat_holds ||--o| reservations : consumed_at_most_once
+    performances ||--o{ reservations : booked_session
+    reservations ||--|{ reservation_items : contains_1_to_3_by_service
+    performance_seats ||--o{ reservation_items : booked_history
+    reservations ||--o| payments : mock_paid_when_confirmed
+    reservation_items ||--o| tickets : issued_when_confirmed
+
+    users {
+        bigint id PK
+        varchar email UK
+        varchar password_hash
+        varchar name
+        varchar phone_number
+        timestamptz created_at
+    }
+    traffic_profiles {
+        varchar code PK "A B C demand class only"
+        varchar name
+        text description
+    }
+    shows {
+        bigint id PK
+        varchar title
+        text description
+        varchar performer
+        varchar performance_type
+        integer running_time_minutes
+        text poster_url
+        varchar demand_tier FK
+        text tier_reason
+        timestamptz tier_assessed_at
+    }
+    venues {
+        bigint id PK
+        varchar name
+        varchar address
+    }
+    stages {
+        bigint id PK
+        bigint venue_id FK
+        varchar name
+    }
+    stage_seats {
+        bigint id PK
+        bigint stage_id FK
+        varchar section_name
+        varchar seat_number
+    }
+    performances {
+        bigint id PK
+        bigint show_id FK
+        bigint stage_id FK
+        integer round_number
+        timestamptz starts_at
+        timestamptz ends_at
+        timestamptz reservation_opens_at
+        timestamptz reservation_closes_at
+        timestamptz cancel_deadline_at
+        integer max_tickets_per_user "1 to 3"
+        varchar status "SCHEDULED OPEN CLOSED CANCELED"
+    }
+    performance_seats {
+        bigint id PK
+        bigint performance_id FK
+        bigint stage_id FK
+        bigint stage_seat_id FK
+        varchar seat_grade
+        numeric price
+        varchar status "AVAILABLE HELD RESERVED BLOCKED"
+        bigint current_hold_id FK "NULL unless HELD; current membership FK"
+    }
+    member_performance_limits {
+        bigint user_id PK,FK
+        bigint performance_id PK,FK
+        integer active_quantity "CONFIRMED quantity sum"
+        integer held_quantity "ACTIVE quantity sum after cleanup"
+    }
+    seat_holds {
+        bigint id PK
+        bigint user_id FK
+        bigint performance_id FK
+        varchar request_key "UNIQUE user_id plus key"
+        varchar request_hash "canonical create body"
+        integer quantity "1 to 3"
+        varchar status "ACTIVE CONSUMED RELEASED EXPIRED"
+        timestamptz created_at
+        timestamptz expires_at "decision_at >= expiry is expired"
+        timestamptz closed_at "NULL only when ACTIVE"
+        varchar close_reason
+    }
+    seat_hold_items {
+        bigint id PK
+        bigint hold_id FK
+        bigint performance_id FK
+        bigint performance_seat_id FK "history: not individually UNIQUE"
+        numeric price_at_hold "immutable snapshot"
+    }
+    reservations {
+        bigint id PK
+        varchar order_number UK
+        bigint user_id FK
+        bigint performance_id FK
+        varchar request_key "UNIQUE user_id plus key"
+        varchar request_hash "canonical confirm includes hold_id"
+        bigint hold_id FK,UK "same owner and session composite FK"
+        integer quantity
+        numeric total_amount
+        varchar status "CONFIRMED CANCELED"
+        timestamptz created_at
+        timestamptz confirmed_at
+        timestamptz canceled_at
+    }
+    reservation_items {
+        bigint id PK
+        bigint reservation_id FK
+        bigint performance_id FK
+        bigint performance_seat_id FK "one CONFIRMED row per seat"
+        numeric price_at_reservation
+        varchar status "CONFIRMED CANCELED"
+    }
+    payments {
+        bigint id PK
+        bigint reservation_id FK,UK
+        varchar transaction_reference UK
+        varchar method "MOCK"
+        numeric amount
+        varchar status "PAID REFUNDED"
+        timestamptz paid_at
+        varchar refund_status "NONE PENDING COMPLETED FAILED"
+        numeric refunded_amount
+        timestamptz refunded_at
+    }
+    tickets {
+        bigint id PK
+        bigint reservation_item_id FK,UK
+        varchar ticket_code UK
+        varchar receive_method "ON_SITE"
+        varchar status "ISSUED CANCELED"
+        timestamptz issued_at
+        timestamptz canceled_at
+    }
+    token_blacklist {
+        bigint id PK
+        varchar token_jti UK
+        timestamptz expires_at
+        timestamptz created_at
+    }
+
+%% Diagram cardinality is conceptual: DDL cannot guarantee nonzero child count.
+%% The service enforces 1..3 child seats, exact quantities/prices/counters,
+%% ACTIVE lifecycle and one synchronized order/payment/ticket result.
+%% SQL additionally uses composite FKs, partial UNIQUEs and status CHECKs.
+%% current_hold_id + performance_id + seat id must reference a seat_hold_item.
+%% Active hold uniqueness is per user/session. Seat pointer is current truth.
+%% Expiry time alone does not update status: worker/lazy cleanup is required.
+%% All tier classes use the same ownership, locking and quota guarantees.

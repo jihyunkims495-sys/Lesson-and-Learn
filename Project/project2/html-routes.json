@@ -1,0 +1,1030 @@
+[
+  {
+    "method": "GET",
+    "path": "/pages/shows",
+    "source_kind": "DESIGN_PROPOSAL",
+    "policy_ref": "P28",
+    "auth": "optional_cookie",
+    "template": "shows/list.html",
+    "input_encoding": "path/query",
+    "input_fields": [
+      {
+        "name": "q",
+        "type": "string",
+        "required": false,
+        "source": "query",
+        "description": "공연 제목 검색"
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false,
+        "source": "query",
+        "description": "공연 유형 필터"
+      },
+      {
+        "name": "demand_tier",
+        "type": "A|B|C",
+        "required": false,
+        "source": "query",
+        "description": "예상 수요 필터"
+      },
+      {
+        "name": "page",
+        "type": "integer>=1",
+        "required": false,
+        "source": "query",
+        "description": "기본 1",
+        "example": 1
+      },
+      {
+        "name": "size",
+        "type": "integer[1..100]",
+        "required": false,
+        "source": "query",
+        "description": "기본 20",
+        "example": 20
+      }
+    ],
+    "success_status": 200,
+    "success_location": null,
+    "error_statuses": [
+      422,
+      500,
+      503
+    ],
+    "application_action": "list_shows",
+    "json_equivalent": [
+      "GET /shows"
+    ],
+    "context_fields": [
+      "request",
+      "viewer",
+      "shows",
+      "pagination",
+      "filters",
+      "error",
+      "field_errors"
+    ],
+    "implemented": false,
+    "transient_db_failure": {
+      "status": 503,
+      "code": "DB_BUSY",
+      "retry_after_seconds": 1,
+      "service_queue": false,
+      "note": "잠금/풀 대기 제한 초과; 업무 변경 롤백, 이전 ACTIVE 선점 유지 가능"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/pages/shows/{show_id}",
+    "source_kind": "DESIGN_PROPOSAL",
+    "policy_ref": "P28",
+    "auth": "optional_cookie",
+    "template": "shows/detail.html",
+    "input_encoding": "path/query",
+    "input_fields": [
+      {
+        "name": "show_id",
+        "type": "integer>=1",
+        "required": true,
+        "source": "path",
+        "description": "공연 콘텐츠 ID",
+        "example": 1
+      }
+    ],
+    "success_status": 200,
+    "success_location": null,
+    "error_statuses": [
+      404,
+      422,
+      500,
+      503
+    ],
+    "application_action": "get_show_with_performances",
+    "json_equivalent": [
+      "GET /shows/{show_id}",
+      "GET /shows/{show_id}/performances"
+    ],
+    "context_fields": [
+      "request",
+      "viewer",
+      "show",
+      "performances",
+      "error",
+      "field_errors"
+    ],
+    "implemented": false,
+    "transient_db_failure": {
+      "status": 503,
+      "code": "DB_BUSY",
+      "retry_after_seconds": 1,
+      "service_queue": false,
+      "note": "잠금/풀 대기 제한 초과; 업무 변경 롤백, 이전 ACTIVE 선점 유지 가능"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/pages/performances/{performance_id}/seats",
+    "source_kind": "DESIGN_PROPOSAL",
+    "policy_ref": "P28",
+    "auth": "optional_cookie",
+    "template": "seats/list.html",
+    "input_encoding": "path/query",
+    "input_fields": [
+      {
+        "name": "performance_id",
+        "type": "integer>=1",
+        "required": true,
+        "source": "path",
+        "description": "판매 회차 ID",
+        "example": 7
+      }
+    ],
+    "success_status": 200,
+    "success_location": null,
+    "error_statuses": [
+      404,
+      422,
+      500,
+      503
+    ],
+    "application_action": "list_performance_seats",
+    "json_equivalent": [
+      "GET /performances/{performance_id}/seats"
+    ],
+    "context_fields": [
+      "request",
+      "viewer",
+      "show",
+      "performance",
+      "seats",
+      "server_time",
+      "csrf_token",
+      "request_key",
+      "error",
+      "field_errors"
+    ],
+    "implemented": false,
+    "transient_db_failure": {
+      "status": 503,
+      "code": "DB_BUSY",
+      "retry_after_seconds": 1,
+      "service_queue": false,
+      "note": "잠금/풀 대기 제한 초과; 업무 변경 롤백, 이전 ACTIVE 선점 유지 가능"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/pages/login",
+    "source_kind": "DESIGN_PROPOSAL",
+    "policy_ref": "P28",
+    "auth": "anonymous_or_cookie",
+    "template": "auth/login.html",
+    "input_encoding": "path/query",
+    "input_fields": [
+      {
+        "name": "next",
+        "type": "safe_internal_get_path",
+        "required": false,
+        "source": "query",
+        "description": "외부 경로 거절 후 기본 /pages/shows"
+      }
+    ],
+    "success_status": 200,
+    "success_location": null,
+    "error_statuses": [
+      422,
+      500
+    ],
+    "application_action": "render_login_form",
+    "json_equivalent": [],
+    "context_fields": [
+      "request",
+      "viewer",
+      "csrf_token",
+      "next",
+      "error",
+      "field_errors"
+    ],
+    "implemented": false
+  },
+  {
+    "method": "GET",
+    "path": "/pages/signup",
+    "source_kind": "DESIGN_PROPOSAL",
+    "policy_ref": "P28",
+    "auth": "anonymous_or_cookie",
+    "template": "auth/signup.html",
+    "input_encoding": "path/query",
+    "input_fields": [
+      {
+        "name": "next",
+        "type": "safe_internal_get_path",
+        "required": false,
+        "source": "query",
+        "description": "화면 참고용 복귀 경로; 가입 성공은 로그인 화면"
+      }
+    ],
+    "success_status": 200,
+    "success_location": null,
+    "error_statuses": [
+      422,
+      500
+    ],
+    "application_action": "render_signup_form",
+    "json_equivalent": [],
+    "context_fields": [
+      "request",
+      "viewer",
+      "csrf_token",
+      "next",
+      "error",
+      "field_errors"
+    ],
+    "implemented": false
+  },
+  {
+    "method": "GET",
+    "path": "/pages/holds/{hold_id}",
+    "source_kind": "DESIGN_PROPOSAL",
+    "policy_ref": "P28",
+    "auth": "required_cookie",
+    "template": "holds/detail.html",
+    "input_encoding": "path/query",
+    "input_fields": [
+      {
+        "name": "hold_id",
+        "type": "integer>=1",
+        "required": true,
+        "source": "path",
+        "description": "본인 선점 그룹 ID",
+        "example": 101
+      }
+    ],
+    "success_status": 200,
+    "success_location": null,
+    "error_statuses": [
+      403,
+      404,
+      422,
+      500,
+      503
+    ],
+    "application_action": "get_own_hold_without_cleanup",
+    "json_equivalent": [
+      "GET /seat-holds/{hold_id}"
+    ],
+    "context_fields": [
+      "request",
+      "viewer",
+      "hold",
+      "hold_items",
+      "server_time",
+      "is_expired",
+      "can_confirm",
+      "can_release",
+      "reservation",
+      "csrf_token",
+      "request_key",
+      "error",
+      "field_errors"
+    ],
+    "implemented": false,
+    "unauthenticated_redirect": {
+      "status": 303,
+      "location": "/pages/login?next={urlencoded_safe_internal_get_path}"
+    },
+    "transient_db_failure": {
+      "status": 503,
+      "code": "DB_BUSY",
+      "retry_after_seconds": 1,
+      "service_queue": false,
+      "note": "잠금/풀 대기 제한 초과; 업무 변경 롤백, 이전 ACTIVE 선점 유지 가능"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/pages/reservations",
+    "source_kind": "DESIGN_PROPOSAL",
+    "policy_ref": "P28",
+    "auth": "required_cookie",
+    "template": "reservations/list.html",
+    "input_encoding": "path/query",
+    "input_fields": [
+      {
+        "name": "status",
+        "type": "CONFIRMED|CANCELED",
+        "required": false,
+        "source": "query",
+        "description": "본인 주문 상태 필터"
+      },
+      {
+        "name": "page",
+        "type": "integer>=1",
+        "required": false,
+        "source": "query",
+        "description": "기본 1",
+        "example": 1
+      },
+      {
+        "name": "size",
+        "type": "integer[1..100]",
+        "required": false,
+        "source": "query",
+        "description": "기본 20",
+        "example": 20
+      }
+    ],
+    "success_status": 200,
+    "success_location": null,
+    "error_statuses": [
+      422,
+      500,
+      503
+    ],
+    "application_action": "list_own_reservations",
+    "json_equivalent": [
+      "GET /reservations"
+    ],
+    "context_fields": [
+      "request",
+      "viewer",
+      "reservations",
+      "pagination",
+      "filters",
+      "error",
+      "field_errors"
+    ],
+    "implemented": false,
+    "unauthenticated_redirect": {
+      "status": 303,
+      "location": "/pages/login?next={urlencoded_safe_internal_get_path}"
+    },
+    "transient_db_failure": {
+      "status": 503,
+      "code": "DB_BUSY",
+      "retry_after_seconds": 1,
+      "service_queue": false,
+      "note": "잠금/풀 대기 제한 초과; 업무 변경 롤백, 이전 ACTIVE 선점 유지 가능"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/pages/reservations/{reservation_id}",
+    "source_kind": "DESIGN_PROPOSAL",
+    "policy_ref": "P28",
+    "auth": "required_cookie",
+    "template": "reservations/detail.html",
+    "input_encoding": "path/query",
+    "input_fields": [
+      {
+        "name": "reservation_id",
+        "type": "integer>=1",
+        "required": true,
+        "source": "path",
+        "description": "본인 주문 ID",
+        "example": 201
+      }
+    ],
+    "success_status": 200,
+    "success_location": null,
+    "error_statuses": [
+      403,
+      404,
+      422,
+      500,
+      503
+    ],
+    "application_action": "get_own_reservation_and_tickets",
+    "json_equivalent": [
+      "GET /reservations/{reservation_id}",
+      "GET /reservations/{reservation_id}/tickets"
+    ],
+    "context_fields": [
+      "request",
+      "viewer",
+      "reservation",
+      "items",
+      "payment",
+      "tickets",
+      "can_cancel",
+      "csrf_token",
+      "error",
+      "field_errors"
+    ],
+    "implemented": false,
+    "unauthenticated_redirect": {
+      "status": 303,
+      "location": "/pages/login?next={urlencoded_safe_internal_get_path}"
+    },
+    "transient_db_failure": {
+      "status": 503,
+      "code": "DB_BUSY",
+      "retry_after_seconds": 1,
+      "service_queue": false,
+      "note": "잠금/풀 대기 제한 초과; 업무 변경 롤백, 이전 ACTIVE 선점 유지 가능"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/pages/profile",
+    "source_kind": "DESIGN_PROPOSAL",
+    "policy_ref": "P28",
+    "auth": "required_cookie",
+    "template": "users/profile.html",
+    "input_encoding": "path/query",
+    "input_fields": [],
+    "success_status": 200,
+    "success_location": null,
+    "error_statuses": [
+      500,
+      503
+    ],
+    "application_action": "get_own_user",
+    "json_equivalent": [
+      "GET /users/me"
+    ],
+    "context_fields": [
+      "request",
+      "viewer",
+      "user",
+      "csrf_token",
+      "error",
+      "field_errors"
+    ],
+    "implemented": false,
+    "unauthenticated_redirect": {
+      "status": 303,
+      "location": "/pages/login?next={urlencoded_safe_internal_get_path}"
+    },
+    "transient_db_failure": {
+      "status": 503,
+      "code": "DB_BUSY",
+      "retry_after_seconds": 1,
+      "service_queue": false,
+      "note": "잠금/풀 대기 제한 초과; 업무 변경 롤백, 이전 ACTIVE 선점 유지 가능"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/pages/actions/signup",
+    "source_kind": "DESIGN_PROPOSAL",
+    "policy_ref": "P28",
+    "auth": "anonymous_or_cookie",
+    "template": "auth/signup.html",
+    "input_encoding": "application/x-www-form-urlencoded",
+    "input_fields": [
+      {
+        "name": "email",
+        "type": "email",
+        "required": true,
+        "source": "form",
+        "description": "가입 이메일",
+        "example": "member@example.test"
+      },
+      {
+        "name": "password",
+        "type": "string",
+        "required": true,
+        "source": "form",
+        "description": "가입 비밀번호; 서버 정책 검증·응답 재출력 금지"
+      },
+      {
+        "name": "name",
+        "type": "string[1..100]",
+        "required": true,
+        "source": "form",
+        "description": "회원 표시 이름",
+        "example": "예시 회원"
+      },
+      {
+        "name": "phone_number",
+        "type": "string<=30|null",
+        "required": false,
+        "source": "form",
+        "description": "빈 문자열은 null",
+        "example": ""
+      },
+      {
+        "name": "csrf_token",
+        "type": "string",
+        "required": true,
+        "source": "form",
+        "description": "서명·쿠키 일치·익명 nonce 또는 인증 JWT jti 결합 검증",
+        "example": "EXAMPLE_CSRF_TOKEN"
+      }
+    ],
+    "success_status": 303,
+    "success_location": "/pages/login?signup=success",
+    "error_statuses": [
+      403,
+      409,
+      422,
+      500,
+      503
+    ],
+    "application_action": "signup_user",
+    "json_equivalent": [
+      "POST /auth/signup"
+    ],
+    "context_fields": [
+      "request",
+      "viewer",
+      "csrf_token",
+      "error",
+      "field_errors"
+    ],
+    "implemented": false,
+    "requires_csrf": true,
+    "error_template_fallback": "errors/error.html",
+    "transient_db_failure": {
+      "status": 503,
+      "code": "DB_BUSY",
+      "retry_after_seconds": 1,
+      "service_queue": false,
+      "note": "잠금/풀 대기 제한 초과; 업무 변경 롤백, 이전 ACTIVE 선점 유지 가능"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/pages/actions/login",
+    "source_kind": "DESIGN_PROPOSAL",
+    "policy_ref": "P28",
+    "auth": "anonymous_or_cookie",
+    "template": "auth/login.html",
+    "input_encoding": "application/x-www-form-urlencoded",
+    "input_fields": [
+      {
+        "name": "username",
+        "type": "email",
+        "required": true,
+        "source": "form",
+        "description": "OAuth2 입력 이름은 username, 값은 이메일",
+        "example": "member@example.test"
+      },
+      {
+        "name": "password",
+        "type": "string",
+        "required": true,
+        "source": "form",
+        "description": "비밀번호; 응답 재출력 금지"
+      },
+      {
+        "name": "csrf_token",
+        "type": "string",
+        "required": true,
+        "source": "form",
+        "description": "서명·쿠키 일치·익명 nonce 또는 인증 JWT jti 결합 검증",
+        "example": "EXAMPLE_CSRF_TOKEN"
+      },
+      {
+        "name": "next",
+        "type": "safe_internal_get_path",
+        "required": false,
+        "source": "form",
+        "description": "검증 후 안전한 GET 경로로 복귀"
+      }
+    ],
+    "success_status": 303,
+    "success_location": "{validated_next_or_/pages/shows}",
+    "error_statuses": [
+      401,
+      403,
+      422,
+      500,
+      503
+    ],
+    "application_action": "authenticate_and_issue_page_cookies",
+    "json_equivalent": [
+      "POST /auth/login"
+    ],
+    "context_fields": [
+      "request",
+      "viewer",
+      "csrf_token",
+      "next",
+      "error",
+      "field_errors"
+    ],
+    "implemented": false,
+    "requires_csrf": true,
+    "error_template_fallback": "errors/error.html",
+    "transient_db_failure": {
+      "status": 503,
+      "code": "DB_BUSY",
+      "retry_after_seconds": 1,
+      "service_queue": false,
+      "note": "잠금/풀 대기 제한 초과; 업무 변경 롤백, 이전 ACTIVE 선점 유지 가능"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/pages/actions/logout",
+    "source_kind": "DESIGN_PROPOSAL",
+    "policy_ref": "P28",
+    "auth": "required_cookie",
+    "template": "errors/error.html",
+    "input_encoding": "application/x-www-form-urlencoded",
+    "input_fields": [
+      {
+        "name": "csrf_token",
+        "type": "string",
+        "required": true,
+        "source": "form",
+        "description": "서명·쿠키 일치·익명 nonce 또는 인증 JWT jti 결합 검증",
+        "example": "EXAMPLE_CSRF_TOKEN"
+      }
+    ],
+    "success_status": 303,
+    "success_location": "/pages/shows",
+    "error_statuses": [
+      401,
+      403,
+      500,
+      503
+    ],
+    "application_action": "blacklist_current_jti_and_clear_page_cookies",
+    "json_equivalent": [
+      "POST /auth/logout"
+    ],
+    "context_fields": [
+      "request",
+      "viewer",
+      "error",
+      "field_errors"
+    ],
+    "implemented": false,
+    "requires_csrf": true,
+    "error_template_fallback": "errors/error.html",
+    "transient_db_failure": {
+      "status": 503,
+      "code": "DB_BUSY",
+      "retry_after_seconds": 1,
+      "service_queue": false,
+      "note": "잠금/풀 대기 제한 초과; 업무 변경 롤백, 이전 ACTIVE 선점 유지 가능"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/pages/actions/seat-holds",
+    "source_kind": "DESIGN_PROPOSAL",
+    "policy_ref": "P28",
+    "auth": "required_cookie",
+    "template": "seats/list.html",
+    "input_encoding": "application/x-www-form-urlencoded",
+    "input_fields": [
+      {
+        "name": "performance_id",
+        "type": "integer>=1",
+        "required": true,
+        "source": "form",
+        "description": "판매 회차 ID",
+        "example": 7
+      },
+      {
+        "name": "seat_ids",
+        "type": "repeated integer>=1[1..3];unique",
+        "required": true,
+        "source": "form",
+        "description": "회차 좌석 ID 반복 필드; 수량은 서버 계산",
+        "example": [
+          501,
+          502
+        ]
+      },
+      {
+        "name": "request_key",
+        "type": "string[1..100]",
+        "required": true,
+        "source": "form",
+        "description": "생성과 확정은 별도 키 공간; 성공 요청의 재전송 구분",
+        "example": "example-request-001"
+      },
+      {
+        "name": "csrf_token",
+        "type": "string",
+        "required": true,
+        "source": "form",
+        "description": "서명·쿠키 일치·익명 nonce 또는 인증 JWT jti 결합 검증",
+        "example": "EXAMPLE_CSRF_TOKEN"
+      }
+    ],
+    "success_status": 303,
+    "success_location": "/pages/holds/{hold_id}",
+    "error_statuses": [
+      401,
+      403,
+      404,
+      409,
+      422,
+      500,
+      503
+    ],
+    "application_action": "create_hold",
+    "json_equivalent": [
+      "POST /seat-holds"
+    ],
+    "context_fields": [
+      "request",
+      "viewer",
+      "show",
+      "performance",
+      "seats",
+      "server_time",
+      "csrf_token",
+      "request_key",
+      "error",
+      "field_errors"
+    ],
+    "implemented": false,
+    "requires_csrf": true,
+    "error_template_fallback": "errors/error.html",
+    "transient_db_failure": {
+      "status": 503,
+      "code": "DB_BUSY",
+      "retry_after_seconds": 1,
+      "service_queue": false,
+      "note": "잠금/풀 대기 제한 초과; 업무 변경 롤백, 이전 ACTIVE 선점 유지 가능"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/pages/actions/holds/{hold_id}/release",
+    "source_kind": "DESIGN_PROPOSAL",
+    "policy_ref": "P28",
+    "auth": "required_cookie",
+    "template": "holds/detail.html",
+    "input_encoding": "application/x-www-form-urlencoded",
+    "input_fields": [
+      {
+        "name": "hold_id",
+        "type": "integer>=1",
+        "required": true,
+        "source": "path",
+        "description": "본인 선점 그룹 ID",
+        "example": 101
+      },
+      {
+        "name": "csrf_token",
+        "type": "string",
+        "required": true,
+        "source": "form",
+        "description": "서명·쿠키 일치·익명 nonce 또는 인증 JWT jti 결합 검증",
+        "example": "EXAMPLE_CSRF_TOKEN"
+      }
+    ],
+    "success_status": 303,
+    "success_location": "/pages/holds/{hold_id}",
+    "error_statuses": [
+      401,
+      403,
+      404,
+      409,
+      422,
+      500,
+      503
+    ],
+    "application_action": "release_own_hold",
+    "json_equivalent": [
+      "DELETE /seat-holds/{hold_id}"
+    ],
+    "context_fields": [
+      "request",
+      "viewer",
+      "hold",
+      "hold_items",
+      "server_time",
+      "is_expired",
+      "can_confirm",
+      "can_release",
+      "reservation",
+      "csrf_token",
+      "error",
+      "field_errors"
+    ],
+    "implemented": false,
+    "requires_csrf": true,
+    "error_template_fallback": "errors/error.html",
+    "transient_db_failure": {
+      "status": 503,
+      "code": "DB_BUSY",
+      "retry_after_seconds": 1,
+      "service_queue": false,
+      "note": "잠금/풀 대기 제한 초과; 업무 변경 롤백, 이전 ACTIVE 선점 유지 가능"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/pages/actions/reservations",
+    "source_kind": "DESIGN_PROPOSAL",
+    "policy_ref": "P28",
+    "auth": "required_cookie",
+    "template": "holds/detail.html",
+    "input_encoding": "application/x-www-form-urlencoded",
+    "input_fields": [
+      {
+        "name": "hold_id",
+        "type": "integer>=1",
+        "required": true,
+        "source": "form",
+        "description": "본인 선점 그룹 ID",
+        "example": 101
+      },
+      {
+        "name": "request_key",
+        "type": "string[1..100]",
+        "required": true,
+        "source": "form",
+        "description": "생성과 확정은 별도 키 공간; 성공 요청의 재전송 구분",
+        "example": "example-request-001"
+      },
+      {
+        "name": "mock_result",
+        "type": "APPROVE|DECLINE",
+        "required": true,
+        "source": "form",
+        "description": "공통 입력 mock_payment.result로 변환; 실제 결제정보 아님",
+        "example": "APPROVE"
+      },
+      {
+        "name": "csrf_token",
+        "type": "string",
+        "required": true,
+        "source": "form",
+        "description": "서명·쿠키 일치·익명 nonce 또는 인증 JWT jti 결합 검증",
+        "example": "EXAMPLE_CSRF_TOKEN"
+      }
+    ],
+    "success_status": 303,
+    "success_location": "/pages/reservations/{reservation_id}",
+    "error_statuses": [
+      401,
+      403,
+      404,
+      409,
+      422,
+      500,
+      503
+    ],
+    "application_action": "confirm_hold_with_mock_payment",
+    "json_equivalent": [
+      "POST /reservations"
+    ],
+    "context_fields": [
+      "request",
+      "viewer",
+      "hold",
+      "hold_items",
+      "server_time",
+      "is_expired",
+      "can_confirm",
+      "can_release",
+      "reservation",
+      "csrf_token",
+      "request_key",
+      "error",
+      "field_errors"
+    ],
+    "implemented": false,
+    "requires_csrf": true,
+    "error_template_fallback": "errors/error.html",
+    "transient_db_failure": {
+      "status": 503,
+      "code": "DB_BUSY",
+      "retry_after_seconds": 1,
+      "service_queue": false,
+      "note": "잠금/풀 대기 제한 초과; 업무 변경 롤백, 이전 ACTIVE 선점 유지 가능"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/pages/actions/reservations/{reservation_id}/cancel",
+    "source_kind": "DESIGN_PROPOSAL",
+    "policy_ref": "P28",
+    "auth": "required_cookie",
+    "template": "reservations/detail.html",
+    "input_encoding": "application/x-www-form-urlencoded",
+    "input_fields": [
+      {
+        "name": "reservation_id",
+        "type": "integer>=1",
+        "required": true,
+        "source": "path",
+        "description": "본인 주문 ID",
+        "example": 201
+      },
+      {
+        "name": "csrf_token",
+        "type": "string",
+        "required": true,
+        "source": "form",
+        "description": "서명·쿠키 일치·익명 nonce 또는 인증 JWT jti 결합 검증",
+        "example": "EXAMPLE_CSRF_TOKEN"
+      }
+    ],
+    "success_status": 303,
+    "success_location": "/pages/reservations/{reservation_id}",
+    "error_statuses": [
+      401,
+      403,
+      404,
+      409,
+      422,
+      500,
+      503
+    ],
+    "application_action": "cancel_own_whole_reservation",
+    "json_equivalent": [
+      "POST /reservations/{reservation_id}/cancel"
+    ],
+    "context_fields": [
+      "request",
+      "viewer",
+      "reservation",
+      "items",
+      "payment",
+      "tickets",
+      "can_cancel",
+      "csrf_token",
+      "error",
+      "field_errors"
+    ],
+    "implemented": false,
+    "requires_csrf": true,
+    "error_template_fallback": "errors/error.html",
+    "transient_db_failure": {
+      "status": 503,
+      "code": "DB_BUSY",
+      "retry_after_seconds": 1,
+      "service_queue": false,
+      "note": "잠금/풀 대기 제한 초과; 업무 변경 롤백, 이전 ACTIVE 선점 유지 가능"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/pages/actions/profile",
+    "source_kind": "DESIGN_PROPOSAL",
+    "policy_ref": "P28",
+    "auth": "required_cookie",
+    "template": "users/profile.html",
+    "input_encoding": "application/x-www-form-urlencoded",
+    "input_fields": [
+      {
+        "name": "name",
+        "type": "string[1..100]",
+        "required": true,
+        "source": "form",
+        "description": "수정할 표시 이름",
+        "example": "예시 회원"
+      },
+      {
+        "name": "phone_number",
+        "type": "string<=30|null",
+        "required": true,
+        "source": "form",
+        "description": "빈 문자열은 null로 지움",
+        "example": ""
+      },
+      {
+        "name": "csrf_token",
+        "type": "string",
+        "required": true,
+        "source": "form",
+        "description": "서명·쿠키 일치·익명 nonce 또는 인증 JWT jti 결합 검증",
+        "example": "EXAMPLE_CSRF_TOKEN"
+      }
+    ],
+    "success_status": 303,
+    "success_location": "/pages/profile",
+    "error_statuses": [
+      401,
+      403,
+      422,
+      500,
+      503
+    ],
+    "application_action": "update_own_name_and_phone",
+    "json_equivalent": [
+      "PATCH /users/me"
+    ],
+    "context_fields": [
+      "request",
+      "viewer",
+      "user",
+      "csrf_token",
+      "error",
+      "field_errors"
+    ],
+    "implemented": false,
+    "requires_csrf": true,
+    "error_template_fallback": "errors/error.html",
+    "transient_db_failure": {
+      "status": 503,
+      "code": "DB_BUSY",
+      "retry_after_seconds": 1,
+      "service_queue": false,
+      "note": "잠금/풀 대기 제한 초과; 업무 변경 롤백, 이전 ACTIVE 선점 유지 가능"
+    }
+  }
+]
