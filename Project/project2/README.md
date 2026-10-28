@@ -8,6 +8,7 @@
 - [JSON API 명세](02-api-spec.md): 인증·공연·회차·선점·확정·주문·취소 19개 동작
 - [Jinja2 화면·폼 계약](03-jinja-http-contract.md): 화면 GET 9개와 변경 폼 POST 8개
 - [구현 순서·검증 계획](04-implementation-and-validation.md): 스키마 → 라우터 → main.py 연결과 시나리오
+- [YES24 레퍼런스·HELD 적용 분석](05-yes24-reference-analysis.md): 공개 페이지 관찰·추론·우리 적용안을 구분하고 선점 경쟁·만료·취소/환불 흐름에 연결
 - [통합 HTML 자료](guide.html): 정책 분류와 HTTP 경로 검색. `Project/project2` 폴더를 함께 내려받은 뒤 브라우저에서 열어 탐색할 수 있습니다.
 - [OpenAPI 3.1 계약](openapi.json) · [HTML 경로 목록](html-routes.json) · [정책 구분](design-policies.json)
 - [전체 제약 SQL 제안](held-postgresql.sql) · [Mermaid ERD](held-erd.mmd)
