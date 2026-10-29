@@ -4,14 +4,17 @@
 
 ## 문서
 
-- [ERD·Jinja2 설계](01-erd-jinja-design.md): 16개 테이블의 역할, 상태·관계·한도·동시성 규칙
-- [JSON API 명세](02-api-spec.md): 인증·공연·회차·선점·확정·주문·취소 19개 동작
-- [Jinja2 화면·폼 계약](03-jinja-http-contract.md): 화면 GET 9개와 변경 폼 POST 8개
-- [구현 순서·검증 계획](04-implementation-and-validation.md): 스키마 → 라우터 → main.py 연결과 시나리오
-- [YES24 레퍼런스·HELD 적용 분석](05-yes24-reference-analysis.md): 공개 페이지 관찰·추론·우리 적용안을 구분하고 선점 경쟁·만료·취소/환불 흐름에 연결
-- [통합 HTML 자료](guide.html): 정책 분류와 HTTP 경로 검색. `Project/project2` 폴더를 함께 내려받은 뒤 브라우저에서 열어 탐색할 수 있습니다.
-- [OpenAPI 3.1 계약](openapi.json) · [HTML 경로 목록](html-routes.json) · [정책 구분](design-policies.json)
-- [전체 제약 SQL 제안](held-postgresql.sql) · [Mermaid ERD](held-erd.mmd)
+명세·설계·참고 자료는 [docs](docs/)에 모았습니다.
+
+- [ERD·Jinja2 설계](docs/01-erd-jinja-design.md): 16개 테이블의 역할, 상태·관계·한도·동시성 규칙
+- [JSON API 명세](docs/02-api-spec.md): 인증·공연·회차·선점·확정·주문·취소 19개 동작
+- [Jinja2 화면·폼 계약](docs/03-jinja-http-contract.md): 화면 GET 9개와 변경 폼 POST 8개
+- [구현 순서·검증 계획](docs/04-implementation-and-validation.md): 스키마 → 라우터 → main.py 연결과 시나리오
+- [YES24 레퍼런스·HELD 적용 분석](docs/05-yes24-reference-analysis.md): 공개 페이지 관찰·추론·우리 적용안을 구분하고 선점 경쟁·만료·취소/환불 흐름에 연결
+- [통합 HTML 자료](docs/guide.html): 정책 분류와 HTTP 경로 검색. `Project/project2/docs` 폴더를 함께 내려받은 뒤 브라우저에서 열어 탐색할 수 있습니다.
+- [OpenAPI 3.1 계약](docs/openapi.json) · [HTML 경로 목록](docs/html-routes.json) · [정책 구분](docs/design-policies.json)
+- [예매 동시성 가이드 PDF](docs/ticket-booking-concurrency-guide.pdf)
+- [전체 제약 SQL 제안](docs/held-postgresql.sql) · [Mermaid ERD](docs/held-erd.mmd)
 
 현재 문서는 구현 전 설계 초안입니다. API 경로와 기본 정책은 검토 대상이며, 서버 구현이나 실행 검증 완료를 의미하지 않습니다.
 
@@ -31,7 +34,7 @@
 <details>
 <summary>16테이블·108컬럼 관계도 펼치기</summary>
 
-![HELD ERD 설계 제안](assets/held-erd.svg)
+![HELD ERD 설계 제안](docs/assets/held-erd.svg)
 
 </details>
 
@@ -39,7 +42,7 @@
 
 ## v3와 v4의 계약 차이
 
-[v3 API 명세](held-api-spec.md)는 이전 검토 기록으로 보존합니다. 두 버전의 정책은 모두 검토 대상이며 구현 시 하나의 계약으로 통일해야 합니다.
+[v3 API 명세](docs/held-api-spec.md)는 이전 검토 기록으로 보존합니다. 두 버전의 정책은 모두 검토 대상이며 구현 시 하나의 계약으로 통일해야 합니다.
 
 | 항목 | v3 기록 | v4 검토안 |
 | --- | --- | --- |

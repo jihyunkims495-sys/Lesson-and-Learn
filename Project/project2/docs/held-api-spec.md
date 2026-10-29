@@ -1,6 +1,6 @@
 # AsyncTicket HELD v3 API 명세
 
-이 문서는 v3 검토 기록입니다. 최신 정리안은 [v4 JSON API 명세](02-api-spec.md)와 [Jinja2 화면·폼 계약](03-jinja-http-contract.md)을 참조하세요. ID 형식·소유권 오류·환불 시점 등 버전별 차이는 [프로젝트 안내](README.md)에 정리했습니다.
+이 문서는 v3 검토 기록입니다. 최신 정리안은 [v4 JSON API 명세](02-api-spec.md)와 [Jinja2 화면·폼 계약](03-jinja-http-contract.md)을 참조하세요. ID 형식·소유권 오류·환불 시점 등 버전별 차이는 [프로젝트 안내](../README.md)에 정리했습니다.
 
 작성일: 2026-10-28 · 상태: 구현 전 설계 초안
 
