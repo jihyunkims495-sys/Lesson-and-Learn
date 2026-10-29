@@ -419,7 +419,7 @@ flowchart LR
 
 출처: [카카오 REST API의 응답·오류 규격](https://developers.kakao.com/docs/ko/rest-api/reference), [카카오 로그인 에러 코드](https://developers.kakao.com/docs/ko/kakaologin/trouble-shooting).
 
-## 12. 이 문서에서 배울 수 있는 명세 작성의 구조
+## 12. 이 문서에서 배울 수 있는 명세 작성의 구조 (KEY POINT!!!!!!!!!!!!!!!!!!!!)
 
 다음은 카카오의 별도 정책을 주장하는 내용이 아니라, 문서 구성에 대한 분석이다.
 
