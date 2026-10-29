@@ -20,7 +20,7 @@ FastAPI 실행 환경과 HTTP 요청·응답 구조를 익히고, API 계층과 
 | 2026-10-26 | FastAPI 실행 환경, HTTP 라우팅과 도메인 모델 | [Preview](./2026-10-26/01-preview-notes-01-fastapi-http-routing.md) · [Learning Notes](./2026-10-26/02-learning-notes-01-fastapi-http-routing.md) · [Practice](./2026-10-26/03-practice-01-fastapi-errors.md) · [TIL](./2026-10-26/04-til-01-fastapi-http-routing.md) |
 | 2026-10-27 | Pydantic 모델 검증과 FastAPI 요청 흐름 | [Learning Notes](./2026-10-27/02-learning-notes-01-pydantic-fastapi-api-flow.md) · [Practice](./2026-10-27/03-practice-01-fastapi-pydantic-errors.md) · [TIL](./2026-10-27/04-til-01-pydantic-model-validation.md) |
 | 2026-10-28 | Path·Query, Jinja2 렌더링과 APIRouter 구조 | [Preview](./2026-10-28/01-preview-notes-01-fastapi-jinja-router.md) · [Learning Notes](./2026-10-28/02-learning-notes-01-fastapi-jinja-router.md) · [Practice](./2026-10-28/03-practice-01-fastapi-jinja-debugging.md) · [TIL](./2026-10-28/04-til-01-fastapi-jinja-router.md) |
-| 2026-10-29 | FastAPI Router, 파일 업로드, CORS·Middleware와 오류 추적 | [Learning Notes](./2026-10-29/02-learning-notes-01-fastapi-api-http-cors.md) · [TIL](./2026-10-29/04-til-01-fastapi-router-dependency-middleware.md) |
+| 2026-10-29 | FastAPI Router, 파일 업로드, CORS·Middleware와 오류 추적 | [Preview](./2026-10-29/01-preview-notes-01-router-middleware-background-streaming.md) · [1029 개념 정리](./2026-10-29/1029개념정리.md) · [TIL](./2026-10-29/04-til-01-fastapi-router-dependency-middleware.md) |
 
 ## Evidence boundary
 
