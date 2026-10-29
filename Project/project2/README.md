@@ -6,6 +6,15 @@
 
 명세·설계·참고 자료는 [docs](docs/)에 모았습니다.
 
+### 2026-10-29 API 분석
+
+- [카카오 공식 API 문서 해체 분석](docs/kakao-official-api-document-analysis.md): 공식 문서 구성, 코드·토큰·사용자 정보 조회, 요청·응답과 오류 읽기
+- [팀 전체 API 서비스 흐름 분석](docs/team-api-flow-analysis.md): 9테이블 기준 27개 API 검토안, 사용자 흐름과 시스템 처리의 상하 도식, 필드별 설명
+
+아래 v4 자료는 HELD를 포함한 이전 설계 검토안입니다. 새 흐름 분석과의 구조·정책 차이는 구현 전 하나의 계약으로 정리해야 합니다.
+
+### 기존 HELD 설계 자료
+
 - [ERD·Jinja2 설계](docs/01-erd-jinja-design.md): 16개 테이블의 역할, 상태·관계·한도·동시성 규칙
 - [JSON API 명세](docs/02-api-spec.md): 인증·공연·회차·선점·확정·주문·취소 19개 동작
 - [Jinja2 화면·폼 계약](docs/03-jinja-http-contract.md): 화면 GET 9개와 변경 폼 POST 8개
