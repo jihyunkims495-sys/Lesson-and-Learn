@@ -12,6 +12,9 @@ FastAPI 실행 환경과 HTTP 요청·응답 구조를 익히고, API 계층과 
 - Path·Query·Body 입력 위치 구분
 - 도메인 모델과 API 계층의 책임 분리
 - 로그, 상태 코드, Swagger UI를 활용한 오류 추적
+- 청크 업로드·스트리밍 다운로드와 응답 이후 작업 구분
+- ORM·RDBMS와 비동기 PostgreSQL 연결 구성요소 구분
+- 정적 검사와 실제 서버·HTTP 검증 결과 구분
 
 ## Daily learning log
 
@@ -21,6 +24,7 @@ FastAPI 실행 환경과 HTTP 요청·응답 구조를 익히고, API 계층과 
 | 2026-10-27 | Pydantic 모델 검증과 FastAPI 요청 흐름 | [Learning Notes](./2026-10-27/02-learning-notes-01-pydantic-fastapi-api-flow.md) · [Practice](./2026-10-27/03-practice-01-fastapi-pydantic-errors.md) · [TIL](./2026-10-27/04-til-01-pydantic-model-validation.md) |
 | 2026-10-28 | Path·Query, Jinja2 렌더링과 APIRouter 구조 | [Preview](./2026-10-28/01-preview-notes-01-fastapi-jinja-router.md) · [Learning Notes](./2026-10-28/02-learning-notes-01-fastapi-jinja-router.md) · [Practice](./2026-10-28/03-practice-01-fastapi-jinja-debugging.md) · [TIL](./2026-10-28/04-til-01-fastapi-jinja-router.md) |
 | 2026-10-29 | FastAPI Router, 파일 업로드, CORS·Middleware와 오류 추적 | [Preview](./2026-10-29/01-preview-notes-01-router-middleware-background-streaming.md) · [1029 개념 정리](./2026-10-29/1029개념정리.md) · [TIL](./2026-10-29/04-til-01-fastapi-router-dependency-middleware.md) |
+| 2026-10-30 | 파일 스트리밍, BackgroundTasks와 비동기 데이터베이스 준비 | [Learning Notes](./2026-10-30/02-learning-notes-01-file-streaming-async-database.md) · [TIL](./2026-10-30/04-til-01-file-streaming-async-database.md) |
 
 ## Evidence boundary
 
@@ -31,5 +35,7 @@ FastAPI 실행 환경과 HTTP 요청·응답 구조를 익히고, API 계층과 
 - Jinja2 화면과 주문 Router의 최종 HTTP 응답은 서버를 다시 실행해 검증해야 합니다.
 - 2026-10-29 점검한 메인 앱과 두 Router 파일은 Python 문법 검사를 통과했습니다.
 - 파일 업로드, 브라우저 preflight와 미들웨어 실행 순서는 실제 서버에서 추가 검증이 필요합니다.
+- 2026-10-30 점검한 파일 처리와 DB 준비 관련 Python 파일 6개는 문법 검사를 통과했습니다.
+- 파일 업로드·다운로드의 최종 성공과 PostgreSQL·AsyncSession·커넥션 풀 동작은 추가 실행 검증이 필요합니다.
 
 [← Level 2 curriculum](../README.md)
