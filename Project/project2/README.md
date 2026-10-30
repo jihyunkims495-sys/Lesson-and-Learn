@@ -6,6 +6,11 @@
 
 명세·설계·참고 자료는 [docs](docs/)에 모았습니다.
 
+### 공연·공연 회차 API 명세 (2026-10-29)
+
+- [공연·공연 회차 API 명세 초안](docs/shows-performances-notion-template.md): 수정 ERD 기준 10개 기능의 요청·응답, 필드 설명, 오류·정책 검토사항
+- [공연·공연 회차 API 명세 구성 요약](docs/notion-write-report.md): 기능 목록, 명세의 여섯 항목과 공통 계약을 읽는 기준
+
 ### 2026-10-29 API 분석
 
 - [카카오 공식 API 문서 해체 분석](docs/kakao-official-api-document-analysis.md): 공식 문서 구성, 코드·토큰·사용자 정보 조회, 요청·응답과 오류 읽기
