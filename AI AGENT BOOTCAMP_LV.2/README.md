@@ -14,6 +14,7 @@ Level 1과 동일하게 주차 → 날짜 → 문서 역할 순서로 예습, �
 | 09 | [Frontend Advanced](./09-week-frontend-advanced/) | 2026-10-12 ~ | React 컴포넌트, TSX, 상태·이벤트, Hook, Todo 코드 구조 |
 | 10 | [Next.js & Supabase Auth](./10-week-nextjs-supabase-auth/) | 2026-10-19 ~ | Client·Server 실행 경계, Server Action, Supabase Auth, 폼 검증 |
 | 11 | [Backend Architecture & API Design](./11-week-backend-architecture-api/) | 2026-10-26 ~ | FastAPI·Uvicorn, HTTP 라우팅, 도메인 모델, API 오류 추적 |
+| 12 | [Backend Architecture & API Design](./12-week-backend-architecture-api/) | 2026-11-03 ~ | 4계층 아키텍처, 도메인 모델, Repository와 의존성 와이어링 |
 
 ## 기록 읽는 법
 
