@@ -19,5 +19,6 @@
 |---|---|---|
 | 2026-11-03 | 인증, 4계층 아키텍처, SQLAlchemy ORM과 의존성 와이어링 | [Preview 1](./2026-11-03/01-preview-notes-01-auth-layered-cache-deployment.md) · [Preview 2](./2026-11-03/01-preview-notes-02-sqlalchemy-async-orm-relations-querying.md) · [Learning Notes](./2026-11-03/02-learning-notes-01-four-layered-architecture.md) · [TIL](./2026-11-03/04-til-01-four-layered-architecture.md) |
 | 2026-11-04 | 인증·인가, JWT·HMAC·PyJWT와 Auth 계층 흐름 | [Learning Notes](./2026-11-04/02-learning-notes-01-authentication-jwt-security.md) · [TIL](./2026-11-04/04-til-01-authentication-jwt-security.md) |
+| 2026-11-05 | 공연·회차 접근 계약, 공통 wiring과 트랜잭션 유지 | [TIL](./2026-11-05/04-til-01-performance-show-contract-wiring.md) |
 
 [← Level 2 curriculum](../README.md)
