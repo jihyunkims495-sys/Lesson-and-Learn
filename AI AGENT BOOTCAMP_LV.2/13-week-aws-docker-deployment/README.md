@@ -17,5 +17,6 @@
 | Date | Topic | Records |
 |---|---|---|
 | 2026-11-09 | AWS EC2, Ubuntu와 Docker 배포 흐름 | [TIL](./2026-11-09/04-til-01-aws-ec2-docker-deployment.md) |
+| 2026-11-10 | 프로젝트 2: 공연·회차 조회 캐시와 DB/API 흐름 | [TIL](./2026-11-10/04-til-01-asyncticket-catalog-cache.md) |
 
 [← Level 2 curriculum](../README.md)
