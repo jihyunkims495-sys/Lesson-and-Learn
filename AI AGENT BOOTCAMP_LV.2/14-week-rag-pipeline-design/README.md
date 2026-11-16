@@ -17,6 +17,6 @@
 
 | Date | Topic | Records |
 |---|---|---|
-| 2026-11-16 | RAG 파이프라인, PGVector와 증분 인덱싱 | [TIL](./2026-11-16/04-til-01-rag-pipeline-pgvector.md) |
+| 2026-11-16 | RAG 파이프라인, PGVector와 증분 인덱싱 | [Preview](./2026-11-16/01-preview-notes-01-rag-concepts-pipeline.md) · [Practice](./2026-11-16/03-practice-01-rag-pgvector-indexing.md) · [TIL](./2026-11-16/04-til-01-rag-pipeline-pgvector.md) |
 
 [← Level 2 curriculum](../README.md)
