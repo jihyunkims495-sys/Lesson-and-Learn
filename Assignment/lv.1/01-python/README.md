@@ -3,7 +3,7 @@
 ## 프로젝트 구조
 
 ```text
-python_final_project_김지현/
+01-python/
 ├── models/
 │   ├── __init__.py
 │   ├── base_book.py
@@ -25,7 +25,7 @@ uv sync
 uv run python main.py
 ```
 
-VS Code를 사용할 경우 `uv sync`로 생성된 `.venv`의 Python 인터프리터를 선택합니다.
+VS Code를 사용할 경우 `uv sync`로 생성된 가상환경의 Python 인터프리터를 선택합니다.
 
 ## 구현 완료 항목
 
@@ -95,9 +95,9 @@ VS Code를 사용할 경우 `uv sync`로 생성된 `.venv`의 Python 인터프�
 
 아래 3개는 실제 제출에 사용할 PC에서 수행합니다.
 
-- [ ] `uv sync` 실행 후 `.venv` 생성 확인
-- [ ] VS Code에서 해당 `.venv` Python 인터프리터 선택 후 `main.py` 실행 확인
-- [ ] 완성된 `python_final_project_김지현/` 폴더 전체를 `python_final_project_김지현.zip`으로 압축하여 LMS 제출
+- [ ] `uv sync` 실행 후 가상환경 생성 확인
+- [ ] VS Code에서 해당 가상환경의 Python 인터프리터 선택 후 `main.py` 실행 확인
+- [ ] 완성된 `01-python/` 폴더 전체를 `01-python.zip`으로 압축하여 LMS 제출
 
 ## 메뉴별 동작 화면
 
@@ -142,3 +142,5 @@ ISBN으로 도서를 선택한 뒤 대여 또는 반납 처리를 수행합니�
 현재 월의 대여 건수와 가장 많이 대여된 도서를 확인합니다.
 
 ![통계 조회 동작 화면](./screenshots/menu-6-statistics.png)
+
+[레벨별 과제 목록](../README.md) · [전체 과제 목록](../../README.md)

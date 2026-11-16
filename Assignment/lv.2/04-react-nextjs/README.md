@@ -74,3 +74,5 @@ npm run test:auth-cookies
 `NEXT_PUBLIC_` 설정은 빌드 시 브라우저 코드에 반영되므로 값을 바꿨다면 다시 빌드·배포해야 합니다.
 
 **제출:** 이 폴더의 GitHub URL과 [실제 Vercel 앱](https://assignment-member-todo.vercel.app) 두 개입니다. Node.js 24와 고정 의존성 설치로 프로덕션 빌드를 완료했고, 배포 주소에서 두 계정 회귀 25개와 기존 회원 실제 메일 인증 8개 검사를 통과했습니다.
+
+[레벨별 과제 목록](../README.md) · [전체 과제 목록](../../README.md)

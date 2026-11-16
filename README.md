@@ -11,16 +11,25 @@
 | AI Agent Bootcamp — Level 1 | Completed archive | Git, Python, AI Literacy, Machine Learning, SQL | [Explore Level 1](./AI%20AGENT%20BOOTCAMP_LV.1/) |
 | AI Agent Bootcamp — Level 2 | In progress · 2026-09-08 ~ | Database, Supabase, Frontend, HTML, CSS, JavaScript, TypeScript | [Explore Level 2](./AI%20AGENT%20BOOTCAMP_LV.2/) |
 
+## Assignments
+
+레벨별 과제의 코드, 실행 방법과 결과물은 [Assignment](./Assignment/README.md)에 정리되어 있습니다.
+
+| Level | Topics | Archive |
+|---|---|---|
+| LV.1 | Python, Machine Learning, Frontend Basic, 3-minute Briefs | [LV.1 assignments](./Assignment/lv.1/README.md) |
+| LV.2 | Database, Frontend, TypeScript, React/Next.js, Backend API | [LV.2 assignments](./Assignment/lv.2/README.md) |
+
 ## Current learning
 
 ### LV.2 · Week 08 — Frontend JavaScript & TypeScript
 
-2026-10-02에는 TypeScript를 처음 시작해 1장 1강부터 4장 2강까지 진행했습니다. `.ts`에서 JavaScript로 이어지는 흐름, `const`, `any`·`unknown`, 함수 타입과 인터페이스 확장을 배웠으며, 지나치게 빠른 진도 때문에 집중과 개념 연결이 어려웠던 과정도 솔직하게 기록했습니다.
+2026-10-02에는 TypeScript를 처음 시작해 1장 1강부터 4장 2강까지 진행했습니다. `.ts`에서 JavaScript로 이어지는 흐름, `const`, `any`·`unknown`, 함수 타입과 인터페이스 확장을 배웠습니다.
 
 - [Week 08 overview](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/)
 - [Preview Notes — TypeScript 1장~4장 2강](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-10-02/01-preview-notes-01-typescript-introduction.md)
 - [Learning Notes — TypeScript 기초에서 인터페이스 확장까지](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-10-02/02-learning-notes-01-typescript-foundations.md)
-- [TIL — 이해보다 진도가 빨랐던 TypeScript 첫날](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-10-02/04-til-01-typescript-foundations.md)
+- [TIL — TypeScript 기초와 복습 계획](./AI%20AGENT%20BOOTCAMP_LV.2/08-week-frontend-basic/2026-10-02/04-til-01-typescript-foundations.md)
 
 구체적인 코드 실행과 오류 해결 기록이 없는 날에는 Practice 문서를 만들지 않고, 확인된 학습 내용과 다음 보강 항목만 기록합니다.
 
@@ -127,9 +136,13 @@ Multi-Agent System
 ```text
 Lesson-and-Learn/
 ├── README.md
+├── Assignment/
+│   ├── README.md
+│   ├── lv.1/
+│   └── lv.2/
 ├── templates/
 │   ├── til-template.md
-│   └── weekly-retrospective-template.md
+│   └── weekly-template.md
 ├── AI AGENT BOOTCAMP_LV.1/
 │   ├── README.md
 │   ├── 01-week-git-github/
@@ -148,7 +161,7 @@ Lesson-and-Learn/
 ## Templates
 
 - [TIL template](./templates/til-template.md)
-- [Weekly retrospective template](./templates/weekly-retrospective-template.md)
+- [Weekly retrospective template](./templates/weekly-template.md)
 
 ---
 

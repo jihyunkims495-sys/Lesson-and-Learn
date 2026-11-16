@@ -52,3 +52,5 @@ Node.js, uv, VS Code와 Jupyter 확장을 준비한 뒤 프로젝트 폴더에�
 VS Code에서 재현하려면 두 `.ipynb`를 열어 해당 프로젝트의 **TypeScript(tslab) → Run All → 저장**을 수행하세요. 두 파일 모두 코드 셀 아래 결과가 있고 빨간 오류가 없는지 확인한 뒤 `python package_submission.py`로 저장된 출력을 포함한 ZIP을 다시 만듭니다.
 
 생성한 `typescript-assignment.zip`의 루트에 두 노트북과 재현 코드 등 프로젝트 파일 13개가 포함됩니다. 패키지 생성기는 실행 번호와 오류 없는 출력을 확인한 코드·출력 스냅샷을 압축합니다. 이 과제는 웹 배포가 필요하지 않고 ZIP 파일로 제출합니다. AI 보조 작성 코드이므로 내용을 직접 검토하고 설명할 수 있는 상태에서 제출해야 합니다.
+
+[레벨별 과제 목록](../README.md) · [전체 과제 목록](../../README.md)

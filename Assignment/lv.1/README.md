@@ -1,0 +1,65 @@
+# LV.1 과제
+
+Python 도서 관리 시스템, 머신러닝 분석, 프론트엔드 기초 Todo와 3분 발표 자료를 주제별로 정리했습니다.
+
+| 번호 | 과제·자료 | 주요 내용 |
+|---|---|---|
+| 01 | [Python 기초](01-python/) | 객체지향 도서 관리 CLI, 자료구조와 예외 처리 |
+| 02 | [머신러닝](02-machine-learning/) | 당뇨 데이터 EDA·전처리·로지스틱 회귀 평가·튜닝 |
+| 03 | [프론트엔드 기초](03-frontend/) | HTML·CSS·JavaScript Todo 체크리스트 |
+| 04 | [3분 브리프](04-three-minute-brief/) | 데이터베이스·머신러닝·CSS 웹 발표 자료 |
+
+## 1. Python
+
+파이썬 최종 과제는 객체지향 도서 관리 CLI 시스템입니다. 도서 등록·조회·검색·대여·반납·통계 기능을 구현하고, `Book`을 부모 클래스로 둔 `PrintedBook`과 `Ebook` 상속 구조, 입력 검증과 예외 처리를 적용했습니다.
+
+- [프로젝트 README](./01-python/README.md)
+
+## 2. Machine Learning
+
+머신러닝 최종 과제는 Pima Indians Diabetes 데이터로 당뇨 여부를 예측하는 이진 분류 과정을 정리한 Jupyter Notebook입니다.
+
+- 탐색적 데이터 분석과 생리학적으로 타당하지 않은 0값 점검
+- 결측값 중앙값 대체와 `StandardScaler`를 포함한 전처리 파이프라인
+- 로지스틱 회귀의 Accuracy, Precision, Recall, F1-score, ROC-AUC 평가
+- `StratifiedKFold`와 `GridSearchCV`를 사용한 규제 방식·강도·class weight 비교
+- Gemma 기반 뉴스 기사 Few-shot 분류 프롬프트와 실험 조건 설계
+
+노트북에는 튜닝 후 Recall과 F1-score가 개선된 결과가 기록되어 있습니다. Gemma 실험은 기본값이 `RUN_GEMMA=False`이므로, 모델 이용 동의와 실행 자원이 준비된 환경에서 별도로 활성화해야 합니다.
+
+- [분석 노트북](./02-machine-learning/머신러닝_최종과제_김지현.ipynb)
+- [데이터셋](./02-machine-learning/diabetes.csv)
+
+## 3. Frontend Basic
+
+프론트엔드 기초 과제는 HTML로 화면 구조와 입력 폼을 만들고, CSS로 체크리스트를 디자인한 뒤, JavaScript DOM 조작으로 Todo 기능을 구현한 프로젝트입니다.
+
+- 일정 추가·수정·삭제
+- 체크박스를 이용한 완료 상태 변경
+- 전체·할 일·완료 목록 조회
+- 시맨틱 HTML, Flexbox, `hover`·`focus` 스타일 적용
+- 배열과 반복 렌더링 없이 DOM 요소를 직접 추가하는 간단한 JavaScript 구성
+
+과제 코드와 교안 내용의 연결은 [Frontend Basic README](./03-frontend/README.md)에서 확인할 수 있습니다.
+
+## 4. 3분 브리프
+
+[`04-three-minute-brief`](./04-three-minute-brief/) 폴더에는 다음 웹 발표 자료의 링크와 핵심 주제를 정리했습니다.
+
+- [데이터베이스 구조 · 스키마부터 정규화까지](https://database-keys-integrity-jihyu.jihyunkims495.chatgpt.site/)
+- [머신러닝 발표자료 · 회귀부터 K-Fold까지](https://machine-learning-presentation-jihyu.jihyunkims495.chatgpt.site/)
+- [CSS, 화면의 경험을 설계하다](https://css-experience-20261001.jihyunkims495.chatgpt.site/)
+
+## 폴더 구조
+
+```text
+lv.1/
+├── README.md
+├── 01-python/
+├── 02-machine-learning/
+├── 03-frontend/
+│   └── todo-checklist/
+└── 04-three-minute-brief/
+```
+
+[전체 과제 목록](../README.md) · [LV.2 과제](../lv.2/README.md)

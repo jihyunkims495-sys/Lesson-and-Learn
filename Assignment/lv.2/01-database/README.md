@@ -122,3 +122,5 @@ uv run --frozen python -m unittest discover -s tests -p test_demo_support.py -v
 이 명령은 로컬에 있는 `pgvector/pgvector:pg17` 이미지를 사용합니다. 이름이 매번 다른 임시 컨테이너를 생성하고 호스트 포트·외부 네트워크·영구 볼륨 없이 실행한 뒤 정리합니다. 테스트용 `auth.users`와 `auth.uid()`를 구성하고 테이블 소유자가 아닌 `authenticated` 역할로 RLS를 검사합니다.
 
 첨부 화면은 PostgreSQL 정책과 SQL 동작의 로컬 검증 결과입니다. 별도로 실제 Supabase에서 SDK 회원·상품·주문 CRUD 14단계와 두 계정 RLS 11조건을 실행해 통과했습니다. 생성한 테스트 데이터의 정리와 세션 종료를 확인했으며 Auth 계정은 유지했습니다. 네트워크 오류를 권한 거부로 잘못 판정하지 않도록 SDK RLS 검사는 PostgreSQL 권한 오류 코드 `42501`만 예상 거부로 처리합니다.
+
+[레벨별 과제 목록](../README.md) · [전체 과제 목록](../../README.md)

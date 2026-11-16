@@ -1,4 +1,4 @@
-# Front-end Basic
+# 프론트엔드 기초
 
 HTML·CSS·JavaScript 기초 수업에서 구현한 과제 모음입니다.
 
@@ -19,3 +19,5 @@ HTML·CSS·JavaScript 기초 수업에서 구현한 과제 모음입니다.
 - `data-filter`와 CSS 속성 선택자를 이용한 목록 조회
 
 자세한 실행 방법, 기능 설명, 교안과의 연결은 [프로젝트 README](./todo-checklist/README.md)에 정리되어 있습니다.
+
+[레벨별 과제 목록](../README.md) · [전체 과제 목록](../../README.md)
