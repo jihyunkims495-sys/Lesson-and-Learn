@@ -1,6 +1,18 @@
 # Assignment
 
-수업 파트별 최종 과제와 3분 브리프 자료를 한곳에서 확인할 수 있도록 정리한 모음입니다. 최종 과제 폴더명은 `강좌명_final_project_김지현` 형식으로 통일했습니다.
+수업 파트별 최종 과제와 3분 브리프 자료를 한곳에서 확인할 수 있도록 정리한 모음입니다. 기존 최종 과제와 함께, 1~5번 실습 과제를 번호별 폴더로 정리했습니다.
+
+## 1~5번 실습 과제
+
+| 파트 | 결과물 | 주요 내용 |
+|---|---|---|
+| 01 | [데이터베이스](01-database/) | PostgreSQL 관계·제약·트랜잭션·Supabase SDK·RLS |
+| 02 | [프론트엔드](02-frontend/) | 반응형 HTML/CSS 클론·JavaScript Todo |
+| 03 | [TypeScript](03-typescript/) | 데이터 모델·타입 가드·제네릭·실행 노트북과 ZIP |
+| 04 | [React·Next.js](04-react-nextjs/) | Supabase 인증·회원 Todo·동적 라우팅 |
+| 05 | [백엔드 API](05-backend-api/) | FastAPI·ORM·JWT·OpenAPI·Docker |
+
+각 폴더의 README에서 실행 방법, 테스트 결과와 결과물을 확인할 수 있습니다.
 
 ## 과제 및 자료 목록
 
@@ -56,6 +68,11 @@
 
 ```text
 Assignment/
+├── 01-database/
+├── 02-frontend/
+├── 03-typescript/
+├── 04-react-nextjs/
+├── 05-backend-api/
 ├── 3min_brief/
 │   └── README.md
 ├── frontend_basic_final_project_김지현/

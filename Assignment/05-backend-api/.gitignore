@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+.venv/
+node_modules/
+.next/
+__pycache__/
+*.db
+.uv-cache/
+.pytest_cache/
+.validation/

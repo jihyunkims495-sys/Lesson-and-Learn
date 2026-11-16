@@ -1,0 +1,11 @@
+{
+  "name": "typescript-assignment",
+  "private": true,
+  "scripts": {
+    "check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "tslab": "1.0.22"
+  }
+}

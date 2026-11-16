@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>오늘의 할 일</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/todo.js" defer></script>
+  </head>
+  <body>
+    <header><strong>DAILY / TODO</strong></header>
+    <main>
+      <h1>오늘의 할 일</h1>
+      <form id="todo-form">
+        <label for="title"
+          >할 일<input
+            id="title"
+            maxlength="120"
+            required
+            autocomplete="off" /></label
+        ><button>추가</button>
+      </form>
+      <label for="filter"
+        >조회 조건<select id="filter">
+          <option value="all">전체</option>
+          <option value="active">진행 중</option>
+          <option value="done">완료</option>
+        </select></label
+      >
+      <p id="status" role="status" aria-live="polite"></p>
+      <ul id="list" aria-label="할 일 목록"></ul>
+    </main>
+    <footer>브라우저에 자동 저장됩니다.</footer>
+  </body>
+</html>

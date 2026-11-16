@@ -1,0 +1,12 @@
+{
+  "name": "frontend-assignment",
+  "private": true,
+  "scripts": {
+    "serve": "node serve.cjs",
+    "test": "playwright test",
+    "evidence": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0"
+  }
+}

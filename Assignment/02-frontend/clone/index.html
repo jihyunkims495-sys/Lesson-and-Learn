@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CART | ONEPIECE</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#cart">본문 바로가기</a>
+    <header class="site-header" id="header">
+      <nav aria-label="상품 카테고리">
+        <details>
+          <summary>ONEPIECE</summary>
+          <div class="menu">
+            <a href="#items">ALL PRODUCTS</a><a href="#items">Outer</a>
+            <a href="#items">Top</a><a href="#items">Bottom</a>
+            <a href="#items">Shoes</a><a href="#items">Bag</a>
+          </div>
+        </details>
+      </nav>
+      <a class="logo" href="#cart">OnePiece</a>
+      <nav class="user-nav" aria-label="사용자 메뉴">
+        <a class="search" href="#items" aria-label="상품 보기"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="4.5"/><path d="m11.5 11.5 4 4"/></svg></a>
+        <span class="account-link" aria-hidden="true">JOIN</span><span class="account-link" aria-hidden="true">LOGIN</span>
+        <a href="#cart" aria-current="page">CART <span>2</span></a>
+      </nav>
+    </header>
+    <main id="cart">
+      <h1>CART</h1>
+      <div class="cart-layout">
+        <section id="items" aria-label="장바구니 상품">
+          <form aria-label="장바구니 수량" aria-describedby="demo-note">
+            <ul class="items">
+              <li class="item">
+                <img src="assets/jacket.svg" width="112" height="140" alt="ONEPIECE Shell Jacket — 직접 그린 검정 재킷" />
+                <div class="item-info">
+                  <h2>ONEPIECE Shell Jacket</h2>
+                  <p class="option">BLACK / M</p>
+                  <p class="price">189,000원</p>
+                  <div class="quantity">
+                    <button type="button" aria-label="재킷 수량 줄이기" disabled>−</button>
+                    <label class="sr-only" for="jacket-quantity">재킷 수량</label>
+                    <input id="jacket-quantity" type="number" value="1" min="1" readonly />
+                    <button type="button" aria-label="재킷 수량 늘리기" disabled>+</button>
+                    <button type="button" aria-label="재킷 삭제" disabled>REMOVE</button>
+                  </div>
+                </div>
+              </li>
+              <li class="item">
+                <img src="assets/tshirt.svg" width="112" height="140" alt="ONEPIECE T-Shirt — 직접 그린 흰색 티셔츠" />
+                <div class="item-info">
+                  <h2>ONEPIECE T-Shirt</h2>
+                  <p class="option">WHITE / L</p>
+                  <p class="price">69,000원</p>
+                  <div class="quantity">
+                    <button type="button" aria-label="티셔츠 수량 줄이기" disabled>−</button>
+                    <label class="sr-only" for="tshirt-quantity">티셔츠 수량</label>
+                    <input id="tshirt-quantity" type="number" value="1" min="1" readonly />
+                    <button type="button" aria-label="티셔츠 수량 늘리기" disabled>+</button>
+                    <button type="button" aria-label="티셔츠 삭제" disabled>REMOVE</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </form>
+          <a class="button outline" href="#items">CONTINUE SHOPPING</a>
+          <p id="demo-note" class="demo-note">HTML/CSS 레이아웃 데모 · 수량 변경과 결제는 연결되지 않습니다.</p>
+        </section>
+        <section class="summary" aria-labelledby="summary-title">
+          <h2 id="summary-title">ORDER SUMMARY</h2>
+          <dl><div><dt>TOTAL</dt><dd>258,000원</dd></div></dl>
+          <p>결제 시 세금, 할인 및 배송료가 계산됩니다.</p>
+          <button class="button" type="button" disabled>CHECKOUT</button>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer" id="footer">
+      <div>
+        <p class="copyright">© 2026 ONEPIECE</p>
+        <ul class="footer-meta"><li>HTML / CSS STUDY</li><li>RESPONSIVE CART</li><li>ILLUSTRATED PRODUCTS</li></ul>
+      </div>
+      <nav aria-label="푸터 메뉴"><a href="#demo-note">HELP</a><a href="#demo-note">LEGAL</a><a href="#footer">CONTACT</a></nav>
+      <nav aria-label="소셜 및 언어 메뉴"><a href="#header">@ONEPIECE</a><a href="#cart">ENGLISH</a></nav>
+    </footer>
+  </body>
+</html>
