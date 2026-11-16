@@ -6,7 +6,7 @@
 
 - **정적 검사 통과:** TypeScript 7.0.2, `strict: true`, 명시적 입출력 타입, `any` 사용 없음.
 - **실제 Jupyter 실행 통과:** Jupyter client 8.9.1과 tslab 1.0.22로 두 노트북의 코드 셀 총 6개를 실행했습니다. 각 노트북의 실행 번호 1~3과 실제 출력이 저장되어 있습니다.
-- **남은 확인:** **VS Code의 TypeScript 커널에서 Run All하는 화면은 아직 확인하지 못했습니다.** VS Code에서 두 파일을 Run All → 저장하면 편집기 실행 환경까지 확인할 수 있습니다.
+- **VS Code 실행 통과:** TypeScript 커널을 선택하여 두 노트북에서 각각 **Run All → 전체 코드 셀 완료 확인 → 저장**을 수행했습니다. 총 6개 코드 셀에 실행 번호 1~3과 오류 없는 출력이 저장되어 있습니다.
 
 ## 평가기준 대응
 
@@ -49,6 +49,6 @@ Node.js, uv, VS Code와 Jupyter 확장을 준비한 뒤 프로젝트 폴더에�
 .\finish-local.ps1
 ```
 
-이후 VS Code에서 두 `.ipynb`를 열어 해당 프로젝트의 **TypeScript(tslab) → Run All → 저장**을 수행하세요. 두 파일 모두 코드 셀 아래 결과가 있고 빨간 오류가 없는지 확인한 뒤 `python package_submission.py`로 저장된 출력을 포함한 ZIP을 다시 만듭니다.
+VS Code에서 재현하려면 두 `.ipynb`를 열어 해당 프로젝트의 **TypeScript(tslab) → Run All → 저장**을 수행하세요. 두 파일 모두 코드 셀 아래 결과가 있고 빨간 오류가 없는지 확인한 뒤 `python package_submission.py`로 저장된 출력을 포함한 ZIP을 다시 만듭니다.
 
 생성한 `typescript-assignment.zip`의 루트에 두 노트북과 재현 코드 등 프로젝트 파일 13개가 포함됩니다. 패키지 생성기는 실행 번호와 오류 없는 출력을 확인한 코드·출력 스냅샷을 압축합니다. 이 과제는 웹 배포가 필요하지 않고 ZIP 파일로 제출합니다. AI 보조 작성 코드이므로 내용을 직접 검토하고 설명할 수 있는 상태에서 제출해야 합니다.
