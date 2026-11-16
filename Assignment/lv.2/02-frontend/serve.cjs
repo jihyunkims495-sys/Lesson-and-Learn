@@ -13,6 +13,11 @@ http
       res.writeHead(400).end();
       return;
     }
+    const entryRoutes = { "/": "/clone/", "/clone": "/clone/", "/todo": "/todo/" };
+    if (entryRoutes[pathname]) {
+      res.writeHead(302, { Location: entryRoutes[pathname] }).end();
+      return;
+    }
     const file = path.resolve(
       root,
       "." + pathname + (pathname.endsWith("/") ? "index.html" : ""),

@@ -58,18 +58,21 @@
 
 ## 실행과 검증
 
-Node.js 환경에서 다음을 실행합니다.
+Node.js가 설치된 PC에서 저장소 최상위 폴더를 기준으로 다음을 실행합니다. 화면을 여는 서버는 Node.js 내장 모듈만 사용하므로 별도 패키지 설치가 필요하지 않습니다.
 
 ```powershell
-npm ci
-npm run serve
+cd Assignment/lv.2/02-frontend
+node serve.cjs
 ```
 
-브라우저에서 http://127.0.0.1:8766/clone/ 또는 http://127.0.0.1:8766/todo/ 를 엽니다.
+터미널을 실행한 상태로 두고 [무인양품 클론](http://127.0.0.1:8766/clone/) 또는 [Todo](http://127.0.0.1:8766/todo/)를 엽니다. 기본 주소 `http://127.0.0.1:8766`과 끝 슬래시가 없는 `/clone`, `/todo`도 해당 화면으로 이동합니다.
+
+`127.0.0.1`은 서버를 실행한 PC에서만 사용하는 로컬 주소입니다. 서버를 종료하거나 PC를 재시작했다면 과제 폴더에서 `node serve.cjs`를 다시 실행합니다.
 
 브라우저 회귀 검사는 다음과 같이 실행합니다.
 
 ```powershell
+npm ci
 npx playwright install chromium
 npm test
 ```
