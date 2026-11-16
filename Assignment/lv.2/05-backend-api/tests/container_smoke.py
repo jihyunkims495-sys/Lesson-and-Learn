@@ -36,7 +36,15 @@ def main():
 
     assert request('GET', '/health', 200)[0] == {'status': 'ok'}
     assert b'Swagger UI' in request('GET', '/docs', 200)[0]
-    assert 'paths' in request('GET', '/openapi.json', 200)[0]
+    schema = request('GET', '/openapi.json', 200)[0]
+    for endpoint, method, model in [('/health','get','HealthOut'),
+                                    ('/meta','get','MetaOut'),
+                                    ('/uploads/preview','post','UploadPreviewOut')]:
+        assert schema['paths'][endpoint][method]['responses']['200']['content'][
+            'application/json']['schema'] == {'$ref':'#/components/schemas/' + model}
+    for status in ['413','415','500']:
+        assert schema['paths']['/uploads/preview']['post']['responses'][status]['content'][
+            'application/json']['schema'] == {'$ref':'#/components/schemas/ErrorOut'}
     assert request('GET', '/route-that-does-not-exist', 404)[0]['error']['code'] == '404'
     wrong_method, wrong_method_headers = request('PATCH', '/auth/signup', 405)
     assert wrong_method['error']['code'] == '405'

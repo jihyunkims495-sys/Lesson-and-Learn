@@ -37,11 +37,21 @@ let stage='start-local-fixture';
 let origin='';
 let signupContract=false;
 let readCount=0;
+let delayedWrite=false;
+let writeReceived=false;
+let releaseWrite;
+let writtenTitle='';
+let writeCount=0;
+const fixtureRequestKinds=new Set();
+const clientRequestKinds=new Set();
+const clientErrorKinds=new Set();
 const json=(response,status,value)=>{response.writeHead(status,{'content-type':'application/json'});response.end(JSON.stringify(value));};
 const fixture=createServer(async(request,response)=>{
   const url=new URL(request.url,'http://127.0.0.1:54321');
+  fixtureRequestKinds.add(request.method+' '+url.pathname);
   response.setHeader('Access-Control-Allow-Origin',origin||'*');
-  response.setHeader('Access-Control-Allow-Headers','authorization,apikey,content-type,x-client-info,x-supabase-api-version');
+  response.setHeader('Access-Control-Allow-Methods','GET,POST,OPTIONS');
+  response.setHeader('Access-Control-Allow-Headers','authorization,apikey,content-type,prefer,content-profile,accept-profile,x-client-info,x-supabase-api-version');
   if(request.method==='OPTIONS'){response.writeHead(204);response.end();return;}
   if(url.pathname==='/auth/v1/token'){
     let body='';for await(const chunk of request)body+=chunk;
@@ -58,6 +68,14 @@ const fixture=createServer(async(request,response)=>{
     return json(response,200,{...user,email:'signup@example.invalid'});
   }
   if(url.pathname==='/rest/v1/practice_todos'){
+    if(request.method==='POST'){
+      let body='';for await(const chunk of request)body+=chunk;
+      const value=JSON.parse(body);writtenTitle=value.title;writeReceived=true;
+      if(delayedWrite)await new Promise(resolve=>{releaseWrite=resolve;});
+      writeCount++;
+      return json(response,201,{id:'22222222-2222-4222-8222-222222222222',user_id:user.id,
+        title:value.title,done:false,created_at:'2026-01-01T00:00:00Z'});
+    }
     readCount++;
     if(mode==='slow')await new Promise(resolve=>{release=resolve;});
     if(mode==='error')return json(response,503,{code:'FIXTURE_UNAVAILABLE',message:'local fixture failure'});
@@ -99,10 +117,39 @@ try{
   const context=await browser.newContext();
   await context.addCookies(cookies.filter(c=>c.value).map(c=>({name:c.name,value:c.value,domain:'127.0.0.1',path:'/',sameSite:'Lax'})));
   const page=await context.newPage();page.setDefaultTimeout(10000);
+  page.on('request',request=>{const target=new URL(request.url());if(target.port==='54321')clientRequestKinds.add(request.method()+' '+target.pathname);});
+  page.on('console',message=>{if(message.type()==='error')clientErrorKinds.add(/CORS|Access-Control/i.test(message.text())?'cors':/hydrate|hydration/i.test(message.text())?'hydration':'other');});
+  page.on('pageerror',()=>clientErrorKinds.add('page-error'));
   stage='fixture-authenticated-empty-state';
   await page.goto(origin+'/todos');
   await expect(page.getByRole('heading',{name:'오늘의 할 일'})).toBeVisible();
   await expect(page.getByText('조회된 할 일이 없습니다.',{exact:true})).toBeVisible();pass(stage);
+  stage='pending-create-draft-protection';
+  const input=page.getByLabel('할 일',{exact:true});
+  const firstTitle='처리 중인 일정 A';const nextTitle='다음 일정 B';
+  delayedWrite=true;writeReceived=false;releaseWrite=undefined;
+  await input.fill(firstTitle);
+  await page.getByRole('button',{name:'추가',exact:true}).click();
+  for(let i=0;i<50&&!releaseWrite;i++)await delay(100);
+  if(!writeReceived||!releaseWrite){report.pendingCreateDiagnostic={fixtureRequestKinds:[...fixtureRequestKinds],clientRequestKinds:[...clientRequestKinds],clientErrorKinds:[...clientErrorKinds],inputRetained:await input.inputValue()===firstTitle,addEnabled:await page.getByRole('button',{name:'추가',exact:true}).isEnabled(),appAlertCount:await page.locator('main [role=alert]').count()};throw new Error('Delayed create was not requested');}
+  await expect(page.getByRole('button',{name:'추가',exact:true})).toBeDisabled();
+  const inputEditableDuringWrite=await input.isEnabled();
+  if(inputEditableDuringWrite)await input.fill(nextTitle);
+  delayedWrite=false;releaseWrite();releaseWrite=undefined;
+  await expect(page.getByRole('link',{name:firstTitle,exact:true})).toBeVisible();
+  await expect(page.getByRole('button',{name:'추가',exact:true})).toBeEnabled();
+  await expect(input).toBeEnabled();
+  const nextDraftPreserved=!inputEditableDuringWrite||(await input.inputValue())===nextTitle;
+  const diagnostics={inputDisabledDuringWrite:!inputEditableDuringWrite,nextDraftPreserved,
+    exactlyOneCreate:writeCount===1,submittedTitleMatches:writtenTitle===firstTitle};
+  if(!nextDraftPreserved||writeCount!==1||writtenTitle!==firstTitle){
+    report.checks.push({name:stage,status:'FAIL',diagnostic:diagnostics});
+  }else{
+    if(!inputEditableDuringWrite)await expect(input).toHaveValue('');
+    await input.fill(nextTitle);
+    await expect(input).toHaveValue(nextTitle);
+    report.checks.push({name:stage,status:'PASS',diagnostic:diagnostics});
+  }
   stage='server-loading-state';mode='slow';release=undefined;
   const navigation=page.goto(origin+'/todos',{waitUntil:'commit'});
   await navigation;
@@ -144,7 +191,7 @@ try{
   report.status=report.checks.some(check=>check.status==='FAIL')?'FAIL':'PASS';
 }catch(error){report.status='FAIL';report.failedCheck=stage;report.failure=String(error.message).slice(0,350);}
 finally{
-  mode='empty';if(release)release();
+  mode='empty';if(release)release();if(releaseWrite)releaseWrite();
   if(browser)await browser.close();
   if(next&&next.exitCode===null){const stopped=new Promise(resolve=>next.once('exit',resolve));next.kill();await Promise.race([stopped,delay(5000)]);}
   fixture.closeAllConnections();await new Promise(resolve=>fixture.close(resolve));

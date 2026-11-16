@@ -141,6 +141,7 @@ body {
 
 .todo-item {
   display: flex;
+  min-width: 0;
   align-items: flex-start;
   gap: 12px;
   padding: 12px 0;
@@ -152,7 +153,13 @@ body {
   align-items: flex-start;
   gap: 8px;
   flex: 1;
+  min-width: 0;
   cursor: pointer;
+}
+
+.todo-check > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .todo-check input {
@@ -174,6 +181,7 @@ body {
 
 .todo-actions {
   display: flex;
+  flex-shrink: 0;
   gap: 6px;
 }
 

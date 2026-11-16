@@ -2,10 +2,10 @@
 import os
 import time
 from datetime import datetime, timedelta, timezone
-from typing import Annotated
+from typing import Annotated, Literal
 import jwt
-from fastapi import FastAPI, Depends, HTTPException, Query, Request
-from fastapi.exceptions import RequestValidationError
+from fastapi import FastAPI, Depends, HTTPException, Query, Request, Response
+from fastapi.exceptions import RequestValidationError, ResponseValidationError
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -55,13 +55,21 @@ class PostList(BaseModel):
     total:int
     offset:int
     limit:int
+class HealthOut(BaseModel):
+    status:Literal['ok']
+class MetaOut(BaseModel):
+    service:str
+    version:str
+class UploadPreviewOut(BaseModel):
+    bytes:int=Field(ge=0,le=65536)
+    preview:str=Field(max_length=200)
 class ErrorBody(BaseModel):
     code:str
     message:str
 class ErrorOut(BaseModel):
     error:ErrorBody
 
-app=FastAPI(title='Learning Board API',version='1.0.0',responses={401:{'model':ErrorOut},403:{'model':ErrorOut},404:{'model':ErrorOut},405:{'model':ErrorOut,'headers':{'Allow':{'description':'Supported HTTP methods','schema':{'type':'string'}}}},409:{'model':ErrorOut},422:{'model':ErrorOut},503:{'model':ErrorOut}})
+app=FastAPI(title='Learning Board API',version='1.0.0',responses={401:{'model':ErrorOut},403:{'model':ErrorOut},404:{'model':ErrorOut},405:{'model':ErrorOut,'headers':{'Allow':{'description':'Supported HTTP methods','schema':{'type':'string'}}}},409:{'model':ErrorOut},422:{'model':ErrorOut,'description':'입력 형식 검증 실패'},500:{'model':ErrorOut},503:{'model':ErrorOut}})
 app.add_middleware(CORSMiddleware,allow_origins=os.environ.get('ALLOWED_ORIGINS','http://localhost:3000').split(','),allow_credentials=False,allow_methods=['GET','POST','PUT','DELETE'],allow_headers=['Authorization','Content-Type'])
 @app.middleware('http')
 async def timing(request,call_next):
@@ -77,13 +85,19 @@ def error_response(status:int,code:str,message:str,headers:dict[str,str]|None=No
     response_headers=dict(headers or {})
     if status==401 and not any(name.lower()=='www-authenticate' for name in response_headers):
         response_headers['WWW-Authenticate']='Bearer'
-    return JSONResponse(status_code=status,content={'error':{'code':code,'message':message}},headers=response_headers)
+    response=JSONResponse(status_code=status,content={'error':{'code':code,'message':message}},headers=response_headers)
+    response.headers['Cache-Control']='no-store'
+    response.headers['X-Content-Type-Options']='nosniff'
+    return response
 @app.exception_handler(StarletteHTTPException)
 async def http_error(request,exc): return error_response(exc.status_code,str(exc.status_code),str(exc.detail),exc.headers)
 @app.exception_handler(RequestValidationError)
 async def validation_error(request,exc): return error_response(422,'VALIDATION_ERROR','입력 형식이 올바르지 않습니다')
 @app.exception_handler(SQLAlchemyError)
 async def database_error(request,exc): return error_response(503,'DATABASE_ERROR','데이터베이스 요청 처리 실패')
+@app.exception_handler(ResponseValidationError)
+@app.exception_handler(Exception)
+async def internal_error(request,exc): return error_response(500,'INTERNAL_SERVER_ERROR','서버 응답 처리 실패')
 def db_session():
     with SessionLocal() as db: yield db
 DB=Annotated[Session,Depends(db_session)]
@@ -105,7 +119,7 @@ def find_post(db:Session,pid:int):
 def authorize(post:Post,user:User):
     if post.author_id!=user.id and user.role!='admin': raise HTTPException(403,'작성자 또는 관리자만 변경할 수 있습니다')
 
-@app.get('/health',tags=['operations'])
+@app.get('/health',response_model=HealthOut,tags=['operations'])
 def health(db:DB):
     db.execute(select(1))
     return {'status':'ok'}
@@ -146,12 +160,14 @@ def delete_post(post_id:int,db:DB,user:Actor):
     post=find_post(db,post_id);authorize(post,user);db.delete(post);db.commit()
 
 # 운영 항목의 비동기/업로드 데모: 저장 대신 제한된 텍스트 미리보기. 사용자 파일 경로를 사용하지 않는다.
-@app.post('/uploads/preview',tags=['operations'],openapi_extra={
-    'requestBody': {'required': True, 'content': {'text/plain': {'schema': {'type':'string','format':'binary'}}}},
-    'responses': {'413': {'description':'64KiB 제한 초과'}, '415': {'description':'텍스트 형식 아님'}}
+@app.post('/uploads/preview',response_model=UploadPreviewOut,tags=['operations'],responses={
+    413:{'model':ErrorOut,'description':'64KiB 제한 초과'},
+    415:{'model':ErrorOut,'description':'텍스트 형식 아님'}
+},openapi_extra={
+    'requestBody': {'required': True, 'content': {'text/plain': {'schema': {'type':'string','format':'binary'}}}}
 })
 async def preview(request:Request,user:Actor):
-    if request.headers.get('content-type','').split(';')[0]!='text/plain': raise HTTPException(415,'텍스트 파일만 지원합니다')
+    if request.headers.get('content-type','').split(';',1)[0].strip().lower()!='text/plain': raise HTTPException(415,'텍스트 파일만 지원합니다')
     data=bytearray()
     async for chunk in request.stream():
         if len(data)+len(chunk)>65536: raise HTTPException(413,'64KiB 제한 초과')
@@ -160,6 +176,7 @@ async def preview(request:Request,user:Actor):
     except UnicodeDecodeError: raise HTTPException(422,'UTF-8 파일이 필요합니다')
     return {'bytes':len(data),'preview':text[:200]}
 # 캐싱은 인증/게시글에 적용하지 않고 공개 정적 메타데이터에만 적용.
-@app.get('/meta',tags=['operations'])
-def meta():
-    return JSONResponse({'service':'learning-board','version':'1.0.0'},headers={'Cache-Control':'public, max-age=60'})
+@app.get('/meta',response_model=MetaOut,tags=['operations'])
+def meta(response:Response):
+    response.headers['Cache-Control']='public, max-age=60'
+    return {'service':'learning-board','version':'1.0.0'}

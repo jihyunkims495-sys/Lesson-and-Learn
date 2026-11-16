@@ -5,15 +5,22 @@ const titleInput = document.getElementById("todo-title");
 const contentInput = document.getElementById("todo-content");
 const formTitle = document.getElementById("form-title");
 const submitButton = document.getElementById("submit-button");
+titleInput.addEventListener("input", () => titleInput.setCustomValidity(""));
 
 function saveTodo() {
+  const title = titleInput.value.trim();
+  if (!title) {
+    titleInput.setCustomValidity("제목을 입력하세요.");
+    titleInput.reportValidity();
+    return false;
+  }
   const item = editingItem || document.createElement("li");
   if (editingItem === null) {
     item.className = "todo-item";
     item.innerHTML = `<label class="todo-check"><input type="checkbox" onclick="checkTodo(this)"><span><span class="todo-title"></span><span class="todo-content"></span></span></label><div class="todo-actions"><button type="button" class="btn" onclick="editTodo(this)">수정</button><button type="button" class="btn btn-danger" onclick="deleteTodo(this)">삭제</button></div>`;
     todoList.append(item);
   }
-  item.querySelector(".todo-title").textContent = titleInput.value;
+  item.querySelector(".todo-title").textContent = title;
   item.querySelector(".todo-content").textContent = contentInput.value;
   resetForm();
   return false;
@@ -26,6 +33,7 @@ function checkTodo(checkbox) {
 function editTodo(button) {
   editingItem = button.closest(".todo-item");
   titleInput.value = editingItem.querySelector(".todo-title").textContent;
+  titleInput.setCustomValidity("");
   contentInput.value = editingItem.querySelector(".todo-content").textContent;
   formTitle.textContent = "일정 수정";
   submitButton.textContent = "저장";
@@ -40,6 +48,7 @@ function deleteTodo(button) {
 function resetForm() {
   editingItem = null;
   form.reset();
+  titleInput.setCustomValidity("");
   formTitle.textContent = "일정 추가";
   submitButton.textContent = "추가";
 }

@@ -51,15 +51,15 @@ uv run --locked uvicorn app.main:app --host 127.0.0.1 --port 8000
 | GET | `/meta` | 불필요 | 200 공개 메타데이터 |
 | GET | `/health` | 불필요 | 200 DB 연결 상태 |
 
-오류는 다음 형태로 반환합니다. 없는 경로의 404와 허용하지 않는 메서드의 405도 같은 구조를 사용하며, 405의 `Allow`와 401의 `WWW-Authenticate` 헤더를 유지합니다.
+오류는 다음 형태로 반환합니다. 없는 경로의 404와 허용하지 않는 메서드의 405도 같은 구조를 사용하며, 405의 `Allow`와 401의 `WWW-Authenticate` 헤더를 유지합니다. 서버 응답 검증 실패와 예상하지 못한 오류도 내부 세부 내용을 숨긴 JSON 500으로 반환합니다.
 
 ```json
 {"error":{"code":"VALIDATION_ERROR","message":"입력 형식이 올바르지 않습니다"}}
 ```
 
-제목·본문의 공백과 길이, 이메일 형식을 검증합니다. DB 세부 오류와 비밀번호 원문은 오류 응답에 넣지 않습니다.
+제목·본문의 공백과 길이, 이메일 형식을 검증합니다. DB 세부 오류와 비밀번호 원문은 오류 응답에 넣지 않습니다. health·메타데이터·업로드 미리보기도 Pydantic 응답 모델로 검증하며, 업로드의 413·415와 공통 500 오류 모델을 OpenAPI에 명시했습니다.
 
-업로드는 `text/plain` 요청 본문을 비동기로 읽어 최대 64KiB까지 받고 200자만 미리보기합니다. 파일을 영구 저장하지 않습니다. 크기 초과는 413, 지원하지 않는 MIME은 415, 잘못된 UTF-8은 422를 반환합니다.
+업로드는 `text/plain` 요청 본문을 비동기로 읽어 최대 64KiB까지 받고 200자만 미리보기합니다. 미디어 타입의 대소문자와 매개변수 앞뒤 공백을 처리합니다. 파일을 영구 저장하지 않습니다. 크기 초과는 413, 지원하지 않는 MIME은 415, 잘못된 UTF-8은 422를 반환합니다.
 
 공개 정적 메타데이터인 `/meta`에만 `Cache-Control: public, max-age=60`을 적용하고, 그 외 응답은 `no-store`로 처리합니다. 미들웨어는 처리 시간과 `nosniff` 헤더를 추가합니다.
 
@@ -85,14 +85,15 @@ uv run --locked --group dev python tests/container_smoke.py http://127.0.0.1:800
 
 | 검사 | 결과 | 범위 |
 |---|---|---|
-| 기본 직접 함수·SQLite·ASGI HTTP | 24 passed, 1 skipped | PostgreSQL 전용 제약 검사 1개는 기본 실행에서 생략 |
-| 실제 PostgreSQL 16 HTTP·계약 검사 | 15 passed | CRUD, 권한, FK·CHECK·관계, 쿼리 수, 입력·응답, 오류, JWT, 업로드 |
+| 기본 직접 함수·SQLite·ASGI HTTP | 28 passed, 1 skipped | PostgreSQL 전용 제약 검사 1개는 기본 실행에서 생략 |
+| 실제 PostgreSQL 16 HTTP·계약 검사 | 19 passed | CRUD, 권한, FK·CHECK·관계, 쿼리 수, 입력·응답, 오류, JWT, 업로드 |
 | Docker 이미지 빌드·Compose | PASS | Linux Python 3.12, PostgreSQL 16, API·DB healthy |
-| 로컬 Docker 실제 TCP HTTP | 24 checks PASS | 두 계정 CRUD·인가, 404/405·Allow, Swagger, 업로드, 캐시 |
-| EC2 외부 HTTPS 통합 검사 | 24 checks PASS | 인증서 검증을 켠 실제 PostgreSQL 연동·인증·CRUD·권한 검사 |
-| 제출 명세와 배포 명세 | PASS | 배포 서버의 OpenAPI와 전체 JSON 구조 일치 |
+| 로컬 Docker 실제 TCP HTTP | 24 checks PASS | 두 계정 CRUD·인가, 404/405·Allow, 새 응답·오류 명세, 업로드, 캐시 |
+| 수정본 EC2 외부 HTTPS 통합 검사 | 24 checks PASS | 인증서 검증을 켠 실제 PostgreSQL·인증·CRUD·권한·정규화 MIME·새 명세 검사 |
+| 제출 명세와 배포 명세 | PASS | Windows·Linux 생성본과 실제 배포 OpenAPI의 전체 JSON 구조 일치 |
+| 알려진 의존성 취약점 검사 | 0건 | pip-audit 2.10.1, 런타임 잠금 파일 21개·설치 환경 30개 패키지 |
 
-제출 명세는 배포 서버의 Python 3.12 환경에서 제공하는 내용을 저장했습니다. Windows Python 3.13에서 생성하면 422의 기본 설명이 `Unprocessable Content`, 배포 명세에서는 `Unprocessable Entity`로 표시됩니다. 11개의 설명 문구를 제외한 요청·응답 스키마, 상태 코드, 보안 정의는 같습니다.
+운영 응답 모델·업로드 오류 명세·안전한 JSON 500·미디어 타입 처리에 관한 새 회귀 검사 4개는 수정 전에 실패했고 수정 후 통과했습니다. 422 설명을 명시하여 Windows Python 3.13과 Linux Python 3.12의 생성 명세가 같도록 했습니다. 제출 명세는 실제 EC2 배포 명세와도 전체 JSON이 같습니다. 의존성 감사는 검사 시점의 알려진 취약점 목록을 기준으로 합니다.
 
 ## Docker와 배포 상태
 
@@ -115,9 +116,9 @@ Docker는 고정된 의존성과 패키지 해시를 확인하여 설치합니�
 | Swagger UI | [API 문서와 실행 화면](https://52.63.111.112/docs) |
 | 상태 확인 | [health](https://52.63.111.112/health) |
 
-브라우저에서는 Swagger UI에서 API를 실행할 수 있습니다. 2026-11-16 검증에서 공인 IP 인증서의 신뢰 체인·IP SAN을 확인했고, TLS 검증을 켠 외부 HTTPS 검사 24개를 통과했습니다. 인증서 자동 갱신 설정과 실제 갱신 시험, 갱신 후 nginx 재로드도 확인했습니다. HTTP 접근은 인증서 검증 경로를 제외하고 HTTPS로 이동합니다.
+브라우저에서는 Swagger UI에서 API를 실행할 수 있습니다. 2026-11-16 최종 수정본을 기존 EC2의 API 서비스에 반영하고, 공인 IP 인증서의 신뢰 체인·IP SAN 검증을 켠 외부 HTTPS 검사 24개를 새로 통과했습니다. 기존 DB·TLS·런타임 설정을 보존했습니다. 인증서 자동 갱신 설정은 활성 상태이며, 앞선 staging 갱신 시험과 nginx 재로드도 통과했습니다. HTTP 접근은 인증서 검증 경로를 제외하고 HTTPS로 이동합니다.
 
-검증 중 생성한 게시글을 제거하고 테스트 계정 4개를 정리했습니다. 테스트 계정과 해당 게시글의 잔여 행은 0개로 확인했습니다.
+최종 검사에서 만든 게시글과 테스트 계정 2개를 정리했고 해당 잔여 행은 0개입니다. 전체 사용자·게시글 집계도 수정본 배포 전과 같음을 확인했습니다.
 
 ![HTTPS Swagger 실행 화면](assets/api-preview.png)
 

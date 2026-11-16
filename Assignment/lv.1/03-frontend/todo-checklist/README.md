@@ -63,7 +63,7 @@ todo-checklist/
 | 추가·수정 구분 | 변수, 함수, `if` 조건문 | `editingItem`, `saveTodo()` |
 | 목록 조회 | `data-*`, `dataset`, CSS 속성 선택자 | `filterTodos()`와 `style.css`의 `data-filter` 선택자 |
 | 일정 삭제 | DOM 요소의 `remove()` | 삭제 버튼의 `onclick` 함수 |
-| JavaScript 연결 | `script` 태그의 `src`와 `defer` | `index.html` 하단의 script 태그 |
+| JavaScript 연결 | `script` 태그의 `src`와 `defer` | `index.html`의 head에 있는 script 태그와 defer |
 
 ## 체크리스트 형태로 바꾼 이유
 
@@ -103,3 +103,9 @@ todo-checklist/
 3. 기존 일정의 제목과 내용 수정
 4. 체크박스를 이용한 완료 처리
 5. 등록한 일정 삭제
+
+## 입력 검증과 화면 대응
+
+제목의 앞뒤 공백을 제거하고 공백만 있는 제목은 추가·수정 단계에서 거절합니다. 입력을 고치거나 다른 일정을 편집할 때 이전 입력 오류를 해제합니다. 긴 제목과 본문은 좁은 화면에서 줄바꿈하도록 구성했습니다.
+
+2026-11-16 Chromium에서 CRUD·완료/미완료 필터·빈 제목·공백 제목·HTML 텍스트 안전성·편집 중 삭제·320px 긴 텍스트·새로고침 초기화를 포함한 7개 검사가 통과했습니다. 새로고침 시 데이터가 초기화되는 동작은 그대로 유지합니다.

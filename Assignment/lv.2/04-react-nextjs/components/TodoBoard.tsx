@@ -103,6 +103,7 @@ export default function TodoBoard({
           할 일
           <input
             value={title}
+            disabled={busy}
             onChange={(e) => setTitle(e.target.value)}
             maxLength={120}
             required

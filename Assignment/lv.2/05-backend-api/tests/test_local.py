@@ -105,7 +105,7 @@ class BoardTests(unittest.TestCase):
     def test_cache_middleware_preserves_public_policy(self):
         async def check():
             async def downstream(request):
-                return api.meta()
+                return JSONResponse({'public': True},headers={'Cache-Control':'public, max-age=60'})
             response = await api.timing(None, downstream)
             self.assertEqual(response.headers['cache-control'], 'public, max-age=60')
             self.assertIn('x-process-time', response.headers)

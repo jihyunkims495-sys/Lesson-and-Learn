@@ -11,7 +11,7 @@ export default defineConfig({
   webServer: {
     command: "node serve.cjs",
     url: "http://127.0.0.1:8766/clone/",
-    reuseExistingServer: false,
+    reuseExistingServer: !process.env.CI,
   },
   reporter: [
     ["list"],

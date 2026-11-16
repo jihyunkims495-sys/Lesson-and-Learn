@@ -17,7 +17,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/HealthOut"
+                }
               }
             }
           },
@@ -80,7 +82,17 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity",
+            "description": "입력 형식 검증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
             "content": {
               "application/json": {
                 "schema": {
@@ -189,7 +201,17 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity",
+            "description": "입력 형식 검증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
             "content": {
               "application/json": {
                 "schema": {
@@ -298,7 +320,17 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity",
+            "description": "입력 형식 검증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
             "content": {
               "application/json": {
                 "schema": {
@@ -397,7 +429,17 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity",
+            "description": "입력 형식 검증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
             "content": {
               "application/json": {
                 "schema": {
@@ -526,6 +568,16 @@
             "description": "Conflict"
           },
           "422": {
+            "description": "입력 형식 검증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
             "content": {
               "application/json": {
                 "schema": {
@@ -533,7 +585,7 @@
                 }
               }
             },
-            "description": "Unprocessable Entity"
+            "description": "Internal Server Error"
           },
           "503": {
             "content": {
@@ -638,6 +690,16 @@
             "description": "Conflict"
           },
           "422": {
+            "description": "입력 형식 검증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
             "content": {
               "application/json": {
                 "schema": {
@@ -645,7 +707,7 @@
                 }
               }
             },
-            "description": "Unprocessable Entity"
+            "description": "Internal Server Error"
           },
           "503": {
             "content": {
@@ -748,6 +810,16 @@
             "description": "Conflict"
           },
           "422": {
+            "description": "입력 형식 검증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
             "content": {
               "application/json": {
                 "schema": {
@@ -755,7 +827,7 @@
                 }
               }
             },
-            "description": "Unprocessable Entity"
+            "description": "Internal Server Error"
           },
           "503": {
             "content": {
@@ -871,6 +943,16 @@
             "description": "Conflict"
           },
           "422": {
+            "description": "입력 형식 검증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
             "content": {
               "application/json": {
                 "schema": {
@@ -878,7 +960,7 @@
                 }
               }
             },
-            "description": "Unprocessable Entity"
+            "description": "Internal Server Error"
           },
           "503": {
             "content": {
@@ -977,6 +1059,16 @@
             "description": "Conflict"
           },
           "422": {
+            "description": "입력 형식 검증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
             "content": {
               "application/json": {
                 "schema": {
@@ -984,7 +1076,7 @@
                 }
               }
             },
-            "description": "Unprocessable Entity"
+            "description": "Internal Server Error"
           },
           "503": {
             "content": {
@@ -1022,7 +1114,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/UploadPreviewOut"
+                }
               }
             }
           },
@@ -1085,7 +1179,17 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity",
+            "description": "입력 형식 검증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
             "content": {
               "application/json": {
                 "schema": {
@@ -1105,10 +1209,24 @@
             }
           },
           "413": {
-            "description": "64KiB 제한 초과"
+            "description": "64KiB 제한 초과",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            }
           },
           "415": {
-            "description": "텍스트 형식 아님"
+            "description": "텍스트 형식 아님",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -1130,7 +1248,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/MetaOut"
+                }
               }
             }
           },
@@ -1193,7 +1313,17 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity",
+            "description": "입력 형식 검증 실패",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
             "content": {
               "application/json": {
                 "schema": {
@@ -1248,6 +1378,20 @@
         ],
         "title": "ErrorOut"
       },
+      "HealthOut": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "const": "ok",
+            "title": "Status"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "HealthOut"
+      },
       "Login": {
         "properties": {
           "email": {
@@ -1268,6 +1412,24 @@
           "password"
         ],
         "title": "Login"
+      },
+      "MetaOut": {
+        "properties": {
+          "service": {
+            "type": "string",
+            "title": "Service"
+          },
+          "version": {
+            "type": "string",
+            "title": "Version"
+          }
+        },
+        "type": "object",
+        "required": [
+          "service",
+          "version"
+        ],
+        "title": "MetaOut"
       },
       "PostInput": {
         "properties": {
@@ -1397,6 +1559,27 @@
           "access_token"
         ],
         "title": "TokenOut"
+      },
+      "UploadPreviewOut": {
+        "properties": {
+          "bytes": {
+            "type": "integer",
+            "maximum": 65536.0,
+            "minimum": 0.0,
+            "title": "Bytes"
+          },
+          "preview": {
+            "type": "string",
+            "maxLength": 200,
+            "title": "Preview"
+          }
+        },
+        "type": "object",
+        "required": [
+          "bytes",
+          "preview"
+        ],
+        "title": "UploadPreviewOut"
       },
       "UserOut": {
         "properties": {

@@ -7,6 +7,7 @@ import sys
 
 import jwt
 import pytest
+from fastapi.testclient import TestClient
 from sqlalchemy import event, inspect
 from sqlalchemy.exc import IntegrityError
 from starlette.requests import Request
@@ -182,3 +183,71 @@ def test_postgresql_constraints_and_bidirectional_relationship(client_and_sessio
         db.expire_all()
         assert db.get(Post,post.id).author.id == uid
         assert post.id in [item.id for item in db.get(User,uid).posts]
+
+
+def test_operation_response_models_and_upload_error_schemas(client_and_sessions):
+    client, _ = client_and_sessions
+    schema = client.get('/openapi.json').json()
+    for path, method, model in [('/health','get','HealthOut'),
+                                ('/meta','get','MetaOut'),
+                                ('/uploads/preview','post','UploadPreviewOut')]:
+        operation = schema['paths'][path][method]
+        assert operation['responses']['200']['content']['application/json']['schema'] == {
+            '$ref':'#/components/schemas/' + model}
+        assert operation['responses']['500']['content']['application/json']['schema'] == {
+            '$ref':'#/components/schemas/ErrorOut'}
+        assert operation['responses']['422']['description'] == '입력 형식 검증 실패'
+    for status in ['413','415']:
+        assert schema['paths']['/uploads/preview']['post']['responses'][status]['content'][
+            'application/json']['schema'] == {'$ref':'#/components/schemas/ErrorOut'}
+    assert client.get('/health').json() == {'status':'ok'}
+    meta = client.get('/meta')
+    assert meta.json() == {'service':'learning-board','version':'1.0.0'}
+    assert meta.headers['cache-control'] == 'public, max-age=60'
+
+
+def test_response_validation_errors_use_safe_json(client_and_sessions):
+    _client, _sessions = client_and_sessions
+    def malformed_user():
+        return {'id':'not-an-integer','email':'synthetic-private-response-detail','role':'member'}
+    api.app.dependency_overrides[api.current_user] = malformed_user
+    try:
+        with TestClient(api.app,raise_server_exceptions=False) as client:
+            response = client.get('/auth/me')
+        assert response.status_code == 500
+        assert response.headers['content-type'].startswith('application/json')
+        assert response.json() == {'error':{'code':'INTERNAL_SERVER_ERROR','message':'서버 응답 처리 실패'}}
+        assert 'synthetic-private-response-detail' not in response.text
+        assert response.headers['cache-control'] == 'no-store'
+        assert response.headers['x-content-type-options'] == 'nosniff'
+    finally:
+        api.app.dependency_overrides.pop(api.current_user,None)
+
+
+def test_unexpected_errors_use_safe_json(client_and_sessions):
+    _client, _sessions = client_and_sessions
+    previous = api.app.dependency_overrides[api.db_session]
+    def failed_database():
+        raise RuntimeError('synthetic-private-runtime-detail')
+        yield
+    api.app.dependency_overrides[api.db_session] = failed_database
+    try:
+        with TestClient(api.app,raise_server_exceptions=False) as client:
+            response = client.get('/health')
+        assert response.status_code == 500
+        assert response.headers['content-type'].startswith('application/json')
+        assert response.json() == {'error':{'code':'INTERNAL_SERVER_ERROR','message':'서버 응답 처리 실패'}}
+        assert 'synthetic-private-runtime-detail' not in response.text
+        assert response.headers['cache-control'] == 'no-store'
+        assert response.headers['x-content-type-options'] == 'nosniff'
+    finally:
+        api.app.dependency_overrides[api.db_session] = previous
+
+
+def test_upload_accepts_case_insensitive_media_types(client_and_sessions):
+    client, _ = client_and_sessions
+    auth = register(client)
+    for media_type in ['Text/Plain; charset=UTF-8','text/plain ; charset=utf-8']:
+        response = client.post('/uploads/preview',headers={**auth,'Content-Type':media_type},content=b'hello')
+        assert response.status_code == 200
+        assert response.json() == {'bytes':5,'preview':'hello'}
