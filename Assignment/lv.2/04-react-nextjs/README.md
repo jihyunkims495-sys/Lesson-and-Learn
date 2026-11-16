@@ -73,7 +73,7 @@ npm run test:auth-cookies
 
 ## 배포 — 필수
 
-개인 공개 GitHub 저장소를 Vercel에서 Import합니다. 여러 과제를 한 저장소에 넣었다면 Root Directory를 이 폴더로 지정합니다. Node.js 24, Install Command `npm ci`, Build Command `npm run build`를 사용하고 환경변수 두 개를 빌드 전에 등록합니다. Supabase의 Site URL 및 Redirect URLs를 배포 주소와 인증 callback에 맞게 설정하고 가입·로그인·Todo CRUD를 배포 사이트에서 다시 검증합니다.
+개인 공개 GitHub 저장소를 Vercel에서 Import합니다. 여러 과제를 한 저장소에 넣었다면 Root Directory를 이 하위 과제 폴더로 지정합니다. 배포 입력에는 앱 소스와 package-lock.json을 포함하고, 의존성·빌드 캐시·검사 산출물·환경별 설정 파일은 배제합니다. Node.js 24, Install Command `npm ci`, Build Command `npm run build`를 사용하고 환경변수 두 개를 빌드 전에 등록합니다. Supabase의 Site URL 및 Redirect URLs를 배포 주소와 인증 callback에 맞게 설정하고 가입·로그인·Todo CRUD를 배포 사이트에서 다시 검증합니다.
 
 `NEXT_PUBLIC_` 설정은 빌드 시 브라우저 코드에 반영되므로 값을 바꿨다면 다시 빌드·배포해야 합니다.
 
