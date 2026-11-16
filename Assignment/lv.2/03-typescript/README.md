@@ -55,6 +55,10 @@ VS Code에서 재현하려면 두 `.ipynb`를 열어 해당 프로젝트의 **Ty
 
 ## 의존성 점검
 
-2026-11-16 기준 개발용 커널 `tslab@1.0.22`의 하위 의존성 `deepmerge@4.3.1`에 알려진 **Low 등급 취약점 1건**이 남아 있습니다. 같은 문제가 `@rollup/plugin-node-resolve`와 `tslab`까지 전파되어 npm 감사의 영향 패키지 항목은 3개로 표시됩니다. [공식 보안 권고 GHSA-gcqx-w48m-w2h4](https://github.com/advisories/GHSA-gcqx-w48m-w2h4)에는 현재 수정 버전이 없는 것으로 명시되어 있습니다.
+2026-11-16 재점검에서 `npm audit`는 `deepmerge@4.3.1` 관련 Low 권고 1건을 표시합니다. 의존 경로는 `tslab@1.0.22 → @rollup/plugin-node-resolve@11.2.1 → deepmerge@4.3.1`이며, 영향 패키지 항목은 3개입니다.
+
+다만 해당 **CVE-2026-93753은 2026-11-02 공식적으로 REJECTED(보안 취약점에 해당하지 않아 철회)** 처리됐습니다. [공식 CVE 레코드](https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/93xxx/CVE-2026-93753.json)와 [GitHub 권고](https://github.com/advisories/GHSA-gcqx-w48m-w2h4)의 상태가 다르므로, npm 경고를 미해결 보안 취약점으로 단정할 수 없습니다.
+
+의존성에 포함된 `node-resolve`의 `deepmerge` 호출은 모듈 초기화 시 고정 기본 설정을 복사하는 데 사용됩니다. 외부 입력으로 재현한 반환 객체의 상속 동작과 이 호출에 전달되는 입력을 구분해 점검했습니다. 4.3.1의 일반 객체 대상 `__proto__` 차단과 기존 객체 보호도 확인했습니다.
 
 [레벨별 과제 목록](../README.md) · [전체 과제 목록](../../README.md)
