@@ -9,7 +9,8 @@
     "check": "tsc --noEmit",
     "test:config": "node --test scripts/env-config.test.mjs",
     "test:smoke": "node scripts/smoke.mjs",
-    "test:ui": "node scripts/test-ui-states.mjs"
+    "test:ui": "node scripts/test-ui-states.mjs",
+    "test:auth-cookies": "node scripts/test-auth-cookies.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.12.7",

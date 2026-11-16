@@ -1,0 +1,12 @@
+/*
+!/app
+!/components
+!/lib
+!/scripts
+!/public
+!/package.json
+!/package-lock.json
+!/next.config.mjs
+!/next-env.d.ts
+!/proxy.ts
+!/tsconfig.json

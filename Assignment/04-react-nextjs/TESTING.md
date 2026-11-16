@@ -30,6 +30,7 @@
 | 기존 테이블 보존 | PASS | 기존 profiles/todos의 가상 데이터·컬럼·제약·인덱스·권한·RLS·트리거가 적용 전후 동일 |
 | 동일 이름 충돌 | PASS | 테이블·함수·가입 트리거 충돌 시 전체 롤백과 기존 객체 보존 확인 |
 | 로컬 UI 상태 | 8 PASS | 빈 상태·로딩·조회 오류 경계·서버 재조회 후 오류 복구·잘못된 로그인·회원가입 요청과 확인 안내 |
+| 인증 쿠키·캐시 계약 | 2 PASS | 합성 PKCE 교환 후 callback 쿠키 전달, 만료 세션 refresh 후 쿠키 전달 및 private/no-store·Pragma·Expires 확인 |
 
 ## 2026-11-16 실제 Supabase 연결 검증 — 오류 재시도 개선 전
 
@@ -54,5 +55,7 @@ HTTP smoke는 `npm run test:smoke`로 실행합니다. 이 명령 자체는 로�
 로그인 가능한 두 계정을 사용했으므로 회원가입 메일의 발송·수신과 인증 callback 교환은 이번 실연결 검증에 포함하지 않았습니다. 토큰 만료를 유도한 갱신, Vercel 배포 및 배포 주소에서의 재검증도 남아 있습니다.
 
 설정 값의 형식 검사와 로컬 PostgreSQL 검증, 실제 Supabase Auth·SDK·브라우저 검증은 서로 다른 범위를 확인합니다.
+
+인증 쿠키를 갱신하는 Proxy는 SDK가 제공하는 캐시 헤더를 응답에 전달하고, 인증 callback의 성공/실패 이동 응답도 저장하지 않도록 설정합니다. `npm run test:auth-cookies`로 이 계약을 검사합니다. 합성 코드 교환은 실제 이메일 수신·확인을 대체하지 않습니다.
 
 스키마 검증은 `./scripts/verify-local-postgres.ps1`로 practice 전용 스키마를 확인합니다. `-Schema original` 옵션은 별도로 보존한 schema.sql 예제의 검증이며 현재 앱의 설치 명령과 구분합니다. practice 전용 스키마는 기존 인증 계정을 자동으로 backfill하지 않으며, 적용 이후 가입 이벤트로 프로필이 생성됩니다.
