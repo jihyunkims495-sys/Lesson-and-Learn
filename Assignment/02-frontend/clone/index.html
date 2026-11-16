@@ -3,85 +3,204 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CART | ONEPIECE</title>
+    <meta name="description" content="무인양품 홈 화면을 참고한 학습용 페이지입니다." />
+    <title>MUJI 無印良品 | 일상의 기본</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <a class="skip" href="#cart">본문 바로가기</a>
-    <header class="site-header" id="header">
-      <nav aria-label="상품 카테고리">
-        <details>
-          <summary>ONEPIECE</summary>
-          <div class="menu">
-            <a href="#items">ALL PRODUCTS</a><a href="#items">Outer</a>
-            <a href="#items">Top</a><a href="#items">Bottom</a>
-            <a href="#items">Shoes</a><a href="#items">Bag</a>
-          </div>
+    <a class="skip-link" href="#main">본문 바로가기</a>
+    <div class="promotion"><a href="#new-products">MUJI WEEK <span aria-hidden="true">→</span></a></div>
+    <header class="site-header">
+      <div class="header-inner">
+        <details class="mobile-menu">
+          <summary aria-label="전체 메뉴 열기"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h18M3 18h18"/></svg></summary>
+          <nav class="mobile-menu-panel" aria-label="모바일 전체 메뉴">
+            <div class="mobile-primary"><a href="#new-products">BEST</a><a href="#new-products">의복</a><a href="#living">생활</a><a href="#category-ready-meals">식품</a><a href="#category-beauty">뷰티</a><a href="#category-gift">MUJI GIFT CARD</a></div>
+            <div class="mobile-secondary"><a href="#footer-support">MUJI Support</a><a href="#living">From MUJI</a><a href="#living">기획전</a></div>
+          </nav>
         </details>
-      </nav>
-      <a class="logo" href="#cart">OnePiece</a>
-      <nav class="user-nav" aria-label="사용자 메뉴">
-        <a class="search" href="#items" aria-label="상품 보기"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="4.5"/><path d="m11.5 11.5 4 4"/></svg></a>
-        <span class="account-link" aria-hidden="true">JOIN</span><span class="account-link" aria-hidden="true">LOGIN</span>
-        <a href="#cart" aria-current="page">CART <span>2</span></a>
-      </nav>
-    </header>
-    <main id="cart">
-      <h1>CART</h1>
-      <div class="cart-layout">
-        <section id="items" aria-label="장바구니 상품">
-          <form aria-label="장바구니 수량" aria-describedby="demo-note">
-            <ul class="items">
-              <li class="item">
-                <img src="assets/jacket.svg" width="112" height="140" alt="ONEPIECE Shell Jacket — 직접 그린 검정 재킷" />
-                <div class="item-info">
-                  <h2>ONEPIECE Shell Jacket</h2>
-                  <p class="option">BLACK / M</p>
-                  <p class="price">189,000원</p>
-                  <div class="quantity">
-                    <button type="button" aria-label="재킷 수량 줄이기" disabled>−</button>
-                    <label class="sr-only" for="jacket-quantity">재킷 수량</label>
-                    <input id="jacket-quantity" type="number" value="1" min="1" readonly />
-                    <button type="button" aria-label="재킷 수량 늘리기" disabled>+</button>
-                    <button type="button" aria-label="재킷 삭제" disabled>REMOVE</button>
-                  </div>
-                </div>
-              </li>
-              <li class="item">
-                <img src="assets/tshirt.svg" width="112" height="140" alt="ONEPIECE T-Shirt — 직접 그린 흰색 티셔츠" />
-                <div class="item-info">
-                  <h2>ONEPIECE T-Shirt</h2>
-                  <p class="option">WHITE / L</p>
-                  <p class="price">69,000원</p>
-                  <div class="quantity">
-                    <button type="button" aria-label="티셔츠 수량 줄이기" disabled>−</button>
-                    <label class="sr-only" for="tshirt-quantity">티셔츠 수량</label>
-                    <input id="tshirt-quantity" type="number" value="1" min="1" readonly />
-                    <button type="button" aria-label="티셔츠 수량 늘리기" disabled>+</button>
-                    <button type="button" aria-label="티셔츠 삭제" disabled>REMOVE</button>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </form>
-          <a class="button outline" href="#items">CONTINUE SHOPPING</a>
-          <p id="demo-note" class="demo-note">HTML/CSS 레이아웃 데모 · 수량 변경과 결제는 연결되지 않습니다.</p>
-        </section>
-        <section class="summary" aria-labelledby="summary-title">
-          <h2 id="summary-title">ORDER SUMMARY</h2>
-          <dl><div><dt>TOTAL</dt><dd>258,000원</dd></div></dl>
-          <p>결제 시 세금, 할인 및 배송료가 계산됩니다.</p>
-          <button class="button" type="button" disabled>CHECKOUT</button>
-        </section>
+        <a class="brand" href="#main" aria-label="MUJI 無印良品 홈"><img src="assets/muji/logo.svg" width="140" height="22" alt="MUJI 無印良品" class="brand-logo" decoding="async" /></a>
+        <div class="desktop-navigation">
+          <nav class="primary-nav" aria-label="주요 상품 메뉴"><a href="#new-products">BEST</a><a href="#new-products">의복</a><a href="#living">생활</a><a href="#category-ready-meals">식품</a><a href="#category-beauty">뷰티</a><a href="#category-gift">MUJI GIFT CARD</a></nav>
+          <nav class="secondary-nav" aria-label="무인양품 소식"><a href="#footer-support">MUJI Support</a><a href="#living">From MUJI</a><a href="#living">기획전</a></nav>
+        </div>
+        <div class="header-actions">
+          <details class="site-search">
+            <summary aria-label="상품 검색 열기"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></summary>
+            <form class="search-panel" action="https://mujikorea.co.kr/products/search" method="get" role="search">
+              <label for="official-search">공식몰 상품 검색</label>
+              <div class="search-fields">
+                <input id="official-search" name="keyword" type="search" required placeholder="검색어를 입력하세요" />
+                <button type="submit">공식몰에서 검색 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button>
+              </div>
+            </form>
+          </details>
+          <a class="icon-link" href="https://mujikorea.co.kr/" aria-label="무인양품 공식몰에서 회원 메뉴 보기" title="무인양품 공식몰로 이동"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="7.5" r="3.5"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg></a>
+          <a class="icon-link" href="https://mujikorea.co.kr/" aria-label="무인양품 공식몰에서 장바구니 보기" title="무인양품 공식몰로 이동"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 4h2l2.2 11h11.5l2-8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg></a>
+        </div>
       </div>
+    </header>
+    <main id="main" tabindex="-1">
+      <h1 class="sr-only">MUJI 無印良品</h1>
+      <section class="hero" aria-labelledby="hero-title">
+        <a class="hero-link" href="https://mujikorea.co.kr/plan/view/426" aria-labelledby="hero-title hero-destination">
+          <picture class="hero-picture">
+            <source media="(max-width: 767px)" srcset="assets/muji/hero-storage-mobile.jpg" width="750" height="1042" />
+            <img src="assets/muji/hero-storage-desktop.jpg" width="1941" height="750" alt="다양한 크기의 수납 상자를 조합한 선반과 원목 수납장" decoding="async" fetchpriority="high" />
+          </picture>
+          <div class="hero-copy">
+            <h2 id="hero-title">딱 맞게 조합하는 수납용품</h2>
+            <p>빈틈없이 구성하는 수납 시리즈</p>
+            <span id="hero-destination" class="sr-only">무인양품 공식몰 기획전으로 이동</span>
+          </div>
+        </a>
+      </section>
+      <nav class="categories page-container" id="categories" aria-labelledby="category-title">
+        <h2 id="category-title" class="sr-only">카테고리 둘러보기</h2>
+        <ul class="category-list">
+            <li id="category-new"><a href="#new-products"><img src="assets/muji/category-01-new.png" width="200" height="200" alt="신상품" loading="lazy" decoding="async" /><span aria-hidden="true">신상품</span></a></li>
+            <li id="category-live"><a href="#living"><img src="assets/muji/category-02-live.png" width="200" height="200" alt="라이브" loading="lazy" decoding="async" /><span aria-hidden="true">라이브</span></a></li>
+            <li id="category-gift"><a href="#category-gift"><img src="assets/muji/category-03-gift.png" width="200" height="200" alt="MUJI GIFT CARD" loading="lazy" decoding="async" /><span aria-hidden="true">MUJI GIFT CARD</span></a></li>
+            <li id="category-sns"><a href="#new-products"><img src="assets/muji/category-04-sns.png" width="200" height="200" alt="SNS 인기템" loading="lazy" decoding="async" /><span aria-hidden="true">SNS 인기템</span></a></li>
+            <li id="category-men"><a href="#new-products"><img src="assets/muji/category-05-men.png" width="201" height="201" alt="남성" loading="lazy" decoding="async" /><span aria-hidden="true">남성</span></a></li>
+            <li id="category-women"><a href="#new-products"><img src="assets/muji/category-06-women.png" width="201" height="201" alt="여성" loading="lazy" decoding="async" /><span aria-hidden="true">여성</span></a></li>
+            <li id="category-kids"><a href="#new-products"><img src="assets/muji/category-07-kids.png" width="201" height="201" alt="아동" loading="lazy" decoding="async" /><span aria-hidden="true">아동</span></a></li>
+            <li id="category-fashion"><a href="#new-products"><img src="assets/muji/category-08-fashion.png" width="201" height="201" alt="패션잡화" loading="lazy" decoding="async" /><span aria-hidden="true">패션잡화</span></a></li>
+            <li id="category-household"><a href="#living"><img src="assets/muji/category-09-household.png" width="201" height="201" alt="생활용품" loading="lazy" decoding="async" /><span aria-hidden="true">생활용품</span></a></li>
+            <li id="category-kitchen"><a href="#kitchen"><img src="assets/muji/category-10-kitchen.png" width="201" height="201" alt="주방용품" loading="lazy" decoding="async" /><span aria-hidden="true">주방용품</span></a></li>
+            <li id="category-fabric"><a href="#living"><img src="assets/muji/category-11-fabric.png" width="201" height="201" alt="패브릭" loading="lazy" decoding="async" /><span aria-hidden="true">패브릭</span></a></li>
+            <li id="category-storage"><a href="#living"><img src="assets/muji/category-12-storage.png" width="201" height="201" alt="수납/정리" loading="lazy" decoding="async" /><span aria-hidden="true">수납/정리</span></a></li>
+            <li id="category-furniture"><a href="#furniture"><img src="assets/muji/category-13-furniture.png" width="201" height="201" alt="가구" loading="lazy" decoding="async" /><span aria-hidden="true">가구</span></a></li>
+            <li id="category-beauty"><a href="#new-products"><img src="assets/muji/category-14-beauty.png" width="201" height="201" alt="뷰티" loading="lazy" decoding="async" /><span aria-hidden="true">뷰티</span></a></li>
+            <li id="category-pets"><a href="#living"><img src="assets/muji/category-15-pets.png" width="200" height="200" alt="반려동물" loading="lazy" decoding="async" /><span aria-hidden="true">반려동물</span></a></li>
+            <li id="category-stationery"><a href="#living"><img src="assets/muji/category-16-stationery.png" width="201" height="201" alt="문구" loading="lazy" decoding="async" /><span aria-hidden="true">문구</span></a></li>
+            <li id="category-ready-meals"><a href="#category-ready-meals"><img src="assets/muji/category-17-ready-meals.png" width="201" height="201" alt="간편조리" loading="lazy" decoding="async" /><span aria-hidden="true">간편조리</span></a></li>
+            <li id="category-snacks"><a href="#category-snacks"><img src="assets/muji/category-18-snacks.png" width="201" height="201" alt="스낵" loading="lazy" decoding="async" /><span aria-hidden="true">스낵</span></a></li>
+            <li id="category-electronics"><a href="#living"><img src="assets/muji/category-19-electronics.png" width="200" height="200" alt="가전/디지털" loading="lazy" decoding="async" /><span aria-hidden="true">가전/디지털</span></a></li>
+            <li id="category-labo"><a href="#new-products"><img src="assets/muji/category-20-labo.jpg" width="201" height="201" alt="Labo" loading="lazy" decoding="async" /><span aria-hidden="true">Labo</span></a></li>
+        </ul>
+      </nav>
+      <section class="new-products page-container" id="new-products" aria-labelledby="new-title">
+        <div class="section-heading">
+          <h2 id="new-title">신상품이 입고 되었어요</h2>
+          <a class="text-link" href="https://mujikorea.co.kr/products/search?keyword=%EC%8B%A0%EC%83%81%ED%92%88">공식몰에서 더 보기 <span aria-hidden="true">↗</span></a>
+        </div>
+        <nav class="product-nav" aria-label="신상품 카테고리">
+          <a class="selected" href="#category-men">남성</a><a href="#category-women">여성</a><a href="#category-kids">아동</a><a href="#category-fashion">패션잡화</a><a href="#category-household">생활용품</a><a href="#category-beauty">뷰티</a><a href="#category-ready-meals">식품</a>
+        </nav>
+        <ul class="product-grid">
+            <li class="product-card">
+              <a href="https://mujikorea.co.kr/products/search?keyword=%EB%82%A8%EC%84%B1%20%EC%A0%95%EC%A0%84%EA%B8%B0%20%EB%B0%9C%EC%83%9D%EC%9D%B4%20%EC%A0%81%EC%9D%80%20%ED%99%94%EC%9D%B4%EB%B2%84%20%EC%8A%A4%ED%83%A0%EB%93%9C%20%EC%B9%BC%EB%9D%BC%20%ED%8C%8C%EC%9E%90%EB%A7%88" aria-labelledby="product-1-title product-1-destination">
+                <img src="assets/muji/product-01-pajama.webp" width="600" height="600" alt="남성 정전기 발생이 적은 화이버 스탠드 칼라 파자마" class="product-image" loading="lazy" decoding="async" />
+                <h3 id="product-1-title">남성 정전기 발생이 적은 화이버 스탠드 칼라 파자마</h3>
+                <span id="product-1-destination" class="sr-only">무인양품 공식몰에서 검색</span>
+              </a>
+              <p class="product-price">69,900<span>원</span></p>
+              <p class="product-review"><span aria-hidden="true">★</span><span class="sr-only">평점 </span> 4.8 <span class="review-count">(46<span class="sr-only">개 리뷰</span>)</span></p>
+            </li>
+            <li class="product-card">
+              <a href="https://mujikorea.co.kr/products/search?keyword=%EB%82%A8%EC%84%B1%20%EC%82%AC%EC%9D%B4%EB%93%9C%20%EC%8B%AC%EB%A6%AC%EC%8A%A4%20%ED%94%8C%EB%9E%80%EB%84%AC%20%EA%B8%B4%EC%86%8C%EB%A7%A4%20%ED%8C%8C%EC%9E%90%EB%A7%88" aria-labelledby="product-2-title product-2-destination">
+                <img src="assets/muji/product-02-flannel.webp" width="600" height="600" alt="남성 사이드 심리스 플란넬 긴소매 파자마" class="product-image" loading="lazy" decoding="async" />
+                <h3 id="product-2-title">남성 사이드 심리스 플란넬 긴소매 파자마</h3>
+                <span id="product-2-destination" class="sr-only">무인양품 공식몰에서 검색</span>
+              </a>
+              <p class="product-price">69,900<span>원</span></p>
+              <p class="product-review"><span aria-hidden="true">★</span><span class="sr-only">평점 </span> 4.9 <span class="review-count">(167<span class="sr-only">개 리뷰</span>)</span></p>
+            </li>
+            <li class="product-card">
+              <a href="https://mujikorea.co.kr/products/search?keyword=%EA%B2%BD%EB%9F%89%EB%8B%A4%EC%9A%B4%20%ED%8F%AC%EC%BC%80%ED%84%B0%EB%B8%94%20%EB%85%B8%20%EC%B9%BC%EB%9D%BC%20%EB%B2%A0%EC%8A%A4%ED%8A%B8" aria-labelledby="product-3-title product-3-destination">
+                <img src="assets/muji/product-03-down-vest.webp" width="600" height="600" alt="경량다운 포케터블 노 칼라 베스트" class="product-image" loading="lazy" decoding="async" />
+                <h3 id="product-3-title">경량다운 포케터블 노 칼라 베스트</h3>
+                <span id="product-3-destination" class="sr-only">무인양품 공식몰에서 검색</span>
+              </a>
+              <p class="product-price">49,900<span>원</span></p>
+              <p class="product-review"><span aria-hidden="true">★</span><span class="sr-only">평점 </span> 4.8 <span class="review-count">(35<span class="sr-only">개 리뷰</span>)</span></p>
+            </li>
+            <li class="product-card">
+              <a href="https://mujikorea.co.kr/products/search?keyword=%EB%B0%A9%ED%92%8D%20%ED%8C%A8%EB%94%A9%20%ED%9B%84%EB%93%9C%20%EC%9E%AC%ED%82%B7" aria-labelledby="product-4-title product-4-destination">
+                <img src="assets/muji/product-04-jacket.webp" width="600" height="600" alt="방풍 패딩 후드 재킷" class="product-image" loading="lazy" decoding="async" />
+                <h3 id="product-4-title">방풍 패딩 후드 재킷</h3>
+                <span id="product-4-destination" class="sr-only">무인양품 공식몰에서 검색</span>
+              </a>
+              <p class="product-price">79,900<span>원</span></p>
+              <p class="product-review"><span aria-hidden="true">★</span><span class="sr-only">평점 </span> 4.8 <span class="review-count">(28<span class="sr-only">개 리뷰</span>)</span></p>
+            </li>
+            <li class="product-card">
+              <a href="https://mujikorea.co.kr/products/search?keyword=%EA%B2%BD%EB%9F%89%EB%8B%A4%EC%9A%B4%20%ED%8F%AC%EC%BC%80%ED%84%B0%EB%B8%94%20%EC%8A%A4%ED%83%A0%EB%93%9C%20%EC%B9%BC%EB%9D%BC%20%EB%B2%A0%EC%8A%A4%ED%8A%B8" aria-labelledby="product-5-title product-5-destination">
+                <img src="assets/muji/product-05-stand-vest.webp" width="600" height="600" alt="경량다운 포케터블 스탠드 칼라 베스트" class="product-image" loading="lazy" decoding="async" />
+                <h3 id="product-5-title">경량다운 포케터블 스탠드 칼라 베스트</h3>
+                <span id="product-5-destination" class="sr-only">무인양품 공식몰에서 검색</span>
+              </a>
+              <p class="product-price">49,900<span>원</span></p>
+              <p class="product-review"><span aria-hidden="true">★</span><span class="sr-only">평점 </span> 4.9 <span class="review-count">(33<span class="sr-only">개 리뷰</span>)</span></p>
+            </li>
+            <li class="product-card">
+              <a href="https://mujikorea.co.kr/products/search?keyword=%EC%9B%8C%EC%85%94%EB%B8%94%20%EC%9A%B8%20%EB%A6%AC%EB%B8%8C%20%ED%84%B0%ED%8B%80%EB%84%A5%20%EC%8A%A4%EC%9B%A8%ED%84%B0" aria-labelledby="product-6-title product-6-destination">
+                <img src="assets/muji/product-06-sweater.webp" width="600" height="600" alt="워셔블 울 리브 터틀넥 스웨터" class="product-image" loading="lazy" decoding="async" />
+                <h3 id="product-6-title">워셔블 울 리브 터틀넥 스웨터</h3>
+                <span id="product-6-destination" class="sr-only">무인양품 공식몰에서 검색</span>
+              </a>
+              <p class="product-price">49,900<span>원</span></p>
+              <p class="product-review"><span aria-hidden="true">★</span><span class="sr-only">평점 </span> 5.0 <span class="review-count">(3<span class="sr-only">개 리뷰</span>)</span></p>
+            </li>
+        </ul>
+      </section>
+      <section class="living page-container" id="living" aria-labelledby="living-title">
+        <h2 id="living-title" class="sr-only">생활을 생각하는 무인양품</h2>
+        <div class="feature-grid">
+          <article class="feature-card" id="furniture">
+            <a href="https://mujikorea.co.kr/plan/view/187" aria-labelledby="furniture-title furniture-destination">
+              <img src="assets/muji/feature-furniture.jpg" width="960" height="1080" alt="원목 수납장과 소파, 생활용품이 어우러진 밝은 거실" class="feature-image" loading="lazy" decoding="async" />
+              <h3 id="furniture-title">자연스럽게 스며드는 가구</h3>
+              <span id="furniture-destination" class="sr-only">무인양품 공식몰 기획전으로 이동</span>
+            </a>
+            <p>단정한 디자인으로 다양한 생활 속에서도 자연스럽게 스며드는 무인양품 가구를 소개합니다.</p>
+          </article>
+          <article class="feature-card" id="kitchen">
+            <a href="https://mujikorea.co.kr/plan/view/185" aria-labelledby="kitchen-title kitchen-destination">
+              <img src="assets/muji/feature-kitchen.jpg" width="960" height="1200" alt="매일의 요리를 위한 무인양품 주방용품" class="feature-image" loading="lazy" decoding="async" />
+              <h3 id="kitchen-title">요리가 즐거워지는 주방용품</h3>
+              <span id="kitchen-destination" class="sr-only">무인양품 공식몰 기획전으로 이동</span>
+            </a>
+            <p>MD 추천 주방 필수템부터 기본에 충실한 식기 · 잡화 시리즈를 함께 준비했습니다.</p>
+          </article>
+        </div>
+      </section>
     </main>
     <footer class="site-footer" id="footer">
-      <div>
-        <p class="copyright">© 2026 ONEPIECE</p>
-        <ul class="footer-meta"><li>HTML / CSS STUDY</li><li>RESPONSIVE CART</li><li>ILLUSTRATED PRODUCTS</li></ul>
+      <div class="page-container">
+        <nav class="footer-top" aria-label="회사 및 이용 안내">
+          <a href="https://mujikorea.co.kr/contents/company">About MUJI</a>
+          <a href="https://recruit.mujikorea.co.kr/home">채용공고</a>
+          <a href="https://mujikorea.co.kr/board/location">매장안내</a>
+          <a href="https://mujikorea.co.kr/contents/terms">이용약관</a>
+          <a href="https://mujikorea.co.kr/contents/privacy"><strong>개인정보처리방침</strong></a>
+        </nav>
+        <div class="footer-grid">
+          <div class="footer-brand" id="footer-support">
+            <a href="https://mujikorea.co.kr/" aria-label="무인양품 공식몰"><img src="assets/muji/logo.svg" width="140" height="22" alt="MUJI 無印良品" class="brand-logo" decoding="async" /></a>
+            <nav aria-label="고객 지원">
+              <a href="https://mujikorea.co.kr/board/faq">고객센터</a>
+              <a href="https://mujikorea.co.kr/board/notice">공지사항</a>
+              <a href="https://mujikorea.co.kr/mypage/inquiry/oneononeinquiry">1:1 문의</a>
+              <a href="https://mujikorea.co.kr/mypage/inquiry/oneononeinquiry/write?type_id=49">제휴 문의</a>
+            </nav>
+          </div>
+          <div class="footer-about" id="brand">
+            <p class="footer-title">MUJI 無印良品</p>
+            <p>생활에 필요한 기본을 생각합니다.</p>
+            <a class="text-link" href="https://mujikorea.co.kr/contents/company">무인양품 소개 <span aria-hidden="true">↗</span></a>
+            <p class="study-note">무인양품 공식 홈페이지를 참고한 학습용 페이지입니다.<br />실제 상품과 서비스는 공식몰에서 확인해 주세요.</p>
+          </div>
+          <div class="footer-global" id="official-store">
+            <p class="footer-title">고객센터</p>
+            <a href="https://mujikorea.co.kr/board/faq">자주 묻는 질문 <span aria-hidden="true">↗</span></a>
+            <a href="https://www.muji.com/" lang="en">Global Site <span aria-hidden="true">↗</span></a>
+            <a href="https://mujikorea.co.kr/">무인양품 공식몰 <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <p class="copyright" lang="en">MUJI / 無印良品</p>
       </div>
-      <nav aria-label="푸터 메뉴"><a href="#demo-note">HELP</a><a href="#demo-note">LEGAL</a><a href="#footer">CONTACT</a></nav>
-      <nav aria-label="소셜 및 언어 메뉴"><a href="#header">@ONEPIECE</a><a href="#cart">ENGLISH</a></nav>
     </footer>
   </body>
 </html>

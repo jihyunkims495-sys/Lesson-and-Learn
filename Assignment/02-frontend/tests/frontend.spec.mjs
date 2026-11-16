@@ -1,48 +1,77 @@
 import { test, expect } from "@playwright/test";
-import { copyFile, mkdir } from "node:fs/promises";
-test.afterEach(async ({ page }, testInfo) => {
-  if (testInfo.title === "Todo: 추가 수정 조회 완료 삭제 및 새로고침 보존") {
-    const video = page.video();
-    await page.close();
-    await mkdir("assets", { recursive: true });
-    await copyFile(await video.path(), "assets/todo-demo.webm");
-  }
-});
-test("클론: 전체·영역·반응형", async ({ page }) => {
-  await mkdir("assets", { recursive: true });
-  await page.setViewportSize({ width: 1440, height: 800 });
+test("클론: MUJI 콘텐츠·사진·15개 화면 폭", async ({ page }, testInfo) => {
+  test.setTimeout(90000);
+  const imageTypes = new Map();
+  page.on("response", (response) => {
+    if (response.request().resourceType() === "image") {
+      imageTypes.set(response.url(), response.headers()["content-type"] ?? "");
+    }
+  });
+  await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto("/clone/");
-  await expect(page.getByRole("heading", { name: "CART", exact: true })).toBeVisible();
-  await page.keyboard.press("Tab");
-  await expect(page.getByRole("link", { name: "본문 바로가기" })).toBeFocused();
-  await page.keyboard.press("Enter");
-  await expect(page).toHaveURL(/#cart$/);
-  await page.screenshot({ path: "assets/clone-preview.png", fullPage: true });
-  for (const [name, selector] of [
-    ["header", ".site-header"],
-    ["main", "main"],
-    ["footer", "footer"],
-  ]) {
-    await page
-      .locator(selector)
-      .screenshot({ path: `assets/clone-${name}.png` });
+  await expect(page).toHaveTitle(/MUJI|무인양품|無印良品/);
+  expect(await page.content()).not.toMatch(/ONEPIECE/i);
+  // A real MUJI shopping-bag URL may contain "cart"; the old page identity
+  // must disappear from the document title and visible content.
+  expect(await page.title()).not.toMatch(/\bCART\b/i);
+  expect(await page.locator("body").innerText()).not.toMatch(/\bCART\b/i);
+  await expect(page.locator(".category-list > li")).toHaveCount(20);
+  await expect(page.locator(".product-grid > li")).toHaveCount(6);
+  await expect(page.locator(".feature-grid > article")).toHaveCount(2);
+  const productLinks = await page.locator(".product-grid a").evaluateAll(
+    (links) => links.map((link) => link.href),
+  );
+  expect(productLinks.length).toBeGreaterThanOrEqual(6);
+  for (const href of productLinks) {
+    const target = new URL(href);
+    expect(target.protocol).toBe("https:");
+    expect(target.hostname).toBe("mujikorea.co.kr");
+    expect(target.pathname).not.toBe("/");
   }
+  const observations = [], imageChecks = [];
   for (const width of [320, 375, 479, 480, 481, 767, 768, 799, 800, 801, 1024, 1199, 1200, 1440, 1920]) {
-    await page.setViewportSize({ width, height: 800 });
-    expect(
-      await page.evaluate(
-        () => document.documentElement.scrollWidth <= innerWidth,
-      ),
-    ).toBe(true);
-    expect(await page.locator(".cart-layout").evaluate((layout) => getComputedStyle(layout).gridTemplateColumns.split(" ").length)).toBe(width < 768 ? 1 : 2);
+    await page.setViewportSize({ width, height: 1000 });
+    const overflow = await page.evaluate(() => Math.max(
+      0, document.documentElement.scrollWidth - innerWidth, document.body.scrollWidth - innerWidth,
+    ));
+    observations.push({ width, overflow });
+    expect(overflow, `${width}px에서 가로 넘침`).toBe(0);
     if ([375, 768, 1440].includes(width)) {
-      // Give a full-page capture a viewport tall enough for its document so
-      // fixed bottom navigation sits at the image bottom instead of over it.
-      const height = await page.evaluate(() => Math.max(800, document.documentElement.scrollHeight));
-      await page.setViewportSize({ width, height });
-      await page.screenshot({ path: `assets/clone-${width}.png`, fullPage: true });
+      const images = await page.locator("img").evaluateAll(async (elements) => {
+        elements.forEach((image) => { image.loading = "eager"; });
+        await Promise.all(elements.map((image) => image.decode().catch(() => {})));
+        return elements.map((image) => ({
+          src: image.currentSrc, loaded: image.complete && image.naturalWidth > 0,
+          hasAlt: image.hasAttribute("alt"),
+        }));
+      });
+      expect(images.length).toBeGreaterThanOrEqual(29);
+      expect(images.filter((image) => !image.loaded)).toEqual([]);
+      expect(images.every((image) => image.hasAlt)).toBe(true);
+      const localOrigin = new URL(page.url()).origin;
+      for (const image of images) {
+        expect(new URL(image.src).origin).toBe(localOrigin);
+        expect(imageTypes.get(image.src), image.src).toMatch(/^image\/(?:jpeg|webp|png|svg\+xml)(?:;|$)/);
+      }
+      const hero = await page.locator("picture.hero-picture").evaluate((picture) => {
+        const source = picture.querySelector("source[media]");
+        const image = picture.querySelector("img");
+        return {
+          media: source.media, mediaMatches: matchMedia(source.media).matches,
+          mobile: new URL(source.srcset.split(",")[0].trim().split(/\s+/)[0], document.baseURI).href,
+          current: image.currentSrc, desktop: image.src,
+        };
+      });
+      expect(hero.media).toMatch(/max-width\s*:\s*767px/);
+      expect(hero.mediaMatches).toBe(width < 768);
+      expect(hero.current).toBe(width < 768 ? hero.mobile : hero.desktop);
+      imageChecks.push({ width, images: images.length, broken: 0, imageMimeTypesValid: true, mobileHero: hero.mediaMatches });
     }
   }
+  await testInfo.attach("muji-responsive-checks", {
+    body: Buffer.from(JSON.stringify({ observations, imageChecks }, null, 2)),
+    contentType: "application/json",
+  });
 });
 test("Todo: 추가 수정 조회 완료 삭제 및 새로고침 보존", async ({ page }) => {
   await page.goto("/todo/");
@@ -98,20 +127,57 @@ test("Todo: 손상된 저장 데이터 오류 표시와 복구", async ({ page }
   await page.reload();
   await expect(page.getByText("복구 후 저장", { exact: true })).toBeVisible();
 });
-test("클론: 시맨틱·레이블·메뉴·수량 폼", async ({ page }) => {
+test("클론: MUJI 접근성·검색 계약·키보드 메뉴", async ({ page }) => {
+  test.setTimeout(60000);
+  await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto("/clone/");
-  for (const selector of ["header", "main", "footer", "h1", "form"]) await expect(page.locator(selector)).toHaveCount(1);
-  await expect(page.getByRole("form", { name: "장바구니 수량" })).toBeVisible();
-  expect(await page.locator("input").evaluateAll((inputs) => inputs.every((input) => input.labels.length > 0))).toBe(true);
-  expect(await page.locator(".item img").evaluateAll((images) => images.every((image) => image.alt.length > 0 && image.complete && image.naturalWidth > 0))).toBe(true);
-  await page.keyboard.press("Tab"); await page.keyboard.press("Enter"); await page.keyboard.press("Tab");
-  await expect(page.getByLabel("재킷 수량", { exact: true })).toBeFocused();
-  await page.locator("summary").click();
-  await expect(page.getByRole("link", { name: "ALL PRODUCTS", exact: true })).toBeVisible();
-  await page.locator("summary").click();
-  await expect(page.locator("details")).not.toHaveAttribute("open", "");
-  await expect(page.getByRole("button", { name: "CHECKOUT", exact: true })).toBeDisabled();
-  await expect(page.getByText("258,000원", { exact: true })).toBeVisible();
+  for (const selector of ["header", "main", "footer", "h1"]) await expect(page.locator(selector)).toHaveCount(1);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("MUJI 無印良品");
+  const navigation = page.locator("nav");
+  expect(await navigation.count()).toBeGreaterThanOrEqual(2);
+  expect(await navigation.evaluateAll((elements) => elements.every((nav) =>
+    (nav.getAttribute("aria-label") ?? "").trim() ||
+    (nav.getAttribute("aria-labelledby") ?? "").split(/\s+/).some((id) => document.getElementById(id)?.textContent.trim()),
+  ))).toBe(true);
+  await page.keyboard.press("Tab");
+  await expect(page.getByRole("link", { name: "본문 바로가기", exact: true })).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/#main$/);
+  await expect(page.locator("main#main")).toBeFocused();
+  expect(await page.locator("input:not([type=hidden])").evaluateAll((inputs) => inputs.every((input) => input.labels.length > 0))).toBe(true);
+  expect(await page.locator("img").evaluateAll((images) => images.every((image) => image.hasAttribute("alt")))).toBe(true);
+
+  const search = page.locator("details.site-search");
+  const searchToggle = search.locator("summary");
+  await expect(searchToggle).toHaveAttribute("aria-label", "상품 검색 열기");
+  await searchToggle.focus(); await page.keyboard.press("Enter");
+  await expect(search).toHaveAttribute("open", "");
+  const form = search.locator("form");
+  await expect(form).toBeVisible();
+  await expect(form).toHaveAttribute("action", "https://mujikorea.co.kr/products/search");
+  await expect(form).toHaveAttribute("method", /^get$/i);
+  const keyword = page.getByLabel("공식몰 상품 검색", { exact: true });
+  await expect(keyword).toHaveAttribute("name", "keyword");
+  await keyword.fill("");
+  expect(await keyword.evaluate((input) => input.required && input.validity.valueMissing && !input.checkValidity())).toBe(true);
+  await keyword.fill("수납");
+  expect(await form.evaluate((element) => element.checkValidity() && new FormData(element).get("keyword") === "수납")).toBe(true);
+  await expect(form.getByRole("button", { name: "공식몰에서 검색", exact: true })).toBeVisible();
+  await searchToggle.focus(); await page.keyboard.press("Space");
+  await expect(search).not.toHaveAttribute("open", "");
+
+  await page.setViewportSize({ width: 375, height: 1000 });
+  const mobileMenu = page.locator("details.mobile-menu");
+  const menuToggle = mobileMenu.locator("summary");
+  await expect(menuToggle).toBeVisible();
+  await expect(menuToggle).toHaveAttribute("aria-label", "전체 메뉴 열기");
+  await menuToggle.focus(); await page.keyboard.press("Enter");
+  await expect(mobileMenu).toHaveAttribute("open", "");
+  expect(await mobileMenu.locator("a").count()).toBeGreaterThan(0);
+  await expect(mobileMenu.locator("a").first()).toBeVisible();
+  await menuToggle.focus(); await page.keyboard.press("Space");
+  await expect(mobileMenu).not.toHaveAttribute("open", "");
+  await expect(mobileMenu.locator("a").first()).toBeHidden();
 });
 test("Todo: 중복·잘못된 저장 항목과 120자 경계", async ({ page }) => {
   await page.goto("/todo/");

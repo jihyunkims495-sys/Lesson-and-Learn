@@ -32,6 +32,10 @@ http
         ".js": "text/javascript",
         ".svg": "image/svg+xml",
         ".png": "image/png",
+        ".jpg": "image/jpeg",
+        ".jpeg": "image/jpeg",
+        ".webp": "image/webp",
+        ".json": "application/json; charset=utf-8",
         ".webm": "video/webm",
       };
       res.writeHead(200, {
