@@ -46,9 +46,13 @@ ONEPIECE 장바구니의 2열 상품/주문 요약 배치, 상품 정보의 위�
 
 ### Todo 시연 영상
 
+[![Todo 시연 영상 썸네일 — 완료 항목과 수정·삭제 버튼](assets/todo-demo-thumbnail.png)](assets/todo-demo.webm)
+
 [Todo 추가 → 수정 → 새로고침 → 완료 → 필터 조회 → 삭제 시연 보기](assets/todo-demo.webm)
 
-실제 브라우저에서 녹화한 WebM 영상입니다. 링크에서 재생하거나 내려받아 확인할 수 있습니다.
+실제 브라우저에서 녹화한 WebM 영상입니다. 썸네일이나 링크를 클릭하면 원본 영상으로 이동하며, 재생하거나 내려받아 확인할 수 있습니다.
+
+출처: [원본 영상 assets/todo-demo.webm](assets/todo-demo.webm)의 **00:02** 장면을 캡처했습니다. 썸네일 파일은 [assets/todo-demo-thumbnail.png](assets/todo-demo-thumbnail.png)입니다.
 
 ## 실행과 검증
 
