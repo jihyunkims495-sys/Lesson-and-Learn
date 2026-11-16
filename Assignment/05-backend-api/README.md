@@ -88,8 +88,11 @@ uv run --locked --group dev python tests/container_smoke.py http://127.0.0.1:800
 | 기본 직접 함수·SQLite·ASGI HTTP | 24 passed, 1 skipped | PostgreSQL 전용 제약 검사 1개는 기본 실행에서 생략 |
 | 실제 PostgreSQL 16 HTTP·계약 검사 | 15 passed | CRUD, 권한, FK·CHECK·관계, 쿼리 수, 입력·응답, 오류, JWT, 업로드 |
 | Docker 이미지 빌드·Compose | PASS | Linux Python 3.12, PostgreSQL 16, API·DB healthy |
-| 실제 TCP HTTP | 24 checks PASS | 두 계정 CRUD·인가, 404/405·Allow, Swagger, 업로드, 캐시 |
-| 정적 OpenAPI와 실행 명세 | PASS | 전체 JSON 구조 일치 |
+| 로컬 Docker 실제 TCP HTTP | 24 checks PASS | 두 계정 CRUD·인가, 404/405·Allow, Swagger, 업로드, 캐시 |
+| EC2 외부 HTTPS 통합 검사 | 24 checks PASS | 인증서 검증을 켠 실제 PostgreSQL 연동·인증·CRUD·권한 검사 |
+| 제출 명세와 배포 명세 | PASS | 배포 서버의 OpenAPI와 전체 JSON 구조 일치 |
+
+제출 명세는 배포 서버의 Python 3.12 환경에서 제공하는 내용을 저장했습니다. Windows Python 3.13에서 생성하면 422의 기본 설명이 `Unprocessable Content`, 배포 명세에서는 `Unprocessable Entity`로 표시됩니다. 11개의 설명 문구를 제외한 요청·응답 스키마, 상태 코드, 보안 정의는 같습니다.
 
 ## Docker와 배포 상태
 
@@ -102,4 +105,18 @@ docker compose exec api python -m app.init_db
 
 Docker는 고정된 의존성과 패키지 해시를 확인하여 설치합니다. API는 일반 사용자로 실행하며, Compose는 DB·API 상태 검사와 재시작 정책을 제공합니다. PostgreSQL 데이터는 명명된 볼륨에 보관합니다.
 
-현재 API는 `127.0.0.1:8000`에만 연결되고 DB 5432는 외부에 노출하지 않습니다. EC2 외부 배포는 아직 완료하지 않았습니다. 공개 서비스에는 TLS 리버스 프록시와 외부 접근 설정을 적용한 뒤 `/health`, `/docs`, 로그인·CRUD·권한을 다시 검증해야 합니다.
+위 Compose 실행은 로컬 API를 `127.0.0.1:8000`에 연결합니다. EC2 배포는 nginx의 HTTPS 리버스 프록시를 사용하며 PostgreSQL은 외부에 노출하지 않습니다.
+
+## EC2 HTTPS 실행 결과
+
+| 대상 | 주소 |
+|---|---|
+| API 기본 주소 | [https://52.63.111.112](https://52.63.111.112) |
+| Swagger UI | [API 문서와 실행 화면](https://52.63.111.112/docs) |
+| 상태 확인 | [health](https://52.63.111.112/health) |
+
+브라우저에서는 Swagger UI에서 API를 실행할 수 있습니다. 2026-11-16 검증에서 공인 IP 인증서의 신뢰 체인·IP SAN을 확인했고, TLS 검증을 켠 외부 HTTPS 검사 24개를 통과했습니다. 인증서 자동 갱신 설정과 실제 갱신 시험, 갱신 후 nginx 재로드도 확인했습니다. HTTP 접근은 인증서 검증 경로를 제외하고 HTTPS로 이동합니다.
+
+검증 중 생성한 게시글을 제거하고 테스트 계정 4개를 정리했습니다. 테스트 계정과 해당 게시글의 잔여 행은 0개로 확인했습니다.
+
+![HTTPS Swagger 실행 화면](assets/api-preview.png)

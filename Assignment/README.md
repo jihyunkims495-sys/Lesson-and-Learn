@@ -10,7 +10,7 @@
 | 02 | [프론트엔드](02-frontend/) | 반응형 HTML/CSS 클론·JavaScript Todo |
 | 03 | [TypeScript](03-typescript/) | 데이터 모델·타입 가드·제네릭·실행 노트북과 ZIP |
 | 04 | [React·Next.js](04-react-nextjs/) | Supabase 인증·회원 Todo·동적 라우팅 |
-| 05 | [백엔드 API](05-backend-api/) | FastAPI·ORM·JWT·OpenAPI·Docker |
+| 05 | [백엔드 API](05-backend-api/) | FastAPI·ORM·JWT·OpenAPI·Docker · [실행 API 문서](https://52.63.111.112/docs) |
 
 각 폴더의 README에서 실행 방법, 테스트 결과와 결과물을 확인할 수 있습니다.
 
