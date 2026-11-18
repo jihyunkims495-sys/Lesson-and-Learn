@@ -21,5 +21,6 @@
 |---|---|---|
 | 2026-11-16 | RAG 파이프라인, PGVector와 증분 인덱싱 | [Preview](./2026-11-16/01-preview-notes-01-rag-concepts-pipeline.md) · [Practice](./2026-11-16/03-practice-01-rag-pgvector-indexing.md) · [TIL](./2026-11-16/04-til-01-rag-pipeline-pgvector.md) |
 | 2026-11-17 | Retriever 임계값, BM25·PGVector·Hybrid Search | [Learning Notes](./2026-11-17/02-learning-notes-01-retriever-hybrid-search.md) · [Practice](./2026-11-17/03-practice-01-bm25-pgvector-hybrid.md) · [TIL](./2026-11-17/04-til-01-retrieval-hybrid-search.md) |
+| 2026-11-18 | Query Transformation·Re-ranking·Contextual Compression | [Learning Notes](./2026-11-18/02-learning-notes-01-query-reranking-compression.md) · [Practice](./2026-11-18/03-practice-01-reranking-contextual-compression.md) · [TIL](./2026-11-18/04-til-01-query-reranking-compression.md) |
 
 [← Level 2 curriculum](../README.md)
