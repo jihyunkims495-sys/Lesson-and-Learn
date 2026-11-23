@@ -17,6 +17,7 @@ Level 1과 동일하게 주차 → 날짜 → 문서 역할 순서로 예습, �
 | 12 | [Backend Architecture & API Design](./12-week-backend-architecture-api/) | 2026-11-03 ~ | 4계층 아키텍처, 도메인 모델, Repository와 의존성 와이어링 |
 | 13 | [AWS EC2 & Docker Deployment](./13-week-aws-docker-deployment/) | 2026-11-09 ~ | EC2, Ubuntu, SSH, Docker 설치와 서버 배포 흐름 |
 | 14 | [RAG Pipeline Design](./14-week-rag-pipeline-design/) | 2026-11-16 ~ | RAG 흐름, 청킹·임베딩, PGVector, Retriever, BM25·Hybrid Search |
+| 15 | [Project 3 — RAG Agent](./15-week-rag-agent-project/) | 2026-11-23 ~ 2026-11-27 | 포켓몬 전략 RAG 기획, 데이터·청킹 설계, 검색 비교와 평가 |
 
 ## 기록 읽는 법
 
