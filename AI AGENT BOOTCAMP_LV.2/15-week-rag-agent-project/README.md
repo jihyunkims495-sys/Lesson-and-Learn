@@ -17,5 +17,6 @@
 | Date | Focus | TIL |
 |---|---|---|
 | 2026-11-23 | 포켓몬 전략 RAG 주제 선정과 첫 기획 킥오프 | [포켓몬 전략 RAG 기획 킥오프](./2026-11-23/04-til-01-pokemon-strategy-rag-kickoff.md) |
+| 2026-11-25 | 사용자 질문 검토와 탐색 화면 흐름 | [포켓몬 RAG 질문 설계와 탐색 화면](./2026-11-25/04-til-01-pokemon-rag-questions-and-journey.md) |
 
 [← Level 2 Curriculum](../README.md)
